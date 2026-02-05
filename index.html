@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mening Profilim</title>
+    <style>
+        /* ASOSIY DIZAYN */
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 40px 20px;
+            border-radius: 25px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+            width: 80%;
+            max-width: 350px;
+        }
+
+        /* RASM DIZAYNI */
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid white;
+            margin-bottom: 15px;
+            object-fit: cover;
+            background: #eee;
+        }
+
+        h1 { margin: 10px 0; font-size: 24px; }
+        p { opacity: 0.9; margin-bottom: 20px; }
+
+        /* TUGMA */
+        button {
+            background: #ff7eb3;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255,126,179,0.4);
+        }
+
+        /* LINKLAR */
+        .social-links {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            background: rgba(255,255,255,0.1);
+            padding: 8px 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="profile-img" alt="Profil">
+        
+        <h1>Anvarov Web</h1>
+        <p>Junior Web Developer</p>
+        
+        <button onclick="changeColor()">Rangi o'zgartirish</button>
+
+        <div class="social-links">
+            <a href="#">Telegram</a>
+            <a href="#">Instagram</a>
+        </div>
+    </div>
+
+    <script>
+        function changeColor() {
+            const colors = ['#ff7eb3', '#00f2fe', '#4facfe', '#43e97b', '#fccb90'];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            document.querySelector('button').style.background = randomColor;
+            document.querySelector('button').style.boxShadow = `0 5px 15px ${randomColor}66`;
+        }
+    </script>
+
+</body>
+</html>
+>
