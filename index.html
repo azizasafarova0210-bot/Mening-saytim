@@ -5,16 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mening Portfoliom</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #7b61ff; color: #333; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
-        .card { background: white; border-radius: 25px; padding: 25px; margin-bottom: 20px; width: 100%; max-width: 400px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); text-align: center; }
-        .profile-img { width: 130px; height: 130px; border-radius: 50%; border: 5px solid #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.2); object-fit: cover; margin-bottom: 10px; }
-        h1 { color: #5d3fd3; font-size: 24px; margin: 10px 0 5px; }
-        .subtitle { color: #666; font-size: 16px; margin-bottom: 20px; }
-        .section-title { color: #5d3fd3; font-size: 20px; text-align: left; margin-bottom: 15px; font-weight: bold; border-bottom: 2px solid #f0f0f0; padding-bottom: 5px; }
-        .info-box { background: linear-gradient(135deg, #6e8efb, #a777e3); color: white; border-radius: 15px; padding: 15px; margin-bottom: 12px; text-align: left; }
-        .btn-group { display: flex; justify-content: center; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
-        .btn { background: #5d3fd3; color: white; padding: 10px 20px; border-radius: 50px; text-decoration: none; font-size: 14px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-    </style>
+        <style>
+    /* Umumiy fon va matn uslubi */
+    body { 
+        font-family: 'Segoe UI', Tahoma, sans-serif; 
+        background: linear-gradient(135deg, #7b61ff, #4b0082); 
+        color: #333; 
+        margin: 0; 
+        padding: 20px; 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    /* Kartochka (blok) uslubi */
+    .card { 
+        background: white; 
+        border-radius: 25px; 
+        padding: 25px; 
+        margin-bottom: 20px; 
+        width: 100%; 
+        max-width: 400px; 
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15); 
+        text-align: center;
+        transition: transform 0.3s ease; /* Takomillashtirish: Silliq harakat */
+    }
+
+    /* Takomillashtirish: Blok ustiga bosganda biroz ko'tarilishi */
+    .card:hover {
+        transform: translateY(-10px);
+    }
+
+    /* Tugmalar uslubi */
+    .btn { 
+        display: inline-block;
+        background: #5d3fd3; 
+        color: white; 
+        padding: 12px 25px; 
+        border-radius: 50px; 
+        text-decoration: none; 
+        font-weight: bold; 
+        margin-top: 15px;
+        transition: 0.3s; 
+    }
+
+    /* Takomillashtirish: Tugma ustiga borganda rangi o'zgarishi */
+    .btn:hover {
+        background: #4b0082;
+        box-shadow: 0 5px 15px rgba(93, 63, 211, 0.4);
+    }
+</style>
+
 </head>
 <body>
 
