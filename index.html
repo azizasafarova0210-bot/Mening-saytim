@@ -3,89 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mening Portfoliom</title>
+    <title>Aziza Safarova | Portfolio</title>
     <style>
-        <style>
-    /* Umumiy fon va matn uslubi */
-    body { 
-        font-family: 'Segoe UI', Tahoma, sans-serif; 
-        background: linear-gradient(135deg, #7b61ff, #4b0082); 
-        color: #333; 
-        margin: 0; 
-        padding: 20px; 
-        display: flex; 
-        flex-direction: column; 
-        align-items: center; 
-    }
+        /* 1. ASOSIY USLUB (STYLE) */
+        body { 
+            font-family: 'Segoe UI', sans-serif; 
+            background: linear-gradient(135deg, #7b61ff, #4b0082); 
+            color: #333; 
+            margin: 0; 
+            padding: 20px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+        }
 
-    /* Kartochka (blok) uslubi */
-    .card { 
-        background: white; 
-        border-radius: 25px; 
-        padding: 25px; 
-        margin-bottom: 20px; 
-        width: 100%; 
-        max-width: 400px; 
-        box-shadow: 0 10px 30px rgba(0,0,0,0.15); 
-        text-align: center;
-        transition: transform 0.3s ease; /* Takomillashtirish: Silliq harakat */
-    }
+        /* 2. KARTОCHKA USLUBI */
+        .card { 
+            background: white; 
+            border-radius: 25px; 
+            padding: 25px; 
+            margin-bottom: 20px; 
+            width: 100%; 
+            max-width: 400px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2); 
+            text-align: center;
+            transition: all 0.4s ease;
+        }
 
-    /* Takomillashtirish: Blok ustiga bosganda biroz ko'tarilishi */
-    .card:hover {
-        transform: translateY(-10px);
-    }
+        .card:hover {
+            transform: translateY(-10px);
+        }
 
-    /* Tugmalar uslubi */
-    .btn { 
-        display: inline-block;
-        background: #5d3fd3; 
-        color: white; 
-        padding: 12px 25px; 
-        border-radius: 50px; 
-        text-decoration: none; 
-        font-weight: bold; 
-        margin-top: 15px;
-        transition: 0.3s; 
-    }
+        /* 3. RASM VA MATN */
+        .profile-img { 
+            width: 130px; height: 130px; 
+            border-radius: 50%; 
+            border: 5px solid #fff; 
+            object-fit: cover; 
+            margin-bottom: 15px;
+        }
 
-    /* Takomillashtirish: Tugma ustiga borganda rangi o'zgarishi */
-    .btn:hover {
-        background: #4b0082;
-        box-shadow: 0 5px 15px rgba(93, 63, 211, 0.4);
-    }
-</style>
+        h1 { color: #5d3fd3; font-size: 24px; margin: 10px 0; }
+        
+        .section-title { 
+            color: #5d3fd3; 
+            font-size: 20px; 
+            text-align: left; 
+            font-weight: bold; 
+            border-bottom: 2px solid #f0f0f0; 
+            padding-bottom: 8px; 
+            margin-bottom: 15px;
+        }
 
+        .info-box { 
+            background: linear-gradient(135deg, #6e8efb, #a777e3); 
+            color: white; 
+            border-radius: 15px; 
+            padding: 15px; 
+            margin-bottom: 10px; 
+            text-align: left; 
+        }
+
+        /* 4. TUGMALAR */
+        .btn-group { display: flex; justify-content: center; gap: 10px; margin-top: 15px; }
+        
+        .btn { 
+            background: #5d3fd3; 
+            color: white; 
+            padding: 10px 20px; 
+            border-radius: 50px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            transition: 0.3s; 
+        }
+
+        .btn:hover { background: #4b0082; transform: scale(1.1); }
+    </style>
 </head>
 <body>
 
     <div class="card">
         <img src="Snapchat-1133568332.jpg" class="profile-img">
         <h1>Aziza Safarova</h1>
-        <p class="subtitle">Qarshi davlat universiteti talabasi</p>
-        <div class="<a href="https://t.me/SafarovaAziza0210" class="btn">Telegram</a>
-            ">
-            <a href="#" class="btn">Men haqimda</a>
-            <a href="#" class="btn">Ta'lim</a>
-            <a href="#" class="btn">Aloqa</a>
+        <p>Qarshi davlat universiteti talabasi</p>
+        <div class="btn-group">
+            <a href="https://t.me/+998901234567" class="btn">Telegram</a>
+            <a href="#" class="btn">Instagram</a>
         </div>
     </div>
 
-    <div class="<div class="card">
-    <div class="section-title">Men haqimda</div>
-    <p style="text-align: left; line-height: 1.6;">
-        Men Aziza Safarova, Qarshi davlat universiteti Matematika va kompyuter ilmlari fakulteti talabasiman. 
-        Dasturlash olamiga qiziqishim juda katta va kelajakda kuchli Web-dasturchi bo'lishni maqsad qilganman.
-    </p>
-</div>
-
-            <strong>Fakultet:</strong> Matematika va kompyuter ilmlari fakulteti
+    <div class="card">
+        <div class="section-title">Ta'lim</div>
+        <div class="info-box">
+            <strong>Fakultet:</strong> Filologiya fakulteti
         </div>
         <div class="info-box">
-            <strong>Yo'nalish:</strong> ATT
-        </div>
-        <div class="info-box">
-            <strong>Maqsad:</strong> IT sohasida mutaxassis bo'lish
+            <strong>Maqsad:</strong> IT mutaxassisi bo'lish
         </div>
     </div>
 
