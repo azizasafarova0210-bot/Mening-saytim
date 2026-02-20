@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
@@ -6,18 +7,69 @@
     <title>Aziza Safarova | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%); min-height: 100vh; display: flex; justify-content: center; padding: 20px; }
-        .container { width: 100%; max-width: 450px; display: flex; flex-direction: column; gap: 20px; }
-        .card { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); border-radius: 30px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; }
-        .profile-img { width: 120px; height: 120px; border-radius: 50%; border: 4px solid #fff; margin-bottom: 15px; object-fit: cover; background: #eee; }
-        h1 { color: #2d3436; font-size: 26px; margin-bottom: 5px; display: block !important; }
-        .subtitle { color: #636e72; font-size: 15px; margin-bottom: 20px; }
-        .social-links { display: flex; justify-content: center; gap: 15px; }
-        .social-links a { width: 45px; height: 45px; border-radius: 50%; background: #7c4dff; color: white; display: flex; align-items: center; justify-content: center; text-decoration: none; }
-        .section-title { display: flex; align-items: center; gap: 10px; color: #4a148c; font-size: 20px; margin-bottom: 15px; text-align: left; font-weight: bold; }
-        .info-box { background: #f8f9fa; border-radius: 15px; padding: 15px; text-align: left; margin-bottom: 10px; border-left: 5px solid #7c4dff; }
-        .article-card { background: #fff; border-radius: 20px; padding: 18px; margin-bottom: 15px; text-align: left; border: 1px solid #eee; transition: 0.3s; }
-        .article-date { font-size: 12px; color: #7c4dff; font-weight: bold; display: block; margin-bottom: 5px; }
-        h4 { font-size: 16px; color: #2d3436; line-height: 1.4; margin-bottom: 10px; }
-        .read-btn { display: inline-block; padding: 8px 20px; background: #7c4dff; color: white !important; border-radius: 12px; text-decoration: none; font-size
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
+        body { background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%); min-height: 100vh; display: flex; justify-content: center; padding: 15px; }
+        .container { width: 100%; max-width: 420px; display: flex; flex-direction: column; gap: 15px; }
+        
+        .card { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-radius: 25px; padding: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); text-align: center; }
+        
+        .profile-img { width: 110px; height: 110px; border-radius: 50%; border: 3px solid #7c4dff; margin-bottom: 10px; object-fit: cover; }
+        h1 { color: #2d3436; font-size: 22px; margin-bottom: 5px; }
+        .subtitle { color: #636e72; font-size: 13px; margin-bottom: 15px; }
+        
+        .social-links { display: flex; justify-content: center; gap: 12px; margin-bottom: 5px; }
+        .social-links a { width: 40px; height: 40px; border-radius: 50%; background: #7c4dff; color: white; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 18px; transition: 0.3s; }
+
+        .section-title { display: flex; align-items: center; gap: 8px; color: #4a148c; font-size: 17px; margin-bottom: 12px; text-align: left; font-weight: bold; }
+        
+        .info-box { background: #f1f2f6; border-radius: 12px; padding: 12px; text-align: left; margin-bottom: 8px; border-left: 4px solid #7c4dff; font-size: 14px; }
+        
+        .article-card { background: #fff; border-radius: 15px; padding: 15px; margin-bottom: 12px; text-align: left; border: 1px solid #e0e0e0; }
+        .article-date { font-size: 10px; color: #7c4dff; font-weight: bold; text-transform: uppercase; }
+        .article-card h4 { font-size: 14px; margin: 5px 0; color: #2d3436; line-height: 1.4; }
+        .read-btn { display: inline-block; margin-top: 8px; padding: 6px 14px; background: linear-gradient(90deg, #7c4dff, #448aff); color: white; border-radius: 8px; text-decoration: none; font-size: 12px; font-weight: 500; }
+
+        .bottom-image { width: 100%; border-radius: 15px; margin-top: 10px; display: block; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+        <img src="profil_rasm.jpg" alt="Aziza" class="profile-img">
+        <h1>Aziza Safarova</h1>
+        <p class="subtitle">Qarshi davlat universiteti talabasi</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-telegram-plane"></i></a>
+            <a href="#"><i class="fas fa-envelope"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="section-title"><i class="fas fa-info-circle"></i> Ma'lumot</div>
+        <div class="info-box"><strong>Fakultet:</strong> Matematika va kompyuter ilmlari (ATT)</div>
+        <div class="info-box"><strong>Maqsad:</strong> IT mutaxassisi bo'lish</div>
+    </div>
+
+    <div class="card">
+        <div class="section-title"><i class="fas fa-graduation-cap"></i> Ilmiy Maqolalar</div>
+        
+        <div class="article-card">
+            <span class="article-date">Nashr: 2025-12-14</span>
+            <h4>NANOTEXNOLOGIYALAR: ILMIY ASOSLARI, QO'LLANILISHI VA ZAMONAVIY MUAMMOLARI</h4>
+            <a href="Safarova Aziza Sirojiddin qizi (1).pdf" class="read-btn" target="_blank">PDF o'qish <i class="fas fa-file-pdf"></i></a>
+        </div>
+
+        <div class="article-card">
+            <span class="article-date">Nashr: 2025-12-11</span>
+            <h4>ZAMONAVIY TEXNOLOGIYALAR va INTERNETNING BUGUNGI KUNDAGI O'RNI</h4>
+            <a href="Safarova Aziza Sirojiddin qizi.pdf" class="read-btn" target="_blank">PDF o'qish <i class="fas fa-file-pdf"></i></a>
+        </div>
+
+        <img src="Snapchat-720303948.jpg" alt="Maqola sertifikati" class="bottom-image">
+    </div>
+</div>
+
+</body>
+</html>
