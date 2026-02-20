@@ -7,107 +7,87 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --bg-color: #eef7ff;
+            --bg-color: #f0f4f8;
             --card-bg: #ffffff;
             --text-main: #333333;
-            --text-sub: #888888;
-            --accent: #7e57c2;
-            --ring-grad: linear-gradient(45deg, #f06292, #ba68c8);
+            --accent: #6c5ce7;
         }
 
-        /* Tungi rejim ranglari */
         [data-theme="dark"] {
-            --bg-color: #121212;
-            --card-bg: #1e1e1e;
+            --bg-color: #1a1a1a;
+            --card-bg: #2d2d2d;
             --text-main: #ffffff;
-            --text-sub: #bbbbbb;
-            --accent: #b39ddb;
+            --accent: #a29bfe;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; transition: all 0.4s ease; }
-        
-        body { background-color: var(--bg-color); display: flex; justify-content: center; padding: 15px; color: var(--text-main); }
-        .container { width: 100%; max-width: 400px; display: flex; flex-direction: column; gap: 15px; position: relative; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; transition: 0.3s; }
+        body { background-color: var(--bg-color); color: var(--text-main); display: flex; justify-content: center; padding: 20px; }
+        .container { width: 100%; max-width: 400px; display: flex; flex-direction: column; gap: 20px; }
 
-        /* Mavzu tugmasi */
-        .theme-switch {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 100;
-            background: var(--accent);
-            color: white;
-            border: none;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            font-size: 20px;
+        /* Mavzu o'zgartirgich */
+        .theme-toggle {
+            position: fixed; top: 20px; right: 20px;
+            background: var(--accent); color: white; border: none;
+            width: 45px; height: 45px; border-radius: 50%; cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2); font-size: 20px; z-index: 1000;
         }
 
-        .card { background: var(--card-bg); border-radius: 25px; padding: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); text-align: center; }
+        .card { background: var(--card-bg); border-radius: 25px; padding: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); text-align: center; }
 
-        /* Avatar */
+        /* Avatar Pushti Halqa bilan */
         .avatar-ring {
             width: 130px; height: 130px; margin: 0 auto 15px; border-radius: 50%; padding: 4px;
-            background: var(--ring-grad); display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(45deg, #f06292, #ba68c8); display: flex; align-items: center; justify-content: center;
         }
         .avatar-ring img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 3px solid var(--card-bg); }
 
-        h1 { font-size: 24px; margin-bottom: 5px; }
-        .subtitle { color: var(--text-sub); font-size: 14px; margin-bottom: 20px; }
-
-        /* Maqola va Sertifikat */
-        .article-box { background: var(--card-bg); border-radius: 22px; padding: 20px; border: 1px solid rgba(128,128,128,0.1); text-align: left; }
-        .article-tag { font-size: 11px; color: var(--accent); font-weight: bold; margin-bottom: 8px; display: block; }
-        .article-name { font-size: 15px; font-weight: 700; margin-bottom: 15px; line-height: 1.4; }
+        .article-box { background: var(--card-bg); border-radius: 20px; padding: 20px; text-align: left; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .article-title { font-size: 15px; font-weight: bold; margin: 10px 0; line-height: 1.4; }
         
-        .btn-group { display: flex; gap: 10px; flex-wrap: wrap; }
+        .btn-group { display: flex; gap: 10px; margin-top: 15px; }
         .btn {
-            text-decoration: none; padding: 8px 15px; border-radius: 10px; font-size: 12px; font-weight: 600;
-            display: inline-flex; align-items: center; gap: 5px; transition: 0.3s;
+            text-decoration: none; padding: 8px 12px; border-radius: 10px; font-size: 12px;
+            display: inline-flex; align-items: center; gap: 5px; font-weight: 600;
         }
-        .btn-pdf { background: linear-gradient(90deg, #7e57c2, #5c6bc0); color: white; }
+        .btn-pdf { background: var(--accent); color: white; }
         .btn-cert { border: 1.5px solid var(--accent); color: var(--accent); }
-        .btn:hover { transform: scale(1.05); }
 
-        .cert-thumb { width: 100%; border-radius: 12px; margin-top: 10px; border: 1px solid rgba(128,128,128,0.2); }
+        .cert-img { width: 100%; border-radius: 12px; margin-top: 15px; border: 1px solid #ddd; }
     </style>
 </head>
 <body>
 
-    <button class="theme-switch" onclick="toggleTheme()" id="themeBtn">
+    <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">
         <i class="fas fa-moon"></i>
     </button>
 
 <div class="container">
     <div class="card">
         <div class="avatar-ring">
-            <img src="Snapchat-720303948.jpg" alt="Aziza Safarova">
+            <img src="Snapchat-720303948.jpg" alt="Aziza">
         </div>
         <h1>Aziza Safarova</h1>
-        <p class="subtitle">Qarshi davlat universiteti talabasi</p>
+        <p style="color: gray; font-size: 14px;">Qarshi davlat universiteti talabasi</p>
     </div>
 
     <div class="article-box">
-        <span class="article-tag">NASHR: 2025-12-14</span>
-        <h4 class="article-name">NANOTEXNOLOGIYALAR: ILMIY ASOSLARI, QO'LLANILISHI VA ZAMONAVIY MUAMMOLARI</h4>
+        <span style="color: var(--accent); font-size: 11px; font-weight: bold;">NASHR: 2025-12-14</span>
+        <h4 class="article-title">NANOTEXNOLOGIYALAR: ILMIY ASOSLARI, QO'LLANILISHI VA ZAMONAVIY MUAMMOLARI</h4>
         <div class="btn-group">
-            <a href="Safarova Aziza Sirojiddin qizi (1).pdf" class="btn btn-pdf"><i class="fas fa-file-pdf"></i> PDF</a>
-            <a href="1000014535.jpg" target="_blank" class="btn btn-cert"><i class="fas fa-certificate"></i> Sertifikat</a>
+            <a href="maqola1.pdf" class="btn btn-pdf"><i class="fas fa-file-pdf"></i> PDF O'qish</a>
+            <a href="1000014535.jpg" target="_blank" class="btn btn-cert"><i class="fas fa-eye"></i> Sertifikat</a>
         </div>
-        <img src="1000014535.jpg" class="cert-thumb" alt="Sertifikat 1">
+        <img src="1000014535.jpg" class="cert-img" alt="Sertifikat">
     </div>
 
     <div class="article-box">
-        <span class="article-tag">NASHR: 2025-12-11</span>
-        <h4 class="article-name">ZAMONAVIY TEXNOLOGIYALAR VA INTERNETNING BUGUNGI KUNDAGI O'RNI</h4>
+        <span style="color: var(--accent); font-size: 11px; font-weight: bold;">NASHR: 2025-12-11</span>
+        <h4 class="article-title">ZAMONAVIY TEXNOLOGIYALAR VA INTERNETNING BUGUNGI KUNDAGI O'RNI</h4>
         <div class="btn-group">
-            <a href="Safarova Aziza Sirojiddin qizi.pdf" class="btn btn-pdf"><i class="fas fa-file-pdf"></i> PDF</a>
-            <a href="1000014534.jpg" target="_blank" class="btn btn-cert"><i class="fas fa-certificate"></i> Sertifikat</a>
+            <a href="maqola2.pdf" class="btn btn-pdf"><i class="fas fa-file-pdf"></i> PDF O'qish</a>
+            <a href="1000014534.jpg" target="_blank" class="btn btn-cert"><i class="fas fa-eye"></i> Sertifikat</a>
         </div>
-        <img src="1000014534.jpg" class="cert-thumb" alt="Sertifikat 2">
+        <img src="1000014534.jpg" class="cert-img" alt="Sertifikat">
     </div>
 </div>
 
@@ -115,7 +95,7 @@
     function toggleTheme() {
         const body = document.body;
         const btn = document.getElementById('themeBtn');
-        if (body.getAttribute('data-theme') === 'dark') {
+        if (body.hasAttribute('data-theme')) {
             body.removeAttribute('data-theme');
             btn.innerHTML = '<i class="fas fa-moon"></i>';
         } else {
@@ -124,11 +104,6 @@
         }
     }
 </script>
-
-</body>
-</html>
-
-</div>
 
 </body>
 </html>
