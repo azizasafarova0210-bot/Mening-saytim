@@ -5,181 +5,255 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aziza Safarova | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
+            --bg: #f0f3ff;
+            --card-bg: rgba(255, 255, 255, 0.85);
             --primary: #6c5ce7;
-            --accent: #fd79a8;
-            --bg-grad: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 50%, #fab1a0 100%);
-            --card-bg: rgba(255, 255, 255, 0.95);
-            --text-color: #2d3436;
-            --shadow: 0 15px 35px rgba(0,0,0,0.15);
+            --secondary: #a29bfe;
+            --accent: #ff7675;
+            --text: #2d3436;
+            --grad: linear-gradient(135deg, #6c5ce7, #ff7675);
         }
 
         [data-theme="dark"] {
-            --bg-grad: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-            --card-bg: rgba(30, 39, 46, 0.95);
-            --text-color: #f1f2f6;
+            --bg: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.9);
+            --text: #f1f5f9;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         
         body {
-            background: var(--bg-grad);
-            background-attachment: fixed;
-            color: var(--text-color);
+            background: var(--bg);
+            background: linear-gradient(180deg, var(--bg) 0%, #dbeafe 100%);
+            color: var(--text);
             display: flex;
             justify-content: center;
-            padding: 20px 10px;
             min-height: 100vh;
+            padding: 40px 15px;
+            transition: 0.5s;
         }
 
-        .container { width: 100%; max-width: 450px; display: flex; flex-direction: column; gap: 30px; }
+        .container { width: 100%; max-width: 450px; display: flex; flex-direction: column; gap: 25px; }
 
-        /* Premium Sarlavha Dizayni */
-        .section-h {
-            font-size: 20px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            position: relative;
+        /* Profil Qismi */
+        .header { text-align: center; position: relative; }
+        .avatar-wrapper {
+            width: 150px; height: 150px; margin: 0 auto 15px;
+            position: relative; border-radius: 50%;
+            padding: 5px; background: var(--grad);
+            box-shadow: 0 10px 25px rgba(108, 92, 231, 0.3);
+            animation: pulse 2s infinite;
+        }
+        .avatar-wrapper img { 
+            width: 100%; height: 100%; border-radius: 50%; 
+            object-fit: cover; border: 4px solid white;
         }
 
-        .section-h i {
-            -webkit-text-fill-color: var(--primary);
-            font-size: 24px;
-            filter: drop-shadow(0 0 5px rgba(108, 92, 231, 0.3));
+        .header h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; }
+        
+        /* Typing Effect Style */
+        .typing-box {
+            color: var(--primary); font-weight: 600; font-size: 14px;
+            min-height: 20px; margin-top: 5px; letter-spacing: 1px;
         }
 
-        .section-h::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 50px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            border-radius: 2px;
-        }
-
+        /* Card Dizayni */
         .card {
             background: var(--card-bg);
             backdrop-filter: blur(15px);
-            border-radius: 35px;
-            padding: 30px;
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(255,255,255,0.2);
-            animation: slideUp 0.8s ease-out;
-        }
-
-        /* Profil */
-        .header-card { text-align: center; }
-        .avatar-box {
-            position: relative;
-            width: 160px; height: 160px; margin: 0 auto 20px;
-        }
-        .avatar-box::before {
-            content: '';
-            position: absolute; inset: -5px;
-            background: linear-gradient(45deg, var(--primary), var(--accent));
-            border-radius: 50%;
-            animation: rotate 4s linear infinite;
-        }
-        .avatar-box img { 
-            width: 100%; height: 100%; border-radius: 50%; 
-            object-fit: cover; position: relative; border: 5px solid var(--card-bg);
-        }
-
-        /* Qiziqishlar */
-        .interest-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .interest-item {
-            position: relative; height: 150px; border-radius: 25px;
-            overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        .interest-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
-        .interest-item:hover img { transform: scale(1.2) rotate(2deg); }
-        .interest-label {
-            position: absolute; bottom: 0; width: 100%;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            color: white; padding: 12px 5px; font-size: 12px; font-weight: 700; text-align: center;
-        }
-
-        /* Ko'nikmalar - Elegant Progress */
-        .skill-box { margin-bottom: 25px; }
-        .skill-info { display: flex; justify-content: space-between; margin-bottom: 10px; font-weight: 700; font-size: 14px; }
-        .bar-bg { width: 100%; height: 14px; background: rgba(0,0,0,0.05); border-radius: 20px; overflow: hidden; box-shadow: inset 0 2px 4px rgba(0,0,0,0.1); }
-        .bar-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            border-radius: 20px;
-            width: 0;
-            transition: 2s cubic-bezier(0.1, 0.1, 0.1, 1);
-            position: relative;
-        }
-
-        /* Sertifikatlar */
-        .article-card {
-            background: rgba(108, 92, 231, 0.03);
-            border-radius: 25px; padding: 20px; margin-bottom: 20px;
-            border: 2px solid rgba(108, 92, 231, 0.1);
+            border-radius: 30px;
+            padding: 25px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             transition: 0.3s;
         }
-        .article-card:hover { transform: translateY(-5px); border-color: var(--primary); }
-        .article-card h4 { font-size: 13px; margin-bottom: 12px; line-height: 1.5; color: var(--primary); }
-        .cert-img { width: 100%; border-radius: 18px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); }
 
-        /* Effektlar */
-        .theme-toggle {
-            position: fixed; top: 20px; right: 20px;
-            background: var(--card-bg); color: var(--primary);
-            border: none; width: 50px; height: 50px; border-radius: 50%;
-            cursor: pointer; z-index: 1000; font-size: 24px; box-shadow: var(--shadow);
+        /* Sarlavhalar */
+        .section-h {
+            display: flex; align-items: center; gap: 12px;
+            font-size: 19px; font-weight: 700; color: var(--primary);
+            margin-bottom: 20px; position: relative;
+        }
+        .section-h::after {
+            content: ''; position: absolute; bottom: -5px; left: 0;
+            width: 40px; height: 3px; background: var(--grad); border-radius: 2px;
         }
 
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* Qiziqishlar Galereyasi */
+        .interest-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .interest-item { 
+            position: relative; height: 120px; border-radius: 20px; 
+            overflow: hidden; box-shadow: 0 8px 15px rgba(0,0,0,0.1);
         }
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+        .interest-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .interest-item:hover img { transform: scale(1.1); }
+        .interest-overlay {
+            position: absolute; bottom: 0; width: 100%;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: white; font-size: 12px; font-weight: 600;
+            text-align: center; padding: 8px 0;
+        }
+
+        /* Ko'nikmalar */
+        .skill-box { margin-bottom: 15px; }
+        .skill-info { display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; }
+        .bar-bg { width: 100%; height: 10px; background: #e2e8f0; border-radius: 10px; margin-top: 8px; overflow: hidden; }
+        .bar-fill { height: 100%; background: var(--grad); width: 0; transition: 2s cubic-bezier(0.1, 0.1, 0.1, 1); }
+
+        /* Sertifikatlar */
+        .cert-row { 
+            display: flex; align-items: center; gap: 15px; 
+            margin-top: 15px; background: rgba(255,255,255,0.5); 
+            padding: 12px; border-radius: 20px; border: 1px solid rgba(108, 92, 231, 0.1);
+        }
+        .cert-img { width: 65px; height: 50px; border-radius: 10px; object-fit: cover; }
+        .cert-info h4 { font-size: 11px; font-weight: 800; line-height: 1.3; color: var(--text); }
+
+        /* Social Media */
+        .social-grid { display: flex; justify-content: center; gap: 25px; padding: 10px; }
+        .social-grid a { 
+            font-size: 24px; color: var(--primary); transition: 0.3s;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+        }
+        .social-grid a:hover { transform: scale(1.3); color: var(--accent); }
+
+        /* Dark Mode Switch */
+        .theme-toggle { 
+            position: fixed; top: 20px; right: 20px; cursor: pointer; 
+            width: 45px; height: 45px; background: white; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); z-index: 100;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(108, 92, 231, 0.4); }
+            70% { transform: scale(1.02); box-shadow: 0 0 0 15px rgba(108, 92, 231, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(108, 92, 231, 0); }
         }
     </style>
 </head>
 <body>
 
-<button class="theme-toggle" onclick="document.body.toggleAttribute('data-theme')">🌜</button>
+<div class="theme-toggle" onclick="document.body.toggleAttribute('data-theme')">
+    <i class="fas fa-moon"></i>
+</div>
 
 <div class="container">
-    <div class="card header-card">
-        <div class="avatar-box">
+    <div class="header">
+        <div class="avatar-wrapper">
             <img src="720303948.jpg" onerror="this.src='Snapchat-720303948.jpg'" alt="Aziza">
         </div>
-        <h1 style="font-size: 28px; font-weight: 800; letter-spacing: -1px;">Aziza Safarova</h1>
-        <p style="color: var(--primary); font-weight: 700; margin-top: 8px; font-size: 14px;">🎓 Qarshi Davlat Universiteti</p>
+        <h1>Aziza Safarova</h1>
+        <div class="typing-box" id="typing-text"></div>
+    </div>
+
+    <div class="card social-grid">
+        <a href="#"><i class="fab fa-telegram"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
     </div>
 
     <div class="card">
         <div class="section-h"><i class="fas fa-gem"></i> Qiziqishlarim</div>
         <div class="interest-grid">
             <div class="interest-item">
-                <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=500" alt="BMW">
-                <div class="interest-label">Mashinalar</div>
+                <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=500" alt="BMW">
+                <div class="interest-overlay">Mashinalar</div>
             </div>
             <div class="interest-item">
-                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=500" alt="Rose">
-                <div class="interest-label">Atirgullar</div>
+                <img src="https://images.unsplash.com/photo-1563245331-5079a405788a?w=500" alt="Rose">
+                <div class="interest-overlay">Atirgullar</div>
             </div>
             <div class="interest-item">
-                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=500" alt="IT">
-                <div class="interest-label">IT Sohasi</div>
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=500" alt="IT">
+                <div class="interest-overlay">IT Sohasi</div>
+            </div>
+            <div class="interest-item">
+                <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=500" alt="Book">
+                <div class="interest-overlay">Kitobxonlik</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="section-h"><i class="fas fa-bolt"></i> Ko'nikmalarim</div>
+        <div class="skill-box">
+            <div class="skill-info"><span>HTML & CSS</span><span>85%</span></div>
+            <div class="bar-bg"><div class="bar-fill" data-percent="85%"></div></div>
+        </div>
+        <div class="skill-box">
+            <div class="skill-info"><span>Dasturlash (ATT)</span><span>70%</span></div>
+            <div class="bar-bg"><div class="bar-fill" data-percent="70%"></div></div>
+        </div>
+
+        <div class="cert-row">
+            <img src="IMG_20260220_210942_028.jpg" class="cert-img">
+            <div class="cert-info">
+                <h4>NANOTEXNOLOGIYALAR: ILMIY ASOSLARI...</h4>
+            </div>
+        </div>
+        <div class="cert-row">
+            <img src="IMG_20260220_210833_611.jpg" class="cert-img">
+            <div class="cert-info">
+                <h4>ZAMONAVIY TEXNOLOGIYALAR VA INTERNET...</h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Typing Effect
+    const typingText = document.getElementById('typing-text');
+    const professions = ["Qarshi Davlat Universiteti Talabasi", "Kelajak Dasturchisi", "Izlanuvchan Tadqiqotchi"];
+    let profIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function type() {
+        const current = professions[profIndex];
+        if (isDeleting) {
+            typingText.textContent = current.substring(0, charIndex - 1);
+            charIndex--;
+        } else {
+            typingText.textContent = current.substring(0, charIndex + 1);
+            charIndex++;
+        }
+
+        let speed = isDeleting ? 50 : 100;
+
+        if (!isDeleting && charIndex === current.length) {
+            isDeleting = true;
+            speed = 2000; // Oxirida kutib turish
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            profIndex = (profIndex + 1) % professions.length;
+            speed = 500;
+        }
+
+        setTimeout(type, speed);
+    }
+
+    // Progress Bar Animation
+    function animateBars() {
+        const bars = document.querySelectorAll('.bar-fill');
+        bars.forEach(bar => {
+            bar.style.width = bar.getAttribute('data-percent');
+        });
+    }
+
+    window.onload = () => {
+        type();
+        setTimeout(animateBars, 500);
+    };
+</script>
+
+</body>
+</html>
             </div>
             <div class="interest-item">
                 <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=500" alt="Book">
