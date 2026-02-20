@@ -7,86 +7,74 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --pink: #ff758c;
-            --purple: #8e44ad;
-            --glass: rgba(255, 255, 255, 0.95);
+            --main: #d946ef;
+            --sub: #8b5cf6;
+            --bg: #fdf2f8;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        
-        body { background: #f0f2f5; padding: 20px 10px; display: flex; justify-content: center; }
-
+        body { background: var(--bg); padding: 20px 10px; display: flex; justify-content: center; }
         .container { width: 100%; max-width: 420px; display: flex; flex-direction: column; gap: 20px; }
-
-        .card { background: var(--glass); border-radius: 30px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .card { background: white; border-radius: 30px; padding: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
 
         /* Profil */
-        .profile { text-align: center; border-bottom: 4px solid var(--pink); }
-        .avatar {
-            width: 130px; height: 130px; border-radius: 50%;
-            border: 4px solid white; outline: 3px solid var(--pink);
-            margin: 0 auto 15px; object-fit: cover; display: block;
-        }
+        .profile { text-align: center; }
+        .avatar { width: 120px; height: 120px; border-radius: 50%; border: 4px solid white; outline: 3px solid var(--main); margin: 0 auto 10px; object-fit: cover; display: block; }
 
-        /* GALEREYA BO'LIMI (BMW, Atirgul, IT, Sayohat, Kitob) */
-        .section-title { font-size: 20px; font-weight: 800; color: var(--purple); margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
-        
-        .gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        .gallery-item { border-radius: 20px; overflow: hidden; height: 120px; position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .gallery-item.large { grid-column: span 2; height: 160px; }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        .gallery-item:hover img { transform: scale(1.1); }
-        .gallery-item span { position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.6); color: white; font-size: 11px; text-align: center; padding: 6px; font-weight: 600; }
+        /* Galereyam (Siz yuborgan 4 ta rasm) */
+        .section-title { font-size: 18px; font-weight: 800; color: var(--main); margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .gal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .gal-item { border-radius: 15px; overflow: hidden; height: 100px; border: 1px solid #eee; }
+        .gal-item img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* Ko'nikmalar */
-        .skill-bar { margin-top: 15px; }
-        .bar-bg { width: 100%; height: 10px; background: #eee; border-radius: 10px; margin-top: 5px; overflow: hidden; }
-        .bar-fill { height: 100%; background: linear-gradient(90deg, var(--pink), var(--purple)); border-radius: 10px; }
+        /* Qiziqishlarim (BMW, Atirgul, IT, Kitob, Sayohat) */
+        .hobby-list { display: flex; flex-wrap: wrap; gap: 8px; }
+        .hobby-tag { background: #f5f3ff; color: var(--sub); padding: 8px 15px; border-radius: 20px; font-size: 12px; font-weight: 700; border: 1px solid #ddd; }
 
         /* Sertifikatlar */
-        .cert-img { width: 100%; border-radius: 20px; margin-top: 10px; border: 1px solid #ddd; }
+        .cert-box { margin-top: 15px; padding-top: 15px; border-top: 1px solid #f1f5f9; }
+        .cert-name { font-size: 11px; font-weight: 800; color: #444; margin-bottom: 8px; line-height: 1.4; }
+        .cert-img { width: 100%; border-radius: 15px; border: 1px solid #ddd; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <div class="card profile">
-        <img src="720303948.jpg" class="avatar" alt="Aziza">
-        <h1 style="font-size: 26px;">Aziza Safarova</h1>
-        <p style="color: #666; font-size: 14px;">🎓 Qarshi Davlat Universiteti Talabasi</p>
+        <img src="720303948.jpg" class="avatar" alt="Aziza Safarova">
+        <h2 style="font-size: 22px;">Aziza Safarova</h2>
+        <p style="font-size: 13px; color: #666; font-weight: 600;">Qarshi Davlat Universiteti Talabasi</p>
     </div>
 
     <div class="card">
         <h3 class="section-title"><i class="fas fa-images"></i> Galereyam</h3>
-        <div class="gallery-grid">
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400"><span>BMW</span></div>
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=400"><span>Atirgullar</span></div>
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400"><span>IT Sohasi</span></div>
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400"><span>Kitobxonlik</span></div>
-            <div class="gallery-item large"><img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=600"><span>Sayohatlarim</span></div>
+        <div class="gal-grid">
+            <div class="gal-item"><img src="IMG_20260220_210942_028.jpg"></div>
+            <div class="gal-item"><img src="IMG_20260220_210833_611.jpg"></div>
+            <div class="gal-item"><img src="1771608245289.png"></div>
+            <div class="gal-item"><img src="1771608326175.png"></div>
         </div>
     </div>
 
     <div class="card">
-        <h3 class="section-title"><i class="fas fa-tasks"></i> Ko'nikmalar</h3>
-        <div class="skill-bar">
-            <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 700;"><span>HTML & CSS</span><span>85%</span></div>
-            <div class="bar-bg"><div class="bar-fill" style="width: 85%;"></div></div>
-        </div>
-        <div class="skill-bar">
-            <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 700;"><span>Dasturlash (ATT)</span><span>70%</span></div>
-            <div class="bar-bg"><div class="bar-fill" style="width: 70%;"></div></div>
+        <h3 class="section-title"><i class="fas fa-heart"></i> Qiziqishlarim</h3>
+        <div class="hobby-list">
+            <span class="hobby-tag"><i class="fas fa-car"></i> BMW</span>
+            <span class="hobby-tag"><i class="fas fa-seedling"></i> Atirgullar</span>
+            <span class="hobby-tag"><i class="fas fa-laptop-code"></i> IT Sohasi</span>
+            <span class="hobby-tag"><i class="fas fa-book"></i> Kitobxonlik</span>
+            <span class="hobby-tag"><i class="fas fa-plane"></i> Sayohat qilish</span>
         </div>
     </div>
 
     <div class="card">
         <h3 class="section-title"><i class="fas fa-award"></i> Sertifikatlarim</h3>
-        <div style="margin-bottom: 20px;">
-            <p style="font-size: 12px; font-weight: 700; color: #555;">NANOTEXNOLOGIYALAR: ILMIY ASOSLARI</p>
+        <div class="cert-box">
+            <p class="cert-name">NANOTEXNOLOGIYALAR: ILMIY ASOSLARI, QO'LLANILISHI VA ZAMONAVIY MUAMMOLARI</p>
             <img src="1771608245289.png" class="cert-img">
         </div>
-        <div>
-            <p style="font-size: 12px; font-weight: 700; color: #555;">ZAMONAVIY TEXNOLOGIYALAR VA INTERNET</p>
+        <div class="cert-box">
+            <p class="cert-name">ZAMONAVIY TEXNOLOGIYALAR VA INTERNETNING BUGUNGI KUNDAGI O'RNI</p>
             <img src="1771608326175.png" class="cert-img">
         </div>
     </div>
@@ -94,23 +82,6 @@
 
 </body>
 </html>
-        .bar-bg { width: 100%; height: 8px; background: #eee; border-radius: 10px; margin-top: 5px; overflow: hidden; }
-        .bar-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--secondary)); border-radius: 10px; }
-
-        /* Sertifikatlar */
-        .cert-item { margin-top: 15px; padding-top: 10px; border-top: 1px solid #f1f1f1; }
-        .cert-name { font-size: 12px; font-weight: 700; color: #444; margin-bottom: 8px; }
-        .cert-img { width: 100%; border-radius: 15px; border: 1px solid #ddd; }
-
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <div class="card profile">
-        <img src="720303948.jpg" class="avatar" alt="Aziza">
-        <h1>Aziza Safarova</h1>
-        <p>🎓 Qarshi Davlat Universiteti Talabasi</p>
     </div>
 
     <div class="card">
