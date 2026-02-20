@@ -5,112 +5,141 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aziza Safarova | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #6c5ce7;
-            --secondary: #a29bfe;
-            --bg: #f8f9fd;
-            --text: #2d3436;
+            --bg: #fdf2f8;
+            --main: #d946ef;
+            --accent: #8b5cf6;
+            --card: rgba(255, 255, 255, 0.9);
+            --text: #1e293b;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
         
         body {
-            background-color: var(--bg);
+            background: linear-gradient(135deg, #fdf2f8 0%, #f5f3ff 100%);
             color: var(--text);
             display: flex;
             justify-content: center;
-            padding: 20px 10px;
+            padding: 30px 15px;
+            min-height: 100vh;
         }
 
-        .container {
-            width: 100%;
-            max-width: 420px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+        .container { width: 100%; max-width: 420px; display: flex; flex-direction: column; gap: 25px; }
+
+        /* 1. ASOSIY PROFIL KARTASI */
+        .profile-card {
+            background: var(--card);
+            backdrop-filter: blur(10px);
+            border-radius: 40px;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(217, 70, 239, 0.1);
+            border: 2px solid white;
         }
 
+        .avatar-box {
+            width: 150px; height: 150px; margin: 0 auto 20px;
+            border-radius: 50%; padding: 6px;
+            background: linear-gradient(45deg, var(--main), var(--accent));
+            box-shadow: 0 10px 25px rgba(217, 70, 239, 0.3);
+        }
+
+        .avatar-box img { 
+            width: 100%; height: 100%; border-radius: 50%; 
+            object-fit: cover; border: 4px solid white;
+        }
+
+        .profile-card h1 { font-size: 26px; font-weight: 900; letter-spacing: -1px; margin-bottom: 5px; }
+        .profile-card p { color: var(--main); font-weight: 700; font-size: 13px; }
+
+        /* 2. QIZIQISHLAR (GALEREYA) */
         .card {
-            background: white;
-            border-radius: 25px;
-            padding: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border: 1px solid rgba(108, 92, 231, 0.1);
+            background: var(--card);
+            border-radius: 35px;
+            padding: 25px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.03);
         }
 
-        /* Jozibali Sarlavhalar */
-        .section-h {
-            font-size: 20px;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .section-title {
+            font-size: 18px; font-weight: 800; margin-bottom: 20px;
+            display: flex; align-items: center; gap: 10px; color: #475569;
         }
 
-        .section-h i {
-            background: linear-gradient(45deg, var(--primary), #ff7675);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .gallery-item {
+            height: 120px; border-radius: 20px; overflow: hidden; position: relative;
+        }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+        .gallery-item span {
+            position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.5);
+            color: white; font-size: 10px; text-align: center; padding: 5px;
         }
 
-        /* Profil */
-        .header { text-align: center; }
-        .avatar {
-            width: 130px; height: 130px;
-            border-radius: 50%;
-            padding: 5px;
-            background: linear-gradient(45deg, var(--primary), #ff7675);
-            margin-bottom: 10px;
-            object-fit: cover;
-        }
+        /* 3. KO'NIKMALAR */
+        .skill-item { margin-bottom: 20px; }
+        .skill-info { display: flex; justify-content: space-between; font-weight: 700; font-size: 13px; margin-bottom: 8px; }
+        .progress-bar { width: 100%; height: 12px; background: #f1f5f9; border-radius: 20px; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--main), var(--accent)); border-radius: 20px; }
 
-        /* Qiziqishlar */
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-        .grid img {
-            width: 100%;
-            height: 110px;
-            border-radius: 15px;
-            object-fit: cover;
-            transition: 0.3s;
-        }
-        .grid img:hover { transform: scale(1.05); }
+        /* 4. SERTIFIKATLAR (FAQAT SERTIFIKAT RASMLARI) */
+        .cert-item { margin-bottom: 25px; }
+        .cert-item p { font-size: 12px; font-weight: 700; margin-bottom: 10px; color: #64748b; }
+        .cert-img { width: 100%; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
 
-        /* Progress Bar */
-        .skill-info { display: flex; justify-content: space-between; font-weight: 600; margin-bottom: 5px; font-size: 14px; }
-        .bar-bg { width: 100%; height: 12px; background: #eee; border-radius: 10px; margin-bottom: 15px; overflow: hidden; }
-        .bar-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--secondary)); border-radius: 10px; }
-
-        /* SERTIFIKATLAR - TO'G'RI KOD SHU YERDA */
-        .cert-item { margin-top: 20px; }
-        .cert-name { font-size: 13px; font-weight: 700; color: #555; line-height: 1.4; margin-bottom: 8px; }
-        .cert-img {
-            width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border: 1px solid #ddd;
-        }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="card header">
-        <img src="720303948.jpg" class="avatar" alt="Aziza">
-        <h2 style="letter-spacing: -0.5px;">Aziza Safarova</h2>
-        <p style="color: var(--primary); font-weight: 600; font-size: 14px;">Qarshi Davlat Universiteti Talabasi</p>
+    <div class="profile-card">
+        <div class="avatar-box">
+            <img src="720303948.jpg" onerror="this.src='Snapchat-720303948.jpg'" alt="Aziza">
+        </div>
+        <h1>Aziza Safarova</h1>
+        <p>🎓 Qarshi Davlat Universiteti Talabasi</p>
     </div>
 
     <div class="card">
-        <h3 class="section-h"><i class="fas fa-heart"></i> Qiziqishlarim</h3>
+        <div class="section-title"><i class="fas fa-camera-retro" style="color: var(--main);"></i> Galereyam</div>
+        <div class="gallery">
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=300"><span>Mashinalar</span></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=300"><span>Atirgullar</span></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=300"><span>IT Sohasi</span></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=300"><span>Kitoblar</span></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="section-title"><i class="fas fa-chart-line" style="color: var(--accent);"></i> Ko'nikmalar</div>
+        <div class="skill-item">
+            <div class="skill-info"><span>HTML & CSS</span><span>85%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-info"><span>Dasturlash (ATT)</span><span>70%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width: 70%;"></div></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="section-title"><i class="fas fa-medal" style="color: #f59e0b;"></i> Sertifikatlarim</div>
+        
+        <div class="cert-item">
+            <p>NANOTEXNOLOGIYALAR: ILMIY ASOSLARI</p>
+            <img src="1771608245289.png" class="cert-img">
+        </div>
+
+        <div class="cert-item">
+            <p>ZAMONAVIY TEXNOLOGIYALAR VA INTERNET</p>
+            <img src="1771608326175.png" class="cert-img">
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
         <div class="grid">
             <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=300">
             <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=300">
@@ -141,9 +170,6 @@
             <img src="1771608326175.png" class="cert-img">
         </div>
 
-        <div class="cert-item">
-            <p class="cert-name">MAXSUS SERTIFIKAT (YANGI)</p>
-            <img src="1771608339990.png" class="cert-img">
         </div>
     </div>
 </div>
