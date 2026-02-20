@@ -35,4 +35,94 @@
         .avatar-container { width: 130px; height: 130px; margin: 0 auto 15px; border-radius: 50%; padding: 4px; background: linear-gradient(45deg, #f06292, #ba68c8); display: flex; align-items: center; justify-content: center; }
         .avatar-container img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 3px solid var(--card); }
         .social-row { display: flex; justify-content: center; gap: 12px; margin-top: 15px; }
-        .social-row a { width: 40px; height: 40px; border-
+        .social-row a { width: 40px; height: 40px; border-radius: 50%; background: #f0f2f5; color: var(--primary); display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 18px; }
+
+        /* Bo'limlar */
+        .section-h { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--primary); margin-bottom: 15px; font-size: 18px; }
+        .info-item { background: rgba(108, 92, 231, 0.05); border-left: 4px solid var(--primary); padding: 10px 15px; border-radius: 8px; margin-bottom: 10px; font-size: 14px; }
+
+        /* Ko'nikmalar */
+        .skill-box { margin-bottom: 12px; }
+        .skill-label { display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+        .bar-bg { width: 100%; height: 10px; background: #eee; border-radius: 10px; overflow: hidden; }
+        .bar-fill { height: 100%; background: var(--grad); border-radius: 10px; width: 0; animation: fill 1.5s forwards; }
+        @keyframes fill { to { width: var(--w); } }
+
+        /* Galereya */
+        .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        .gallery-grid img { width: 100%; height: 120px; object-fit: cover; border-radius: 12px; cursor: pointer; }
+        .gallery-grid img:hover { transform: scale(1.03); }
+
+        /* Sertifikatlar */
+        .cert-card { border: 1px solid rgba(0,0,0,0.05); border-radius: 15px; padding: 15px; margin-bottom: 15px; }
+        .cert-card h4 { font-size: 13px; margin-bottom: 10px; line-height: 1.4; }
+        .cert-img { width: 100%; border-radius: 10px; display: block; margin-top: 10px; }
+        .btn-pdf { display: inline-flex; align-items: center; gap: 8px; background: var(--grad); color: white; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-size: 12px; margin-top: 10px; font-weight: 600; }
+    </style>
+</head>
+<body>
+
+<button class="theme-toggle" onclick="document.body.toggleAttribute('data-theme')">🌜🌞</button>
+
+<div class="container">
+    <div class="card header-card">
+        <div class="avatar-container">
+            <img src="1000014530.jpg" onerror="this.src='1000014530.JPG'" alt="Aziza">
+        </div>
+        <h2>Aziza Safarova</h2>
+        <p style="color: #65676b; font-size: 14px; margin-top: 5px;">Qarshi davlat universiteti talabasi</p>
+        <div class="social-row">
+            <a href="#"><i class="fab fa-telegram-plane"></i></a>
+            <a href="#"><i class="fas fa-envelope"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="section-h"><i class="fas fa-user-graduate"></i> Ma'lumot</div>
+        <div class="info-item"><b>Fakultet:</b> Matematika va kompyuter ilmlari (ATT)</div>
+        <div class="info-item"><b>Maqsad:</b> IT mutaxassisi bo'lish</div>
+    </div>
+
+    <div class="card">
+        <div class="section-h"><i class="fas fa-bolt"></i> Ko'nikmalar</div>
+        <div class="skill-box">
+            <div class="skill-label"><span>HTML/CSS</span><span>50%</span></div>
+            <div class="bar-bg"><div class="bar-fill" style="--w: 50%;"></div></div>
+        </div>
+        <div class="skill-box">
+            <div class="skill-label"><span>Dizayn</span><span>45%</span></div>
+            <div class="bar-bg"><div class="bar-fill" style="--w: 45%;"></div></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="section-h"><i class="fas fa-images"></i> Galereya</div>
+        <div class="gallery-grid">
+            <img src="1771608245289.png" alt="Galereya 1">
+            <img src="1771608326175.png" alt="Galereya 2">
+            <img src="1771608339990.png" alt="Galereya 3">
+            <img src="1000014530.jpg" alt="Profil">
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="section-h"><i class="fas fa-award"></i> Sertifikatlar</div>
+        
+        <div class="cert-card">
+            <h4>NANOTEXNOLOGIYALAR: ILMIY ASOSLARI, QO'LLANILISHI VA ZAMONAVIY MUAMMOLARI</h4>
+            <a href="1000014535.jpg" target="_blank" class="btn-pdf">PDF o'qish <i class="fas fa-file-pdf"></i></a>
+            <img src="1000014535.jpg" class="cert-img" alt="Sertifikat 1">
+        </div>
+
+        <div class="cert-card">
+            <h4>ZAMONAVIY TEXNOLOGIYALAR VA INTERNETNING BUGUNGI KUNDAGI O'RNI</h4>
+            <a href="1000014534.jpg" target="_blank" class="btn-pdf">PDF o'qish <i class="fas fa-file-pdf"></i></a>
+            <img src="1000014534.jpg" class="cert-img" alt="Sertifikat 2">
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
