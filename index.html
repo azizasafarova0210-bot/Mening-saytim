@@ -5,112 +5,146 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aziza Safarova | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --main: #d946ef;
-            --sub: #8b5cf6;
-            --bg: #fdf2f8;
+            --primary: #6c5ce7;
+            --accent: #fd79a8;
+            --bg-grad: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 50%, #fab1a0 100%);
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --text-color: #2d3436;
+            --shadow: 0 15px 35px rgba(0,0,0,0.15);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background: var(--bg); padding: 20px 10px; display: flex; justify-content: center; }
-        .container { width: 100%; max-width: 420px; display: flex; flex-direction: column; gap: 20px; }
-        .card { background: white; border-radius: 30px; padding: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+        [data-theme="dark"] {
+            --bg-grad: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            --card-bg: rgba(30, 39, 46, 0.95);
+            --text-color: #f1f2f6;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+        
+        body {
+            background: var(--bg-grad);
+            background-attachment: fixed;
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            padding: 20px 10px;
+            min-height: 100vh;
+        }
+
+        .container { width: 100%; max-width: 450px; display: flex; flex-direction: column; gap: 25px; }
+
+        .section-h {
+            font-size: 18px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            margin-bottom: 20px; display: flex; align-items: center; gap: 12px; position: relative;
+        }
+
+        .card {
+            background: var(--card-bg); backdrop-filter: blur(15px);
+            border-radius: 30px; padding: 25px; box-shadow: var(--shadow);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
 
         /* Profil */
-        .profile { text-align: center; }
-        .avatar { width: 120px; height: 120px; border-radius: 50%; border: 4px solid white; outline: 3px solid var(--main); margin: 0 auto 10px; object-fit: cover; display: block; }
+        .header-card { text-align: center; }
+        .avatar-box {
+            position: relative; width: 150px; height: 150px; margin: 0 auto 15px;
+        }
+        .avatar-box img { 
+            width: 100%; height: 100%; border-radius: 50%; 
+            object-fit: cover; border: 5px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
 
-        /* Galereyam (Siz yuborgan 4 ta rasm) */
-        .section-title { font-size: 18px; font-weight: 800; color: var(--main); margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
-        .gal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .gal-item { border-radius: 15px; overflow: hidden; height: 100px; border: 1px solid #eee; }
+        /* Galereya - 4 ta asosiy rasm */
+        .gal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .gal-item { border-radius: 20px; overflow: hidden; height: 110px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
         .gal-item img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* Qiziqishlarim (BMW, Atirgul, IT, Kitob, Sayohat) */
-        .hobby-list { display: flex; flex-wrap: wrap; gap: 8px; }
-        .hobby-tag { background: #f5f3ff; color: var(--sub); padding: 8px 15px; border-radius: 20px; font-size: 12px; font-weight: 700; border: 1px solid #ddd; }
+        /* Qiziqishlar (Ikonkalar bilan) */
+        .hobby-list { display: flex; flex-wrap: wrap; gap: 10px; }
+        .hobby-tag {
+            background: rgba(108, 92, 231, 0.1); color: var(--primary);
+            padding: 10px 18px; border-radius: 50px; font-size: 13px; font-weight: 700;
+            display: flex; align-items: center; gap: 8px; border: 1px solid rgba(108, 92, 231, 0.2);
+        }
+
+        /* Atirgul rasmi (Internetdan) */
+        .rose-box { margin-top: 15px; border-radius: 20px; overflow: hidden; height: 150px; position: relative; }
+        .rose-box img { width: 100%; height: 100%; object-fit: cover; }
+        .rose-box span { position: absolute; bottom: 10px; left: 15px; background: rgba(0,0,0,0.5); color: white; padding: 5px 15px; border-radius: 20px; font-size: 12px; }
 
         /* Sertifikatlar */
-        .cert-box { margin-top: 15px; padding-top: 15px; border-top: 1px solid #f1f5f9; }
-        .cert-name { font-size: 11px; font-weight: 800; color: #444; margin-bottom: 8px; line-height: 1.4; }
-        .cert-img { width: 100%; border-radius: 15px; border: 1px solid #ddd; }
+        .article-card {
+            background: rgba(0,0,0,0.02); border-radius: 20px; padding: 15px;
+            margin-bottom: 20px; border: 1px solid rgba(0,0,0,0.05);
+        }
+        .article-card h4 { font-size: 12px; margin-bottom: 10px; line-height: 1.4; color: var(--text-color); }
+        .cert-img { width: 100%; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+
+        .theme-toggle {
+            position: fixed; top: 15px; right: 15px; background: white; border: none;
+            width: 45px; height: 45px; border-radius: 50%; cursor: pointer; z-index: 1000; box-shadow: var(--shadow);
+        }
     </style>
 </head>
 <body>
 
+<button class="theme-toggle" onclick="document.body.toggleAttribute('data-theme')">🌓</button>
+
 <div class="container">
-    <div class="card profile">
-        <img src="720303948.jpg" class="avatar" alt="Aziza Safarova">
-        <h2 style="font-size: 22px;">Aziza Safarova</h2>
-        <p style="font-size: 13px; color: #666; font-weight: 600;">Qarshi Davlat Universiteti Talabasi</p>
+    <div class="card header-card">
+        <div class="avatar-box">
+            <img src="720303948.jpg" alt="Aziza Safarova">
+        </div>
+        <h1 style="font-size: 26px;">Aziza Safarova</h1>
+        <p style="color: var(--primary); font-weight: 700;">🎓 Qarshi Davlat Universiteti</p>
     </div>
 
     <div class="card">
-        <h3 class="section-title"><i class="fas fa-images"></i> Galereyam</h3>
+        <div class="section-h"><i class="fas fa-images"></i> Galereyam</div>
         <div class="gal-grid">
             <div class="gal-item"><img src="IMG_20260220_210942_028.jpg"></div>
-            <div class="gal-item"><img src="IMG_20260220_210833_611.jpg"></div>
             <div class="gal-item"><img src="1771608245289.png"></div>
             <div class="gal-item"><img src="1771608326175.png"></div>
+            <div class="gal-item"><img src="IMG_20260220_210833_611.jpg"></div>
         </div>
     </div>
 
     <div class="card">
-        <h3 class="section-title"><i class="fas fa-heart"></i> Qiziqishlarim</h3>
+        <div class="section-h"><i class="fas fa-heart"></i> Qiziqishlarim</div>
         <div class="hobby-list">
-            <span class="hobby-tag"><i class="fas fa-car"></i> BMW</span>
-            <span class="hobby-tag"><i class="fas fa-seedling"></i> Atirgullar</span>
-            <span class="hobby-tag"><i class="fas fa-laptop-code"></i> IT Sohasi</span>
-            <span class="hobby-tag"><i class="fas fa-book"></i> Kitobxonlik</span>
-            <span class="hobby-tag"><i class="fas fa-plane"></i> Sayohat qilish</span>
+            <div class="hobby-tag"><i class="fas fa-car"></i> BMW</div>
+            <div class="hobby-tag"><i class="fas fa-laptop-code"></i> IT Sohasi</div>
+            <div class="hobby-tag"><i class="fas fa-book"></i> Kitoblar</div>
+            <div class="hobby-tag"><i class="fas fa-plane"></i> Sayohat</div>
+        </div>
+        <div class="rose-box">
+            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1000&auto=format&fit=crop" alt="Qizil atirgullar">
+            <span>Atirgullar</span>
         </div>
     </div>
 
     <div class="card">
-        <h3 class="section-title"><i class="fas fa-award"></i> Sertifikatlarim</h3>
-        <div class="cert-box">
-            <p class="cert-name">NANOTEXNOLOGIYALAR: ILMIY ASOSLARI, QO'LLANILISHI VA ZAMONAVIY MUAMMOLARI</p>
-            <img src="1771608245289.png" class="cert-img">
+        <div class="section-h"><i class="fas fa-award"></i> Sertifikatlar</div>
+        
+        <div class="article-card">
+            <h4>ZAMONAVIY TEXNOLOGIYALAR VA INTERNETNING BUGUNGI KUNDAGI O'RNI</h4>
+            <img src="IMG_20260220_210833_611.jpg" class="cert-img">
         </div>
-        <div class="cert-box">
-            <p class="cert-name">ZAMONAVIY TEXNOLOGIYALAR VA INTERNETNING BUGUNGI KUNDAGI O'RNI</p>
-            <img src="1771608326175.png" class="cert-img">
+
+        <div class="article-card">
+            <h4>NANOTEXNOLOGIYALAR: ILMIY ASOSLARI, QO'LLANILISHI VA MUAMMOLARI</h4>
+            <img src="1771608245289.png" class="cert-img">
         </div>
     </div>
 </div>
 
 </body>
 </html>
-    </div>
-
-    <div class="card">
-        <h3 class="section-title"><i class="fas fa-heart"></i> Qiziqishlarim</h3>
-        <div class="gallery">
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=300"><span>BMW (Mashinalar)</span></div>
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=300"><span>Atirgullar</span></div>
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=300"><span>IT Sohasi</span></div>
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=300"><span>Kitobxonlik</span></div>
-            <div class="gallery-item wide"><img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=500"><span>Sayohat qilish</span></div>
-        </div>
-    </div>
-
-    <div class="card">
-        <h3 class="section-title"><i class="fas fa-star"></i> Ko'nikmalarim</h3>
-        <div class="skill-info"><span>HTML & CSS</span><span>45%</span></div>
-        <div class="bar-bg"><div class="bar-fill" style="width: 45%;"></div></div>
-        
-        <div class="skill-info"><span>Dasturlash (ATT)</span><span>50%</span></div>
-        <div class="bar-bg"><div class="bar-fill" style="width: 50%;"></div></div>
-    </div>
-
-    <div class="card">
-        <h3 class="section-title"><i class="fas fa-award"></i> Sertifikatlarim</h3>
-        <div class="cert-item">
-            <p class="cert-name">NANOTEXNOLOGIYALAR: ILMIY ASOSLARI...</p>
-            <img src="IMG_20260220_210942_028.jpg" class="cert-img">
-        </div>
-        <div class="cert-item">
             <p class="cert-name">ZAMONAVIY TEXNOLOGIYALAR VA INTERNET...</p>
             <img src="IMG_20260220_210833_611.jpg" class="cert-img">
         </div>
