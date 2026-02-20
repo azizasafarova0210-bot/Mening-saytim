@@ -5,139 +5,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aziza Safarova | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
-        :root {
-            --bg: #f8fafc;
-            --card: #ffffff;
-            --primary: #6c5ce7;
-            --text: #1e293b;
-            --grad: linear-gradient(135deg, #6c5ce7, #a29bfe);
-        }
-
-        [data-theme="dark"] {
-            --bg: #0f172a;
-            --card: #1e293b;
-            --text: #f1f5f9;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; transition: 0.3s; }
+        :root { --bg: #f8fafc; --card: #ffffff; --primary: #6c5ce7; --text: #1e293b; --grad: linear-gradient(135deg, #6c5ce7, #a29bfe); }
+        [data-theme="dark"] { --bg: #0f172a; --card: #1e293b; --text: #f1f5f9; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; transition: 0.3s; }
         body { background-color: var(--bg); color: var(--text); display: flex; justify-content: center; padding: 15px; }
         .container { width: 100%; max-width: 440px; display: flex; flex-direction: column; gap: 20px; }
 
-        /* Kirish Animatsiyasi */
+        /* Animatsiyalar */
         .reveal { animation: fadeInUp 0.8s both; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
         .card { background: var(--card); border-radius: 30px; padding: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
 
-        /* Profil Qismi */
-        .header-card { text-align: center; }
+        /* Profil */
         .avatar-container { 
             width: 140px; height: 140px; margin: 0 auto 15px; border-radius: 50%; padding: 5px; 
             background: var(--grad); display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 8px 20px rgba(108, 92, 231, 0.3);
         }
         .avatar-container img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 4px solid var(--card); }
 
         .section-h { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--primary); margin-bottom: 20px; font-size: 19px; }
 
-        /* Qiziqishlar Galereyasi */
-        .interest-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
-        .interest-item { 
-            position: relative; border-radius: 20px; overflow: hidden; height: 140px; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08); 
-        }
-        .interest-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        .interest-item:hover img { transform: scale(1.15); }
-        .interest-label { 
-            position: absolute; bottom: 0; left: 0; right: 0; 
-            background: linear-gradient(transparent, rgba(0,0,0,0.8)); 
-            padding: 12px; color: white; font-size: 13px; font-weight: 600; text-align: center;
-        }
+        /* Qiziqishlar */
+        .interest-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        .interest-item { position: relative; border-radius: 20px; overflow: hidden; height: 120px; }
+        .interest-item img { width: 100%; height: 100%; object-fit: cover; }
+        .interest-label { position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.6); color: white; font-size: 11px; padding: 5px; text-align: center; }
+
+        /* Maqola matni */
+        .article-text { font-size: 14px; font-weight: 700; margin-bottom: 10px; line-height: 1.4; color: var(--primary); text-transform: uppercase; }
+        .cert-img { width: 100%; border-radius: 15px; margin-top: 5px; border: 1px solid #ddd; }
 
         /* Ko'nikmalar */
-        .skill-box { margin-bottom: 15px; }
-        .skill-info { display: flex; justify-content: space-between; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
-        .bar-bg { width: 100%; height: 12px; background: #e2e8f0; border-radius: 10px; overflow: hidden; }
-        .bar-fill { height: 100%; background: var(--grad); width: 0; border-radius: 10px; }
+        .bar-bg { width: 100%; height: 10px; background: #e2e8f0; border-radius: 10px; margin-top: 5px; overflow: hidden; }
+        .bar-fill { height: 100%; background: var(--grad); width: 0; transition: 1.5s; }
 
-        /* Mavzu Tugmasi */
-        .theme-toggle { position: fixed; top: 20px; right: 20px; background: var(--grad); color: white; border: none; width: 45px; height: 45px; border-radius: 50%; cursor: pointer; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        .theme-toggle { position: fixed; top: 20px; right: 20px; background: var(--grad); color: white; border: none; width: 45px; height: 45px; border-radius: 50%; cursor: pointer; z-index: 1000; }
     </style>
 </head>
 <body>
 
-<button class="theme-toggle" onclick="document.body.toggleAttribute('data-theme')">🌞</button>
+<button class="theme-toggle" onclick="document.body.toggleAttribute('data-theme')">🌜</button>
 
 <div class="container">
-    <div class="card header-card reveal" style="animation-delay: 0.1s;">
-        <div class="avatar-container animate__animated animate__zoomIn">
-            <img src="1000014530.jpg" onerror="this.src='1000014530.JPG'" alt="Aziza Safarova">
+    <div class="card reveal" style="text-align: center;">
+        <div class="avatar-container">
+            <img src="Snapchat-720303948.jpg" onerror="this.src='720303948.jpg'" alt="Aziza Safarova">
         </div>
-        <h2 class="animate__animated animate__fadeIn">Aziza Safarova</h2>
-        <p style="color: var(--primary); font-weight: 600; margin-top: 5px;">Qarshi davlat universiteti talabasi</p>
+        <h2>Aziza Safarova</h2>
+        <p style="color: gray;">Qarshi davlat universiteti talabasi</p>
     </div>
 
-    <div class="card reveal" style="animation-delay: 0.2s;">
+    <div class="card reveal">
         <div class="section-h"><i class="fas fa-heart"></i> Qiziqishlarim</div>
         <div class="interest-grid">
             <div class="interest-item">
-                <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=1000&auto=format&fit=crop" alt="BMW">
-                <div class="interest-label">BMW Mashinalar</div>
+                <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=500" alt="BMW">
+                <div class="interest-label">BMW</div>
             </div>
             <div class="interest-item">
-                <img src="https://images.unsplash.com/photo-1548610762-65603791e1d0?q=80&w=1000&auto=format&fit=crop" alt="Rose">
-                <div class="interest-label">Qizil Atirgullar</div>
+                <img src="https://images.unsplash.com/photo-1548610762-65603791e1d0?auto=format&fit=crop&w=500" alt="Rose">
+                <div class="interest-label">Gullar</div>
             </div>
             <div class="interest-item">
-                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1000&auto=format&fit=crop" alt="Coding">
-                <div class="interest-label">IT va Dasturlash</div>
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=500" alt="IT">
+                <div class="interest-label">IT Sohasi</div>
             </div>
             <div class="interest-item">
-                <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=1000&auto=format&fit=crop" alt="Books">
-                <div class="interest-label">Kitob o'qish</div>
-            </div>
-            <div class="interest-item" style="grid-column: span 2;">
-                <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=1000&auto=format&fit=crop" alt="Travel">
-                <div class="interest-label">Sayohat qilish</div>
+                <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=500" alt="Book">
+                <div class="interest-label">Kitoblar</div>
             </div>
         </div>
     </div>
 
-    <div class="card reveal" style="animation-delay: 0.3s;">
+    <div class="card reveal">
         <div class="section-h"><i class="fas fa-bolt"></i> Ko'nikmalar</div>
-        <div class="skill-box">
-            <div class="skill-info"><span>HTML/CSS</span><span>50%</span></div>
-            <div class="bar-bg"><div class="bar-fill" id="bar1"></div></div>
+        <div style="margin-bottom: 15px;">
+            <div style="display: flex; justify-content: space-between; font-size: 13px;"><span>HTML/CSS</span><span>50%</span></div>
+            <div class="bar-bg"><div class="bar-fill" style="width: 50%;"></div></div>
         </div>
-        <div class="skill-box">
-            <div class="skill-info"><span>Dizayn</span><span>45%</span></div>
-            <div class="bar-bg"><div class="bar-fill" id="bar2"></div></div>
+        <div>
+            <div style="display: flex; justify-content: space-between; font-size: 13px;"><span>Dizayn</span><span>45%</span></div>
+            <div class="bar-bg"><div class="bar-fill" style="width: 45%;"></div></div>
         </div>
     </div>
 
-    <div class="card reveal" style="animation-delay: 0.4s;">
+    <div class="card reveal">
         <div class="section-h"><i class="fas fa-award"></i> Sertifikatlar</div>
-        <img src="IMG_20260220_210942_028.jpg" style="width: 100%; border-radius: 20px; margin-bottom: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-        <img src="IMG_20260220_210833_611.jpg" style="width: 100%; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+        
+        <div style="margin-bottom: 25px;">
+            <p class="article-text">Nanotexnologiyalar: Ilmiy asoslari, qo'llanilishi va zamonaviy muammolari</p>
+            <img src="1000014535.jpg" class="cert-img" alt="Cert 1">
+        </div>
+
+        <div>
+            <p class="article-text">Zamonaviy texnologiyalar va internetning bugungi kundagi o'rni</p>
+            <img src="1000014534.jpg" class="cert-img" alt="Cert 2">
+        </div>
     </div>
 </div>
 
-<script>
-    // Animatsiya yuklangandan keyin ko'nikmalar to'ladi
-    window.onload = function() {
-        setTimeout(() => {
-            document.getElementById('bar1').style.width = '50%';
-            document.getElementById('bar2').style.width = '45%';
-        }, 600);
-    };
-</script>
-
 </body>
 </html>
-            
