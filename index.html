@@ -6,38 +6,69 @@
     <title>Aziza Safarova Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --bg: #f0f4f8; --card: #fff; --text: #333; --accent: #6c5ce7; }
-        [data-theme="dark"] { --bg: #1a1a1a; --card: #2d2d2d; --text: #fff; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; transition: 0.3s; }
+        :root { --bg: #f4f7f6; --card: #ffffff; --text: #333; --accent: #6c5ce7; }
+        [data-theme="dark"] { --bg: #1a1a1a; --card: #2d2d2d; --text: #ffffff; }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; transition: 0.3s; }
         body { background-color: var(--bg); color: var(--text); display: flex; justify-content: center; padding: 20px; }
+        
         .container { width: 100%; max-width: 400px; display: flex; flex-direction: column; gap: 20px; }
-        .theme-btn { position: fixed; top: 15px; right: 15px; background: var(--accent); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; z-index: 100; }
-        .card { background: var(--card); border-radius: 20px; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center; }
-        .avatar-ring { width: 120px; height: 120px; margin: 0 auto 15px; border-radius: 50%; padding: 4px; background: linear-gradient(45deg, #f06292, #ba68c8); display: flex; align-items: center; justify-content: center; }
+        
+        /* Mavzu tugmasi */
+        .theme-btn { position: fixed; top: 20px; right: 20px; background: var(--accent); color: white; border: none; width: 45px; height: 45px; border-radius: 50%; cursor: pointer; z-index: 1000; font-size: 20px; }
+
+        .card { background: var(--card); border-radius: 25px; padding: 25px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); text-align: center; }
+        
+        /* Profil halqasi */
+        .avatar-ring { width: 130px; height: 130px; margin: 0 auto 15px; border-radius: 50%; padding: 4px; background: linear-gradient(45deg, #f06292, #ba68c8); display: flex; align-items: center; justify-content: center; }
         .avatar-ring img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 3px solid var(--card); }
-        .article-box { background: var(--card); border-radius: 20px; padding: 15px; text-align: left; }
-        .cert-img { width: 100%; border-radius: 10px; margin-top: 10px; border: 1px solid #ddd; }
-        .btn { text-decoration: none; padding: 8px 12px; border-radius: 8px; font-size: 12px; display: inline-flex; align-items: center; gap: 5px; background: var(--accent); color: white; margin-top: 10px; }
+
+        .article-box { background: var(--card); border-radius: 20px; padding: 20px; text-align: left; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .article-title { font-size: 15px; font-weight: bold; margin-bottom: 15px; line-height: 1.4; }
+        
+        .btn { text-decoration: none; padding: 10px 15px; border-radius: 10px; font-size: 13px; display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; font-weight: 600; margin-bottom: 15px; }
+        
+        /* Sertifikat rasmi */
+        .cert-img { width: 100%; border-radius: 12px; border: 1px solid rgba(0,0,0,0.1); display: block; }
     </style>
 </head>
 <body>
-    <button class="theme-btn" onclick="document.body.toggleAttribute('data-theme')">🌓</button>
+    <button class="theme-btn" onclick="toggleTheme()" id="tBtn">🌓</button>
+
     <div class="container">
         <div class="card">
-            <div class="avatar-ring"><img src="Snapchat-720303948.jpg" alt="Aziza"></div>
+            <div class="avatar-ring">
+                <img src="Snapchat-720303948.jpg" alt="Aziza Safarova">
+            </div>
             <h1>Aziza Safarova</h1>
-            <p>Qarshi davlat universiteti talabasi</p>
+            <p style="color: #888; font-size: 14px; margin-top: 5px;">Qarshi davlat universiteti talabasi</p>
         </div>
+
         <div class="article-box">
-            <h4 style="font-size: 14px;">NANOTEXNOLOGIYALAR: ILMIY ASOSLARI...</h4>
-            <a href="1000014535.jpg" target="_blank" class="btn">Sertifikatni ochish</a>
+            <span style="color: var(--accent); font-size: 11px; font-weight: bold;">14.12.2025</span>
+            <h4 class="article-title">NANOTEXNOLOGIYALAR: ILMIY ASOSLARI, QO'LLANILISHI VA ZAMONAVIY MUAMMOLARI</h4>
+            <a href="1000014535.jpg" target="_blank" class="btn"><i class="fas fa-eye"></i> Sertifikatni ko'rish</a>
             <img src="1000014535.jpg" class="cert-img" alt="Nanotexnologiya sertifikati">
         </div>
+
         <div class="article-box">
-            <h4 style="font-size: 14px;">ZAMONAVIY TEXNOLOGIYALAR VA INTERNET...</h4>
-            <a href="1000014534.jpg" target="_blank" class="btn">Sertifikatni ochish</a>
+            <span style="color: var(--accent); font-size: 11px; font-weight: bold;">11.12.2025</span>
+            <h4 class="article-title">ZAMONAVIY TEXNOLOGIYALAR VA INTERNETNING BUGUNGI KUNDAGI O'RNI</h4>
+            <a href="1000014534.jpg" target="_blank" class="btn"><i class="fas fa-eye"></i> Sertifikatni ko'rish</a>
             <img src="1000014534.jpg" class="cert-img" alt="Texnologiya sertifikati">
         </div>
     </div>
+
+    <script>
+        function toggleTheme() {
+            const b = document.body;
+            if(b.hasAttribute('data-theme')) {
+                b.removeAttribute('data-theme');
+            } else {
+                b.setAttribute('data-theme', 'dark');
+            }
+        }
+    </script>
 </body>
 </html>
+
