@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
@@ -7,58 +7,123 @@
     <title>Aziza Safarova | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'sans-serif'; }
-        body { background-color: #e3f2fd; display: flex; justify-content: center; padding: 15px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: #eef7ff; display: flex; justify-content: center; padding: 15px; }
         .container { width: 100%; max-width: 400px; display: flex; flex-direction: column; gap: 15px; }
 
-        /* Asosiy Kartochka */
+        /* Profil Kartochkasi */
         .profile-card {
             background: #fff;
             border-radius: 25px;
             padding: 30px 20px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         }
 
-        /* Pushti halqali avatar */
-        .avatar-container {
+        /* Siz so'ragan pushti halqali Avatar */
+        .avatar-ring {
             width: 130px;
             height: 130px;
             margin: 0 auto 15px;
             border-radius: 50%;
-            padding: 5px;
-            background: linear-gradient(45deg, #f06292, #ba68c8); /* Pushti-binafsha halqa */
+            padding: 4px; /* Halqa qalinligi */
+            background: linear-gradient(45deg, #f06292, #ba68c8); /* Pushti-binafsha gradient */
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .avatar-container img {
+        .avatar-ring img {
             width: 100%;
             height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid #fff;
+            border: 3px solid #fff; /* Rasm va halqa orasidagi oq chiziq */
         }
 
-        h1 { color: #333; font-size: 22px; margin-bottom: 5px; }
-        .uni-text { color: #777; font-size: 13px; margin-bottom: 20px; }
+        h1 { color: #333; font-size: 24px; margin-bottom: 5px; }
+        .subtitle { color: #888; font-size: 14px; margin-bottom: 20px; }
 
-        /* Ijtimoiy tarmoqlar (Dumaloq ikonka ranglari) */
-        .social-icons { display: flex; justify-content: center; gap: 10px; }
-        .icon { width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-size: 16px; }
-        .tg { background-color: #0088cc; }
-        .info-btn { background-color: #6200ea; }
-        .mail { background-color: #7e57c2; }
-        .git { background-color: #333; }
-        .inst { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%); }
+        /* Ijtimoiy tarmoqlar */
+        .social-row { display: flex; justify-content: center; gap: 12px; }
+        .s-icon { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-size: 18px; }
+        .bg-tg { background-color: #26a5e4; }
+        .bg-info { background-color: #6200ea; }
+        .bg-mail { background-color: #7c4dff; }
+        .bg-git { background-color: #333; }
+        .bg-inst { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%); }
 
-        /* Malumot bo'limi */
-        .details-card { background: #fff; border-radius: 20px; padding: 20px; }
-        .section-header { display: flex; align-items: center; gap: 10px; color: #4527a0; font-weight: bold; margin-bottom: 10px; }
-        .info-text { font-size: 14px; color: #555; margin-left: 28px; line-height: 1.6; }
+        /* Ma'lumot Bo'limi */
+        .info-section { background: #fff; border-radius: 20px; padding: 20px; text-align: left; }
+        .info-title { display: flex; align-items: center; gap: 10px; color: #4527a0; font-weight: 600; margin-bottom: 10px; }
+        .info-detail { font-size: 14px; color: #555; margin-left: 30px; line-height: 1.6; }
 
-        /* Maqola kartochkalari */
-        .article-card {
+        /* Maqola Kartochkalari */
+        .article-box {
             background: #fff;
-            border-radius: 20
+            border-radius: 22px;
+            padding: 25px;
+            border: 1px solid #f0f0f0;
+            text-align: left;
+            margin-bottom: 10px;
+        }
+        .article-tag { font-size: 11px; color: #9575cd; font-weight: bold; margin-bottom: 10px; display: block; letter-spacing: 0.5px; }
+        .article-name { font-size: 16px; color: #222; font-weight: 700; margin-bottom: 20px; line-height: 1.4; text-transform: uppercase; }
+        
+        .pdf-download {
+            background: linear-gradient(90deg, #7e57c2, #5c6bc0);
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 22px;
+            border-radius: 12px;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="profile-card">
+        <div class="avatar-ring">
+            <img src="Snapchat-720303948.jpg" alt="Aziza Safarova">
+        </div>
+        <h1>Aziza Safarova</h1>
+        <p class="subtitle">Qarshi davlat universiteti talabasi</p>
+        
+        <div class="social-row">
+            <a href="#" class="s-icon bg-tg"><i class="fab fa-telegram-plane"></i></a>
+            <a href="#" class="s-icon bg-info"><i class="fas fa-info"></i></a>
+            <a href="#" class="s-icon bg-mail"><i class="fas fa-envelope"></i></a>
+            <a href="#" class="s-icon bg-git"><i class="fab fa-github"></i></a>
+            <a href="#" class="s-icon bg-inst"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <div class="info-title"><i class="fas fa-graduation-cap"></i> Malumot</div>
+        <div class="info-title"><i class="fas fa-th-large"></i> Fako box</div>
+        <p class="info-detail">
+            Fakultet: Matematika va kompyuter ilmlari (ATT)<br>
+            Maqsad: IT mutaxassisi bo'lish
+        </p>
+    </div>
+
+    <div class="article-box">
+        <span class="article-tag">NASHR: 2025-12-14</span>
+        <h4 class="article-name">NANOTEXNOLOGIYALAR: ILMIY ASOSLARI, QO'LLANILISHI VA ZAMONAVIY MUAMMOLARI</h4>
+        <a href="Safarova Aziza Sirojiddin qizi (1).pdf" class="pdf-download">PDF o'qish <i class="fas fa-file-pdf"></i></a>
+    </div>
+
+    <div class="article-box">
+        <span class="article-tag">ILMIY MAQOLA</span>
+        <h4 class="article-name">ZAMONAVIY TEXNOLOGIYALAR VA INTERNETNING BUGUNGI KUNDAGI O'RNI</h4>
+        <a href="Safarova Aziza Sirojiddin qizi.pdf" class="pdf-download">PDF o'qish <i class="fas fa-file-pdf"></i></a>
+    </div>
+</div>
+
+</body>
+</html>
