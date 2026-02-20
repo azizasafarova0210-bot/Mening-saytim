@@ -3,72 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aziza Safarova Portfolio</title>
+    <title>Aziza Safarova | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --bg: #f4f7f6; --card: #ffffff; --text: #333; --accent: #6c5ce7; }
-        [data-theme="dark"] { --bg: #1a1a1a; --card: #2d2d2d; --text: #ffffff; }
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; transition: 0.3s; }
-        body { background-color: var(--bg); color: var(--text); display: flex; justify-content: center; padding: 20px; }
-        
-        .container { width: 100%; max-width: 400px; display: flex; flex-direction: column; gap: 20px; }
-        
+        :root {
+            --bg: #f8faff;
+            --card-bg: #ffffff;
+            --primary: #6c5ce7;
+            --text: #2d3436;
+            --grad: linear-gradient(135deg, #6c5ce7, #a29bfe);
+        }
+
+        [data-theme="dark"] {
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text: #f8fafc;
+            --primary: #a29bfe;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; transition: 0.3s ease; }
+        body { background-color: var(--bg); color: var(--text); display: flex; justify-content: center; padding: 20px; line-height: 1.6; }
+        .container { width: 100%; max-width: 450px; display: flex; flex-direction: column; gap: 20px; }
+
+        /* Animatsiyalar */
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .card { animation: slideUp 0.6s ease forwards; background: var(--card-bg); border-radius: 30px; padding: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+
         /* Mavzu tugmasi */
-        .theme-btn { position: fixed; top: 20px; right: 20px; background: var(--accent); color: white; border: none; width: 45px; height: 45px; border-radius: 50%; cursor: pointer; z-index: 1000; font-size: 20px; }
+        .theme-toggle { position: fixed; top: 20px; right: 20px; background: var(--grad); color: white; border: none; width: 45px; height: 45px; border-radius: 50%; cursor: pointer; z-index: 1000; box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4); }
 
-        .card { background: var(--card); border-radius: 25px; padding: 25px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); text-align: center; }
-        
-        /* Profil halqasi */
-        .avatar-ring { width: 130px; height: 130px; margin: 0 auto 15px; border-radius: 50%; padding: 4px; background: linear-gradient(45deg, #f06292, #ba68c8); display: flex; align-items: center; justify-content: center; }
-        .avatar-ring img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 3px solid var(--card); }
+        /* Profil */
+        .profile-header { text-align: center; }
+        .avatar-ring { 
+            width: 140px; height: 140px; margin: 0 auto 15px; border-radius: 50%; padding: 5px;
+            background: linear-gradient(45deg, #f06292, #ba68c8); display: flex; align-items: center; justify-content: center;
+        }
+        .avatar-ring img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 4px solid var(--card-bg); }
+        .social-icons { display: flex; justify-content: center; gap: 15px; margin-top: 15px; }
+        .social-icons a { width: 40px; height: 40px; border-radius: 50%; background: #edf2ff; color: #6c5ce7; display: flex; align-items: center; justify-content: center; text-decoration: none; }
 
-        .article-box { background: var(--card); border-radius: 20px; padding: 20px; text-align: left; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .article-title { font-size: 15px; font-weight: bold; margin-bottom: 15px; line-height: 1.4; }
-        
-        .btn { text-decoration: none; padding: 10px 15px; border-radius: 10px; font-size: 13px; display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; font-weight: 600; margin-bottom: 15px; }
-        
-        /* Sertifikat rasmi */
-        .cert-img { width: 100%; border-radius: 12px; border: 1px solid rgba(0,0,0,0.1); display: block; }
+        /* Bo'lim sarlavhalari */
+        .section-title { display: flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 700; margin-bottom: 15px; color: var(--primary); }
+
+        /* Galereya */
+        .gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .gallery-item { border-radius: 15px; overflow: hidden; height: 100px; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; cursor: pointer; }
+        .gallery-item img:hover { transform: scale(1.1); }
+
+        /* Ma'lumot va Ko'nikmalar */
+        .skill-item { margin-bottom: 10px; }
+        .progress-bar { width: 100%; height: 8px; background: #eee; border-radius: 10px; margin-top: 5px; overflow: hidden; }
+        .progress { height: 100%; background: var(--grad); border-radius: 10px; }
+
+        /* Sertifikatlar */
+        .article-card { border-radius: 20px; border: 1px solid rgba(0,0,0,0.05); padding: 15px; margin-top: 10px; }
+        .cert-img { width: 100%; border-radius: 15px; margin-top: 10px; cursor: pointer; box-shadow: 0 5px 10px rgba(0,0,0,0.1); }
+        .btn { display: inline-flex; align-items: center; gap: 8px; background: var(--grad); color: white; padding: 8px 15px; border-radius: 10px; text-decoration: none; font-size: 13px; font-weight: 600; margin-top: 10px; }
+
+        /* Qiziqishlar */
+        .interests { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag { background: #f0f3ff; color: #6c5ce7; padding: 5px 15px; border-radius: 20px; font-size: 13px; font-weight: 500; }
     </style>
 </head>
 <body>
-    <button class="theme-btn" onclick="toggleTheme()" id="tBtn">🌜</button>
 
-    <div class="container">
-        <div class="card">
-            <div class="avatar-ring">
-                <img src="Snapchat-720303948.jpg" alt="Aziza Safarova">
-            </div>
-            <h1>Aziza Safarova</h1>
-            <p style="color: #888; font-size: 14px; margin-top: 5px;">Qarshi davlat universiteti talabasi</p>
+<button class="theme-toggle" onclick="document.body.toggleAttribute('data-theme')">🌓</button>
+
+<div class="container">
+    <div class="card profile-header">
+        <div class="avatar-ring">
+            <img src="Snapchat-720303948.jpg" onerror="this.src='Snapchat-720303948.JPG'" alt="Aziza">
         </div>
-
-        <div class="article-box">
-            <span style="color: var(--accent); font-size: 11px; font-weight: bold;">14.12.2025</span>
-            <h4 class="article-title">NANOTEXNOLOGIYALAR: ILMIY ASOSLARI, QO'LLANILISHI VA ZAMONAVIY MUAMMOLARI</h4>
-            <a href="1000014535.jpg" target="_blank" class="btn"><i class="fas fa-eye"></i> Sertifikatni ko'rish</a>
-            <img src="1000014535.jpg" class="cert-img" alt="Nanotexnologiya sertifikati">
-        </div>
-
-        <div class="article-box">
-            <span style="color: var(--accent); font-size: 11px; font-weight: bold;">11.12.2025</span>
-            <h4 class="article-title">ZAMONAVIY TEXNOLOGIYALAR VA INTERNETNING BUGUNGI KUNDAGI O'RNI</h4>
-            <a href="1000014534.jpg" target="_blank" class="btn"><i class="fas fa-eye"></i> Sertifikatni ko'rish</a>
-            <img src="1000014534.jpg" class="cert-img" alt="Texnologiya sertifikati">
+        <h1>Aziza Safarova</h1>
+        <p style="opacity: 0.7;">Qarshi davlat universiteti talabasi</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-telegram-plane"></i></a>
+            <a href="#"><i class="fas fa-envelope"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
         </div>
     </div>
 
-    <script>
-        function toggleTheme() {
-            const b = document.body;
-            if(b.hasAttribute('data-theme')) {
-                b.removeAttribute('data-theme');
-            } else {
-                b.setAttribute('data-theme', 'dark');
-            }
-        }
-    </script>
+    <div class="card">
+        <div class="section-title"><i class="fas fa-user"></i> Men haqimda</div>
+        <p style="font-size: 14px; margin-bottom: 15px;">Fakultet: Matematika va kompyuter ilmlari (ATT). Maqsadim - tajribali IT mutaxassisi bo'lib yetishish.</p>
+        
+        <div class="skill-item">
+            <div style="display: flex; justify-content: space-between; font-size: 13px;"><span>HTML/CSS</span><span>85%</span></div>
+            <div class="progress-bar"><div class="progress" style="width: 85%;"></div></div>
+        </div>
+        <div class="skill-item">
+            <div style="display: flex; justify-content: space-between; font-size: 13px;"><span>Dizayn</span><span>75%</span></div>
+            <div class="progress-bar"><div class="progress" style="width: 75%;"></div></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="section-title"><i class="fas fa-images"></i> Mening galereyam</div>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="Snapchat-720303948.jpg" alt="Rasm 1"></div>
+            <div class="gallery-item"><img src="1000014535.jpg" alt="Rasm 2"></div>
+            <div class="gallery-item"><img src="1000014534.jpg" alt="Rasm 3"></div>
+            <div class="gallery-item"><img src="Snapchat-720303948.jpg" alt="Rasm 4"></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="section-title"><i class="fas fa-heart"></i> Qiziqishlarim</div>
+        <div class="interests">
+            <span class="tag">Dasturlash</span>
+            <span class="tag">Grafik Dizayn</span>
+            <span class="tag">Kitob mutolaasi</span>
+            <span class="tag">Ilmiy maqolalar</span>
+            <span class="tag">Sayohat qilish</span>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="section-title"><i class="fas fa-award"></i> Sertifikatlar</div>
+        
+        <div class="article-card">
+            <h4 style="font-size: 14px;">NANOTEXNOLOGIYALAR: ILMIY ASOSLARI...</h4>
+            <img src="1000014535.jpg" onerror="this.src='1000014535.JPG'" class="cert-img">
+            <a href="1000014535.jpg" target="_blank" class="btn">PDF O'qish <i class="fas fa-external-link-alt"></i></a>
+        </div>
+
+        <div class="article-card">
+            <h4 style="font-size: 14px;">ZAMONAVIY TEXNOLOGIYALAR VA INTERNET...</h4>
+            <img src="1000014534.jpg" onerror="this.src='1000014534.JPG'" class="cert-img">
+            <a href="1000014534.jpg" target="_blank" class="btn">PDF O'qish <i class="fas fa-external-link-alt"></i></a>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
-
