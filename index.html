@@ -5,112 +5,235 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Safarova Aziza | Portfolio</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-gradient: linear-gradient(180deg, #fff5f7 0%, #ffe4ec 100%);
-            --accent-pink: #ff4d8d;
-            --soft-pink: #ff85b2;
-            --card-shadow: 0 10px 30px rgba(255, 77, 141, 0.1);
-            --text-main: #4a152c;
+            --main-pink: #ff6491;
+            --soft-pink: #ffdae5;
+            --light-bg: #fff9fb;
+            --text-color: #3d1a28;
+            --glass: rgba(255, 255, 255, 0.9);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background: var(--bg-gradient);
+            background: linear-gradient(180deg, #fff0f3 0%, #ffe4ec 100%);
             background-attachment: fixed;
-            color: var(--text-main);
+            color: var(--text-color);
             display: flex;
             justify-content: center;
             padding: 20px 15px;
         }
 
-        .container { width: 100%; max-width: 450px; }
+        .container { width: 100%; max-width: 420px; }
 
         /* HEADER */
-        .header-card {
-            background: white;
+        .profile-header {
+            background: var(--glass);
             border-radius: 40px;
-            padding: 35px 25px;
+            padding: 40px 20px;
             text-align: center;
-            box-shadow: var(--card-shadow);
+            box-shadow: 0 20px 40px rgba(255, 100, 145, 0.1);
             margin-bottom: 25px;
+            border: 1px solid #fff;
         }
 
-        .main-title {
-            font-size: 42px;
-            font-weight: 800;
-            color: var(--accent-pink);
+        .name-logo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 48px;
+            color: var(--main-pink);
             margin-bottom: 15px;
-            font-style: italic;
         }
 
-        .profile-img {
-            width: 140px; height: 140px;
+        .img-container {
+            width: 150px; height: 150px;
+            margin: 0 auto 20px;
+            position: relative;
+        }
+
+        .img-container img {
+            width: 100%; height: 100%;
             border-radius: 50%;
-            border: 5px solid #fff;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
             object-fit: cover;
-            margin-bottom: 20px;
+            border: 6px solid #fff;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
         }
 
-        h2 { font-size: 24px; font-weight: 800; margin-bottom: 5px; }
-        .subtitle { color: var(--soft-pink); font-weight: 700; font-size: 14px; margin-bottom: 20px; display: block; }
+        h2 { font-size: 22px; font-weight: 800; margin-bottom: 5px; letter-spacing: -0.5px; }
+        .role { color: var(--main-pink); font-weight: 700; font-size: 14px; margin-bottom: 25px; display: block; }
 
-        .info-row {
-            display: flex; align-items: center; gap: 15px;
-            background: #fffafa; padding: 12px 20px;
-            border-radius: 20px; margin-bottom: 10px;
-            font-size: 13px; text-align: left;
-            border: 1px solid #ffeef2;
+        .info-pill {
+            background: #fff;
+            padding: 12px 20px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 13px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            text-align: left;
         }
-        .info-row i { color: var(--accent-pink); font-size: 16px; }
+        .info-pill i { color: var(--main-pink); font-size: 16px; }
 
-        /* SECTIONS */
-        .section-title {
-            font-size: 18px; font-weight: 800; text-transform: uppercase;
-            text-align: center; margin-bottom: 20px; letter-spacing: 1px;
-            color: var(--text-main);
+        /* SECTION STYLE */
+        .content-card {
+            background: var(--glass);
+            border-radius: 35px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 15px 30px rgba(255, 100, 145, 0.08);
+            border: 1px solid #fff;
         }
 
-        .card-box {
-            background: white; border-radius: 35px;
-            padding: 25px; margin-bottom: 25px;
-            box-shadow: var(--card-shadow);
+        h3 {
+            font-size: 16px; font-weight: 800; text-transform: uppercase;
+            text-align: center; margin-bottom: 20px; color: var(--main-pink);
+            letter-spacing: 1px;
         }
 
         /* SKILLS */
-        .skill-item { margin-bottom: 20px; }
-        .skill-head { display: flex; justify-content: space-between; font-weight: 700; font-size: 13px; margin-bottom: 8px; }
-        .skill-bar { height: 10px; background: #fff0f5; border-radius: 20px; overflow: hidden; }
-        .skill-fill { height: 100%; background: linear-gradient(90deg, var(--soft-pink), var(--accent-pink)); border-radius: 20px; }
+        .skill-box { margin-bottom: 15px; }
+        .skill-text { display: flex; justify-content: space-between; font-weight: 700; font-size: 12px; margin-bottom: 8px; }
+        .skill-line { height: 10px; background: #fff0f3; border-radius: 10px; overflow: hidden; }
+        .skill-progress { height: 100%; background: linear-gradient(90deg, #ff85a1, var(--main-pink)); border-radius: 10px; }
 
-        /* GRID (Gallery & Interests) */
+        /* GRID LAYOUT */
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
         .grid-card {
             background: #fff; border-radius: 25px; overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-            transition: 0.3s;
+            border: 1px solid #fff0f3; transition: 0.3s;
         }
-        .grid-card img { width: 100%; height: 120px; object-fit: cover; }
-        .grid-card p { padding: 10px; font-size: 12px; font-weight: 700; text-align: center; }
+        .grid-card:hover { transform: translateY(-5px); }
+        .grid-card img { width: 100%; height: 110px; object-fit: cover; }
+        .grid-card p { padding: 10px; font-size: 11px; font-weight: 700; text-align: center; }
 
-        /* ARTICLES */
-        .article-box {
-            background: #fff9fb; border: 1px solid #ffeef2;
-            border-radius: 25px; padding: 15px; margin-bottom: 15px;
+        /* CERTIFICATES / ARTICLES */
+        .article-card {
+            background: #fff; border-radius: 25px; padding: 15px;
+            margin-bottom: 15px; border: 1px solid #fff0f3;
         }
-        .article-box h4 { font-size: 12px; margin-bottom: 10px; line-height: 1.4; }
-        .cert-img { width: 100%; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .article-card h4 { font-size: 12px; margin-bottom: 8px; line-height: 1.5; color: var(--text-color); }
+        .date-text { font-size: 10px; color: var(--main-pink); font-weight: 700; margin-bottom: 10px; display: block; }
+        .cert-img { width: 100%; border-radius: 18px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); }
 
-        /* CONTACT */
-        .social-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .social-link {
-            text-decoration: none; background: white; padding: 15px;
-            border-radius: 20px; text-align: center; display: flex;
+        /* CONTACTS */
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .contact-btn {
+            text-decoration: none; background: #fff; padding: 18px;
+            border-radius: 22px; text-align: center; display: flex;
             flex-direction: column; align-items: center; gap: 8px;
+            border: 1px solid #fff0f3; transition: 0.3s;
+        }
+        .contact-btn i { font-size: 22px; color: var(--main-pink); }
+        .contact-btn span { font-size: 11px; font-weight: 700; color: var(--text-color); }
+        .contact-btn:hover { background: var(--main-pink); }
+        .contact-btn:hover i, .contact-btn:hover span { color: #fff; }
+
+        .email-btn {
+            margin-top: 12px; width: 100%; text-decoration: none;
+            background: #fff; padding: 15px; border-radius: 20px;
+            display: flex; justify-content: center; align-items: center;
+            gap: 10px; border: 1px solid #fff0f3; color: var(--text-color);
+            font-size: 12px; font-weight: 700;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <header class="profile-header">
+            <div class="name-logo">Aziza</div>
+            <div class="img-container">
+                <img src="Snapchat-720303948.jpg" alt="Safarova Aziza">
+            </div>
+            <h2>Safarova Aziza</h2>
+            <span class="role">IT Mutaxassis & Talaba</span>
+            
+            <div class="info-pill">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Qarshi shahri, O'zbekiston</span>
+            </div>
+            <div class="info-pill">
+                <i class="fas fa-university"></i>
+                <span>Qarshi Davlat Universiteti</span>
+            </div>
+            <div class="info-pill">
+                <i class="fas fa-heart"></i>
+                <span>Yetuk IT mutaxassisi bo'lish asosiy maqsadim</span>
+            </div>
+        </header>
+
+        <section class="content-card">
+            <h3>Ko'nikmalarim</h3>
+            <div class="skill-box">
+                <div class="skill-text"><span>Web Development</span><span>50%</span></div>
+                <div class="skill-line"><div class="skill-progress" style="width: 50%;"></div></div>
+            </div>
+            <div class="skill-box">
+                <div class="skill-text"><span>Graphic Design</span><span>45%</span></div>
+                <div class="skill-line"><div class="skill-progress" style="width: 45%;"></div></div>
+            </div>
+            <div class="skill-box">
+                <div class="skill-text"><span>Python & C++</span><span>55%</span></div>
+                <div class="skill-line"><div class="skill-progress" style="width: 55%;"></div></div>
+            </div>
+        </section>
+
+        <section class="content-card">
+            <h3>Mening Galereyam</h3>
+            <div class="grid">
+                <div class="grid-card"><img src="1771608245289.png" alt="1"><p>Dasturlash</p></div>
+                <div class="grid-card"><img src="1771608326175.png" alt="2"><p>Tabiat</p></div>
+                <div class="grid-card"><img src="1771608339990.png" alt="3"><p>Kitobxonlik</p></div>
+                <div class="grid-card"><img src="1771649210473.png" alt="4"><p>Ijod</p></div>
+            </div>
+        </section>
+
+        <section class="content-card">
+            <h3>Qiziqishlarim</h3>
+            <div class="grid">
+                <div class="grid-card"><img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=300" alt="Car"><p>Mashinalar</p></div>
+                <div class="grid-card"><img src="https://images.unsplash.com/photo-1562690868-60bbe7293e94?w=300" alt="Rose"><p>Atirgullar</p></div>
+                <div class="grid-card"><img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=300" alt="Book"><p>Kitoblar</p></div>
+                <div class="grid-card"><img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=300" alt="Travel"><p>Sayohatlar</p></div>
+            </div>
+        </section>
+
+        <section class="content-card">
+            <h3>Ilmiy Maqolalarim</h3>
+            <div class="article-card">
+                <h4>ZAMONAVIY TEXNOLOGIYALAR VA INTERNETNING BUGUNGI KUNDAGI O'RNI</h4>
+                <span class="date-text">🗓 11.12.2025</span>
+                <img src="IMG_20260220_210833_611.jpg" class="cert-img" alt="Cert">
+            </div>
+            <div class="article-card">
+                <h4>NANOTEXNOLOGIYALAR: ILMIY ASOSLARI VA ZAMONAVIY MUAMMOLARI</h4>
+                <span class="date-text">🗓 14.12.2025</span>
+                <img src="IMG_20260220_210942_028.jpg" class="cert-img" alt="Cert">
+            </div>
+        </section>
+
+        <section class="content-card">
+            <h3>Bog'lanish</h3>
+            <div class="contact-grid">
+                <a href="#" class="contact-btn"><i class="fab fa-telegram"></i><span>Telegram</span></a>
+                <a href="#" class="contact-btn"><i class="fab fa-instagram"></i><span>Instagram</span></a>
+            </div>
+            <a href="mailto:azizasafarova0210@gmail.com" class="email-btn">
+                <i class="fas fa-envelope"></i>
+                <span>azizasafarova0210@gmail.com</span>
+            </a>
+        </section>
+
+    </div>
+
+</body>
+</html>
             border: 1px solid #ffeef2; transition: 0.3s;
         }
         .social-link i { font-size: 24px; color: var(--accent-pink); }
