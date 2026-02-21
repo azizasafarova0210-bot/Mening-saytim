@@ -3,95 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mening Mobil Saytim</title>
+    <title>Safarova Aziza| Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* CSS: Dizayn qismi */
+        :root {
+            --bg-color: #d1e9ff;
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --text-color: #2c3e50;
+            --accent-color: #5d5fef;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--bg-color);
             margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            background-color: #f4f4f9;
-            color: #333;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        header {
-            background: #2c3e50;
-            color: #fff;
-            padding: 1rem;
+        .section {
+            background: var(--card-bg);
+            width: 100%;
+            max-width: 400px;
+            border-radius: 40px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             text-align: center;
-            position: sticky;
-            top: 0;
+            box-sizing: border-box;
         }
 
-        .container {
-            padding: 20px;
-            max-width: 800px;
-            margin: auto;
+        /* Profil Qismi */
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        .card {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-        }
+        h2 { color: var(--text-color); margin: 15px 0 5px; }
+        .subtitle { color: var(--accent-color); font-weight: bold; margin-bottom: 20px; display: block; }
 
-        button {
-            background: #3498db;
-            color: white;
-            border: none;
-            padding: 10px 20px;
+        .info-list { text-align: left; font-size: 14px; }
+        .info-item { margin-bottom: 12px; display: flex; align-items: flex-start; }
+        .info-item i { margin-right: 10px; color: #e67e22; width: 20px; text-align: center; }
+
+        /* Bilimlar darajasi */
+        .skill-bar {
+            background: #eee;
+            height: 10px;
             border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
+            margin: 10px 0 20px;
+            overflow: hidden;
+        }
+        .progress {
+            background: var(--accent-color);
+            height: 100%;
+            border-radius: 5px;
         }
 
-        button:active {
-            transform: scale(0.98);
+        /* Galereya (Mening Dunyoim) */
+        .gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
         }
+        .gallery-item {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .gallery-item img { width: 100%; height: 120px; object-fit: cover; }
+        .gallery-item p { font-size: 12px; padding: 5px; margin: 0; font-weight: bold; }
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            font-size: 0.8rem;
-            color: #777;
+        /* Aloqa tugmalari */
+        .social-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 15px;
         }
+        .social-box {
+            background: white;
+            padding: 15px;
+            border-radius: 20px;
+            width: 40%;
+            text-decoration: none;
+            color: var(--text-color);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .social-box i { font-size: 30px; margin-bottom: 5px; }
+        .fa-telegram { color: #0088cc; }
+        .fa-instagram { color: #e1306c; }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Mening Saytim</h1>
-    </header>
-
-    <div class="container">
-        <div class="card">
-            <h2>Xush kelibsiz!</h2>
-            <p>Ushbu sayt to'liq telefonda yaratildi. U barcha ekranlarga moslashadi.</p>
-            <button onclick="salomBer()">Tugmani bosing</button>
-        </div>
-        
-        <div class="card">
-            <h2>Nega bu kod yaxshi?</h2>
-            <ul>
-                <li><strong>Responsive:</strong> Har qanday telefonda chiroyli chiqadi.</li>
-                <li><strong>Tezkor:</strong> Ortiqcha kutubxonalarsiz ishlaydi.</li>
-                <li><strong>Toza:</strong> O'qishga oson struktura.</li>
-            </ul>
+    <div class="section">
+        <img src="PROFIL_RASMI_LINKI" alt="Aziza" class="profile-img">
+        <h2>Safarova Aziza Sirojiddinovna</h2>
+        <span class="subtitle">IT Talaba </span>
+        <hr style="opacity: 0.2;">
+        <div class="info-list">
+            <div class="info-item"><i class="fas fa-map-marker-alt"></i> <span><strong>Manzil:</strong> Qashqadaryo viloyati, Qarshi shahri</span></div>
+            <div class="info-item"><i class="fas fa-graduation-cap"></i> <span><strong>O'qish joyi:</strong> Qarshi Davlat Universiteti</span></div>
+            <div class="info-item"><i class="fas fa-book"></i> <span><strong>Yo'nalish:</strong> Axborot tizimlari va texnologiyalari</span></div>
+            <div class="info-item"><i class="fas fa-briefcase"></i> <span><strong>Maqsad:</strong> Yetuk IT mutaxassisisi boʻlish</span></div>
         </div>
     </div>
 
-    <footer>
-        &copy; 2026 Barcha huquqlar himoyalangan.
-    </footer>
+    <div class="section">
+        <h3>BILIMLAR DARAJASI</h3>
+        <div style="text-align: left; font-size: 14px;">
+            <div>HTML / CSS / JS <span style="float:right">45%</span></div>
+            <div class="skill-bar"><div class="progress" style="width: 45%;"></div></div>
+            
+            <div>Python / C++ <span style="float:right">55%</span></div>
+            <div class="skill-bar"><div class="progress" style="width: 55%;"></div></div>
+        </div>
+    </div>
 
-    <script>
-        // JS: Interaktivlik
-        function salomBer() {
-            alert("Salom! Kod muvaffaqiyatli ishlamoqda!");
-        }
-    </script>
+    <div class="section">
+        <h3>MENING DUNYOIM</h3>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="rasm1.jpg" alt="Dengiz">
+                <p>✨ Maxsus lahzalar</p>
+            </div>
+            <div class="gallery-item">
+                <img src="rasm2.jpg" alt="Gullar">
+                <p>🌟 Ijodiy yondashuv</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>ALOQA VA TARMOQLAR</h3>
+        <div class="social-container">
+            <a href="#" class="social-box">
+                <i class="fab fa-telegram"></i>
+                <div>Telegram</div>
+            </a>
+            <a href="#" class="social-box">
+                <i class="fab fa-instagram"></i>
+                <div>Instagram</div>
+            </a>
+        </div>
+    </div>
+
 </body>
 </html>
