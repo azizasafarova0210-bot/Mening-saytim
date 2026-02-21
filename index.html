@@ -9,7 +9,6 @@
         :root {
             --bg-color: #f0f7ff;
             --card-bg: #ffffff;
-            --text-color: #1a2a3a;
             --accent-color: #5d5fef;
             --shadow: 0 8px 25px rgba(0,0,0,0.07);
         }
@@ -19,12 +18,10 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes progressLoad {
-            from { width: 0; }
-        }
+        @keyframes progressLoad { from { width: 0; } }
 
         body {
-            font-family: 'Segoe UI', Tahoma, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
             background-color: var(--bg-color);
             margin: 0;
             padding: 15px;
@@ -42,8 +39,8 @@
             margin-bottom: 20px;
             box-shadow: var(--shadow);
             text-align: center;
-            box-sizing: border-box;
             animation: fadeIn 0.8s ease-out;
+            box-sizing: border-box;
         }
 
         .profile-img {
@@ -55,15 +52,18 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        h2 { font-size: 19px; margin: 15px 0 5px; color: #2c3e50; }
+        h2 { font-size: 19px; margin: 15px 0 5px; color: #1a2a3a; }
         .subtitle { color: var(--accent-color); font-weight: 600; font-size: 14px; display: block; margin-bottom: 20px; }
 
         /* Bilim darajasi */
-        .skill-container { text-align: left; margin-bottom: 15px; }
-        .skill-label { display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; margin-bottom: 5px; }
-        .skill-bar { background: #f0f0f0; height: 10px; border-radius: 10px; overflow: hidden; }
+        .skill-container { text-align: left; margin-bottom: 18px; }
+        .skill-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+        .skill-name { font-size: 13px; font-weight: 700; color: #2c3e50; display: flex; align-items: center; gap: 8px; }
+        .skill-perc { font-size: 12px; font-weight: 800; color: var(--accent-color); }
+        .skill-desc { font-size: 11px; color: #7f8c8d; margin-bottom: 6px; display: block; padding-left: 28px; }
+        .skill-bar { background: #eee; height: 10px; border-radius: 10px; overflow: hidden; }
         .progress { 
-            background: linear-gradient(90deg, #5d5fef, #a5a6ff); 
+            background: linear-gradient(90deg, #5d5fef, #8a8cf8); 
             height: 100%; 
             border-radius: 10px; 
             animation: progressLoad 1.5s ease-in-out;
@@ -72,54 +72,129 @@
         /* Maqolalar */
         .article-card {
             text-align: left;
-            background: #f9f9ff;
+            background: #fcfcff;
             padding: 15px;
             border-radius: 20px;
             margin-bottom: 15px;
             border-left: 5px solid #27ae60;
         }
-        .cert-img { width: 100%; border-radius: 10px; margin-top: 10px; border: 1px solid #eee; }
+        .article-card h4 { margin: 0; font-size: 12px; color: #2c3e50; line-height: 1.4; text-transform: uppercase; }
+        .article-meta { font-size: 10px; color: #95a5a6; margin: 5px 0 10px; display: block; }
+        .cert-img { width: 100%; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
 
         /* Galereya */
-        .gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; }
+        .gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
         .gallery-card { background: #fff; border-radius: 20px; overflow: hidden; border: 1px solid #f0f0f0; transition: 0.3s; }
-        .gallery-card:hover { transform: scale(1.03); }
-        .gallery-card img { width: 100%; height: 100px; object-fit: cover; }
-        .gallery-card p { font-size: 11px; padding: 8px 0; margin: 0; font-weight: 600; }
+        .gallery-card img { width: 100%; height: 150px; object-fit: cover; }
+        .gallery-card p { font-size: 11px; padding: 10px 0; margin: 0; font-weight: 700; color: #333; }
 
         /* Aloqa */
-        .social-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
-        .social-btn { background: #f8f9fa; padding: 12px 5px; border-radius: 15px; text-decoration: none; color: #333; font-size: 11px; display: flex; flex-direction: column; align-items: center; }
-        .social-btn i { font-size: 20px; margin-bottom: 5px; }
+        .social-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .social-item { 
+            background: #f8f9fa; 
+            padding: 15px 5px; 
+            border-radius: 20px; 
+            text-decoration: none; 
+            color: #333; 
+            font-size: 12px; 
+            font-weight: 700;
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            gap: 10px;
+        }
+        .social-item i { font-size: 20px; }
 
-        h3 { font-size: 16px; margin-bottom: 15px; color: #34495e; text-transform: uppercase; letter-spacing: 1px; border-bottom: 2px solid #f0f0f0; padding-bottom: 5px; }
+        h3 { font-size: 16px; margin-bottom: 20px; color: #2c3e50; text-transform: uppercase; letter-spacing: 1px; border-bottom: 2px solid #f0f7ff; padding-bottom: 8px; }
     </style>
 </head>
 <body>
 
     <div class="section">
-        <img src="Snapchat-720303948.jpg" alt="Aziza" class="profile-img">
+        <img src="1000014542.jpg" alt="Aziza" class="profile-img">
         <h2>Safarova Aziza Sirojiddin qizi</h2>
-        <span class="subtitle">IT Talaba & Tadqiqotchi</span>
-        <div style="text-align: left; font-size: 13px;">
-            <p><i class="fas fa-map-marker-alt" style="color:#e74c3c"></i> Qarshi shahri</p>
-            <p><i class="fas fa-graduation-cap" style="color:#f39c12"></i> Qarshi Davlat Universiteti</p>
+        <span class="subtitle">IT Talaba </span>
+        
+        <div style="text-align: left; font-size: 13px; color: #444;">
+            <p><i class="fas fa-map-marker-alt" style="color:#e74c3c"></i> <strong>Manzil:</strong> Qarshi shahri</p>
+            <p><i class="fas fa-graduation-cap" style="color:#f39c12"></i> <strong>O'qish:</strong> Qarshi Davlat Universiteti</p>
+            <p><i class="fas fa-briefcase" style="color:#8e44ad"></i> <strong>Maqsad:</strong> Senior Full-stack dasturchi bo'lish</p>
         </div>
     </div>
 
     <div class="section">
         <h3>Bilimlar Darajasi</h3>
         <div class="skill-container">
-            <div class="skill-label"><span>HTML / CSS / JS</span> <span>95%</span></div>
+            <div class="skill-header"><span class="skill-name">💻 HTML / CSS / JS</span><span class="skill-perc">95%</span></div>
+            <span class="skill-desc">Zamonaviy interfeyslar yaratish</span>
             <div class="skill-bar"><div class="progress" style="width: 95%;"></div></div>
         </div>
         <div class="skill-container">
-            <div class="skill-label"><span>Web Design</span> <span>75%</span></div>
+            <div class="skill-header"><span class="skill-name">🎨 Web Design</span><span class="skill-perc">75%</span></div>
+            <span class="skill-desc">Kreativ va qulay dizaynlar</span>
             <div class="skill-bar"><div class="progress" style="width: 75%;"></div></div>
         </div>
         <div class="skill-container">
-            <div class="skill-label"><span>Python / C++</span> <span>85%</span></div>
+            <div class="skill-header"><span class="skill-name">⚙️ Python / C++</span><span class="skill-perc">85%</span></div>
+            <span class="skill-desc">Algoritmik bilimlar</span>
             <div class="skill-bar"><div class="progress" style="width: 85%;"></div></div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Mening Maqolalarim</h3>
+        <div class="article-card">
+            <h4>ZAMONAVIY TEXNOLOGIYALAR VA INTERNETNING BUGUNGI KUNDAGI O'RNI</h4>
+            <span class="article-meta"><i class="far fa-calendar-alt"></i> Nashr sanasi: 2025-12-11</span>
+            <img src="IMG_20260220_210833_611.jpg" class="cert-img" alt="Sertifikat 1">
+        </div>
+        <div class="article-card">
+            <h4>NANOTEXNOLOGIYALAR: ILMIY ASOSLARI VA ZAMONAVIY MUAMMOLARI</h4>
+            <span class="article-meta"><i class="far fa-calendar-alt"></i> Nashr sanasi: 2025-12-14</span>
+            <img src="IMG_20260220_210942_028.jpg" class="cert-img" alt="Sertifikat 2">
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Mening Galereyam</h3>
+        <div class="gallery-grid">
+            <div class="gallery-card">
+                <img src="1000014545.png" alt="Dasturlash">
+                <p>💻 Dasturlash jarayoni</p>
+            </div>
+            <div class="gallery-card">
+                <img src="1000014547.png" alt="Kutubxona">
+                <p>📚 Kitob mutolaasi</p>
+            </div>
+            <div class="gallery-card">
+                <img src="1000014546.png" alt="Tabiat">
+                <p>🌸 Tabiat qo'ynida</p>
+            </div>
+            <div class="gallery-card">
+                <img src="1000014538.png" alt="Manzara">
+                <p>🏞 Go'zal manzara</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Aloqa</h3>
+        <div class="social-grid">
+            <a href="#" class="social-item"><i class="fab fa-telegram" style="color: #0088cc;"></i><span>Telegram</span></a>
+            <a href="#" class="social-item"><i class="fab fa-instagram" style="color: #e1306c;"></i><span>Instagram</span></a>
+        </div>
+    </div>
+
+</body>
+</html>
+        </div>
+        <div class="skill-container">
+            <div class="skill-label"><span>Web Design</span> <span>45%</span></div>
+            <div class="skill-bar"><div class="progress" style="width: 45%;"></div></div>
+        </div>
+        <div class="skill-container">
+            <div class="skill-label"><span>Python / C++</span> <span>55%</span></div>
+            <div class="skill-bar"><div class="progress" style="width: 55%;"></div></div>
         </div>
     </div>
 
@@ -147,25 +222,7 @@
         </div>
     </div>
 
-    <div class="section">
-        <h3>Bog'lanish</h3>
-        <div class="social-row">
-            <a href="#" class="social-btn"><i class="fab fa-telegram" style="color: #0088cc;"></i><span>Telegram</span></a>
-            <a href="#" class="social-btn"><i class="fab fa-instagram" style="color: #e1306c;"></i><span>Instagram</span></a>
-            <a href="mailto: azizasafarova0210@gmail.com" class="social-btn"><i class="fas fa-envelope" style="color: #ea4335;"></i><span>E-mail</span></a>
-        </div>
-    </div>
-
-</body>
-</html>
-            <h4>Nanotexnologiyalar: ilmiy asoslari, qo'llanilishi va zamonaviy muammolari</h4>
-            <p style="font-size: 12px; margin: 0; color: #555;">"Modern education and development" xalqaro jurnali.</p>
-            <img src="IMG_20260220_210942_028.jpg" alt="Sertifikat 2" class="cert-preview">
-        </div>
-    </div>
-
-    <div class="section">
-        <h3>Mening Galereyam</h3>
+        <h3>Qiziqishlarim </h3>
         <div class="gallery-grid">
             <div class="gallery-card"><img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=300" alt="BMW"><p>🏎 BMW</p></div>
             <div class="gallery-card"><img src="https://images.unsplash.com/photo-1562690868-60bbe7293e94?w=300" alt="Atirgul"><p>🌹 Atirgullar</p></div>
