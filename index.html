@@ -7,103 +7,181 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #f0f4f8;
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --bg-color: #f8f9fd;
             --card-bg: #ffffff;
-            --accent: #5d5fef;
-            --text: #2c3e50;
+            --accent-color: #5d5fef;
+            --text-color: #2d3436;
         }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes loadProgress { from { width: 0; } }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
         body {
-            font-family: 'Segoe UI', sans-serif;
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
             background-color: var(--bg-color);
             margin: 0;
-            padding: 20px 10px;
+            padding: 20px 15px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            color: var(--text);
+            color: var(--text-color);
         }
 
         .section {
             background: var(--card-bg);
             width: 100%;
             max-width: 420px;
-            border-radius: 25px;
+            border-radius: 30px;
             padding: 25px;
-            margin-bottom: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            animation: fadeIn 0.6s ease-out;
+            margin-bottom: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            animation: fadeInUp 0.7s ease-out;
             box-sizing: border-box;
+            border: 1px solid rgba(0,0,0,0.02);
         }
 
-        h3 { font-size: 16px; text-transform: uppercase; text-align: center; border-bottom: 2px solid #f0f0f0; padding-bottom: 8px; margin-bottom: 20px; letter-spacing: 1px; }
+        h3 { 
+            font-size: 17px; 
+            text-transform: uppercase; 
+            text-align: center; 
+            color: var(--accent-color);
+            margin-bottom: 20px; 
+            letter-spacing: 1.5px;
+            position: relative;
+        }
+
+        h3::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-gradient);
+            margin: 8px auto;
+            border-radius: 2px;
+        }
 
         /* 1. GLAVNIY */
-        .profile-img { width: 130px; height: 130px; border-radius: 50%; object-fit: cover; border: 4px solid #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin: 0 auto 15px; display: block; }
+        .profile-img { 
+            width: 140px; 
+            height: 140px; 
+            border-radius: 50%; 
+            object-fit: cover; 
+            border: 5px solid #fff; 
+            box-shadow: 0 10px 25px rgba(93, 95, 239, 0.2); 
+            margin: 0 auto 15px; 
+            display: block; 
+        }
         .profile-info { text-align: center; }
-        .profile-info h2 { margin: 10px 0 5px; font-size: 20px; }
-        .subtitle { color: var(--accent); font-weight: 700; font-size: 14px; margin-bottom: 15px; display: block; }
-        .details { text-align: left; font-size: 13px; }
-        .details p { margin: 8px 0; display: flex; align-items: center; gap: 10px; }
+        .profile-info h2 { margin: 10px 0 5px; font-size: 22px; color: #2d3436; }
+        .subtitle { 
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800; 
+            font-size: 15px; 
+            margin-bottom: 20px; 
+            display: block; 
+        }
+        .details p { margin: 10px 0; font-size: 14px; display: flex; align-items: center; gap: 12px; color: #636e72; text-align: left;}
 
         /* 2. KO'NIKMALAR */
-        .skill-bar { background: #eee; height: 10px; border-radius: 5px; overflow: hidden; margin-top: 5px; }
-        .progress { height: 100%; background: linear-gradient(90deg, #5d5fef, #8e90ff); animation: loadProgress 1.5s ease-in-out; }
-        .skill-label { display: flex; justify-content: space-between; font-size: 12px; font-weight: bold; margin-top: 10px; }
+        .skill-item { margin-bottom: 15px; }
+        .skill-label { display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+        .skill-bar { background: #edf2f7; height: 12px; border-radius: 10px; overflow: hidden; }
+        .progress { 
+            height: 100%; 
+            background: var(--primary-gradient); 
+            border-radius: 10px; 
+            transition: width 1.5s ease-in-out;
+        }
 
-        /* 3 & 4. GALEREYA VA QIZIQISHLAR */
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        .grid-item { background: #fff; border-radius: 15px; overflow: hidden; border: 1px solid #eee; text-align: center; }
-        .grid-item img { width: 100%; height: 110px; object-fit: cover; }
-        .grid-item p { font-size: 11px; font-weight: bold; padding: 8px 0; margin: 0; }
+        /* 3 & 4. GRIDS */
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .grid-item { 
+            background: #fff; 
+            border-radius: 20px; 
+            overflow: hidden; 
+            border: 1px solid #f1f2f6;
+            transition: transform 0.3s ease;
+        }
+        .grid-item:hover { transform: translateY(-5px); }
+        .grid-item img { width: 100%; height: 120px; object-fit: cover; }
+        .grid-item p { font-size: 12px; font-weight: 700; padding: 10px 0; margin: 0; text-align: center; color: #2d3436; }
 
         /* 5. MAQOLALAR */
-        .article { background: #fafaff; border-radius: 15px; padding: 15px; margin-bottom: 15px; border-left: 5px solid #27ae60; text-align: left; }
-        .article h4 { font-size: 12px; margin: 0 0 5px; line-height: 1.4; }
-        .article span { font-size: 10px; color: #888; }
-        .cert { width: 100%; border-radius: 10px; margin-top: 10px; }
+        .article { 
+            background: #f8f9fa; 
+            border-radius: 20px; 
+            padding: 18px; 
+            margin-bottom: 15px; 
+            border-left: 6px solid #00b894; 
+        }
+        .article h4 { font-size: 13px; margin: 0 0 8px; line-height: 1.5; color: #2d3436; }
+        .article span { font-size: 11px; color: #b2bec3; font-weight: 600; }
+        .cert { width: 100%; border-radius: 12px; margin-top: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
 
         /* 6. BOG'LANISH */
-        .social { display: flex; justify-content: space-around; }
-        .social a { text-decoration: none; color: #333; font-size: 13px; font-weight: bold; display: flex; flex-direction: column; align-items: center; gap: 5px; }
+        .social { display: flex; justify-content: space-between; gap: 10px; }
+        .social a { 
+            flex: 1;
+            text-decoration: none; 
+            padding: 15px 5px;
+            border-radius: 18px;
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #2d3436;
+            transition: 0.3s;
+            border: 1px solid #f1f2f6;
+        }
+        .social a:hover { background: #f1f2f6; }
         .social i { font-size: 24px; }
     </style>
 </head>
 <body>
 
     <div class="section profile-info">
-        <img src="1000014542.jpg" alt="Aziza" class="profile-img">
+        <img src="Snapchat-720303948.jpg" alt="Aziza" class="profile-img">
         <h2>Safarova Aziza Sirojiddin qizi</h2>
-        <span class="subtitle">IT Talaba </span>
+        <span class="subtitle">IT Talaba & Kelajak Dasturchisi</span>
         <div class="details">
-            <p><i class="fas fa-map-marker-alt" style="color:red"></i> Qarshi shahri</p>
-            <p><i class="fas fa-university" style="color:orange"></i> Qarshi Davlat Universiteti</p>
-            <p><i class="fas fa-rocket" style="color:purple"></i> Yetuk IT mutaxassisisi bo'lish</p>
+            <p><i class="fas fa-map-marker-alt" style="color:#ff7675"></i> Qarshi shahri</p>
+            <p><i class="fas fa-university" style="color:#fdcb6e"></i> Qarshi Davlat Universiteti</p>
+            <p><i class="fas fa-rocket" style="color:#a29bfe"></i> Yetuk IT mutaxassisisi bo'lish</p>
         </div>
     </div>
 
     <div class="section">
         <h3>Ko'nikmalarim</h3>
-        <div class="skill-label"><span>HTML / CSS / JS</span><span>50%</span></div>
-        <div class="skill-bar"><div class="progress" style="width: 50%;"></div></div>
-        
-        <div class="skill-label"><span>Web Design</span><span>45%</span></div>
-        <div class="skill-bar"><div class="progress" style="width: 45%;"></div></div>
-        
-        <div class="skill-label"><span>Python / C++</span><span>55%</span></div>
-        <div class="skill-bar"><div class="progress" style="width: 55%;"></div></div>
+        <div class="skill-item">
+            <div class="skill-label"><span>HTML / CSS / JS</span><span>50%</span></div>
+            <div class="skill-bar"><div class="progress" style="width: 50%;"></div></div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-label"><span>Web Design</span><span>45%</span></div>
+            <div class="skill-bar"><div class="progress" style="width: 45%;"></div></div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-label"><span>Python / C++</span><span>55%</span></div>
+            <div class="skill-bar"><div class="progress" style="width: 55%;"></div></div>
+        </div>
     </div>
 
     <div class="section">
         <h3>Mening Galereyam</h3>
         <div class="grid">
-            <div class="grid-item"><img src="1000014545.png" alt="1"><p>Dasturlash</p></div>
-            <div class="grid-item"><img src="1000014547.png" alt="2"><p>Mutolaa</p></div>
-            <div class="grid-item"><img src="1000014546.png" alt="3"><p>Ijod</p></div>
-            <div class="grid-item"><img src="1000014538.png" alt="4"><p>Manzara</p></div>
+            <div class="grid-item"><img src="1771608245289.png" alt="G1"><p>Dasturlash</p></div>
+            <div class="grid-item"><img src="1771608326175.png" alt="G2"><p>Mutolaa</p></div>
+            <div class="grid-item"><img src="1771608339990.png" alt="G3"><p>Ijod</p></div>
+            <div class="grid-item"><img src="1771649210473.png" alt="G4"><p>Manzara</p></div>
         </div>
     </div>
 
@@ -111,14 +189,6 @@
         <h3>Qiziqishlarim</h3>
         <div class="grid">
             <div class="grid-item"><img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=300" alt="BMW"><p>🏎 Avtomobillar</p></div>
-            <div class="grid-item"><img src="https://images.unsplash.com/photo-1562690868-60bbe7293e94?w=300" alt="Rose"><p>🌹 Atirgullar</p></div>
-            <div class="grid-item"><img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=300" alt="Book"><p>📚 Kitoblar</p></div>
-            <div class="grid-item"><img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=300" alt="Travel"><p>✈️ Sayohat</p></div>
-        </div>
-    </div>
-
-</body>
-</html>
             <div class="grid-item"><img src="https://images.unsplash.com/photo-1562690868-60bbe7293e94?w=300" alt="Rose"><p>🌹 Atirgullar</p></div>
             <div class="grid-item"><img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=300" alt="Book"><p>📚 Kitoblar</p></div>
             <div class="grid-item"><img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=300" alt="Travel"><p>✈️ Sayohat</p></div>
@@ -142,9 +212,9 @@
     <div class="section">
         <h3>Bog'lanish</h3>
         <div class="social">
-            <a href="#"><i class="fab fa-telegram" style="color:#0088cc"></i>Telegram</a>
-            <a href="#"><i class="fab fa-instagram" style="color:#e1306c"></i>Instagram</a>
-            <a href="mailto: azizasafarova0210@gmail.com"><i class="fas fa-envelope" style="color:#ea4335"></i>Email</a>
+            <a href="#"><i class="fab fa-telegram" style="color:#0088cc"></i><span>Telegram</span></a>
+            <a href="#"><i class="fab fa-instagram" style="color:#e1306c"></i><span>Instagram</span></a>
+            <a href="mailto:azizasafarova0210@gmail.com"><i class="fas fa-envelope" style="color:#ea4335"></i><span>Email</span></a>
         </div>
     </div>
 
