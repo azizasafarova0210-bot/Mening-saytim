@@ -4,84 +4,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Safarova Aziza | Portfolio</title>
+    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    
     <style>
+        /* 1. ASOSIY STILLAR */
         :root {
             --primary: #ff7eb3;
             --secondary: #8b5cf6;
-            --bg: #fff5f8;
+            --bg-gradient: linear-gradient(135deg, #fff5f8 0%, #f0f4ff 100%);
+            --glass: rgba(255, 255, 255, 0.85);
             --text: #2d1b24;
-            --glass: rgba(255, 255, 255, 0.9);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background: linear-gradient(135deg, #fff5f8 0%, #f0f4ff 100%);
+            background: var(--bg-gradient);
             background-attachment: fixed;
             color: var(--text);
-            padding: 20px 10px;
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            justify-content: center;
+            padding: 20px 15px;
         }
 
         .container { width: 100%; max-width: 420px; }
 
-        /* UMUMIY CARD STILI */
+        /* 2. BO'LIMLAR UCHUN UMUMIY CARD */
         .section {
             background: var(--glass);
             backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.7);
             border-radius: 30px;
             padding: 25px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             box-shadow: 0 10px 30px rgba(255, 126, 179, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.6);
         }
 
-        /* 1. ASOSIY PROFIL */
+        /* 3. PROFIL QISMI */
         .profile-card { text-align: center; }
         .name-logo { font-family: 'Dancing Script', cursive; font-size: 45px; color: var(--primary); margin-bottom: 5px; }
-        .profile-img { width: 140px; height: 140px; border-radius: 50%; border: 4px solid #fff; box-shadow: 0 8px 20px rgba(0,0,0,0.06); object-fit: cover; margin-bottom: 15px; }
-        h2 { font-size: 22px; font-weight: 800; color: #1e293b; }
-        .badge { background: #fff; color: var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 11px; font-weight: 800; display: inline-block; margin: 10px 0 20px; border: 1px solid #ffeef2; }
-        
+        .profile-img { 
+            width: 140px; height: 140px; border-radius: 50%; 
+            border: 5px solid #fff; box-shadow: 0 8px 25px rgba(0,0,0,0.1); 
+            object-fit: cover; margin: 10px 0 15px; 
+        }
+        h2 { font-size: 24px; font-weight: 800; color: #1e293b; }
+        .badge { 
+            background: #fff; color: var(--primary); padding: 6px 16px; 
+            border-radius: 20px; font-size: 11px; font-weight: 800; 
+            display: inline-block; margin: 10px 0 20px; border: 1px solid #ffeef2;
+        }
         .info-list { text-align: left; }
-        .info-item { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; font-size: 13px; color: #5c4d54; }
-        .info-item i { color: var(--primary); font-size: 14px; width: 30px; height: 30px; background: #fff; border-radius: 10px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
+        .info-row { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; font-size: 13px; }
+        .info-row i { color: var(--primary); width: 32px; height: 32px; background: #fff; border-radius: 10px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
 
-        /* SARLAVHALAR */
-        h3 { font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px; color: #a38f99; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
-        h3::before { content: ""; width: 4px; height: 16px; background: var(--primary); border-radius: 10px; }
+        /* 4. SARLAVHALAR */
+        h3 { font-size: 15px; font-weight: 800; text-transform: uppercase; color: #a38f99; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        h3::before { content: ""; width: 4px; height: 18px; background: var(--primary); border-radius: 10px; }
 
-        /* 2. SKILLS */
-        .skill-box { margin-bottom: 15px; }
-        .skill-top { display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; margin-bottom: 6px; }
+        /* 5. KO'NIKMALAR */
+        .skill-item { margin-bottom: 15px; }
+        .skill-info { display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; margin-bottom: 6px; }
         .skill-bar { height: 8px; background: #f1f5f9; border-radius: 10px; overflow: hidden; }
         .skill-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--secondary)); border-radius: 10px; }
 
-        /* 3. GRID (GALEREYA & QIZIQISHLAR) */
+        /* 6. GRID (GALEREYA VA QIZIQISHLAR) */
         .masonry-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        .grid-card { background: #fff; border-radius: 20px; overflow: hidden; border: 1px solid #fcf2f6; transition: 0.3s; }
-        .grid-card:hover { transform: translateY(-5px); }
-        .grid-card img { width: 100%; height: 110px; object-fit: cover; }
-        .grid-title { font-size: 11px; font-weight: 700; padding: 10px; text-align: center; color: #5c4d54; }
+        .grid-card { 
+            background: #fff; border-radius: 22px; overflow: hidden; 
+            transition: 0.3s; border: 1px solid #fcf2f6; 
+        }
+        .grid-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(255, 126, 179, 0.15); }
+        .grid-card img { width: 100%; height: 115px; object-fit: cover; }
+        .grid-card p { padding: 10px; font-size: 11px; font-weight: 700; text-align: center; color: #5c4d54; }
 
-        /* 4. MAQOLALAR */
-        .article-card { background: #fff; border: 1px solid #f1f5f9; border-radius: 20px; padding: 15px; margin-bottom: 15px; }
-        .article-card h4 { font-size: 12px; line-height: 1.4; margin-bottom: 8px; color: #1e293b; }
-        .date { font-size: 10px; color: #a38f99; display: block; margin-bottom: 10px; }
-        .cert-img { width: 100%; border-radius: 12px; }
+        /* 7. ILMIY MAQOLALAR */
+        .article-box { background: #fff; border-radius: 22px; padding: 18px; margin-bottom: 15px; border: 1px solid #f1f5f9; }
+        .article-box h4 { font-size: 12px; line-height: 1.5; color: #1e293b; margin-bottom: 10px; }
+        .cert-img { width: 100%; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); }
 
-        /* 5. CONTACT */
+        /* 8. ALOQA */
         .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .contact-btn { text-decoration: none; padding: 15px; border-radius: 20px; background: #fff; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: 0.3s; border: 1px solid #f1f5f9; }
-        .contact-btn:hover { background: var(--primary); color: #fff; }
-        .contact-btn i { font-size: 20px; color: var(--primary); }
-        .contact-btn span { font-size: 11px; font-weight: 700; }
-        .contact-btn:hover i, .contact-btn:hover span { color: #fff; }
+        .contact-link { 
+            text-decoration: none; background: #fff; padding: 15px; border-radius: 20px; 
+            display: flex; flex-direction: column; align-items: center; gap: 8px; 
+            border: 1px solid #f1f5f9; transition: 0.3s; 
+        }
+        .contact-link:hover { background: var(--primary); }
+        .contact-link:hover i, .contact-link:hover span { color: #fff; }
+        .contact-link i { font-size: 22px; color: var(--primary); }
+        .contact-link span { font-size: 11px; font-weight: 700; color: #8a7b82; }
 
     </style>
 </head>
@@ -89,28 +104,83 @@
 
     <div class="container">
 
-        <div class="section profile-card">
+        <header class="section profile-card">
             <div class="name-logo">Aziza</div>
             <img src="Snapchat-720303948.jpg" alt="Aziza" class="profile-img">
             <h2>Safarova Aziza</h2>
             <div class="badge">Talaba & IT Mutaxassis</div>
             <div class="info-list">
-                <div class="info-item"><i class="fas fa-location-dot"></i> Qarshi shahri, O'zbekiston</div>
-                <div class="info-item"><i class="fas fa-university"></i> Qarshi Davlat Universiteti</div>
-                <div class="info-item"><i class="fas fa-bullseye"></i> Yetuk IT mutaxassisi bo'lish</div>
+                <div class="info-row"><i class="fas fa-location-dot"></i><span>Qarshi shahri, Qashqadaryo</span></div>
+                <div class="info-row"><i class="fas fa-university"></i><span>Qarshi Davlat Universiteti</span></div>
+                <div class="info-row"><i class="fas fa-bullseye"></i><span>Professional IT mutaxassisi bo'lish</span></div>
             </div>
-        </div>
+        </header>
 
-        <div class="section">
+        <section class="section">
             <h3>Ko'nikmalar</h3>
-            <div class="skill-box">
-                <div class="skill-top"><span>HTML / CSS / JS</span><span>50%</span></div>
+            <div class="skill-item">
+                <div class="skill-info"><span>HTML / CSS / JavaScript</span><span>50%</span></div>
                 <div class="skill-bar"><div class="skill-fill" style="width: 50%;"></div></div>
             </div>
-            <div class="skill-box">
-                <div class="skill-top"><span>Python / C++</span><span>55%</span></div>
+            <div class="skill-item">
+                <div class="skill-info"><span>Python / C++</span><span>55%</span></div>
                 <div class="skill-bar"><div class="skill-fill" style="width: 55%;"></div></div>
             </div>
+            <div class="skill-item">
+                <div class="skill-info"><span>Web UI Design</span><span>45%</span></div>
+                <div class="skill-bar"><div class="skill-fill" style="width: 45%;"></div></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h3>Mening Galereyam</h3>
+            <div class="masonry-grid">
+                <div class="grid-card"><img src="1771608245289.png" alt="1"><p>Dasturlash</p></div>
+                <div class="grid-card"><img src="1771608326175.png" alt="2"><p>Tabiat</p></div>
+                <div class="grid-card"><img src="1771608339990.png" alt="3"><p>Kitoblar</p></div>
+                <div class="grid-card"><img src="1771649210473.png" alt="4"><p>Ijod</p></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h3>Qiziqishlarim</h3>
+            <div class="masonry-grid">
+                <div class="grid-card"><img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=300" alt="Car"><p>Mashinalar</p></div>
+                <div class="grid-card"><img src="https://images.unsplash.com/photo-1562690868-60bbe7293e94?w=300" alt="Rose"><p>Atirgullar</p></div>
+                <div class="grid-card"><img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=300" alt="Book"><p>Mutolaa</p></div>
+                <div class="grid-card"><img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=300" alt="Travel"><p>Sayohatlar</p></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h3>Ilmiy Maqolalar</h3>
+            <div class="article-box">
+                <h4>ZAMONAVIY TEXNOLOGIYALAR VA INTERNETNING BUGUNGI KUNDAGI O'RNI</h4>
+                <div style="font-size: 10px; color: var(--primary); margin-bottom: 10px; font-weight: 700;">🗓 11.12.2025</div>
+                <img src="IMG_20260220_210833_611.jpg" class="cert-img" alt="Cert">
+            </div>
+            <div class="article-box">
+                <h4>NANOTEXNOLOGIYALAR: ILMIY ASOSLARI VA ZAMONAVIY MUAMMOLARI</h4>
+                <div style="font-size: 10px; color: var(--primary); margin-bottom: 10px; font-weight: 700;">🗓 14.12.2025</div>
+                <img src="IMG_20260220_210942_028.jpg" class="cert-img" alt="Cert">
+            </div>
+        </section>
+
+        <footer class="section">
+            <h3>Bog'lanish</h3>
+            <div class="contact-grid">
+                <a href="#" class="contact-link"><i class="fab fa-telegram"></i><span>Telegram</span></a>
+                <a href="#" class="contact-link"><i class="fab fa-instagram"></i><span>Instagram</span></a>
+                <a href="mailto:azizasafarova0210@gmail.com" class="contact-link" style="grid-column: span 2;">
+                    <i class="fas fa-envelope"></i><span>azizasafarova0210@gmail.com</span>
+                </a>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>
         </div>
 
         <div class="section">
