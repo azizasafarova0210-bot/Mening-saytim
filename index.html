@@ -15,58 +15,28 @@
             --text-color: #2d3436;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
-        body { 
-            background: var(--bg-grad); 
-            background-attachment: fixed; 
-            color: var(--text-color); 
-            display: flex; 
-            justify-content: center; 
-            padding: 20px 10px; 
-            min-height: 100vh; 
-        }
+        body { background: var(--bg-grad); background-attachment: fixed; color: var(--text-color); display: flex; justify-content: center; padding: 20px 10px; min-height: 100vh; }
         .container { width: 100%; max-width: 450px; display: flex; flex-direction: column; gap: 25px; }
-        .card { 
-            background: var(--card-bg); 
-            backdrop-filter: blur(15px); 
-            border-radius: 30px; 
-            padding: 25px; 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
-            border: 1px solid rgba(255,255,255,0.2); 
-        }
-        .section-h { 
-            font-size: 18px; 
-            font-weight: 800; 
-            text-transform: uppercase; 
-            background: linear-gradient(90deg, var(--primary), var(--accent)); 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent; 
-            margin-bottom: 20px; 
-            display: flex; 
-            align-items: center; 
-            gap: 12px; 
-        }
+        .card { background: var(--card-bg); backdrop-filter: blur(15px); border-radius: 30px; padding: 25px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 1px solid rgba(255,255,255,0.2); }
+        .section-h { font-size: 18px; font-weight: 800; text-transform: uppercase; background: linear-gradient(90deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
         .header-card { text-align: center; }
-        .avatar-box img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 5px solid white; }
+        .avatar-box img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 5px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
         
-        /* Galereya - Siz aytgan boshidagi 4 ta rasm */
+        /* Galereya */
         .gal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
         .gal-item { border-radius: 20px; overflow: hidden; height: 110px; }
         .gal-item img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* Qiziqishlar bo'limi */
+        /* Qiziqishlar - Faqat chiroyli qatorlar */
         .interest-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .interest-item { position: relative; height: 130px; border-radius: 20px; overflow: hidden; }
-        .interest-item img { width: 100%; height: 100%; object-fit: cover; }
-        .interest-label { 
-            position: absolute; bottom: 0; width: 100%; 
-            background: rgba(0,0,0,0.6); color: white; 
-            padding: 8px; font-size: 12px; font-weight: 700; text-align: center; 
-        }
+        .interest-box { position: relative; height: 120px; border-radius: 20px; overflow: hidden; }
+        .interest-box img { width: 100%; height: 100%; object-fit: cover; }
+        .interest-title { position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.6); color: white; padding: 6px; font-size: 11px; text-align: center; font-weight: 700; }
 
-        /* Sertifikatlar bo'limi */
-        .article-card { background: rgba(108, 92, 231, 0.05); border-radius: 25px; padding: 20px; margin-bottom: 20px; border: 1px solid rgba(108, 92, 231, 0.1); }
-        .article-card h4 { font-size: 12px; margin-bottom: 12px; line-height: 1.5; color: var(--primary); text-transform: uppercase; }
-        .cert-img { width: 100%; border-radius: 18px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+        /* Sertifikatlar */
+        .cert-card { background: rgba(108, 92, 231, 0.05); border-radius: 25px; padding: 15px; margin-bottom: 20px; border: 1px solid rgba(108, 92, 231, 0.1); }
+        .cert-card h4 { font-size: 11px; margin-bottom: 10px; line-height: 1.4; color: var(--primary); }
+        .cert-img { width: 100%; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
     </style>
 </head>
 <body>
@@ -74,8 +44,8 @@
 <div class="container">
     <div class="card header-card">
         <div class="avatar-box"><img src="720303948.jpg" alt="Aziza"></div>
-        <h1>Aziza Safarova</h1>
-        <p style="color: var(--primary); font-weight: 700; margin-top: 5px;">🎓 Qarshi Davlat Universiteti</p>
+        <h1 style="font-size: 26px;">Aziza Safarova</h1>
+        <p style="color: var(--primary); font-weight: 700;">🎓 Qarshi Davlat Universiteti</p>
     </div>
 
     <div class="card">
@@ -84,32 +54,53 @@
             <div class="gal-item"><img src="IMG_20260220_210942_028.jpg"></div>
             <div class="gal-item"><img src="1771608245289.png"></div>
             <div class="gal-item"><img src="1771608326175.png"></div>
-            <
+            <div class="gal-item"><img src="IMG_20260220_210833_611.jpg"></div>
+        </div>
     </div>
 
     <div class="card">
         <div class="section-h"><i class="fas fa-heart"></i> Qiziqishlarim</div>
         <div class="interest-grid">
-            <div class="interest-item">
-                <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400" alt="BMW">
-                <div class="interest-label">BMW</div>
+            <div class="interest-box">
+                <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400">
+                <div class="interest-title">BMW</div>
             </div>
-            <div class="interest-item">
-                <img src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Atirgul">
-                <div class="interest-label">Atirgullar</div>
+            <div class="interest-box">
+                <img src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=400">
+                <div class="interest-title">Atirgullar</div>
             </div>
-            <div class="interest-item">
-                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400" alt="IT">
-                <div class="interest-label">IT Sohasi</div>
+            <div class="interest-box">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400">
+                <div class="interest-title">IT Sohasi</div>
             </div>
-            <div class="interest-item">
-                <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400" alt="Kitoblar">
-                <div class="interest-label">Kitoblar</div>
+            <div class="interest-box">
+                <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400">
+                <div class="interest-title">Kitoblar</div>
             </div>
-            <div class="interest-item" style="grid-column: span 2;">
-                <img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=600" alt="Sayohat">
-                <div class="interest-label">Sayohat</div>
+            <div class="interest-box" style="grid-column: span 2;">
+                <img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=600">
+                <div class="interest-title">Sayohat</div>
             </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="section-h"><i class="fas fa-certificate"></i> Sertifikatlarim</div>
+        
+        <div class="cert-card">
+            <h4>ZAMONAVIY TEXNOLOGIYALAR VA INTERNETNING BUGUNGI KUNDAGI O'RNI</h4>
+            <img src="IMG_20260220_210833_611.jpg" class="cert-img">
+        </div>
+
+        <div class="cert-card">
+            <h4>NANOTEXNOLOGIYALAR: ILMIY ASOSLARI, QO'LLANILISHI VA MUAMMOLARI</h4>
+            <img src="1771608245289.png" class="cert-img">
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
         </div>
     </div>
 
