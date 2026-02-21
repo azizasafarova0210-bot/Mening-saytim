@@ -67,11 +67,29 @@
         .gallery-card img { width: 100%; height: 110px; object-fit: cover; display: block; }
         .gallery-card p { font-size: 11px; padding: 10px 0; margin: 0; font-weight: 600; }
 
-        .social-row { display: flex; justify-content: space-between; gap: 12px; }
-        .social-btn { flex: 1; background: #f8f9fa; padding: 12px; border-radius: 15px; text-decoration: none; color: #333; font-weight: bold; font-size: 13px; display: flex; flex-direction: column; align-items: center; }
-        .social-btn i { font-size: 22px; margin-bottom: 5px; }
+        /* Aloqa bo'limi yangilandi */
+        .social-row { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr 1fr; 
+            gap: 10px; 
+        }
+        .social-btn { 
+            background: #f8f9fa; 
+            padding: 12px 5px; 
+            border-radius: 15px; 
+            text-decoration: none; 
+            color: #333; 
+            font-weight: bold; 
+            font-size: 11px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .social-btn i { font-size: 20px; margin-bottom: 5px; }
         .fa-telegram { color: #0088cc; }
         .fa-instagram { color: #e1306c; }
+        .fa-envelope { color: #ea4335; }
 
         h3 { font-size: 16px; margin-bottom: 15px; color: #34495e; text-transform: uppercase; letter-spacing: 1px; }
     </style>
@@ -80,7 +98,6 @@
 
     <div class="section">
         <img src="Snapchat-720303948.jpg" alt="Aziza" class="profile-img">
-        
         <h2>Safarova Aziza Sirojiddinovna</h2>
         <span class="subtitle">IT Talaba & Kreativ Dasturchi</span>
         
@@ -110,7 +127,7 @@
         <h3>Mening Galereyam</h3>
         <div class="gallery-grid">
             <div class="gallery-card">
-                <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=300" alt="BMW">
+                <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=300" alt="BMW">
                 <p>🏎 BMW</p>
             </div>
             <div class="gallery-card">
@@ -122,7 +139,7 @@
                 <p>📚 Kitoblar</p>
             </div>
             <div class="gallery-card">
-                <img src="https://images.unsplash.com/photo-1500835595353-b0357a68ce9a?w=300" alt="Sayohat">
+                <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=300" alt="Sayohat">
                 <p>✈️ Sayohat</p>
             </div>
         </div>
@@ -131,13 +148,17 @@
     <div class="section">
         <h3>Bog'lanish</h3>
         <div class="social-row">
-            <a href="#" class="social-btn">
+            <a href="https://t.me/username" class="social-btn">
                 <i class="fab fa-telegram"></i>
                 <span>Telegram</span>
             </a>
-            <a href="#" class="social-btn">
+            <a href="https://instagram.com/username" class="social-btn">
                 <i class="fab fa-instagram"></i>
                 <span>Instagram</span>
+            </a>
+            <a href="mailto:aziza@example.com" class="social-btn">
+                <i class="fas fa-envelope"></i>
+                <span>E-mail</span>
             </a>
         </div>
     </div>
