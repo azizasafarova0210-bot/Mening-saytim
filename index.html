@@ -3,83 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aziza Safarova | Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    <title>Mening Mobil Saytim</title>
     <style>
-        :root { --p: #6c5ce7; --bg: #f4f7f6; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
-        body { background: var(--bg); padding: 20px 10px; color: #333; }
-        .container { max-width: 450px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
-        
-        /* Kartochkalar */
-        .card { background: white; border-radius: 25px; padding: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
-        .h2 { font-size: 17px; font-weight: 800; color: var(--p); margin-bottom: 15px; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
+        /* CSS: Dizayn qismi */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+        }
 
-        /* 1. Profil (Asosiy rasm shu yerda) */
-        .profile { text-align: center; }
-        .profile img { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 5px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 12px; }
-        .profile h1 { font-size: 24px; color: #2d3436; }
+        header {
+            background: #2c3e50;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+        }
 
-        /* 2. Galereya (Faqat sening 4 ta rasming) */
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .gal-img { height: 110px; border-radius: 15px; overflow: hidden; }
-        .gal-img img { width: 100%; height: 100%; object-fit: cover; }
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
 
-        /* 3. Qiziqishlar (Faqat rasm va nom, MAQOLA YO'Q) */
-        .int-box { position: relative; height: 100px; border-radius: 15px; overflow: hidden; }
-        .int-box img { width: 100%; height: 100%; object-fit: cover; }
-        .int-label { position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.6); color: white; padding: 5px; font-size: 10px; text-align: center; font-weight: 700; }
+        .card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
 
-        /* 4. Sertifikatlar (Maqolalar FAQAT shu yerda bir marta) */
-        .cert-item { background: #fafafa; border-radius: 20px; padding: 15px; margin-bottom: 15px; border-left: 5px solid var(--p); }
-        .cert-item h4 { font-size: 12px; margin-bottom: 10px; color: #333; line-height: 1.4; font-weight: 700; }
-        .cert-img { width: 100%; border-radius: 12px; box-shadow: 0 5px 10px rgba(0,0,0,0.05); }
+        button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.8rem;
+            color: #777;
+        }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="card profile">
-        <img src="720303948.jpg" alt="Aziza Safarova">
-        <h1>Aziza Safarova</h1>
-        <p style="color:var(--p); font-weight:700;">Qarshi Davlat Universiteti</p>
-    </div>
+    <header>
+        <h1>Mening Saytim</h1>
+    </header>
 
-    <div class="card">
-        <div class="h2"><i class="fas fa-images"></i> Galereyam</div>
-        <div class="grid-2">
-            <div class="gal-img"><img src="gal1.jpg"></div>
-            <div class="gal-img"><img src="gal2.jpg"></div>
-            <div class="gal-img"><img src="gal3.jpg"></div>
-            <div class="gal-img"><img src="gal4.jpg"></div>
+    <div class="container">
+        <div class="card">
+            <h2>Xush kelibsiz!</h2>
+            <p>Ushbu sayt to'liq telefonda yaratildi. U barcha ekranlarga moslashadi.</p>
+            <button onclick="salomBer()">Tugmani bosing</button>
         </div>
-    </div>
-
-    <div class="card">
-        <div class="h2"><i class="fas fa-heart"></i> Qiziqishlarim</div>
-        <div class="grid-2">
-            <div class="int-box"><img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=300"><div class="int-label">BMW</div></div>
-            <div class="int-box"><img src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?w=300"><div class="int-label">ATIRGULLAR</div></div>
-            <div class="int-box"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=300"><div class="int-label">IT SOHASI</div></div>
-            <div class="int-box"><img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=300"><div class="int-label">KITOBLAR</div></div>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="h2"><i class="fas fa-award"></i> Sertifikatlar</div>
         
-        <div class="cert-item">
-            <h4>NANOTEXNOLOGIYALAR: ILMIY ASOSLARI, QO'LLANILISHI VA MUAMMOLARI</h4>
-            <img src="sertifikat1.jpg" class="cert-img">
-        </div>
-
-        <div class="cert-item">
-            <h4>ZAMONAVIY TEXNOLOGIYALAR VA INTERNETNING BUGUNGI KUNDAGI O'RNI</h4>
-            <img src="sertifikat2.jpg" class="cert-img">
+        <div class="card">
+            <h2>Nega bu kod yaxshi?</h2>
+            <ul>
+                <li><strong>Responsive:</strong> Har qanday telefonda chiroyli chiqadi.</li>
+                <li><strong>Tezkor:</strong> Ortiqcha kutubxonalarsiz ishlaydi.</li>
+                <li><strong>Toza:</strong> O'qishga oson struktura.</li>
+            </ul>
         </div>
     </div>
-</div>
 
+    <footer>
+        &copy; 2026 Barcha huquqlar himoyalangan.
+    </footer>
+
+    <script>
+        // JS: Interaktivlik
+        function salomBer() {
+            alert("Salom! Kod muvaffaqiyatli ishlamoqda!");
+        }
+    </script>
 </body>
 </html>
