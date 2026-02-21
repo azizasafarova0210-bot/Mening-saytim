@@ -1,798 +1,171 @@
 <!DOCTYPE html>
-<html>
+<html lang="uz">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Safarova Aziza Portfolio</title>
+    <title>Aziza Portfolio</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* 1. ASOSIY DIZAYN (BUZILMAYDIGAN QISMI) */
+        /* 1. ASOSIY FON VA KONTEYNER */
         body {
-            background: linear-gradient(135deg, #fff5f8 0%, #f0f4ff 100%);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0; padding: 20px 10px;
-            display: flex; justify-content: center;
+            background-color: #fff0f5; /* Yumshoq pushti */
+            background: linear-gradient(to bottom, #fff5f8, #eef2ff);
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 20px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        .main-container { width: 100%; max-width: 400px; }
 
-        /* 2. BLOKLAR STILI */
-        .card-section {
-            background: rgba(255, 255, 255, 0.9);
+        .wrapper {
+            width: 100%;
+            max-width: 400px; /* Telefon uchun eng qulay o'lcham */
+        }
+
+        /* 2. BO'LIMLAR (KARTALAR) */
+        .card {
+            background: white;
             border-radius: 25px;
             padding: 20px;
             margin-bottom: 20px;
-            box-shadow: 0 10px 20px rgba(255, 100, 150, 0.05);
-            border: 1px solid #fff;
+            box-shadow: 0 5px 15px rgba(255, 126, 179, 0.1);
             text-align: center;
         }
 
-        /* 3. PROFIL */
-        .avatar { width: 120px; height: 120px; border-radius: 50%; border: 4px solid #ff7eb3; object-fit: cover; }
-        h2 { color: #333; margin: 10px 0 5px 0; }
-        .job-title { color: #ff7eb3; font-weight: bold; font-size: 14px; display: block; margin-bottom: 15px; }
-        .info-p { font-size: 13px; color: #666; text-align: left; margin: 10px 0; display: flex; align-items: center; gap: 10px; }
-        .info-p i { color: #ff7eb3; width: 20px; }
+        /* 3. PROFIL QISMI */
+        .profile-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 4px solid #ff7eb3;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
 
-        /* 4. GALEREYA VA QIZIQISHLAR (GRID) */
-        .grid-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px; }
-        .grid-item { background: #fff; border-radius: 15px; overflow: hidden; border: 1px solid #eee; }
-        .grid-item img { width: 100%; height: 100px; object-fit: cover; }
-        .grid-item p { font-size: 11px; font-weight: bold; margin: 8px 0; }
+        h2 { color: #333; margin: 5px 0; font-size: 22px; }
+        .subtitle { color: #ff7eb3; font-weight: bold; font-size: 14px; display: block; margin-bottom: 15px; }
+
+        .info-row {
+            text-align: left;
+            font-size: 13px;
+            color: #555;
+            margin: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .info-row i { color: #ff7eb3; width: 18px; }
+
+        /* 4. GALEREYA VA GRID */
+        h3 {
+            font-size: 16px;
+            color: #ff7eb3;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .my-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .grid-box {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .grid-box img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+        }
+
+        .grid-box p {
+            font-size: 11px;
+            font-weight: bold;
+            margin: 8px 0;
+        }
 
         /* 5. MAQOLALAR */
-        .article-box { background: #fff; padding: 15px; border-radius: 15px; margin-bottom: 15px; text-align: left; border: 1px solid #f9f9f9; }
-        .article-box h4 { font-size: 12px; margin: 0 0 10px 0; color: #444; }
-        .cert-img { width: 100%; border-radius: 10px; }
-
-        /* 6. KONTAKTLAR */
-        .btn-flex { display: flex; gap: 10px; }
-        .social-btn { flex: 1; text-decoration: none; background: #fff; padding: 12px; border-radius: 15px; color: #ff7eb3; border: 1px solid #ff7eb3; font-weight: bold; font-size: 12px; }
-        .social-btn:hover { background: #ff7eb3; color: #fff; }
-    </style>
-</head>
-<body>
-
-    <div class="main-container">
-
-        <div class="card-section">
-            <img src="Snapchat-720303948.jpg" class="avatar" alt="Aziza">
-            <h2>Safarova Aziza</h2>
-            <span class="job-title">IT Mutaxassis & Talaba</span>
-            <div class="info-p"><i class="fas fa-map-marker-alt"></i> Qarshi shahri, O'zbekiston</div>
-            <div class="info-p"><i class="fas fa-university"></i> Qarshi Davlat Universiteti</div>
-        </div>
-
-        <div class="card-section">
-            <h3 style="font-size: 16px; color: #ff7eb3;">Mening Galereyam</h3>
-            <div class="grid-layout">
-                <div class="grid-item"><img src="1771608245289.png"><p>Dasturlash</p></div>
-                <div class="grid-item"><img src="1771608326175.png"><p>Tabiat</p></div>
-                <div class="grid-item"><img src="1771608339990.png"><p>Kitoblar</p></div>
-                <div class="grid-item"><img src="1771649210473.png"><p>Ijod</p></div>
-            </div>
-        </div>
-
-        <div class="card-section">
-            <h3 style="font-size: 16px; color: #ff7eb3;">Qiziqishlarim</h3>
-            <div class="grid-layout">
-                <div class="grid-item"><img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=300"><p>BMW</p></div>
-                <div class="grid-item"><img src="https://images.unsplash.com/photo-1562690868-60bbe7293e94?w=300"><p>Atirgullar</p></div>
-            </div>
-        </div>
-
-        <div class="card-section">
-            <h3 style="font-size: 16px; color: #ff7eb3;">Ilmiy Maqolalar</h3>
-            <div class="article-box">
-                <h4>INTERNETNING BUGUNGI KUNDAGI O'RNI</h4>
-                <img src="IMG_20260220_210833_611.jpg" class="cert-img">
-            </div>
-            <div class="article-box">
-                <h4>NANOTEXNOLOGIYALAR MUAMMOLARI</h4>
-                <img src="IMG_20260220_210942_028.jpg" class="cert-img">
-            </div>
-        </div>
-
-        <div class="card-section">
-            <h3 style="font-size: 16px; color: #ff7eb3;">Aloqa</h3>
-            <div class="btn-flex">
-                <a href="#" class="social-btn"><i class="fab fa-telegram"></i> Telegram</a>
-                <a href="#" class="social-btn"><i class="fab fa-instagram"></i> Instagram</a>
-            </div>
-            <p style="font-size: 11px; margin-top: 15px; color: #999;">azizasafarova0210@gmail.com</p>
-        </div>
-
-    </div>
-
-</body>
-</html>
-                <div class="info-row"><i class="fas fa-university"></i><span>Qarshi Davlat Universiteti</span></div>
-                <div class="info-row"><i class="fas fa-bullseye"></i><span>Professional IT mutaxassisi bo'lish</span></div>
-            </div>
-        </header>
-
-        <section class="section">
-            <h3>Ko'nikmalar</h3>
-            <div class="skill-item">
-                <div class="skill-info"><span>HTML / CSS / JavaScript</span><span>50%</span></div>
-                <div class="skill-bar"><div class="skill-fill" style="width: 50%;"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-info"><span>Python / C++</span><span>55%</span></div>
-                <div class="skill-bar"><div class="skill-fill" style="width: 55%;"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-info"><span>Web UI Design</span><span>45%</span></div>
-                <div class="skill-bar"><div class="skill-fill" style="width: 45%;"></div></div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h3>Mening Galereyam</h3>
-            <div class="masonry-grid">
-                <div class="grid-card"><img src="1771608245289.png" alt="1"><p>Dasturlash</p></div>
-                <div class="grid-card"><img src="1771608326175.png" alt="2"><p>Tabiat</p></div>
-                <div class="grid-card"><img src="1771608339990.png" alt="3"><p>Kitoblar</p></div>
-                <div class="grid-card"><img src="1771649210473.png" alt="4"><p>Ijod</p></div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h3>Qiziqishlarim</h3>
-            <div class="masonry-grid">
-                <div class="grid-card"><img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=300" alt="Car"><p>Mashinalar</p></div>
-                <div class="grid-card"><img src="https://images.unsplash.com/photo-1562690868-60bbe7293e94?w=300" alt="Rose"><p>Atirgullar</p></div>
-                <div class="grid-card"><img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=300" alt="Book"><p>Mutolaa</p></div>
-                <div class="grid-card"><img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=300" alt="Travel"><p>Sayohatlar</p></div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h3>Ilmiy Maqolalar</h3>
-            <div class="article-box">
-                <h4>ZAMONAVIY TEXNOLOGIYALAR VA INTERNETNING BUGUNGI KUNDAGI O'RNI</h4>
-                <div style="font-size: 10px; color: var(--primary); margin-bottom: 10px; font-weight: 700;">🗓 11.12.2025</div>
-                <img src="IMG_20260220_210833_611.jpg" class="cert-img" alt="Cert">
-            </div>
-            <div class="article-box">
-                <h4>NANOTEXNOLOGIYALAR: ILMIY ASOSLARI VA ZAMONAVIY MUAMMOLARI</h4>
-                <div style="font-size: 10px; color: var(--primary); margin-bottom: 10px; font-weight: 700;">🗓 14.12.2025</div>
-                <img src="IMG_20260220_210942_028.jpg" class="cert-img" alt="Cert">
-            </div>
-        </section>
-
-        <footer class="section">
-            <h3>Bog'lanish</h3>
-            <div class="contact-grid">
-                <a href="#" class="contact-link"><i class="fab fa-telegram"></i><span>Telegram</span></a>
-                <a href="#" class="contact-link"><i class="fab fa-instagram"></i><span>Instagram</span></a>
-                <a href="mailto:azizasafarova0210@gmail.com" class="contact-link" style="grid-column: span 2;">
-                    <i class="fas fa-envelope"></i><span>azizasafarova0210@gmail.com</span>
-                </a>
-            </div>
-        </footer>
-
-    </div>
-
-</body>
-</html>
-        </div>
-
-        <div class="section">
-            <h3>Galereya</h3>
-            <div class="masonry-grid">
-                <div class="grid-card"><img src="1771608245289.png" alt="1"><p class="grid-title">Dasturlash</p></div>
-                <div class="grid-card"><img src="1771608326175.png" alt="2"><p class="grid-title">Tabiat</p></div>
-                <div class="grid-card"><img src="1771608339990.png" alt="3"><p class="grid-title">Kitoblar</p></div>
-                <div class="grid-card"><img src="1771649210473.png" alt="4"><p class="grid-title">Ijod</p></div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h3>Qiziqishlarim</h3>
-            <div class="masonry-grid">
-                <div class="grid-card"><img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=300" alt="Car"><p class="grid-title">Avtomobillar</p></div>
-                <div class="grid-card"><img src="https://images.unsplash.com/photo-1562690868-60bbe7293e94?w=300" alt="Rose"><p class="grid-title">Atirgullar</p></div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h3>Ilmiy Maqolalar</h3>
-            <div class="article-card">
-                <h4>ZAMONAVIY TEXNOLOGIYALAR VA INTERNETNING BUGUNGI KUNDAGI O'RNI</h4>
-                <span class="date">11.12.2025</span>
-                <img src="IMG_20260220_210833_611.jpg" class="cert-img" alt="Cert">
-            </div>
-            <div class="article-card">
-                <h4>NANOTEXNOLOGIYALAR: ILMIY ASOSLARI VA MUAMMOLARI</h4>
-                <span class="date">14.12.2025</span>
-                <img src="IMG_20260220_210942_028.jpg" class="cert-img" alt="Cert">
-            </div>
-        </div>
-
-        <div class="section">
-            <h3>Bog'lanish</h3>
-            <div class="contact-grid">
-                <a href="#" class="contact-btn"><i class="fab fa-telegram"></i><span>Telegram</span></a>
-                <a href="#" class="contact-btn"><i class="fab fa-instagram"></i><span>Instagram</span></a>
-            </div>
-        </div>
-
-    </div>
-</body>
-</html>
-            text-decoration: none; padding: 20px; border-radius: 24px;
-            background: #fff; display: flex; flex-direction: column; align-items: center; gap: 10px;
-            transition: 0.3s; border: 1px solid #f1f5f9;
+        .maqola {
+            text-align: left;
+            background: #fff9fb;
+            border-radius: 15px;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ffeef2;
         }
-        .c-link:hover { background: var(--primary); transform: scale(1.05); }
-        .c-link:hover i, .c-link:hover span { color: #fff; }
-        .c-link i { font-size: 24px; color: var(--primary); }
-        .c-link span { font-size: 11px; font-weight: 700; color: #8a7b82; }
 
-    </style>
-</head>
-<body>
+        .maqola h4 { font-size: 12px; margin: 0 0 10px 0; color: #444; line-height: 1.4; }
+        .cert { width: 100%; border-radius: 10px; }
 
-    <                <p><i class="fas fa-location-dot"></i> Qarshi shahri, O'zbekiston</p>
-                <p><i class="fas fa-graduation-cap"></i> Qarshi Davlat Universiteti</p>
-                <p><i class="fas fa-fire"></i> Yetuk IT mutaxassisi bo'lish asosiy maqsadim</p>
-            </div>
-        </div>
-
-        <div class="section">
-            <h3>Ko'nikmalar</h3>
-            <div class="skill-box">
-                <div class="skill-top"><span>HTML / CSS / JS</span><span>50%</span></div>
-                <div class="skill-track"><div class="skill-fill" style="width: 50%;"></div></div>
-            </div>
-            <div class="skill-box">
-                <div class="skill-top"><span>WEB DESIGN (UI/UX)</span><span>45%</span></div>
-                <div class="skill-track"><div class="skill-fill" style="width: 45%;"></div></div>
-            </div>
-            <div class="skill-box">
-                <div class="skill-top"><span>PYTHON / C++</span><span>55%</span></div>
-                <div class="skill-track"><div class="skill-fill" style="width: 55%;"></div></div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h3>Mening Galereyam</h3>
-            <div class="masonry-grid">
-                <div class="card"><img src="1771608245289.png" alt="1"><div class="card-title">Dasturlash</div></div>
-                <div class="card"><img src="1771608326175.png" alt="2"><div class="card-title">Tabiat</div></div>
-                <div class="card"><img src="1771608339990.png" alt="3"><div class="card-title">Kitobxonlik</div></div>
-                <div class="card"><img src="1771649210473.png" alt="4"><div class="card-title">Gul</div></div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h3>Qiziqishlarim</h3>
-            <div class="masonry-grid">
-                <div class="card"><img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=300" alt="BMW"><div class="card-title">Avtomobillar</div></div>
-                <div class="card"><img src="https://images.unsplash.com/photo-1562690868-60bbe7293e94?w=300" alt="Rose"><div class="card-title">Atirgullar</div></div>
-                <div class="card"><img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=300" alt="Book"><div class="card-title">Kitoblar</div></div>
-                <div class="card"><img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=300" alt="Travel"><div class="card-title">Sayohatlar</div></div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h3>Ilmiy Maqolalar</h3>
-            <div class="article-glass">
-                <h4>ZAMONAVIY TEXNOLOGIYALAR VA INTERNETNING BUGUNGI KUNDAGI O'RNI</h4>
-                <div style="font-size: 10px; color: #a38f99; margin-bottom: 5px;"><i class="far fa-calendar-check"></i> 11.12.2025</div>
-                <img src="IMG_20260220_210833_611.jpg" class="cert-preview" alt="Cert">
-            </div>
-            <div class="article-glass">
-                <h4>NANOTEXNOLOGIYALAR: ILMIY ASOSLARI VA MUAMMOLARI</h4>
-                <div style="font-size: 10px; color: #a38f99; margin-bottom: 5px;"><i class="far fa-calendar-check"></i> 14.12.2025</div>
-                <img src="IMG_20260220_210942_028.jpg" class="cert-preview" alt="Cert">
-            </div>
-        </div>
-
-        <div class="section">
-            <h3>Aloqa</h3>
-            <div class="contact-wrap">
-                <a href="#" class="c-link"><i class="fab fa-telegram"></i><span>Telegram</span></a>
-                <a href="#" class="c-link"><i class="fab fa-instagram"></i><span>Instagram</span></a>
-                <a href="mailto:azizasafarova0210@gmail.com" class="c-link" style="grid-column: span 2;"><i class="fas fa-envelope"></i><span>azizasafarova0210@gmail.com</span></a>
-            </div>
-        </div>
-
-    </div>
-</body>
-</html>
-
-    </style>
-</head>
-<body>
-
-    <div class="container">
-
-        <header class="profile-header">
-            <div class="name-logo">Aziza</div>
-            <div class="img-container">
-                <img src="Snapchat-720303948.jpg" alt="Safarova Aziza">
-            </div>
-            <h2>Safarova Aziza</h2>
-            <span class="role">IT Mutaxassis & Talaba</span>
-            
-            <div class="info-pill">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Qarshi shahri, O'zbekiston</span>
-            </div>
-            <div class="info-pill">
-                <i class="fas fa-university"></i>
-                <span>Qarshi Davlat Universiteti</span>
-            </div>
-            <div class="info-pill">
-                <i class="fas fa-heart"></i>
-                <span>Yetuk IT mutaxassisi bo'lish asosiy maqsadim</span>
-            </div>
-        </header>
-
-        <section class="content-card">
-            <h3>Ko'nikmalarim</h3>
-            <div class="skill-box">
-                <div class="skill-text"><span>Web Development</span><span>50%</span></div>
-                <div class="skill-line"><div class="skill-progress" style="width: 50%;"></div></div>
-            </div>
-            <div class="skill-box">
-                <div class="skill-text"><span>Graphic Design</span><span>45%</span></div>
-                <div class="skill-line"><div class="skill-progress" style="width: 45%;"></div></div>
-            </div>
-            <div class="skill-box">
-                <div class="skill-text"><span>Python & C++</span><span>55%</span></div>
-                <div class="skill-line"><div class="skill-progress" style="width: 55%;"></div></div>
-            </div>
-        </section>
-
-        <section class="content-card">
-            <h3>Mening Galereyam</h3>
-            <div class="grid">
-                <div class="grid-card"><img src="1771608245289.png" alt="1"><p>Dasturlash</p></div>
-                <div class="grid-card"><img src="1771608326175.png" alt="2"><p>Tabiat</p></div>
-                <div class="grid-card"><img src="1771608339990.png" alt="3"><p>Kitobxonlik</p></div>
-                <div class="grid-card"><img src="1771649210473.png" alt="4"><p>Ijod</p></div>
-            </div>
-        </section>
-
-        <section class="content-card">
-            <h3>Qiziqishlarim</h3>
-            <div class="grid">
-                <div class="grid-card"><img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=300" alt="Car"><p>Mashinalar</p></div>
-                <div class="grid-card"><img src="https://images.unsplash.com/photo-1562690868-60bbe7293e94?w=300" alt="Rose"><p>Atirgullar</p></div>
-                <div class="grid-card"><img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=300" alt="Book"><p>Kitoblar</p></div>
-                <div class="grid-card"><img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=300" alt="Travel"><p>Sayohatlar</p></div>
-            </div>
-        </section>
-
-        <section class="content-card">
-            <h3>Ilmiy Maqolalarim</h3>
-            <div class="article-card">
-                <h4>ZAMONAVIY TEXNOLOGIYALAR VA INTERNETNING BUGUNGI KUNDAGI O'RNI</h4>
-                <span class="date-text">🗓 11.12.2025</span>
-                <img src="IMG_20260220_210833_611.jpg" class="cert-img" alt="Cert">
-            </div>
-            <div class="article-card">
-                <h4>NANOTEXNOLOGIYALAR: ILMIY ASOSLARI VA ZAMONAVIY MUAMMOLARI</h4>
-                <span class="date-text">🗓 14.12.2025</span>
-                <img src="IMG_20260220_210942_028.jpg" class="cert-img" alt="Cert">
-            </div>
-        </section>
-
-        <section class="content-card">
-            <h3>Bog'lanish</h3>
-            <div class="contact-grid">
-                <a href="#" class="contact-btn"><i class="fab fa-telegram"></i><span>Telegram</span></a>
-                <a href="#" class="contact-btn"><i class="fab fa-instagram"></i><span>Instagram</span></a>
-            </div>
-            <a href="mailto:azizasafarova0210@gmail.com" class="email-btn">
-                <i class="fas fa-envelope"></i>
-                <span>azizasafarova0210@gmail.com</span>
-            </a>
-        </section>
-
-    </div>
-
-</body>
-</html>
-            border: 1px solid #ffeef2; transition: 0.3s;
+        /* 6. KONTAKT */
+        .btn-box {
+            display: flex;
+            gap: 10px;
         }
-        .social-link i { font-size: 24px; color: var(--accent-pink); }
-        .social-link span { font-size: 11px; font-weight: 700; color: var(--text-main); }
-        .social-link:hover { background: var(--accent-pink); }
-        .social-link:hover i, .social-link:hover span { color: white; }
 
-        .footer-text { text-align: center; font-size: 11px; color: var(--soft-pink); margin-top: 20px; }
-
+        .btn {
+            flex: 1;
+            text-decoration: none;
+            background: #ff7eb3;
+            color: white;
+            padding: 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        
-        <div class="header-card">
-            <h1 class="main-title">Aziza</h1>
+    <div class="wrapper">
+
+        <div class="card">
             <img src="Snapchat-720303948.jpg" class="profile-img" alt="Aziza">
             <h2>Safarova Aziza</h2>
             <span class="subtitle">IT Mutaxassis & Talaba</span>
-            
-            <div class="info-row">
-                <i class="fas fa-map-marker-alt"></i>
-                <span><b>Manzil:</b> Qarshi shahri, Qashqadaryo</span>
-            </div>
-            <div class="info-row">
-                <i class="fas fa-graduation-cap"></i>
-                <span><b>O'qish joyi:</b> Qarshi Davlat Universiteti</span>
-            </div>
-            <div class="info-row">
-                <i class="fas fa-bullseye"></i>
-                <span><b>Maqsad:</b> Yetuk IT mutaxassisi bo'lish</span>
-            </div>
+            <div class="info-row"><i class="fas fa-map-marker-alt"></i> Qarshi, O'zbekiston</div>
+            <div class="info-row"><i class="fas fa-university"></i> Qarshi Davlat Universiteti</div>
+            <div class="info-row"><i class="fas fa-heart"></i> Maqsad: Yetuk IT mutaxassisi bo'lish</div>
         </div>
 
-        <div class="card-box">
-            <h3 class="section-title">Bilim darajasi</h3>
-            <div class="skill-item">
-                <div class="skill-head"><span>💻 HTML / CSS / JS</span><span>50%</span></div>
-                <div class="skill-bar"><div class="skill-fill" style="width: 50%;"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-head"><span>🎨 Web Design</span><span>45%</span></div>
-                <div class="skill-bar"><div class="skill-fill" style="width: 45%;"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-head"><span>⚙️ Python / C++</span><span>55%</span></div>
-                <div class="skill-bar"><div class="skill-fill" style="width: 55%;"></div></div>
-            </div>
-        </div>
-
-        <div class="card-box">
-            <h3 class="section-title">Mening dunyoim</h3>
-            <div class="grid">
-                <div class="grid-card"><img src="1771608245289.png" alt="1"><p>✨ Dasturlash</p></div>
-                <div class="grid-card"><img src="1771608326175.png" alt="2"><p>🌿 Tabiat</p></div>
-                <div class="grid-card"><img src="1771608339990.png" alt="3"><p>📚 Kitobxonlik</p></div>
-                <div class="grid-card"><img src="1771649210473.png" alt="4"><p>🎨 Ijodiy yondashuv</p></div>
-            </div>
-        </div>
-
-        <div class="card-box">
-            <h3 class="section-title">Qiziqishlarim</h3>
-            <div class="grid">
-                <div class="grid-card"><img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=300" alt="Car"><p>🏎️ Avtomobillar</p></div>
-                <div class="grid-card"><img src="https://images.unsplash.com/photo-1562690868-60bbe7293e94?w=300" alt="Rose"><p>🌹 Atirgullar</p></div>
-                <div class="grid-card"><img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=300" alt="Book"><p>📖 Kitoblar</p></div>
-                <div class="grid-card"><img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=300" alt="Travel"><p>✈️ Sayohatlar</p></div>
-            </div>
-        </div>
-
-        <div class="card-box">
-            <h3 class="section-title">Ilmiy Faoliyat</h3>
-            <div class="article-box">
-                [span_0](start_span)<h4>ZAMONAVIY TEXNOLOGIYALAR VA INTERNETNING BUGUNGI KUNDAGI O'RNI[span_0](end_span)</h4>
-                [span_1](start_span)<div style="font-size: 10px; color: var(--accent-pink); font-weight: 700; margin-bottom: 8px;">🗓 11.12.2025[span_1](end_span)</div>
-                <img src="IMG_20260220_210833_611.jpg" class="cert-img" alt="Cert">
-            </div>
-            <div class="article-box">
-                [span_2](start_span)<h4>NANOTEXNOLOGIYALAR: ILMIY ASOSLARI, QO'LLANILISHI VA ZAMONAVIY MUAMMOLARI[span_2](end_span)</h4>
-                [span_3](start_span)<div style="font-size: 10px; color: var(--accent-pink); font-weight: 700; margin-bottom: 8px;">🗓 14.12.2025[span_3](end_span)</div>
-                <img src="IMG_20260220_210942_028.jpg" class="cert-img" alt="Cert">
-            </div>
-        </div>
-
-        <div class="card-box">
-            <h3 class="section-title">Aloqa va Tarmoqlar</h3>
-            <div class="social-row">
-                <a href="#" class="social-link"><i class="fab fa-telegram"></i><span>Telegram</span></a>
-                <a href="#" class="social-link"><i class="fab fa-instagram"></i><span>Instagram</span></a>
-            </div>
-            <a href="mailto:azizasafarova0210@gmail.com" class="social-link" style="margin-top: 15px; flex-direction: row; justify-content: center; gap: 10px;">
-                <i class="fas fa-envelope" style="font-size: 18px;"></i>
-                <span>azizasafarova0210@gmail.com</span>
-            </a>
-        </div>
-
-        <p class="footer-text">© 2026 Safarova Aziza. Barcha huquqlar himoyalangan.</p>
-
-    </div>
-
-</body>
-</html>
-<body>
-
-    <div class="container">
-
-        <div class="section profile-header">
-            <div class="img-box">
-                <img src="Snapchat-720303948.jpg" alt="Aziza">
-            </div>
-            <h2>Safarova Aziza</h2>
-            <span class="job-title">IT Mutaxassis & Talaba</span>
-            
-            <div class="info-list">
-                <div class="info-item"><i class="fas fa-location-dot"></i> Qarshi shahri, O'zbekiston</div>
-                <div class="info-item"><i class="fas fa-university"></i> Qarshi Davlat Universiteti</div>
-                <div class="info-item"><i class="fas fa-heart"></i> Yetuk IT mutaxassisi bo'lish asosiy maqsadim</div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h3>Ko'nikmalarim</h3>
-            <div class="skill-row">
-                <div class="skill-info"><span>Frontend (HTML/CSS/JS)</span><span>50%</span></div>
-                <div class="bar-bg"><div class="bar-fill" style="width: 50%;"></div></div>
-            </div>
-            <div class="skill-row">
-                <div class="skill-info"><span>UI/UX Design</span><span>45%</span></div>
-                <div class="bar-bg"><div class="bar-fill" style="width: 45%;"></div></div>
-            </div>
-            <div class="skill-row">
-                <div class="skill-info"><span>Backend (Python/C++)</span><span>55%</span></div>
-                <div class="bar-bg"><div class="bar-fill" style="width: 55%;"></div></div>
-            </div>
-        </div>
-
-        <div class="section">
+        <div class="card">
             <h3>Mening Galereyam</h3>
-            <div class="grid">
-                <div class="card"><img src="1771608245289.png" alt="1"><p>Dasturlash</p></div>
-                <div class="card"><img src="1771608326175.png" alt="2"><p>Tabiat</p></div>
-                <div class="card"><img src="1771608339990.png" alt="3"><p>Kitobxonlik</p></div>
-                <div class="card"><img src="1771649210473.png" alt="4"><p>Ijod</p></div>
+            <div class="my-grid">
+                <div class="grid-box"><img src="1771608245289.png"><p>Dasturlash</p></div>
+                <div class="grid-box"><img src="1771608326175.png"><p>Tabiat</p></div>
+                <div class="grid-box"><img src="1771608339990.png"><p>Kitobxonlik</p></div>
+                <div class="grid-box"><img src="1771649210473.png"><p>Ijod</p></div>
             </div>
         </div>
 
-        <div class="section">
-            <h3>Qiziqishlarim</h3>
-            <div class="grid">
-                <div class="card"><img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=300" alt="Car"><p>Avtomobillar</p></div>
-                <div class="card"><img src="https://images.unsplash.com/photo-1562690868-60bbe7293e94?w=300" alt="Flowers"><p>Atirgullar</p></div>
-                <div class="card"><img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=300" alt="Books"><p>Kitoblar</p></div>
-                <div class="card"><img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=300" alt="Travel"><p>Sayohatlar</p></div>
-            </div>
-        </div>
-
-        <div class="section">
+        <div class="card">
             <h3>Ilmiy Maqolalar</h3>
-            <div class="article-card">
+            <div class="maqola">
                 <h4>ZAMONAVIY TEXNOLOGIYALAR VA INTERNETNING BUGUNGI KUNDAGI O'RNI</h4>
-                <div style="font-size: 11px; color: var(--primary); font-weight: 600;">11.12.2025</div>
-                <img src="IMG_20260220_210833_611.jpg" class="cert-img" alt="Cert">
+                <img src="IMG_20260220_210833_611.jpg" class="cert">
             </div>
-            <div class="article-card">
+            <div class="maqola">
                 <h4>NANOTEXNOLOGIYALAR: ILMIY ASOSLARI VA MUAMMOLARI</h4>
-                <div style="font-size: 11px; color: var(--primary); font-weight: 600;">14.12.2025</div>
-                <img src="IMG_20260220_210942_028.jpg" class="cert-img" alt="Cert">
+                <img src="IMG_20260220_210942_028.jpg" class="cert">
             </div>
         </div>
 
-        <div class="section">
-            <h3>Bog'lanish</h3>
-            <div class="contact-flex">
-                <a href="#" class="c-btn"><i class="fab fa-telegram"></i><span>Telegram</span></a>
-                <a href="#" class="c-btn"><i class="fab fa-instagram"></i><span>Instagram</span></a>
-                <a href="mailto:azizasafarova0210@gmail.com" class="c-btn"><i class="fas fa-envelope"></i><span>E-mail</span></a>
-            </div>
-        </div>
-
-    </div>
-
-</body>
-</html>
-        }
-
-        /* 3 & 4. GRIDS (Gallery & Interests) */
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .card { 
-            background: rgba(255,255,255,0.02); border: 1px solid var(--border);
-            border-radius: 24px; overflow: hidden; transition: 0.3s;
-        }
-        .card:hover { border-color: var(--t-color); transform: scale(1.02); }
-        .card img { width: 100%; height: 120px; object-fit: cover; opacity: 0.8; transition: 0.3s; }
-        .card:hover img { opacity: 1; }
-        .card p { font-size: 11px; padding: 12px; text-align: center; font-weight: 600; color: #cbd5e1; }
-
-        /* 5. ARTICLES */
-        .article-box {
-            background: rgba(255,255,255,0.02); border: 1px solid var(--border);
-            border-radius: 25px; padding: 20px; margin-bottom: 15px;
-        }
-        .article-box h4 { font-size: 13px; color: #f1f5f9; line-height: 1.6; margin-bottom: 12px; }
-        .article-date { font-size: 10px; color: var(--p-color); display: flex; align-items: center; gap: 5px; }
-        .cert-img { width: 100%; border-radius: 18px; margin-top: 15px; filter: grayscale(20%); transition: 0.3s; }
-        .article-box:hover .cert-img { filter: grayscale(0%); }
-
-        /* 6. CONTACTS */
-        .social-flex { display: flex; gap: 12px; }
-        .s-btn { 
-            flex: 1; text-decoration: none; padding: 18px; border-radius: 24px;
-            background: rgba(255,255,255,0.03); border: 1px solid var(--border);
-            display: flex; flex-direction: column; align-items: center; gap: 10px; transition: 0.3s;
-        }
-        .s-btn i { font-size: 22px; color: #fff; }
-        .s-btn span { font-size: 11px; color: #94a3b8; font-weight: 600; }
-        .s-btn:hover { background: var(--p-color); border-color: transparent; transform: translateY(-3px); }
-        .s-btn:hover span { color: #fff; }
-
-    </style>
-</head>
-<body>
-
-    <div class="container">
-
-        <div class="section profile-card">
-            <div class="profile-img-wrap">
-                <img src="Snapchat-720303948.jpg" alt="Safarova Aziza" class="profile-img">
-            </div>
-            <h2>Safarova Aziza</h2>
-            <span class="status-badge"><i class="fas fa-circle-check"></i> IT Student</span>
-            
-            <div class="info-grid">
-                <div class="info-row"><i class="fas fa-map-pin"></i> <span>Qarshi, O'zbekiston</span></div>
-                <div class="info-row"><i class="fas fa-university"></i> <span>Qarshi Davlat Universiteti</span></div>
-                <div class="info-row"><i class="fas fa-star"></i> <span>Maqsad: Kuchli IT mutaxassisi bo'lish</span></div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h3>Ko'nikmalarim</h3>
-            <div class="skill-item">
-                <div class="skill-info"><span>Frontend Development</span><span>50%</span></div>
-                <div class="skill-track"><div class="skill-fill" style="width: 50%;"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-info"><span>UI/UX Design</span><span>45%</span></div>
-                <div class="skill-track"><div class="skill-fill" style="width: 45%;"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-info"><span>Backend (Python/C++)</span><span>55%</span></div>
-                <div class="skill-track"><div class="skill-fill" style="width: 55%;"></div></div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h3>Galereyam</h3>
-            <div class="grid">
-                <div class="card"><img src="1771608245289.png" alt="1"><p>Dasturlash</p></div>
-                <div class="card"><img src="1771608326175.png" alt="2"><p>Tabiat</p></div>
-                <div class="card"><img src="1771608339990.png" alt="3"><p>Kitobxonlik</p></div>
-                <div class="card"><img src="1771649210473.png" alt="4"><p>Ijod</p></div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h3>Qiziqishlarim</h3>
-            <div class="grid">
-                <div class="card"><img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=300" alt="Car"><p>Avtomobillar</p></div>
-                <div class="card"><img src="https://images.unsplash.com/photo-1562690868-60bbe7293e94?w=300" alt="Flowers"><p>Atirgullar</p></div>
-                <div class="card"><img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=300" alt="Books"><p>Kitoblar</p></div>
-                <div class="card"><img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=300" alt="Travel"><p>Sayohatlar</p></div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h3>Ilmiy Faoliyat</h3>
-            <div class="article-box">
-                <h4>ZAMONAVIY TEXNOLOGIYALAR VA INTERNETNING BUGUNGI KUNDAGI O'RNI</h4>
-                <div class="article-date"><i class="far fa-calendar"></i> 11.12.2025</div>
-                <img src="IMG_20260220_210833_611.jpg" class="cert-img" alt="Cert">
-            </div>
-            <div class="article-box">
-                <h4>NANOTEXNOLOGIYALAR: ILMIY ASOSLARI VA MUAMMOLARI</h4>
-                <div class="article-date"><i class="far fa-calendar"></i> 14.12.2025</div>
-                <img src="IMG_20260220_210942_028.jpg" class="cert-img" alt="Cert">
-            </div>
-        </div>
-
-        <div class="section">
-            <h3>Bog'lanish</h3>
-            <div class="social-flex">
-                <a href="#" class="s-btn"><i class="fab fa-telegram"></i><span>Telegram</span></a>
-                <a href="#" class="s-btn"><i class="fab fa-instagram"></i><span>Instagram</span></a>
-                <a href="mailto:azizasafarova0210@gmail.com" class="s-btn"><i class="fas fa-envelope"></i><span>E-mail</span></a>
-            </div>
-        </div>
-
-    </div>
-
-</body>
-</html>
-            color: var(--primary); border: 1px solid #e2e8f0; margin-top: 10px;
-        }
-        .cert-preview { width: 100%; border-radius: 15px; margin-top: 12px; }
-
-        /* 6. BOG'LANISH */
-        .contact-wrap { display: flex; gap: 10px; }
-        .c-link { 
-            flex: 1; text-decoration: none; padding: 15px; border-radius: 20px;
-            background: #fff; display: flex; flex-direction: column; align-items: center; gap: 10px;
-            transition: 0.3s; border: 1px solid #f1f5f9;
-        }
-        .c-link:hover { background: var(--primary); }
-        .c-link:hover i, .c-link:hover span { color: #fff; }
-        .c-link i { font-size: 22px; color: var(--primary); }
-        .c-link span { font-size: 11px; font-weight: 700; color: #64748b; }
-
-    </style>
-</head>
-<body>
-
-    <div class="container">
-
-        <div class="section profile-card">
-            <div class="profile-img-wrap">
-                <img src="Snapchat-720303948.jpg" alt="Aziza" class="profile-img">
-            </div>
-            <h2>Safarova Aziza</h2>
-            <div class="badge">IT Mutaxassis</div>
-            
-            <div class="info-items">
-                <p><i class="fas fa-location-dot"></i> Qarshi shahri, O'zbekiston</p>
-                <p><i class="fas fa-graduation-cap"></i> Qarshi Davlat Universiteti</p>
-                <p><i class="fas fa-fire"></i> Yetuk IT mutaxassisi bo'lish asosiy maqsadim</p>
-            </div>
-        </div>
-
-        <div class="section">
-            <h3>Ko'nikmalar</h3>
-            <div class="skill-box">
-                <div class="skill-top"><span>HTML / CSS / JS</span><span>50%</span></div>
-                <div class="skill-track"><div class="skill-fill" style="width: 50%;"></div></div>
-            </div>
-            <div class="skill-box">
-                <div class="skill-top"><span>WEB DESIGN (UI/UX)</span><span>45%</span></div>
-                <div class="skill-track"><div class="skill-fill" style="width: 45%;"></div></div>
-            </div>
-            <div class="skill-box">
-                <div class="skill-top"><span>PYTHON / C++</span><span>55%</span></div>
-                <div class="skill-track"><div class="skill-fill" style="width: 55%;"></div></div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h3>Mening Galereyam</h3>
-            <div class="masonry-grid">
-                <div class="card"><img src="1771608245289.png" alt="1"><div class="card-title">Dasturlash</div></div>
-                <div class="card"><img src="1771608326175.png" alt="2"><div class="card-title">Tabiat</div></div>
-                <div class="card"><img src="1771608339990.png" alt="3"><div class="card-title">Kitobxonlik</div></div>
-                <div class="card"><img src="1771649210473.png" alt="4"><div class="card-title">Gul</div></div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h3>Qiziqishlarim</h3>
-            <div class="masonry-grid">
-                <div class="card"><img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=300" alt="BMW"><div class="card-title">Avtomobillar</div></div>
-                <div class="card"><img src="https://images.unsplash.com/photo-1562690868-60bbe7293e94?w=300" alt="Rose"><div class="card-title">Atirgullar</div></div>
-                <div class="card"><img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=300" alt="Book"><div class="card-title">Kitoblar</div></div>
-                <div class="card"><img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=300" alt="Travel"><div class="card-title">Sayohatlar</div></div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h3>Ilmiy Maqolalar</h3>
-            <div class="article-glass">
-                <h4>ZAMONAVIY TEXNOLOGIYALAR VA INTERNETNING BUGUNGI KUNDAGI O'RNI</h4>
-                <div style="font-size: 10px; color: #64748b;"><i class="far fa-calendar-check"></i> 11.12.2025</div>
-                <img src="IMG_20260220_210833_611.jpg" class="cert-preview" alt="Cert">
-            </div>
-            <div class="article-glass">
-                <h4>NANOTEXNOLOGIYALAR: ILMIY ASOSLARI VA MUAMMOLARI</h4>
-                <div style="font-size: 10px; color: #64748b;"><i class="far fa-calendar-check"></i> 14.12.2025</div>
-                <img src="IMG_20260220_210942_028.jpg" class="cert-preview" alt="Cert">
-            </div>
-        </div>
-
-        <div class="section">
+        <div class="card">
             <h3>Aloqa</h3>
-            <div class="contact-wrap">
-                <a href="#" class="c-link"><i class="fab fa-telegram"></i><span>Telegram</span></a>
-                <a href="#" class="c-link"><i class="fab fa-instagram"></i><span>Instagram</span></a>
-                <a href="mailto:azizasafarova0210@gmail.com" class="c-link"><i class="fas fa-envelope"></i><span>E-mail</span></a>
+            <div class="btn-box">
+                <a href="https://t.me/Safarova_A_O" class="btn"><i class="fab fa-telegram"></i> Telegram</a>
+                <a href="#" class="btn" style="background: #e1306c;"><i class="fab fa-instagram"></i> Instagram</a>
             </div>
+            <p style="font-size: 11px; margin-top: 15px; color: #888;">azizasafarova0210@gmail.com</p>
         </div>
 
     </div>
+
 </body>
 </html>
