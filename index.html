@@ -3,114 +3,232 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Safarova Aziza | Portfolio</title>
+    <title>Safarova Aziza | Professional Portfolio</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #6366f1;
-            --secondary: #a855f7;
-            --accent: #ec4899;
-            --bg: #f8fafc;
-            --glass: rgba(255, 255, 255, 0.85);
-            --text: #1e293b;
+            --p-color: #6366f1;
+            --s-color: #a855f7;
+            --t-color: #ec4899;
+            --bg: #0f172a; /* To'q va zamonaviy rang */
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateX(-20px); }
-            to { opacity: 1; transform: translateX(0); }
+        /* Harakatlanuvchi fon animatsiyasi */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
-            color: var(--text);
-            padding: 20px;
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(-45deg, #0f172a, #1e1b4b, #312e81, #1e1b4b);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: #f8fafc;
+            padding: 20px 15px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            min-height: 100vh;
         }
 
         .container { width: 100%; max-width: 440px; }
 
         .section {
             background: var(--glass);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.4);
-            border-radius: 30px;
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 35px;
             padding: 25px;
-            margin-bottom: 25px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
-            animation: slideIn 0.8s ease-out;
+            margin-bottom: 30px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            transition: 0.4s;
         }
 
-        /* 1. GLAVNIY */
-        .profile-card { text-align: center; }
+        .section:hover {
+            border-color: var(--p-color);
+            transform: translateY(-5px);
+        }
+
+        /* 1. PROFILE SECTION */
+        .profile-card { text-align: center; position: relative; overflow: hidden; }
         .profile-img-wrap {
             position: relative;
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 15px;
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 20px;
+            padding: 8px;
+            background: linear-gradient(to right, var(--p-color), var(--t-color));
+            border-radius: 50%;
         }
         .profile-img {
             width: 100%; height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid #fff;
-            box-shadow: 0 10px 20px rgba(99,102,241,0.3);
-            animation: float 4s ease-in-out infinite;
+            border: 4px solid #0f172a;
         }
-        .profile-card h2 { font-size: 24px; font-weight: 700; background: linear-gradient(to right, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .badge { background: #f1f5f9; padding: 5px 15px; border-radius: 20px; font-size: 13px; font-weight: 600; color: var(--primary); display: inline-block; margin-top: 5px; }
         
-        .info-items { text-align: left; margin-top: 20px; }
-        .info-items p { font-size: 13px; margin: 10px 0; display: flex; align-items: center; gap: 12px; color: #475569; }
-        .info-items i { color: var(--primary); font-size: 16px; background: #eff6ff; padding: 8px; border-radius: 10px; }
+        h2 { 
+            font-size: 26px; font-weight: 800; 
+            background: linear-gradient(to right, #fff, #a5b4fc);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+        }
+        .status-badge {
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid var(--p-color);
+            padding: 4px 12px; border-radius: 12px;
+            font-size: 12px; color: var(--p-color); font-weight: 600;
+        }
 
-        /* SARLAVHALAR */
+        .info-grid { text-align: left; margin-top: 25px; display: grid; gap: 12px; }
+        .info-row { display: flex; align-items: center; gap: 12px; font-size: 13px; color: #94a3b8; }
+        .info-row i { 
+            width: 32px; height: 32px; 
+            background: rgba(255,255,255,0.05); 
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 10px; color: var(--p-color);
+        }
+
+        /* TITLES */
         h3 { 
-            font-size: 16px; font-weight: 700; text-transform: uppercase; 
-            letter-spacing: 2px; color: #64748b; margin-bottom: 20px;
-            display: flex; align-items: center; gap: 10px;
+            font-size: 15px; text-transform: uppercase; letter-spacing: 3px;
+            color: #94a3b8; margin-bottom: 25px; display: flex; align-items: center; gap: 15px;
         }
-        h3::before { content: ""; width: 4px; height: 20px; background: var(--primary); border-radius: 4px; }
+        h3::after { content: ""; flex: 1; height: 1px; background: var(--border); }
 
-        /* 2. KO'NIKMALAR */
-        .skill-box { margin-bottom: 20px; }
-        .skill-top { display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; margin-bottom: 8px; }
-        .skill-track { height: 10px; background: #e2e8f0; border-radius: 5px; overflow: hidden; }
-        .skill-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--secondary)); border-radius: 5px; }
+        /* 2. SKILLS */
+        .skill-item { margin-bottom: 20px; }
+        .skill-info { display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: 600; font-size: 12px; }
+        .skill-track { height: 8px; background: rgba(255,255,255,0.05); border-radius: 10px; }
+        .skill-fill { 
+            height: 100%; border-radius: 10px;
+            background: linear-gradient(to right, var(--p-color), var(--s-color));
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+        }
 
-        /* 3 & 4. GALEREYA & QIZIQISHLAR */
-        .masonry-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        /* 3 & 4. GRIDS (Gallery & Interests) */
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
         .card { 
-            background: #fff; border-radius: 20px; overflow: hidden; 
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
+            background: rgba(255,255,255,0.02); border: 1px solid var(--border);
+            border-radius: 24px; overflow: hidden; transition: 0.3s;
         }
-        .card:hover { transform: scale(1.05); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
-        .card img { width: 100%; height: 130px; object-fit: cover; }
-        .card-title { font-size: 11px; font-weight: 700; padding: 10px; text-align: center; }
+        .card:hover { border-color: var(--t-color); transform: scale(1.02); }
+        .card img { width: 100%; height: 120px; object-fit: cover; opacity: 0.8; transition: 0.3s; }
+        .card:hover img { opacity: 1; }
+        .card p { font-size: 11px; padding: 12px; text-align: center; font-weight: 600; color: #cbd5e1; }
 
-        /* 5. MAQOLALAR */
-        .article-glass {
-            background: rgba(99, 102, 241, 0.03);
-            border: 1px solid rgba(99, 102, 241, 0.1);
-            border-radius: 20px; padding: 15px; margin-bottom: 15px;
+        /* 5. ARTICLES */
+        .article-box {
+            background: rgba(255,255,255,0.02); border: 1px solid var(--border);
+            border-radius: 25px; padding: 20px; margin-bottom: 15px;
         }
-        .article-glass h4 { font-size: 12px; color: var(--text); line-height: 1.5; margin-bottom: 10px; }
-        .cert-btn {
-            display: inline-flex; align-items: center; gap: 5px;
-            background: #fff; padding: 8px 15px; border-radius: 12px;
-            text-decoration: none; font-size: 11px; font-weight: 700;
+        .article-box h4 { font-size: 13px; color: #f1f5f9; line-height: 1.6; margin-bottom: 12px; }
+        .article-date { font-size: 10px; color: var(--p-color); display: flex; align-items: center; gap: 5px; }
+        .cert-img { width: 100%; border-radius: 18px; margin-top: 15px; filter: grayscale(20%); transition: 0.3s; }
+        .article-box:hover .cert-img { filter: grayscale(0%); }
+
+        /* 6. CONTACTS */
+        .social-flex { display: flex; gap: 12px; }
+        .s-btn { 
+            flex: 1; text-decoration: none; padding: 18px; border-radius: 24px;
+            background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+            display: flex; flex-direction: column; align-items: center; gap: 10px; transition: 0.3s;
+        }
+        .s-btn i { font-size: 22px; color: #fff; }
+        .s-btn span { font-size: 11px; color: #94a3b8; font-weight: 600; }
+        .s-btn:hover { background: var(--p-color); border-color: transparent; transform: translateY(-3px); }
+        .s-btn:hover span { color: #fff; }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="section profile-card">
+            <div class="profile-img-wrap">
+                <img src="Snapchat-720303948.jpg" alt="Safarova Aziza" class="profile-img">
+            </div>
+            <h2>Safarova Aziza</h2>
+            <span class="status-badge"><i class="fas fa-circle-check"></i> IT Student</span>
+            
+            <div class="info-grid">
+                <div class="info-row"><i class="fas fa-map-pin"></i> <span>Qarshi, O'zbekiston</span></div>
+                <div class="info-row"><i class="fas fa-university"></i> <span>Qarshi Davlat Universiteti</span></div>
+                <div class="info-row"><i class="fas fa-star"></i> <span>Maqsad: Kuchli IT mutaxassisi bo'lish</span></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Ko'nikmalarim</h3>
+            <div class="skill-item">
+                <div class="skill-info"><span>Frontend Development</span><span>50%</span></div>
+                <div class="skill-track"><div class="skill-fill" style="width: 50%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-info"><span>UI/UX Design</span><span>45%</span></div>
+                <div class="skill-track"><div class="skill-fill" style="width: 45%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-info"><span>Backend (Python/C++)</span><span>55%</span></div>
+                <div class="skill-track"><div class="skill-fill" style="width: 55%;"></div></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Galereyam</h3>
+            <div class="grid">
+                <div class="card"><img src="1771608245289.png" alt="1"><p>Dasturlash</p></div>
+                <div class="card"><img src="1771608326175.png" alt="2"><p>Tabiat</p></div>
+                <div class="card"><img src="1771608339990.png" alt="3"><p>Kitobxonlik</p></div>
+                <div class="card"><img src="1771649210473.png" alt="4"><p>Ijod</p></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Qiziqishlarim</h3>
+            <div class="grid">
+                <div class="card"><img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=300" alt="Car"><p>Avtomobillar</p></div>
+                <div class="card"><img src="https://images.unsplash.com/photo-1562690868-60bbe7293e94?w=300" alt="Flowers"><p>Atirgullar</p></div>
+                <div class="card"><img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=300" alt="Books"><p>Kitoblar</p></div>
+                <div class="card"><img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=300" alt="Travel"><p>Sayohatlar</p></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Ilmiy Faoliyat</h3>
+            <div class="article-box">
+                <h4>ZAMONAVIY TEXNOLOGIYALAR VA INTERNETNING BUGUNGI KUNDAGI O'RNI</h4>
+                <div class="article-date"><i class="far fa-calendar"></i> 11.12.2025</div>
+                <img src="IMG_20260220_210833_611.jpg" class="cert-img" alt="Cert">
+            </div>
+            <div class="article-box">
+                <h4>NANOTEXNOLOGIYALAR: ILMIY ASOSLARI VA MUAMMOLARI</h4>
+                <div class="article-date"><i class="far fa-calendar"></i> 14.12.2025</div>
+                <img src="IMG_20260220_210942_028.jpg" class="cert-img" alt="Cert">
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Bog'lanish</h3>
+            <div class="social-flex">
+                <a href="#" class="s-btn"><i class="fab fa-telegram"></i><span>Telegram</span></a>
+                <a href="#" class="s-btn"><i class="fab fa-instagram"></i><span>Instagram</span></a>
+                <a href="mailto:azizasafarova0210@gmail.com" class="s-btn"><i class="fas fa-envelope"></i><span>E-mail</span></a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
             color: var(--primary); border: 1px solid #e2e8f0; margin-top: 10px;
         }
         .cert-preview { width: 100%; border-radius: 15px; margin-top: 12px; }
