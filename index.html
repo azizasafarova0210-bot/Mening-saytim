@@ -5,25 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Safarova Aziza | Portfolio</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Sitoraning portfoliosi kabi yumshoq ranglar */
-            --primary-pink: #ff7eb3;
-            --soft-blue: #e0e7ff;
-            --text-dark: #2d1b24;
-            --glass-bg: rgba(255, 255, 255, 0.85);
-            --card-shadow: 0 10px 25px rgba(255, 126, 179, 0.1);
+            --primary: #ff7eb3; /* Nafis pushti */
+            --secondary: #8b5cf6; /* Binafsha urg'u */
+            --bg: #fff5f8;
+            --text: #2d1b24;
+            --glass: rgba(255, 255, 255, 0.85);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            /* Pushti va havorang yumshoq gradient */
             background: linear-gradient(135deg, #fff5f8 0%, #f0f4ff 100%);
             background-attachment: fixed;
-            color: var(--text-dark);
+            color: var(--text);
             padding: 20px 15px;
             display: flex;
             flex-direction: column;
@@ -32,85 +30,158 @@
 
         .container { width: 100%; max-width: 420px; }
 
-        /* BO'LIMLAR (SECTIONS) */
+        /* SECTIONS */
         .section {
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
+            background: var(--glass);
+            backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.6);
-            border-radius: 30px;
-            padding: 25px;
+            border-radius: 32px;
+            padding: 28px;
             margin-bottom: 25px;
-            box-shadow: var(--card-shadow);
+            box-shadow: 0 15px 35px rgba(255, 126, 179, 0.08);
         }
 
-        /* PROFILE SECTION */
+        /* 1. PROFILE CARD */
         .profile-card { text-align: center; }
+        .name-logo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 42px;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
         .profile-img-wrap {
-            position: relative;
-            width: 140px; height: 140px;
+            width: 150px; height: 150px;
             margin: 0 auto 15px;
+            position: relative;
         }
         .profile-img {
             width: 100%; height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid #fff;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            border: 5px solid #fff;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
         }
-        
-        h2 { 
-            font-size: 24px; font-weight: 700; 
-            background: linear-gradient(to right, var(--primary-pink), #8b5cf6);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
-        .badge { 
-            background: #fff; padding: 5px 15px; border-radius: 15px; 
-            font-size: 12px; font-weight: 700; color: var(--primary-pink); 
-            display: inline-block; margin-top: 8px; border: 1px solid #ffeef2;
-        }
-        
-        .info-items { text-align: left; margin-top: 20px; }
-        .info-items p { 
-            font-size: 13px; margin: 12px 0; display: flex; 
-            align-items: center; gap: 12px; color: #5c4d54; 
-        }
-        .info-items i { 
-            color: var(--primary-pink); font-size: 15px; 
-            background: #fff; padding: 10px; border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        h2 { font-size: 24px; font-weight: 800; color: #1e293b; letter-spacing: -0.5px; }
+        .badge {
+            background: #fff; color: var(--primary);
+            padding: 6px 16px; border-radius: 20px;
+            font-size: 11px; font-weight: 800;
+            display: inline-block; margin-top: 10px;
+            border: 1px solid #ffeef2;
+            text-transform: uppercase;
         }
 
-        /* SARLAVHALAR */
+        .info-items { text-align: left; margin-top: 25px; }
+        .info-items p { 
+            display: flex; align-items: center; gap: 12px; 
+            margin-bottom: 15px; font-size: 13px; color: #5c4d54; 
+        }
+        .info-items i { 
+            color: var(--primary); font-size: 16px; width: 35px; height: 35px;
+            background: #fff; border-radius: 12px; display: flex;
+            align-items: center; justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+
+        /* 2. TITLES */
         h3 { 
-            font-size: 15px; font-weight: 800; text-transform: uppercase; 
+            font-size: 15px; font-weight: 800; text-transform: uppercase;
             letter-spacing: 1.5px; color: #a38f99; margin-bottom: 20px;
             display: flex; align-items: center; gap: 10px;
         }
-        h3::before { content: ""; width: 5px; height: 18px; background: var(--primary-pink); border-radius: 10px; }
+        h3::before { content: ""; width: 5px; height: 18px; background: var(--primary); border-radius: 10px; }
 
-        /* SKILLS */
+        /* 3. SKILLS */
         .skill-box { margin-bottom: 18px; }
         .skill-top { display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; margin-bottom: 8px; }
         .skill-track { height: 8px; background: #f1f5f9; border-radius: 10px; overflow: hidden; }
-        .skill-fill { height: 100%; background: linear-gradient(90deg, var(--primary-pink), #f472b6); border-radius: 10px; }
+        .skill-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--secondary)); border-radius: 10px; }
 
-        /* GRIDS */
-        .masonry-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        /* 4. MASONRY GRID */
+        .masonry-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
         .card { 
-            background: #fff; border-radius: 20px; overflow: hidden; 
-            border: 1px solid #fcf2f6; transition: 0.3s;
+            background: #fff; border-radius: 24px; overflow: hidden; 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative; border: 1px solid #fcf2f6;
         }
-        .card img { width: 100%; height: 110px; object-fit: cover; }
-        .card-title { font-size: 11px; font-weight: 700; padding: 10px; text-align: center; color: #5c4d54; }
+        .card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(255, 126, 179, 0.15); }
+        .card img { width: 100%; height: 120px; object-fit: cover; }
+        .card-title { font-size: 11px; font-weight: 700; padding: 12px; text-align: center; color: #5c4d54; }
 
-        /* MAQOLALAR */
-        .article-glass {
-            background: #fff; border: 1px solid #f1f5f9;
-            border-radius: 20px; padding: 18px; margin-bottom: 15px;
+        /* 5. CONTACT */
+        .contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .c-link { 
+            text-decoration: none; padding: 20px; border-radius: 24px;
+            background: #fff; display: flex; flex-direction: column; align-items: center; gap: 10px;
+            transition: 0.3s; border: 1px solid #f1f5f9;
         }
-        .article-glass h4 { font-size: 12px; color: var(--text-dark); line-height: 1.5; margin-bottom: 10px; }
-        .cert-preview { width: 100%; border-radius: 15px; margin-top: 10px; }
+        .c-link:hover { background: var(--primary); transform: scale(1.05); }
+        .c-link:hover i, .c-link:hover span { color: #fff; }
+        .c-link i { font-size: 24px; color: var(--primary); }
+        .c-link span { font-size: 11px; font-weight: 700; color: #8a7b82; }
 
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="section profile-card">
+            <div class="name-logo">Aziza</div>
+            <div class="profile-img-wrap">
+                <img src="Snapchat-720303948.jpg" alt="Aziza" class="profile-img">
+            </div>
+            <h2>Safarova Aziza</h2>
+            <div class="badge">IT Mutaxassis & Talaba</div>
+            
+            <div class="info-items">
+                <p><i class="fas fa-location-dot"></i> Qarshi shahri, O'zbekiston</p>
+                <p><i class="fas fa-graduation-cap"></i> Qarshi Davlat Universiteti</p>
+                <p><i class="fas fa-fire"></i> Yetuk IT mutaxassisi bo'lish asosiy maqsadim</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Ko'nikmalar</h3>
+            <div class="skill-box">
+                <div class="skill-top"><span>HTML / CSS / JS</span><span>50%</span></div>
+                <div class="skill-track"><div class="skill-fill" style="width: 50%;"></div></div>
+            </div>
+            <div class="skill-box">
+                <div class="skill-top"><span>WEB DESIGN (UI/UX)</span><span>45%</span></div>
+                <div class="skill-track"><div class="skill-fill" style="width: 45%;"></div></div>
+            </div>
+            <div class="skill-box">
+                <div class="skill-top"><span>PYTHON / C++</span><span>55%</span></div>
+                <div class="skill-track"><div class="skill-fill" style="width: 55%;"></div></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Mening Galereyam</h3>
+            <div class="masonry-grid">
+                <div class="card"><img src="1771608245289.png" alt="1"><div class="card-title">Dasturlash</div></div>
+                <div class="card"><img src="1771608326175.png" alt="2"><div class="card-title">Tabiat</div></div>
+                <div class="card"><img src="1771608339990.png" alt="3"><div class="card-title">Kitobxonlik</div></div>
+                <div class="card"><img src="1771649210473.png" alt="4"><div class="card-title">Ijod</div></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Bog'lanish</h3>
+            <div class="contact-wrap">
+                <a href="#" class="c-link"><i class="fab fa-telegram"></i><span>Telegram</span></a>
+                <a href="#" class="c-link"><i class="fab fa-instagram"></i><span>Instagram</span></a>
+                <a href="mailto:azizasafarova0210@gmail.com" class="c-link" style="grid-column: span 2;">
+                    <i class="fas fa-envelope"></i>
+                    <span>azizasafarova0210@gmail.com</span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
         /* ALOQA */
         .contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
         .c-link { 
