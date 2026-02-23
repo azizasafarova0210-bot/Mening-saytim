@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aziza Portfolio | Final Version</title>
+    <title>Aziza Portfolio | Mukammal Talqin</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         body {
@@ -24,13 +24,12 @@
         .wrapper { width: 100%; max-width: 400px; }
 
         .card {
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(10px);
-            border-radius: 30px;
-            padding: 22px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 20px;
             margin-bottom: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: 1px solid white;
         }
 
         .h2-title {
@@ -39,109 +38,116 @@
             display: flex; align-items: center; gap: 10px; font-weight: 800;
         }
 
-        /* 1. PROFIL */
+        /* PROFIL */
+        .profile-card { text-align: center; }
         .profile-img {
-            width: 125px; height: 125px;
+            width: 120px; height: 120px;
             border-radius: 50%; border: 4px solid #ff7eb3;
             object-fit: cover; margin-bottom: 10px;
         }
 
-        /* 2. MEN HAQIMDA */
-        .bio-text { font-size: 13px; color: #555; line-height: 1.7; text-align: left; }
+        /* QIZIQISHLAR (Rasmlar bilan) */
+        .int-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .int-item { background: #fff; border-radius: 15px; overflow: hidden; border: 1px solid #eee; text-align: center; }
+        .int-item img { width: 100%; height: 80px; object-fit: cover; }
+        .int-item p { font-size: 11px; font-weight: bold; margin: 5px 0; color: #555; }
 
-        /* 3. MUTOLAA */
-        .book-card { display: flex; gap: 15px; align-items: center; }
-        .book-img { width: 70px; height: 100px; border-radius: 8px; box-shadow: 3px 5px 15px rgba(0,0,0,0.15); }
+        /* KITOB */
+        .book-card { display: flex; gap: 15px; align-items: center; background: #fdf2f7; padding: 12px; border-radius: 15px; }
+        .book-img { width: 70px; height: 100px; border-radius: 5px; box-shadow: 2px 4px 8px rgba(0,0,0,0.2); }
 
-        /* 4. QIZIQISHLARIM (Yuqoriga chiqdi) */
-        .int-list { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
-        .int-tag { 
-            background: white; border: 1px solid #ff7eb3; color: #ff7eb3;
-            padding: 8px 15px; border-radius: 20px; font-size: 12px; font-weight: 700;
-            display: flex; align-items: center; gap: 8px;
-        }
+        /* GALEREYA */
+        .gal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .gal-box { border-radius: 12px; overflow: hidden; height: 100px; }
+        .gal-box img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* 5. GALEREYAM (Pastga tushdi) */
-        .gal-grid { display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: 100px 100px; gap: 8px; }
-        .gal-box { border-radius: 15px; overflow: hidden; }
-        .gal-box img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; }
-        .gal-box:hover img { transform: scale(1.1); }
-        .gal-1 { grid-row: span 2; }
+        /* MAQOLA */
+        .maqola { background: #fff; border-radius: 15px; padding: 12px; margin-bottom: 15px; border-left: 5px solid #ff7eb3; }
+        .cert { width: 100%; border-radius: 10px; margin-top: 10px; }
 
-        /* MAQOLALAR */
-        .maqola { background: #fff; border-radius: 15px; padding: 12px; margin-bottom: 15px; border-left: 5px solid #ff7eb3; text-align: left; }
-        .maqola h4 { font-size: 11px; margin-bottom: 8px; color: #333; }
-        .cert { width: 100%; border-radius: 10px; }
-
-        .btn {
-            text-decoration: none; background: #ff7eb3; color: white;
-            padding: 15px; border-radius: 20px; font-size: 13px; font-weight: bold;
-            display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%;
+        /* ALOQA - QAYTARILDI */
+        .contact-card { background: #ff7eb3; color: white; text-align: center; }
+        .contact-card h3 { color: white; margin-top: 0; }
+        .btn-tg {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: white; color: #ff7eb3; padding: 12px 25px;
+            border-radius: 50px; text-decoration: none; font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
     </style>
 </head>
 <body>
 
     <div class="wrapper">
-        <div class="card" style="text-align: center;">
+        <div class="card profile-card">
             <img src="Snapchat-720303948.jpg" class="profile-img" alt="Aziza">
-            <h2 style="margin:0; font-size: 24px;">Safarova Aziza</h2>
-            <p style="color:#ff7eb3; font-weight:700; font-size:12px;">Qarshi Davlat Universiteti</p>
+            <h2 style="margin:0;">Safarova Aziza</h2>
+            <p style="color:#ff7eb3; font-weight:700; margin:5px 0;">Qarshi Davlat Universiteti</p>
         </div>
 
         <div class="card">
-            <div class="h2-title"><i class="fas fa-address-card"></i> Men haqimda</div>
-            <p class="bio-text">
-                Men o'z maqsadlari sari intiluvchan, texnologiyalarga mehr qo'ygan talabaman. Ilm-fanga bo'lgan qiziqishim meni doimo yangi marralarni zabt etishga undaydi.
-            </p>
-        </div>
-
-        <div class="card">
-            <div class="h2-title"><i class="fas fa-heartbeat"></i> Qiziqishlarim</div>
-            <div class="int-list">
-                <div class="int-tag"><i class="fas fa-car"></i> BMW</div>
-                <div class="int-tag"><i class="fas fa-seedling"></i> Atirgullar</div>
-                <div class="int-tag"><i class="fas fa-code"></i> IT Sohasi</div>
-                <div class="int-tag"><i class="fas fa-plane"></i> Sayohat</div>
-                <div class="int-tag"><i class="fas fa-laptop-code"></i> Dasturlash</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="h2-title"><i class="fas fa-book-reader"></i> Hozir mutolaada</div>
-            <div class="book-card">
-                <img src="https://assets.asaxiy.uz/product/main_image/desktop/8909890f5c00e12368c464c514749f912022041214060563451Nis751nLd.jpg" class="book-img" alt="Sariq devni minib">
-                <div class="book-info">
-                    <b style="font-size: 14px;">"Sariq devni minib"</b>
-                    <p style="font-size: 11px; color:#ff7eb3; margin: 3px 0;">Xudoyberdi To'xtaboyev</p>
-                    <p style="font-size: 10px; color:#777;">O'zbek adabiyotining eng sevimli asarlaridan biri.</p>
+            <div class="h2-title"><i class="fas fa-heart"></i> Qiziqishlarim</div>
+            <div class="int-grid">
+                <div class="int-item">
+                    <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=200">
+                    <p>BMW</p>
+                </div>
+                <div class="int-item">
+                    <img src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?w=200">
+                    <p>Atirgullar</p>
+                </div>
+                <div class="int-item">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=200">
+                    <p>IT Sohasi</p>
+                </div>
+                <div class="int-item">
+                    <img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=200">
+                    <p>Sayohat</p>
                 </div>
             </div>
         </div>
 
         <div class="card">
-            <div class="h2-title"><i class="fas fa-th-large"></i> Galereyam</div>
+            <div class="h2-title"><i class="fas fa-book"></i> Sevimli asarim</div>
+            <div class="book-card">
+                <img src="https://kitobxon.com/img_knigi/2223.jpg" class="book-img" alt="Yuksak ma'naviyat">
+                <div class="book-info">
+                    <b style="font-size: 13px;">"Yuksak ma'naviyat — yengilmas kuch"</b>
+                    <p style="font-size: 11px; color:#ff7eb3; margin:2px 0;">Islom Karimov</p>
+                    <p style="font-size: 10px; color:#666;">Inson ma'naviyati va milliy o'zlikni anglash haqida bebaho asar.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="h2-title"><i class="fas fa-camera"></i> Galereyam</div>
             <div class="gal-grid">
-                <div class="gal-box gal-1"><img src="1771608245289.png"></div>
+                <div class="gal-box"><img src="1771608245289.png"></div>
                 <div class="gal-box"><img src="1771608326175.png"></div>
                 <div class="gal-box"><img src="1771608339990.png"></div>
+                <div class="gal-box"><img src="1771649210473.png"></div>
             </div>
         </div>
 
         <div class="card">
             <div class="h2-title"><i class="fas fa-graduation-cap"></i> Maqolalarim</div>
             <div class="maqola">
-                <h4>1. ZAMONAVIY TEXNOLOGIYALAR VA INTERNETNING O'RNI</h4>
+                <h4 style="font-size: 11px; margin:0;">1. ZAMONAVIY TEXNOLOGIYALAR VA INTERNET</h4>
                 <img src="IMG_20260220_210833_611.jpg" class="cert">
             </div>
             <div class="maqola">
-                <h4>2. NANOTEXNOLOGIYALAR: ILMIY ASOSLARI</h4>
+                <h4 style="font-size: 11px; margin:0;">2. NANOTEXNOLOGIYALAR ASOSLARI</h4>
                 <img src="IMG_20260220_210942_028.jpg" class="cert">
             </div>
         </div>
 
-        <div class="card" style="background:none; box-shadow:none; border:none; padding:0;">
-            <a href="https://t.me/Safarova_A_O" class="btn"><i class="fab fa-telegram"></i> Telegram orqali bog'lanish</a>
+        <div class="card contact-card">
+            <h3>Bog'lanish uchun</h3>
+            <p style="font-size: 12px; margin-bottom: 15px;">Savol yoki takliflaringiz bo'lsa, Telegram orqali yozing:</p>
+            <a href="https://t.me/Safarova_A_O" class="btn-tg">
+                <i class="fab fa-telegram-plane"></i> @Safarova_A_O
+            </a>
+            <p style="font-size: 10px; margin-top: 15px; opacity: 0.8;">azizasafarova0210@gmail.com</p>
         </div>
     </div>
 
