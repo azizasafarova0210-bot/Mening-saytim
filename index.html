@@ -3,169 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aziza Portfolio</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Aziza Safarova | Professional Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
-        /* 1. ASOSIY FON VA KONTEYNER */
-        body {
-            background-color: #fff0f5; /* Yumshoq pushti */
-            background: linear-gradient(to bottom, #fff5f8, #eef2ff);
-            font-family: 'Segoe UI', sans-serif;
-            margin: 0;
-            padding: 20px 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+        :root { --p: #6c5ce7; --bg: #f0f2f5; --text: #2d3436; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+        body { background: var(--bg); padding: 20px 10px; color: var(--text); }
+        .container { max-width: 450px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+        
+        .card { background: white; border-radius: 25px; padding: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+        .h2 { font-size: 17px; font-weight: 800; color: var(--p); margin-bottom: 15px; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
 
-        .wrapper {
-            width: 100%;
-            max-width: 400px; /* Telefon uchun eng qulay o'lcham */
-        }
+        /* Profil */
+        .profile { text-align: center; }
+        .profile img { width: 130px; height: 130px; border-radius: 50%; object-fit: cover; border: 4px solid var(--p); margin-bottom: 10px; }
+        
+        /* Ma'lumot */
+        .about-p { font-size: 13px; line-height: 1.6; color: #636e72; }
 
-        /* 2. BO'LIMLAR (KARTALAR) */
-        .card {
-            background: white;
-            border-radius: 25px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(255, 126, 179, 0.1);
-            text-align: center;
-        }
+        /* Timeline (Ta'lim) */
+        .timeline { border-left: 2px solid var(--p); padding-left: 15px; margin-left: 10px; }
+        .time-item { position: relative; margin-bottom: 15px; }
+        .time-item::before { content: ""; position: absolute; left: -21px; top: 5px; width: 10px; height: 10px; background: var(--p); border-radius: 50%; }
+        .time-item b { font-size: 13px; display: block; }
+        .time-item span { font-size: 11px; color: #b2bec3; }
 
-        /* 3. PROFIL QISMI */
-        .profile-img {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            border: 4px solid #ff7eb3;
-            object-fit: cover;
-            margin-bottom: 15px;
-        }
+        /* Galereya va Qiziqishlar gridi */
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .g-item { height: 100px; border-radius: 15px; overflow: hidden; }
+        .g-item img { width: 100%; height: 100%; object-fit: cover; }
+        
+        /* Qiziqishlar */
+        .int-box { position: relative; height: 100px; border-radius: 15px; overflow: hidden; }
+        .int-box img { width: 100%; height: 100%; object-fit: cover; }
+        .int-label { position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.6); color: white; padding: 5px; font-size: 10px; text-align: center; font-weight: 700; }
 
-        h2 { color: #333; margin: 5px 0; font-size: 22px; }
-        .subtitle { color: #ff7eb3; font-weight: bold; font-size: 14px; display: block; margin-bottom: 15px; }
+        /* Sertifikatlar */
+        .cert-box { background: #f8f9ff; border-radius: 15px; padding: 15px; margin-bottom: 15px; border-left: 5px solid var(--p); }
+        .cert-box h4 { font-size: 11px; margin-bottom: 10px; }
+        .cert-img { width: 100%; border-radius: 10px; }
 
-        .info-row {
-            text-align: left;
-            font-size: 13px;
-            color: #555;
-            margin: 8px 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .info-row i { color: #ff7eb3; width: 18px; }
-
-        /* 4. GALEREYA VA GRID */
-        h3 {
-            font-size: 16px;
-            color: #ff7eb3;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
-
-        .my-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-
-        .grid-box {
-            background: #fff;
-            border: 1px solid #eee;
-            border-radius: 15px;
-            overflow: hidden;
-        }
-
-        .grid-box img {
-            width: 100%;
-            height: 100px;
-            object-fit: cover;
-        }
-
-        .grid-box p {
-            font-size: 11px;
-            font-weight: bold;
-            margin: 8px 0;
-        }
-
-        /* 5. MAQOLALAR */
-        .maqola {
-            text-align: left;
-            background: #fff9fb;
-            border-radius: 15px;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ffeef2;
-        }
-
-        .maqola h4 { font-size: 12px; margin: 0 0 10px 0; color: #444; line-height: 1.4; }
-        .cert { width: 100%; border-radius: 10px; }
-
-        /* 6. KONTAKT */
-        .btn-box {
-            display: flex;
-            gap: 10px;
-        }
-
-        .btn {
-            flex: 1;
-            text-decoration: none;
-            background: #ff7eb3;
-            color: white;
-            padding: 12px;
-            border-radius: 15px;
-            font-size: 12px;
-            font-weight: bold;
-        }
+        /* Kontakt tugmalari */
+        .btn-group { display: flex; flex-direction: column; gap: 10px; }
+        .btn { text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px; border-radius: 15px; font-weight: 700; font-size: 14px; transition: 0.3s; }
+        .btn-tg { background: #0088cc; color: white; }
+        .btn-mail { background: #e74c3c; color: white; }
     </style>
 </head>
 <body>
 
-    <div class="wrapper">
-
-        <div class="card">
-            <img src="Snapchat-720303948.jpg" class="profile-img" alt="Aziza">
-            <h2>Safarova Aziza</h2>
-            <span class="subtitle">IT Mutaxassis & Talaba</span>
-            <div class="info-row"><i class="fas fa-map-marker-alt"></i> Qarshi, O'zbekiston</div>
-            <div class="info-row"><i class="fas fa-university"></i> Qarshi Davlat Universiteti</div>
-            <div class="info-row"><i class="fas fa-heart"></i> Maqsad: Yetuk IT mutaxassisi bo'lish</div>
-        </div>
-
-        <div class="card">
-            <h3>Mening Galereyam</h3>
-            <div class="my-grid">
-                <div class="grid-box"><img src="1771608245289.png"><p>Dasturlash</p></div>
-                <div class="grid-box"><img src="1771608326175.png"><p>Tabiat</p></div>
-                <div class="grid-box"><img src="1771608339990.png"><p>Kitobxonlik</p></div>
-                <div class="grid-box"><img src="1771649210473.png"><p>Ijod</p></div>
-            </div>
-        </div>
-
-        <div class="card">
-            <h3>Ilmiy Maqolalar</h3>
-            <div class="maqola">
-                <h4>ZAMONAVIY TEXNOLOGIYALAR VA INTERNETNING BUGUNGI KUNDAGI O'RNI</h4>
-                <img src="IMG_20260220_210833_611.jpg" class="cert">
-            </div>
-            <div class="maqola">
-                <h4>NANOTEXNOLOGIYALAR: ILMIY ASOSLARI VA MUAMMOLARI</h4>
-                <img src="IMG_20260220_210942_028.jpg" class="cert">
-            </div>
-        </div>
-
-        <div class="card">
-            <h3>Aloqa</h3>
-            <div class="btn-box">
-                <a href="https://t.me/Safarova_A_O" class="btn"><i class="fab fa-telegram"></i> Telegram</a>
-                <a href="#" class="btn" style="background: #e1306c;"><i class="fab fa-instagram"></i> Instagram</a>
-            </div>
-            <p style="font-size: 11px; margin-top: 15px; color: #888;">azizasafarova0210@gmail.com</p>
-        </div>
-
+<div class="container">
+    <div class="card profile">
+        <img src="720303948.jpg" alt="Aziza">
+        <h1>Aziza Safarova</h1>
+        <p style="color: var(--p); font-weight: 700; font-size: 14px;">Qarshi Davlat Universiteti</p>
     </div>
+
+    <div class="card">
+        <div class="h2"><i class="fas fa-user"></i> Men haqimda</div>
+        <p class="about-p">Salom! Men Aziza Safarova, Qarshi Davlat Universiteti talabasiman. Men IT sohasi, zamonaviy texnologiyalar va kitob mutolaasiga juda qiziqaman. Maqsadim — sohamda yetuk mutaxassis bo'lish.</p>
+    </div>
+
+    <div class="card">
+        <div class="h2"><i class="fas fa-graduation-cap"></i> Ta'lim</div>
+        <div class="timeline">
+            <div class="time-item">
+                <b>Qarshi Davlat Universiteti</b>
+                <span>2023 - Hozirgi vaqt</span>
+            </div>
+            <div class="time-item">
+                <b>Akademik Litsey / Maktab</b>
+                <span>2012 - 2023</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="h2"><i class="fas fa-images"></i> Galereyam</div>
+        <div class="grid">
+            <div class="g-item"><img src="gal1.jpg"></div>
+            <div class="g-item"><img src="gal2.jpg"></div>
+            <div class="g-item"><img src="gal3.jpg"></div>
+            <div class="g-item"><img src="gal4.jpg"></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="h2"><i class="fas fa-heart"></i> Qiziqishlarim</div>
+        <div class="grid">
+            <div class="int-box"><img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=300"><div class="int-label">BMW</div></div>
+            <div class="int-box"><img src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?w=300"><div class="int-label">ATIRGUL</div></div>
+            <div class="int-box"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=300"><div class="int-label">IT SOHASI</div></div>
+            <div class="int-box"><img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=300"><div class="int-label">KITOBLAR</div></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="h2"><i class="fas fa-award"></i> Sertifikatlar</div>
+        <div class="cert-box">
+            <h4>NANOTEXNOLOGIYALAR: ILMIY ASOSLARI, QO'LLANILISHI VA MUAMMOLARI</h4>
+            <img src="sertifikat1.jpg" class="cert-img">
+        </div>
+        <div class="cert-box">
+            <h4>ZAMONAVIY TEXNOLOGIYALAR VA INTERNETNING BUGUNGI KUNDAGI O'RNI</h4>
+            <img src="sertifikat2.jpg" class="cert-img">
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="h2"><i class="fas fa-paper-plane"></i> Aloqa</div>
+        <div class="btn-group">
+            <a href="https://t.me/Safarova_Aziza" class="btn btn-tg"><i class="fab fa-telegram"></i> Telegram orqali bog'lanish</a>
+            <a href="mailto:aziza@gmail.com" class="btn btn-mail"><i class="fas fa-envelope"></i> Email yuborish</a>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
