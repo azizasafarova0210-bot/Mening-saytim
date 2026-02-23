@@ -3,33 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aziza Portfolio | Mukammal Talqin</title>
+    <title>Aziza Portfolio | Akbar Mirzo Edition</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+            background: #fff5f8;
+            background: linear-gradient(135deg, #fff5f8 0%, #eef2ff 100%);
             margin: 0; padding: 20px 10px;
             display: flex; flex-direction: column; align-items: center;
             font-family: 'Segoe UI', sans-serif;
-        }
-
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            color: #333;
         }
 
         .wrapper { width: 100%; max-width: 400px; }
 
+        /* KARTALAR - ANIQ KO'RINISHI UCHUN */
         .card {
-            background: rgba(255, 255, 255, 0.95);
+            background: #ffffff;
             border-radius: 25px;
-            padding: 20px;
+            padding: 22px;
             margin-bottom: 20px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            border: 1px solid white;
+            box-shadow: 0 8px 25px rgba(255, 126, 179, 0.15);
+            border: 1px solid #ffeef2;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .h2-title {
@@ -43,36 +40,36 @@
         .profile-img {
             width: 120px; height: 120px;
             border-radius: 50%; border: 4px solid #ff7eb3;
-            object-fit: cover; margin-bottom: 10px;
+            object-fit: cover; margin-bottom: 12px;
         }
 
-        /* QIZIQISHLAR (Rasmlar bilan) */
-        .int-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .int-item { background: #fff; border-radius: 15px; overflow: hidden; border: 1px solid #eee; text-align: center; }
-        .int-item img { width: 100%; height: 80px; object-fit: cover; }
-        .int-item p { font-size: 11px; font-weight: bold; margin: 5px 0; color: #555; }
+        /* QIZIQISHLAR GRID */
+        .int-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .int-item { background: #fffafb; border-radius: 18px; overflow: hidden; border: 1px solid #eee; text-align: center; padding-bottom: 8px; }
+        .int-item img { width: 100%; height: 90px; object-fit: cover; }
+        .int-item p { font-size: 11px; font-weight: bold; margin-top: 5px; color: #555; }
 
-        /* KITOB */
-        .book-card { display: flex; gap: 15px; align-items: center; background: #fdf2f7; padding: 12px; border-radius: 15px; }
-        .book-img { width: 70px; height: 100px; border-radius: 5px; box-shadow: 2px 4px 8px rgba(0,0,0,0.2); }
+        /* KITOB (AKBAR MIRZO - ISLOM KARIMOV HAQIDA) */
+        .book-card { display: flex; gap: 15px; align-items: center; background: #fdf2f7; padding: 15px; border-radius: 20px; border: 1px solid #ffeef2; }
+        .book-img { width: 75px; height: 110px; border-radius: 8px; box-shadow: 3px 5px 12px rgba(0,0,0,0.15); }
+        .book-info b { font-size: 13px; color: #222; display: block; line-height: 1.3; }
 
         /* GALEREYA */
-        .gal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-        .gal-box { border-radius: 12px; overflow: hidden; height: 100px; }
+        .gal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .gal-box { border-radius: 15px; overflow: hidden; height: 110px; border: 1px solid #f0f0f0; }
         .gal-box img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* MAQOLA */
-        .maqola { background: #fff; border-radius: 15px; padding: 12px; margin-bottom: 15px; border-left: 5px solid #ff7eb3; }
-        .cert { width: 100%; border-radius: 10px; margin-top: 10px; }
+        /* MAQOLALAR */
+        .maqola { background: #fff; border-radius: 15px; padding: 12px; margin-bottom: 15px; border-left: 5px solid #ff7eb3; text-align: left; }
+        .maqola h4 { font-size: 11px; margin-bottom: 10px; color: #333; line-height: 1.4; }
+        .cert { width: 100%; border-radius: 12px; border: 1px solid #eee; }
 
-        /* ALOQA - QAYTARILDI */
-        .contact-card { background: #ff7eb3; color: white; text-align: center; }
-        .contact-card h3 { color: white; margin-top: 0; }
-        .btn-tg {
-            display: inline-flex; align-items: center; gap: 10px;
-            background: white; color: #ff7eb3; padding: 12px 25px;
-            border-radius: 50px; text-decoration: none; font-weight: bold;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        /* ALOQA - YORQIN VA KO'RINARLI */
+        .contact-btn {
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            background: #ff7eb3; color: white; padding: 16px;
+            border-radius: 20px; text-decoration: none; font-weight: 800;
+            font-size: 14px; box-shadow: 0 10px 20px rgba(255, 126, 179, 0.3);
         }
     </style>
 </head>
@@ -81,7 +78,7 @@
     <div class="wrapper">
         <div class="card profile-card">
             <img src="Snapchat-720303948.jpg" class="profile-img" alt="Aziza">
-            <h2 style="margin:0;">Safarova Aziza</h2>
+            <h2 style="margin:0; font-size: 24px;">Safarova Aziza</h2>
             <p style="color:#ff7eb3; font-weight:700; margin:5px 0;">Qarshi Davlat Universiteti</p>
         </div>
 
@@ -89,38 +86,38 @@
             <div class="h2-title"><i class="fas fa-heart"></i> Qiziqishlarim</div>
             <div class="int-grid">
                 <div class="int-item">
-                    <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=200">
+                    <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=300">
                     <p>BMW</p>
                 </div>
                 <div class="int-item">
-                    <img src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?w=200">
+                    <img src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?w=300">
                     <p>Atirgullar</p>
                 </div>
                 <div class="int-item">
-                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=200">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=300">
                     <p>IT Sohasi</p>
                 </div>
                 <div class="int-item">
-                    <img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=200">
+                    <img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=300">
                     <p>Sayohat</p>
                 </div>
             </div>
         </div>
 
         <div class="card">
-            <div class="h2-title"><i class="fas fa-book"></i> Sevimli asarim</div>
+            <div class="h2-title"><i class="fas fa-book"></i> Mutolaa</div>
             <div class="book-card">
-                <img src="https://kitobxon.com/img_knigi/2223.jpg" class="book-img" alt="Yuksak ma'naviyat">
+                <img src="https://kitobxon.com/img_knigi/7492.jpg" class="book-img" alt="Akbar Mirzo kitobi">
                 <div class="book-info">
-                    <b style="font-size: 13px;">"Yuksak ma'naviyat — yengilmas kuch"</b>
-                    <p style="font-size: 11px; color:#ff7eb3; margin:2px 0;">Islom Karimov</p>
-                    <p style="font-size: 10px; color:#666;">Inson ma'naviyati va milliy o'zlikni anglash haqida bebaho asar.</p>
+                    <b>"Prezident" (Islom Karimov haqida)</b>
+                    <p style="font-size: 11px; color:#ff7eb3; margin:4px 0; font-weight: bold;">Akbar Mirzo</p>
+                    <p style="font-size: 10px; color:#666; line-height: 1.4;">Birinchi Prezidentimizning hayoti va faoliyati haqidagi eng sara asarlardan biri.</p>
                 </div>
             </div>
         </div>
 
         <div class="card">
-            <div class="h2-title"><i class="fas fa-camera"></i> Galereyam</div>
+            <div class="h2-title"><i class="fas fa-images"></i> Galereyam</div>
             <div class="gal-grid">
                 <div class="gal-box"><img src="1771608245289.png"></div>
                 <div class="gal-box"><img src="1771608326175.png"></div>
@@ -130,25 +127,24 @@
         </div>
 
         <div class="card">
-            <div class="h2-title"><i class="fas fa-graduation-cap"></i> Maqolalarim</div>
+            <div class="h2-title"><i class="fas fa-graduation-cap"></i> Ilmiy ishlarim</div>
             <div class="maqola">
-                <h4 style="font-size: 11px; margin:0;">1. ZAMONAVIY TEXNOLOGIYALAR VA INTERNET</h4>
+                <h4>1. ZAMONAVIY TEXNOLOGIYALAR VA INTERNETNING O'RNI</h4>
                 <img src="IMG_20260220_210833_611.jpg" class="cert">
             </div>
             <div class="maqola">
-                <h4 style="font-size: 11px; margin:0;">2. NANOTEXNOLOGIYALAR ASOSLARI</h4>
+                <h4>2. NANOTEXNOLOGIYALAR: ILMIY ASOSLARI</h4>
                 <img src="IMG_20260220_210942_028.jpg" class="cert">
             </div>
         </div>
 
-        <div class="card contact-card">
-            <h3>Bog'lanish uchun</h3>
-            <p style="font-size: 12px; margin-bottom: 15px;">Savol yoki takliflaringiz bo'lsa, Telegram orqali yozing:</p>
-            <a href="https://t.me/Safarova_A_O" class="btn-tg">
-                <i class="fab fa-telegram-plane"></i> @Safarova_A_O
+        <div style="margin-bottom: 30px;">
+            <a href="https://t.me/Safarova_A_O" class="contact-btn">
+                <i class="fab fa-telegram-plane"></i> @Safarova_A_O bilan bog'lanish
             </a>
-            <p style="font-size: 10px; margin-top: 15px; opacity: 0.8;">azizasafarova0210@gmail.com</p>
+            <p style="text-align:center; font-size:11px; color:#888; margin-top:10px;">azizasafarova0210@gmail.com</p>
         </div>
+
     </div>
 
 </body>
