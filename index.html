@@ -3,205 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aziza Portfolio</title>
+    <title>Aziza Safarova | Exclusive Portfolio</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* 1. ASOSIY FON */
+        /* 1. JONLI GRADIENT FON */
         body {
-            background: linear-gradient(135deg, #fff5f8 0%, #eef2ff 100%);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 20px 10px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
         }
 
-        .wrapper {
-            width: 100%;
-            max-width: 400px;
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        /* 2. BO'LIMLAR (KARTALAR) */
+        .wrapper { width: 100%; max-width: 410px; }
+
+        /* 2. GLASSMORPHISM (OYNA EFFEKTI) */
         .card {
-            background: white;
-            border-radius: 25px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 8px 20px rgba(255, 126, 179, 0.1);
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 30px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
             text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: 0.4s;
         }
 
-        /* 3. PROFIL QISMI */
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            background: rgba(255, 255, 255, 0.35);
+        }
+
+        /* 3. PROFIL */
         .profile-img {
-            width: 135px;
-            height: 135px;
+            width: 140px; height: 140px;
             border-radius: 50%;
-            border: 5px solid #ff7eb3;
+            border: 4px solid #fff;
             object-fit: cover;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
             margin-bottom: 15px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        h2 { color: #333; margin: 5px 0; font-size: 24px; font-weight: 800; }
-        .subtitle { color: #ff7eb3; font-weight: bold; font-size: 14px; display: block; margin-bottom: 15px; }
+        h2 { color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); margin: 5px 0; font-size: 26px; }
+        .subtitle { background: #fff; color: #ff7eb3; padding: 5px 15px; border-radius: 20px; font-weight: 800; font-size: 12px; display: inline-block; margin-bottom: 15px; }
 
-        .info-row {
-            text-align: left;
-            font-size: 13px;
-            color: #555;
-            margin: 10px 0;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .info-row i { color: #ff7eb3; font-size: 16px; width: 20px; text-align: center; }
-
-        /* 4. GALEREYA VA QIZIQISHLAR GRID */
+        /* 4. GRID DIZAYNI */
         h3 {
-            font-size: 17px;
-            color: #ff7eb3;
-            margin-bottom: 18px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-bottom: 2px solid #fff0f5;
-            padding-bottom: 8px;
+            font-size: 16px; color: #fff; margin-bottom: 20px;
+            text-transform: uppercase; letter-spacing: 2px;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
         }
 
-        .my-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
+        .my-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
 
         .grid-box {
-            background: #fff;
-            border-radius: 18px;
-            overflow: hidden;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-        }
-        .grid-box:hover { transform: scale(1.03); }
-
-        .grid-box img {
-            width: 100%;
-            height: 100px;
-            object-fit: cover;
-        }
-
-        .grid-box p {
-            font-size: 11px;
-            font-weight: bold;
-            margin: 8px 0;
-            color: #444;
-        }
-
-        /* 5. MAQOLALAR */
-        .maqola {
-            text-align: left;
-            background: #fff9fb;
-            border-radius: 18px;
-            padding: 12px;
-            margin-bottom: 15px;
-            border: 1px solid #ffeef2;
-        }
-
-        .maqola h4 { font-size: 11px; margin: 0 0 10px 0; color: #333; line-height: 1.5; font-weight: 700; }
-        .cert { width: 100%; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-
-        /* 6. KONTAKT */
-        .btn-box {
-            display: flex;
-            gap: 10px;
-        }
-
-        .btn {
-            flex: 1;
-            text-decoration: none;
-            background: #ff7eb3;
-            color: white;
-            padding: 13px;
-            border-radius: 18px;
-            font-size: 13px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 20px; overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: 0.3s;
         }
-        .btn:hover { opacity: 0.9; transform: translateY(-2px); }
+
+        .grid-box img { width: 100%; height: 110px; object-fit: cover; transition: 0.5s; }
+        .grid-box:hover img { transform: scale(1.15); }
+        .grid-box p { font-size: 12px; font-weight: 700; margin: 10px 0; color: #555; }
+
+        /* 5. MAQOLALAR - NEON EFFEKTI */
+        .maqola {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px; padding: 15px; margin-bottom: 15px;
+            text-align: left; border-left: 6px solid #ff7eb3;
+        }
+        .maqola h4 { font-size: 12px; color: #333; margin-bottom: 10px; line-height: 1.4; }
+        .cert { width: 100%; border-radius: 15px; transition: 0.3s; }
+        .cert:hover { filter: brightness(1.1); }
+
+        /* 6. TUGMALAR - GLOW (NUR SOCHISH) */
+        .btn {
+            flex: 1; text-decoration: none; background: #fff; color: #ff7eb3;
+            padding: 15px; border-radius: 20px; font-size: 14px; font-weight: 800;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            box-shadow: 0 10px 20px rgba(255, 126, 179, 0.3);
+            transition: 0.3s;
+        }
+
+        .btn:hover { background: #ff7eb3; color: #fff; box-shadow: 0 15px 25px rgba(255, 126, 179, 0.5); }
     </style>
 </head>
 <body>
 
     <div class="wrapper">
-
         <div class="card">
             <img src="Snapchat-720303948.jpg" class="profile-img" alt="Aziza">
             <h2>Safarova Aziza</h2>
-            <span class="subtitle">IT Mutaxassis & Talaba</span>
-            <div class="info-row"><i class="fas fa-map-marker-alt"></i> Qarshi, O'zbekiston</div>
-            <div class="info-row"><i class="fas fa-university"></i> Qarshi Davlat Universiteti</div>
-            <div class="info-row"><i class="fas fa-bullseye"></i> Maqsad: Yetuk IT mutaxassisi bo'lish</div>
-        </div>
-
-        <div class="card">
-            <h3>Mening Galereyam</h3>
-            <div class="my-grid">
-                <div class="grid-box"><img src="1771608245289.png"><p>Dasturlash</p></div>
-                <div class="grid-box"><img src="1771608326175.png"><p>Tabiat</p></div>
-                <div class="grid-box"><img src="1771608339990.png"><p>Kitobxonlik</p></div>
-                <div class="grid-box"><img src="1771649210473.png"><p>Goʻzallik</p></div>
+            <span class="subtitle"><i class="fas fa-sparkles"></i> IT SPECIALIST</span>
+            <div style="color: white; font-size: 14px; margin-top: 10px;">
+                <p><i class="fas fa-university"></i> Qarshi Davlat Universiteti</p>
+                <p><i class="fas fa-rocket"></i> Kelajak IT mutaxassisi</p>
             </div>
         </div>
 
         <div class="card">
-            <h3>Qiziqishlarim</h3>
+            <h3><i class="fas fa-star"></i> Qiziqishlarim</h3>
             <div class="my-grid">
-                <div class="grid-box">
-                    <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400">
-                    <p>BMW</p>
-                </div>
-                <div class="grid-box">
-                    <img src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=400">
-                    <p>Atirgul</p>
-                </div>
-                <div class="grid-box">
-                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400">
-                    <p>IT Sohasi</p>
-                </div>
-                <div class="grid-box">
-                    <img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=400">
-                    <p>Sayohat</p>
-                </div>
+                <div class="grid-box"><img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400"><p>BMW</p></div>
+                <div class="grid-box"><img src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?w=400"><p>Atirgul</p></div>
+                <div class="grid-box"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400"><p>IT Sohasi</p></div>
+                <div class="grid-box"><img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=400"><p>Sayohat</p></div>
             </div>
         </div>
 
         <div class="card">
-            <h3>Ilmiy Maqolalarim</h3>
+            <h3><i class="fas fa-feather-pointed"></i> Ilmiy Maqolalar</h3>
             <div class="maqola">
-                <h4>ZAMONAVIY TEXNOLOGIYALAR VA INTERNETNING BUGUNGI KUNDAGI O'RNI</h4>
+                <h4>ZAMONAVIY TEXNOLOGIYALAR VA INTERNETNING O'RNI</h4>
                 <img src="IMG_20260220_210833_611.jpg" class="cert">
             </div>
             <div class="maqola">
-                <h4>NANOTEXNOLOGIYALAR: ILMIY ASOSLARI VA MUAMMOLARI</h4>
+                <h4>NANOTEXNOLOGIYALAR: ILMIY ASOSLARI</h4>
                 <img src="IMG_20260220_210942_028.jpg" class="cert">
             </div>
         </div>
 
-        <div class="card">
-            <h3>Aloqa</h3>
-            <div class="btn-box">
-                <a href="https://t.me/Safarova_A_O" class="btn"><i class="fab fa-telegram"></i> Telegram</a>
-                <a href="https://instagram.com/safarova_a_o" class="btn" style="background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);"><i class="fab fa-instagram"></i> Instagram</a>
+        <div class="card" style="background: transparent; border: none; box-shadow: none;">
+            <div style="display: flex; gap: 15px;">
+                <a href="https://t.me/Safarova_A_O" class="btn"><i class="fab fa-telegram"></i> TELEGRAM</a>
+                <a href="#" class="btn" style="background: rgba(255,255,255,0.2); color: #fff; border: 1px solid #fff;"><i class="fab fa-instagram"></i> INSTA</a>
             </div>
-            <p style="font-size: 11px; margin-top: 15px; color: #888; font-weight: bold;">
-                <i class="fas fa-envelope"></i> azizasafarova0210@gmail.com
-            </p>
         </div>
-
     </div>
 
 </body>
