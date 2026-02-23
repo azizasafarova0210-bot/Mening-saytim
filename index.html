@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aziza Portfolio | Ultimate Edition</title>
+    <title>Aziza Portfolio | Full Version</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         body {
@@ -42,33 +42,36 @@
             object-fit: cover; margin-bottom: 12px;
         }
 
-        /* 2. KO'NIKMALAR (SKILLS) - QAYTARILDI */
+        /* 2. MEN HAQIMDA (YANGIDAN QO'SHILDI) */
+        .bio-text { font-size: 13px; color: #555; line-height: 1.6; text-align: justify; }
+
+        /* 3. KO'NIKMALAR */
         .skill-item { margin-bottom: 12px; }
         .skill-info { display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; margin-bottom: 5px; color: #555; }
         .skill-bar { height: 8px; background: #f0f0f0; border-radius: 10px; overflow: hidden; }
         .skill-fill { height: 100%; background: linear-gradient(to right, #ff9a9e, #ff7eb3); border-radius: 10px; }
 
-        /* 3. QIZIQISHLAR GRID */
+        /* 4. QIZIQISHLAR GRID */
         .int-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
         .int-item { background: #fffafb; border-radius: 18px; overflow: hidden; border: 1px solid #eee; text-align: center; padding-bottom: 8px; }
         .int-item img { width: 100%; height: 85px; object-fit: cover; }
         .int-item p { font-size: 11px; font-weight: bold; margin-top: 5px; }
 
-        /* 4. KITOB (AKBAR MIRZO) */
+        /* 5. KITOB (AKBAR MIRZO - SO'NGGI NIDO) */
         .book-card { display: flex; gap: 15px; align-items: center; background: #fdf2f7; padding: 15px; border-radius: 20px; }
-        .book-img { width: 70px; height: 105px; border-radius: 5px; box-shadow: 2px 4px 10px rgba(0,0,0,0.1); }
+        .book-img { width: 70px; height: 105px; border-radius: 5px; box-shadow: 2px 4px 10px rgba(0,0,0,0.1); object-fit: cover; }
         .book-info b { font-size: 13px; color: #222; display: block; }
 
-        /* 5. GALEREYA */
+        /* 6. GALEREYA (MUSTAHKAMLANDI) */
         .gal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .gal-box { border-radius: 15px; overflow: hidden; height: 105px; border: 1px solid #eee; }
-        .gal-box img { width: 100%; height: 100%; object-fit: cover; }
+        .gal-box { border-radius: 15px; overflow: hidden; height: 105px; border: 1px solid #eee; background: #eee; }
+        .gal-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-        /* 6. MAQOLALAR */
+        /* 7. MAQOLALAR */
         .maqola { background: #fff; border-radius: 15px; padding: 12px; margin-bottom: 15px; border-left: 5px solid #ff7eb3; }
         .cert { width: 100%; border-radius: 10px; margin-top: 10px; border: 1px solid #eee; }
 
-        /* 7. ALOQA */
+        /* 8. ALOQA */
         .contact-list { display: flex; flex-direction: column; gap: 8px; }
         .contact-item {
             display: flex; align-items: center; gap: 12px;
@@ -92,6 +95,13 @@
         </div>
 
         <div class="card">
+            <div class="h2-title"><i class="fas fa-user"></i> Men haqimda</div>
+            <p class="bio-text">
+                Men Qarshi Davlat Universiteti talabasiman. IT sohasiga va ilmiy tadqiqotlarga bo'lgan qiziqishim yuqori. O'z ustimda ishlashdan va yangi bilimlarni egallashdan to'xtamayman.
+            </p>
+        </div>
+
+        <div class="card">
             <div class="h2-title"><i class="fas fa-chart-bar"></i> Ko'nikmalarim</div>
             <div class="skill-item">
                 <div class="skill-info"><span>Dasturlash (HTML/CSS)</span><span>50%</span></div>
@@ -104,10 +114,6 @@
             <div class="skill-item">
                 <div class="skill-info"><span>Grafik Dizayn</span><span>45%</span></div>
                 <div class="skill-bar"><div class="skill-fill" style="width: 45%;"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-info"><span>Kompyuter savodxonligi</span><span>50%</span></div>
-                <div class="skill-bar"><div class="skill-fill" style="width: 50%;"></div></div>
             </div>
         </div>
 
@@ -127,7 +133,7 @@
                 <img src="https://kitobxon.com/img_knigi/s6867.jpg" class="book-img" alt="Turnalar yoʻli">
                 <div class="book-info">
                     <b>"Turnalar yoʻli"</b>
-                    <p style="font-size: 11px; color:#ff7eb3; margin:2px 0; font-weight: bold;">Tursin Ali</p>
+                    <p style="font-size: 11px; color:#ff7eb3; margin:2px 0; font-weight: bold;">Tursun Ali</p>
                     <p style="font-size: 10px; color:#666;">Islom Karimov xotirasiga bag'ishlangan eng ta'sirli asar.</p>
                 </div>
             </div>
@@ -159,18 +165,16 @@
             <div class="h2-title"><i class="fas fa-envelope"></i> Aloqa</div>
             <div class="contact-list">
                 <a href="https://t.me/Safarova_A" class="contact-item">
-                    <i class="fab fa-telegram icon-tg"></i> Telegram: @Safarova_A
+                    <i class="fab fa-telegram icon-tg"></i> @Safarova_A
                 </a>
-                <a href="https://instagram.com/sirojiddinona_1" class="contact-item">
-                    <i class="fab fa-instagram icon-inst"></i> Instagram: @sirojiddinovna_1
+                <a href="https://instagram.com/sirojiddinovna_1" class="contact-item">
+                    <i class="fab fa-instagram icon-inst"></i> @sirojiddinovna_1
                 </a>
                 <a href="mailto:azizasafarova0210@gmail.com" class="contact-item">
                     <i class="fas fa-at icon-mail"></i> azizasafarova0210@gmail.com
                 </a>
             </div>
         </div>
-
     </div>
-
 </body>
 </html>
