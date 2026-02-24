@@ -3,175 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aziza Portfolio | Full & Final</title>
+    <title>Aziza Safarova | Portfolio</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #ff7eb3;
-            --secondary-color: #ff9a9e;
-            --bg-gradient: linear-gradient(135deg, #fff5f8 0%, #eef2ff 100%);
-            --card-shadow: 0 10px 30px rgba(255, 126, 179, 0.15);
+            --primary: #ff7eb3;
+            --secondary: #ff9a9e;
+            --glass: rgba(255, 255, 255, 0.85);
+            --bg: #fdf2f7;
         }
 
         body {
-            background: var(--bg-gradient);
-            margin: 0; 
-            padding: 20px 15px;
-            display: flex; 
-            flex-direction: column; 
-            align-items: center;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            background-image: radial-gradient(#ffdae9 1px, transparent 1px);
+            background-size: 20px 20px;
+            margin: 0; padding: 20px 15px;
+            display: flex; flex-direction: column; align-items: center;
+            font-family: 'Poppins', sans-serif;
             color: #333;
-            min-height: 100vh;
         }
 
-        .wrapper { width: 100%; max-width: 420px; }
+        .wrapper { width: 100%; max-width: 420px; animation: fadeIn 0.8s ease-in; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
         .card {
-            background: rgba(255, 255, 255, 0.9);
+            background: var(--glass);
             backdrop-filter: blur(10px);
-            border-radius: 25px;
+            border-radius: 30px;
             padding: 25px;
-            margin-bottom: 25px;
-            box-shadow: var(--card-shadow);
-            border: 1px solid rgba(255, 238, 242, 0.8);
-            width: 100%;
-            box-sizing: border-box;
-            transition: transform 0.3s ease;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(255, 126, 179, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: 0.3s;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-        }
+        .card:hover { transform: translateY(-5px); }
 
         .h2-title {
-            font-size: 16px; 
-            color: var(--primary-color);
-            margin-bottom: 18px; 
-            text-transform: uppercase;
-            display: flex; 
-            align-items: center; 
-            gap: 12px; 
-            font-weight: 800;
-            border-bottom: 2px solid #fff0f3;
-            padding-bottom: 8px;
+            font-size: 15px; color: var(--primary);
+            margin-bottom: 15px; text-transform: uppercase;
+            display: flex; align-items: center; gap: 10px; font-weight: 800;
+            border-bottom: 2px solid #fff0f3; padding-bottom: 5px;
         }
 
         /* 1. PROFIL */
         .profile-card { text-align: center; }
         .profile-img {
             width: 120px; height: 120px;
-            border-radius: 50%; 
-            border: 4px solid var(--primary-color);
-            object-fit: cover; 
-            margin-bottom: 15px; 
-            cursor: pointer;
-            transition: 0.4s;
-            box-shadow: 0 5px 15px rgba(255, 126, 179, 0.4);
-        }
-        .profile-img:hover { transform: rotate(5deg) scale(1.05); }
-
-        /* 2. MEN HAQIMDA */
-        .bio-text { font-size: 14px; color: #555; line-height: 1.7; text-align: justify; margin: 0; }
-
-        /* 3. KO'NIKMALAR */
-        .skill-item { margin-bottom: 15px; }
-        .skill-info { display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; margin-bottom: 6px; }
-        .skill-bar { height: 10px; background: #f0f0f0; border-radius: 10px; overflow: hidden; }
-        .skill-fill { 
-            height: 100%; 
-            background: linear-gradient(to right, var(--secondary-color), var(--primary-color)); 
-            border-radius: 10px; 
-            transition: width 1s ease-in-out;
+            border-radius: 50%; border: 4px solid var(--primary);
+            object-fit: cover; margin-bottom: 12px;
+            box-shadow: 0 5px 20px rgba(255, 126, 179, 0.3);
         }
 
-        /* 4. QIZIQISHLAR GRID */
-        .int-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .int-item { 
-            background: #fff; 
-            border-radius: 20px; 
-            overflow: hidden; 
-            border: 1px solid #f0f0f0; 
-            text-align: center; 
-            padding-bottom: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-        }
-        .int-item img { width: 100%; height: 95px; object-fit: cover; transition: 0.3s; }
-        .int-item:hover img { transform: scale(1.1); }
-        .int-item p { font-size: 12px; font-weight: bold; margin-top: 8px; color: #444; }
+        /* 2. KO'NIKMALAR */
+        .skill-item { margin-bottom: 12px; }
+        .skill-info { display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; margin-bottom: 5px; }
+        .skill-bar { height: 8px; background: #eee; border-radius: 10px; overflow: hidden; }
+        .skill-fill { height: 100%; background: linear-gradient(90deg, var(--secondary), var(--primary)); border-radius: 10px; }
 
-        /* 5. MUTOLAA */
-        .book-card { 
-            display: flex; gap: 15px; align-items: center; 
-            background: linear-gradient(to right, #fdf2f7, #ffffff); 
-            padding: 15px; border-radius: 20px; 
-            border: 1px solid #ffeef2;
-        }
-        .book-img { width: 75px; height: 110px; border-radius: 8px; box-shadow: 3px 5px 15px rgba(0,0,0,0.15); object-fit: cover; }/* 6. GALEREYA */
-        .gal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        .gal-box { border-radius: 18px; overflow: hidden; height: 115px; border: 1px solid #eee; position: relative; }
-        .gal-box img { width: 100%; height: 100%; object-fit: cover; cursor: pointer; transition: 0.5s; }
-        .gal-box:hover img { transform: scale(1.15); filter: brightness(0.8); }
+        /* 3. GALEREYA & QIZIQISHLAR */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .grid-item { background: #fff; border-radius: 18px; overflow: hidden; border: 1px solid #f0f0f0; text-align: center; }
+        .grid-item img { width: 100%; height: 90px; object-fit: cover; }
+        .grid-item p { font-size: 11px; font-weight: bold; margin: 5px 0; }
 
-        /* 7. MAQOLALAR */
-        .maqola { 
-            background: #fff; border-radius: 18px; padding: 15px; 
-            margin-bottom: 20px; border-left: 5px solid var(--primary-color); 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-        .maqola-date { font-size: 11px; color: #aaa; margin-bottom: 8px; display: block; }
-        .cert { width: 100%; border-radius: 12px; margin-top: 12px; border: 1px solid #eee; cursor: pointer; }
+        /* 4. MAQOLALAR - MAZMUNGA MOSLANGAN */
+        .maqola { background: #fff; border-radius: 18px; padding: 15px; margin-bottom: 15px; border-left: 5px solid var(--primary); }
+        .maqola-date { font-size: 10px; color: #999; display: block; margin-bottom: 5px; }
+        .maqola h4 { font-size: 12px; margin: 5px 0; line-height: 1.4; color: #222; }
+        .maqola p { font-size: 11px; color: #666; margin-bottom: 10px; }
+        .cert { width: 100%; border-radius: 10px; margin-bottom: 10px; border: 1px solid #eee; }
         
         .pdf-btn {
-            display: inline-flex; align-items: center; gap: 10px;
-            background: var(--primary-color); color: white;
-            padding: 12px; border-radius: 15px;
-            text-decoration: none; font-size: 13px; font-weight: bold;
-            margin-top: 15px; width: 100%; justify-content: center;
-            box-shadow: 0 6px 15px rgba(255, 126, 179, 0.3);
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            background: var(--primary); color: white;
+            padding: 10px; border-radius: 12px;
+            text-decoration: none; font-size: 12px; font-weight: bold;
             transition: 0.3s;
         }
-        .pdf-btn:hover { background: #ff4d94; transform: scale(1.02); }
-
-        /* 8. ALOQA */
-        .contact-list { display: flex; flex-direction: column; gap: 10px; }
+        .pdf-btn:hover { background: #ff4d94; }
+        /* 5. ALOQA */
         .contact-item {
-            display: flex; align-items: center; gap: 15px;
+            display: flex; align-items: center; gap: 12px;
             text-decoration: none; color: #444; background: #fff;
-            padding: 14px 20px; border-radius: 18px;
-            border: 1px solid #ffeef2; font-size: 14px; font-weight: 600;
-            transition: 0.3s;
+            padding: 12px; border-radius: 15px; margin-bottom: 8px;
+            border: 1px solid #ffeef2; font-size: 13px; font-weight: 600;
         }
-        .contact-item:hover {
-            background: var(--primary-color);
-            color: white !important;
-            transform: translateX(5px);
-        }
-        .contact-item i { font-size: 18px; }
-
-        .footer-text { font-size: 11px; color: #999; text-align: center; margin-top: 10px; }
     </style>
 </head>
 <body>
 
     <div class="wrapper">
         <div class="card profile-card">
-            <a href="Snapchat-720303948.jpg" target="_blank">
-                <img src="Snapchat-720303948.jpg" class="profile-img" alt="Aziza Safarova">
-            </a>
-            <h2 style="margin:0; font-size: 24px; letter-spacing: -0.5px;">Safarova Aziza</h2>
-            <p style="color:var(--primary-color); font-weight:700; margin:8px 0; font-size: 14px; letter-spacing: 1px;">QARSHI DAVLAT UNIVERSITETI</p>
+            <img src="Snapchat-720303948.jpg" class="profile-img">
+            <h2 style="margin:0; font-size: 22px;">Safarova Aziza</h2>
+            <p style="color:var(--primary); font-weight:700; margin:5px 0; font-size: 13px;">Qarshi Davlat Universiteti</p>
         </div>
 
         <div class="card">
-            <div class="h2-title"><i class="fas fa-user-graduate"></i> Men haqimda</div>
-            <p class="bio-text">
-                Men Qarshi Davlat Universiteti talabasiman. IT sohasiga va ilmiy tadqiqotlarga bo'lgan qiziqishim yuqori. O'z ustimda ishlashdan va yangi bilimlarni egallashdan to'xtamayman. Maqsadim — sohamning yetuk mutaxassisi bo'lish.
+            <div class="h2-title"><i class="fas fa-user"></i> Men haqimda</div>
+            <p style="font-size: 13px; color: #555; line-height: 1.6; text-align: justify;">
+                Men Qarshi Davlat Universiteti talabasiman. IT sohasiga va ilmiy tadqiqotlarga bo'lgan qiziqishim yuqori. O'z ustimda ishlashdan va yangi bilimlarni egallashdan to'xtamayman.
             </p>
         </div>
 
         <div class="card">
-            <div class="h2-title"><i class="fas fa-rocket"></i> Ko'nikmalarim</div>
+            <div class="h2-title"><i class="fas fa-chart-line"></i> Ko'nikmalarim</div>
             <div class="skill-item">
                 <div class="skill-info"><span>Ilmiy tadqiqotlar</span><span>45%</span></div>
                 <div class="skill-bar"><div class="skill-fill" style="width: 45%;"></div></div>
@@ -183,81 +125,41 @@
         </div>
 
         <div class="card">
-            <div class="h2-title"><i class="fas fa-heart"></i> Qiziqishlarim</div>
-            <div class="int-grid"><div class="int-item"><img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=200"><p>BMW</p></div>
-                <div class="int-item"><img src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?w=200"><p>Atirgullar</p></div>
-                <div class="int-item"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=200"><p>IT Sohasi</p></div>
-                <div class="int-item"><img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=200"><p>Sayohat</p></div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="h2-title"><i class="fas fa-book-reader"></i> Mutolaa</div>
-            <div class="book-card">
-                <img src="https://kitobxon.com/img_knigi/s6867.jpg" class="book-img" alt="Turnalar yoʻli">
-                <div class="book-info">
-                    <b style="font-size: 14px; display: block; margin-bottom: 4px;">"Turnalar yoʻli"</b>
-                    <p style="font-size: 12px; color:var(--primary-color); margin:0; font-weight: bold;">Tursun Ali</p>
-                    <p style="font-size: 11px; color:#666; margin-top: 5px; line-height: 1.4;">Islom Karimov xotirasiga bag'ishlangan asar.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="h2-title"><i class="fas fa-camera-retro"></i> Galereyam</div>
-            <div class="gal-grid">
-                <div class="gal-box"><a href="1771608245289.png" target="_blank"><img src="1771608245289.png"></a></div>
-                <div class="gal-box"><a href="1771608326175.png" target="_blank"><img src="1771608326175.png"></a></div>
-                <div class="gal-box"><a href="1771608339990.png" target="_blank"><img src="1771608339990.png"></a></div>
-                <div class="gal-box"><a href="1771649210473.png" target="_blank"><img src="1771649210473.png"></a></div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="h2-title"><i class="fas fa-feather-alt"></i> Maqolalarim</div>
+            <div class="h2-title"><i class="fas fa-graduation-cap"></i> Maqolalarim</div>
             
             <div class="maqola">
-                <span class="maqola-date"><i class="far fa-calendar-alt"></i> 14-Dekabr, 2025</span>
-                <h4 style="font-size: 12px; margin:0; color:#222; line-height: 1.4;">1. NANOTEXNOLOGIYALAR: ILMIY ASOSLARI, QO'LLANILISHI VA ZAMONAVIY MUAMMOLARI</h4>
-                <a href="IMG_20260220_210942_028.jpg" target="_blank">
-                    <img src="IMG_20260220_210942_028.jpg" class="cert" alt="Sertifikat">
-                </a>
-                <a href="maqola1.pdf" class="pdf-btn" target="_blank">
-                    <i class="fas fa-file-pdf"></i> PDF-ni ko'rish / Yuklash
-                </a>
+                <span class="maqola-date">Dekabr-2025 | [span_0](start_span)ISSN: 3060-4567[span_0](end_span)</span>
+                <h4>1. [span_1](start_span)NANOTEXNOLOGIYALAR: ILMIY ASOSLARI, QO'LLANILISHI VA ZAMONAVIY MUAMMOLARI[span_1](end_span)</h4>
+                [span_2](start_span)[span_3](start_span)<p>Nanomateriallarning atom darajasidagi strukturasini boshqarish, kvant effektlari va saratonni davolashda nanomeditsinaning o'rni.[span_2](end_span)[span_3](end_span)</p>
+                <img src="IMG_20260220_210942_028.jpg" class="cert">
+                <a href="maqola1.pdf" class="pdf-btn"><i class="fas fa-file-pdf"></i> PDF-ni ko'rish / Yuklash</a>
             </div>
 
             <div class="maqola">
-                <span class="maqola-date"><i class="far fa-calendar-alt"></i> 11-Dekabr, 2025</span>
-                <h4 style="font-size: 12px; margin:0; color:#222; line-height: 1.4;">2. ZAMONAVIY TEXNOLOGIYA VA INTERNETNING BUGUNGI KUNDAGI O'RNI</h4>
-                <a href="IMG_20260220_210833_611.jpg" target="_blank">
-                    <img src="IMG_20260220_210833_611.jpg" class="cert" alt="Sertifikat">
-                </a>
-                <a href="maqola2.pdf" class="pdf-btn" target="_blank">
-                    <i class="fas fa-file-pdf"></i> PDF-ni ko'rish / Yuklash
-                </a>
+                <span class="maqola-date">Fevral-2026</span>
+                <h4>2. ZAMONAVIY TEXNOLOGIYA VA INTERNETNING BUGUNGI KUNDAGI O'RNI</h4>
+                <p>Texnologik taraqqiyotning jamiyatdagi roli va yangi davr innovatsiyalari tahlili.</p>
+                <img src="IMG_20260220_210833_611.jpg" class="cert">
+                <a href="maqola2.pdf" class="pdf-btn"><i class="fas fa-file-pdf"></i> PDF-ni ko'rish / Yuklash</a>
             </div>
         </div>
 
         <div class="card">
-            <div class="h2-title"><i class="fas fa-envelope-open-text"></i> Men bilan aloqa</div>
-            <div class="contact-list">
-                <a href="https://t.me/Safarova_A" class="contact-item" target="_blank">
-                    <i class="fab fa-telegram" style="color:#0088cc"></i> 
-                    <span>@Safarova_A</span></a>
-                <a href="https://instagram.com/sirojiddinovna_1" class="contact-item" target="_blank">
-                    <i class="fab fa-instagram" style="color:#e1306c"></i> 
-                    <span>@sirojiddinovna_1</span>
-                </a>
-                <a href="mailto:azizasafarova0210@gmail.com" class="contact-item">
-                    <i class="fas fa-at" style="color:var(--primary-color)"></i> 
-                    <span>azizasafarova0210@gmail.com</span>
-                </a>
+            <div class="h2-title"><i class="fas fa-images"></i> Galereyam</div>
+            <div class="grid-2">
+                <div class="grid-item"><img src="1771608245289.png"></div>
+                <div class="grid-item"><img src="1771608326175.png"></div>
+                <div class="grid-item"><img src="1771608339990.png"></div>
+                <div class="grid-item"><img src="1771649210473.png"></div>
             </div>
         </div>
 
-        <p class="footer-text">© 2026 Aziza Safarova. Barcha huquqlar himoyalangan.</p>
+        <div class="card">
+            <div class="h2-title"><i class="fas fa-paper-plane"></i> Aloqa</div>
+            <a href="https://t.me/Safarova_A" class="contact-item"><i class="fab fa-telegram" style="color:#0088cc"></i> @Safarova_A</a><a href="https://instagram.com/sirojiddinovna_1" class="contact-item"><i class="fab fa-instagram" style="color:#e1306c"></i> @sirojiddinovna_1</a>
+            <a href="mailto:azizasafarova0210@gmail.com" class="contact-item"><i class="fas fa-at" style="color:var(--primary)"></i> Email yuborish</a>
+        </div>
     </div>
-
 </body>
 </html>
+            
