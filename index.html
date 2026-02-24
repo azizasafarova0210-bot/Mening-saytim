@@ -8,7 +8,7 @@
     <style>
         :root {
             --primary: #ff7eb3;
-            --dark-bg: #111827;
+            --dark-bg: #0f172a;
             --card-bg: rgba(255, 255, 255, 0.08);
         }
 
@@ -20,136 +20,141 @@
             display: flex; flex-direction: column; align-items: center;
         }
 
-        .container { width: 100%; max-width: 400px; }
+        .container { width: 100%; max-width: 420px; }
 
         .card {
             background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 20px;
+            backdrop-filter: blur(12px);
+            border-radius: 22px;
+            padding: 22px;
             margin-bottom: 20px;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .title {
+        .section-title {
             color: var(--primary);
             font-size: 14px;
             font-weight: bold;
             text-transform: uppercase;
             margin-bottom: 15px;
-            display: flex; align-items: center; gap: 8px;
+            display: flex; align-items: center; gap: 10px;
         }
 
         /* MAQOLA USLUBI */
         .maqola-box {
             background: rgba(0, 0, 0, 0.2);
-            border-radius: 15px;
+            border-radius: 18px;
             padding: 15px;
-            border-left: 3px solid var(--primary);
+            border-left: 4px solid var(--primary);
         }
 
-        .tag-container { margin: 10px 0; display: flex; gap: 5px; }
+        .tag-container { margin: 10px 0; display: flex; flex-wrap: wrap; gap: 5px; }
         .tag {
             font-size: 10px;
             background: var(--primary);
-            padding: 2px 8px;
-            border-radius: 4px;
+            padding: 3px 10px;
+            border-radius: 6px;
         }
 
-        .pdf-link {
-            display: block;
-            text-align: center;
-            background: #fff;
-            color: var(--dark-bg);
-            text-decoration: none;
-            padding: 12px;
-            border-radius: 12px;
-            font-weight: bold;
-            margin-top: 15px;
+        .pdf-btn {
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            background: #fff; color: var(--dark-bg);
+            text-decoration: none; padding: 14px; border-radius: 15px;
+            font-weight: bold; margin-top: 15px; transition: 0.3s;
         }
+
+        .pdf-btn:hover { transform: scale(1.02); background: var(--primary); color: #fff; }
 
         /* QIZIQISHLAR GRID */
         .interest-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
         }
 
         .interest-item {
-            border-radius: 12px;
-            overflow: hidden;
-            height: 100px;
-            position: relative;
+            border-radius: 15px; overflow: hidden; height: 110px; position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .interest-item img {
-            width: 100%; height: 100%; object-fit: cover;
-        }
-
+        .interest-item img { width: 100%; height: 100%; object-fit: cover; }
         .interest-item span {
             position: absolute; bottom: 0; width: 100%;
-            background: rgba(0,0,0,0.5);
-            font-size: 10px; text-align: center; padding: 3px 0;
+            background: rgba(0,0,0,0.6); font-size: 11px; text-align: center; padding: 5px 0;
         }
 
         .profile-img {
-            width: 100px; height: 100px;
-            border-radius: 50%;
-            border: 3px solid var(--primary);
-            margin-bottom: 10px;
+            width: 110px; height: 110px; border-radius: 50%;
+            border: 4px solid var(--primary); margin-bottom: 12px; box-shadow: 0 0 20px rgba(255, 126, 179, 0.3);
         }
 
-        .award-list { font-size: 12px; line-height: 1.6; }
-        .award-list i { color: gold; margin-right: 5px; }
+        .award-item { display: flex; gap: 12px; margin-bottom: 12px; font-size: 13px; line-height: 1.5; }
+        .award-item i { color: gold; margin-top: 4px; }
     </style>
 </head>
 <body>
 
     <div class="container">
         <div class="card" style="text-align: center;">
-            <img src="Snapchat-720303948.jpg" class="profile-img" alt="Aziza">
-            <h2 style="margin: 0; font-size: 20px;">Safarova Aziza</h2>
-            <p style="color: var(--primary); font-size: 12px; margin: 5px 0;">Qarshi Davlat Universiteti Talabasi</p>
+            <img src="Snapchat-720303948.jpg" class="profile-img">
+            <h2 style="margin: 0; font-size: 22px;">Safarova Aziza</h2>
+            <p style="color: var(--primary); font-size: 12px; font-weight: bold; margin: 8px 0;">QARSHI DAVLAT UNIVERSITETI TALABASI</p>
         </div>
 
         <div class="card">
-            <div class="title"><i class="fas fa-book"></i> Ilmiy Maqolam</div>
+            <div class="section-title"><i class="fas fa-microscope"></i> Ilmiy Maqolam</div>
             <div class="maqola-box">
-                <p style="font-size: 10px; opacity: 0.6; margin: 0;">ISSN: 3060-4567 | [span_0](start_span)Dekabr-2025[span_0](end_span)</p>
-                [span_1](start_span)<h4 style="font-size: 12px; margin: 8px 0;">NANOTEXNOLOGIYALAR: ILMIY ASOSLARI, QO'LLANILISHI VA ZAMONAVIY MUAMMOLARI[span_1](end_span)</h4>
+                <p style="font-size: 10px; opacity: 0.7; margin: 0;">ISSN: 3060-4567 | Dekabr-2025</p>
+                <h4 style="font-size: 13px; margin: 10px 0; line-height: 1.4;">NANOTEXNOLOGIYALAR: ILMIY ASOSLARI, QO'LLANILISHI VA ZAMONAVIY MUAMMOLARI</h4>
                 <div class="tag-container">
                     <span class="tag">Nanomeditsina</span>
                     <span class="tag">Kvant effektlari</span>
                 </div>
-                <p style="font-size: 11px; opacity: 0.9;">
-                    [span_2](start_span)Maqolada nanomateriallarning atom darajasidagi strukturasini boshqarish[span_2](end_span)[span_3](start_span)[span_4](start_span), saraton hujayralarini aniqlash va dori yetkazish tizimlaridagi o'rni tahlil qilingan[span_3](end_span)[span_4](end_span).
+                <p style="font-size: 11px; opacity: 0.85; line-height: 1.6;">
+                    Ushbu maqolada nanotexnologiyalarning tibbiyotda saraton hujayralarini aniqlash, gen terapiyasi va dori yetkazish tizimlaridagi inqilobiy o'rni tahlil qilingan[span_2](end_span)[span_3](end_span).
                 </p>
-                <a href="307-312.pdf" class="pdf-link">Maqolani o'qish (PDF)</a>
+                <a href="307-312-2.pdf" class="pdf-btn" target="_blank">
+                    <i class="fas fa-file-pdf"></i> MAQOLANI O'QISH (PDF)
+                </a>
             </div>
         </div>
 
         <div class="card">
-            <div class="title"><i class="fas fa-award"></i> Ilmiy Yutuqlar</div>
-            <div class="award-list">
-                [span_5](start_span)[span_6](start_span)<div><i class="fas fa-microscope"></i> Nanomeditsina va zamonaviy dori yetkazish tizimlari bo'yicha tadqiqotlar[span_5](end_span)[span_6](end_span).</div>
-                [span_7](start_span)[span_8](start_span)<div style="margin-top: 10px;"><i class="fas fa-shield-alt"></i> Global nanoxavfsizlik standartlari va ekologik risklar tahlili[span_7](end_span)[span_8](end_span).</div>
+            <div class="section-title"><i class="fas fa-award"></i> Ilmiy Faoliyat</div>
+            <div class="award-item">
+                <i class="fas fa-vial"></i>
+                <span>Moddani 1-100 nanometr oralig'ida boshqarish orqali yangi xususiyatlar yaratish tadqiqoti[span_4](end_span).</span>
+            </div>
+            <div class="award-item">
+                <i class="fas fa-heartbeat"></i>
+                <span>Nanomeditsina yordamida kasalliklarni erta aniqlash va dori yetkazishni boshqarish bo'yicha ilmiy xulosalar[span_5](end_span).</span>
             </div>
         </div>
 
         <div class="card">
-            <div class="title"><i class="fas fa-heart"></i> Qiziqishlarim</div>
+            <div class="section-title"><i class="fas fa-star"></i> Qiziqishlarim</div>
             <div class="interest-grid">
-                <div class="interest-item"><img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=200"><span>BMW</span></div>
-                <div class="interest-item"><img src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?w=200"><span>Atirgullar</span></div>
-                <div class="interest-item"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=200"><span>IT Sohasi</span></div>
-                <div class="interest-item"><img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=200"><span>Sayohat</span></div>
+                <div class="interest-item">
+                    <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=300">
+                    <span>Avtomobillar</span>
+                </div>
+                <div class="interest-item">
+                    <img src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?w=300">
+                    <span>Atirgullar</span>
+                </div>
+                <div class="interest-item">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=300">
+                    <span>IT Sohasi</span>
+                </div>
+                <div class="interest-item">
+                    <img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=300">
+                    <span>Sayohat</span>
+                </div>
             </div>
         </div>
 
         <div class="card" style="display: flex; justify-content: space-around; padding: 15px;">
-            <a href="https://t.me/Safarova_A" style="color: white; font-size: 20px;"><i class="fab fa-telegram"></i></a>
-            <a href="https://instagram.com/sirojiddinovna_1" style="color: white; font-size: 20px;"><i class="fab fa-instagram"></i></a>
-            <a href="mailto:azizasafarova0210@gmail.com" style="color: white; font-size: 20px;"><i class="fas fa-envelope"></i></a>
+            <a href="https://t.me/Safarova_A" style="color: white; font-size: 22px;"><i class="fab fa-telegram"></i></a>
+            <a href="https://instagram.com/sirojiddinovna_1" style="color: white; font-size: 22px;"><i class="fab fa-instagram"></i></a>
+            <a href="mailto:azizasafarova0210@gmail.com" style="color: white; font-size: 22px;"><i class="fas fa-envelope"></i></a>
         </div>
     </div>
 
