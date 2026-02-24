@@ -3,140 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aziza Safarova | Professional Portfolio</title>
+    <title>Aziza Safarova | Portfolio</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #ff7eb3;
-            --dark: #0f172a;
+            --bg: #0f172a;
             --glass: rgba(255, 255, 255, 0.1);
         }
 
         body {
-            background: var(--dark);
+            background: var(--bg);
             color: #f1f5f9;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0; padding: 20px;
             display: flex; flex-direction: column; align-items: center;
         }
 
-        .wrapper { width: 100%; max-width: 450px; animation: fadeIn 0.8s ease; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .wrapper { width: 100%; max-width: 450px; }
 
         .card {
             background: var(--glass);
             backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 25px;
-            padding: 22px;
+            padding: 20px;
             margin-bottom: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
         }
 
-        .section-title {
+        .title {
             color: var(--primary);
-            font-size: 15px;
-            font-weight: 700;
+            font-size: 14px;
+            font-weight: bold;
             text-transform: uppercase;
             margin-bottom: 15px;
             display: flex; align-items: center; gap: 10px;
         }
 
-        /* STATISTIKA BO'LIMI */
-        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .stat-box { background: rgba(255,255,255,0.05); padding: 15px; border-radius: 15px; text-align: center; }
-        .stat-box h3 { margin: 0; color: var(--primary); font-size: 20px; }
-        .stat-box p { margin: 5px 0 0; font-size: 11px; opacity: 0.8; }
+        /* MAQOLA BO'LIMI */
+        .maqola-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 15px;
+            border-left: 4px solid var(--primary);
+        }
 
-        /* QIZIQISHLAR */
-        .int-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-        .int-item { position: relative; border-radius: 15px; overflow: hidden; height: 100px; }
-        .int-item img { width: 100%; height: 100%; object-fit: cover; }
-        .int-item span { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.6); padding: 5px; font-size: 10px; text-align: center; }
+        .tag {
+            font-size: 10px;
+            background: var(--primary);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 5px;
+            margin-right: 5px;
+        }
 
-        /* MAQOLA */
-        .maqola-card { background: rgba(255,255,255,0.05); border-radius: 18px; padding: 15px; border-left: 4px solid var(--primary); }
-        .cert-img { width: 100%; border-radius: 12px; margin: 10px 0; border: 1px solid rgba(255,255,255,0.1); }
-        
         .pdf-btn {
             display: flex; align-items: center; justify-content: center; gap: 10px;
             background: var(--primary); color: white;
-            padding: 12px; border-radius: 15px;
-            text-decoration: none; font-size: 13px; font-weight: bold;
+            text-decoration: none; padding: 12px; border-radius: 12px;
+            font-weight: bold; margin-top: 15px;
         }
 
-        .contact-link { display: inline-block; color: white; font-size: 24px; margin: 0 15px; transition: 0.3s; }
-        .contact-link:hover { color: var(--primary); transform: scale(1.2); }
+        /* QIZIQISHLAR */
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .grid-item { position: relative; border-radius: 15px; overflow: hidden; height: 100px; }
+        .grid-item img { width: 100%; height: 100%; object-fit: cover; }
+        .grid-item span { position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.6); text-align: center; font-size: 11px; padding: 3px 0; }
+
+        .award-item { display: flex; gap: 10px; margin-bottom: 10px; font-size: 13px; line-height: 1.4; }
+        .award-item i { color: gold; margin-top: 3px; }
     </style>
 </head>
 <body>
 
     <div class="wrapper">
         <div class="card" style="text-align: center;">
-            <img src="Snapchat-720303948.jpg" style="width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--primary); padding: 5px;">
-            <h2 style="margin: 15px 0 5px;">Safarova Aziza</h2>
-            <p style="color: var(--primary); font-weight: bold; font-size: 12px;">QARSHI DAVLAT UNIVERSITETI</p>
+            <img src="Snapchat-720303948.jpg" style="width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--primary);">
+            <h2 style="margin: 10px 0 5px;">Safarova Aziza</h2>
+            <p style="color: var(--primary); font-size: 12px; font-weight: bold;">Qarshi Davlat Universiteti Talabasi</p>
         </div>
 
         <div class="card">
-            <div class="section-title"><i class="fas fa-chart-line"></i> Natijalarim</div>
-            <div class="stats-grid">
-                [span_0](start_span)[span_1](start_span)<div class="stat-box"><h3>2+</h3><p>Ilmiy Maqolalar[span_0](end_span)[span_1](end_span)</p></div>
-                <div class="stat-box"><h3>100%</h3><p>Izlanuvchanlik</p></div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="section-title"><i class="fas fa-microscope"></i> Ilmiy Maqolam</div>
-            <div class="maqola-card">
-                <span style="font-size: 10px; opacity: 0.7;">ISSN: 3060-4567 | [span_2](start_span)Dekabr-2025[span_2](end_span)</span>
-                [span_3](start_span)<h4 style="margin: 8px 0; font-size: 13px;">NANOTEXNOLOGIYALAR: ILMIY ASOSLARI, QO'LLANILISHI VA ZAMONAVIY MUAMMOLARI[span_3](end_span)</h4>
-                <p style="font-size: 11px; line-height: 1.5;">
-                    [span_4](start_span)Nanomateriallarning atom darajasidagi strukturasini boshqarish, kvant effektlari va saratonda nanomeditsinaning o'rni.[span_4](end_span)
+            <div class="title"><i class="fas fa-book"></i> Ilmiy Maqolam</div>
+            <div class="maqola-box">
+                <p style="font-size: 10px; opacity: 0.6; margin: 0;">ISSN: 3060-4567 | Dekabr-2025</p>
+                <h4 style="font-size: 13px; margin: 8px 0;">NANOTEXNOLOGIYALAR: ILMIY ASOSLARI, QO'LLANILISHI VA ZAMONAVIY MUAMMOLARI</h4>
+                <div><span class="tag">Nanomeditsina</span><span class="tag">Kvant effektlari</span></div>
+                <p style="font-size: 11px; opacity: 0.8; line-height: 1.5; margin-top: 10px;">
+                    [span_1](start_span)Ushbu tadqiqotda nanomateriallarning atom darajasidagi strukturasini boshqarish[span_1](end_span) [span_2](start_span)[span_3](start_span)va tibbiyotda saraton hujayralarini aniqlashda nanotexnologiyalarning o'rni tahlil qilingan[span_2](end_span)[span_3](end_span).
                 </p>
-                <img src="IMG_20260220_210942_028.jpg" class="cert-img" alt="Sertifikat">
-                <a href="307-312-1.pdf" class="pdf-btn" target="_blank">
-                    <i class="fas fa-file-pdf"></i> PDF-ni ko'rish / Yuklash
+                <a href="307-312.pdf" class="pdf-btn">
+                    <i class="fas fa-file-pdf"></i> Maqolani o'qish (PDF)
                 </a>
             </div>
         </div>
 
         <div class="card">
-            <div class="section-title"><i class="fas fa-star"></i> Qiziqishlarim</div>
-            <div class="int-grid">
-                <div class="int-item">
+            <div class="title"><i class="fas fa-award"></i> Ilmiy Yutuqlar</div>
+            <div class="award-item">
+                <i class="fas fa-microscope"></i>
+                [span_4](start_span)<span>Nanomeditsina sohasida zamonaviy dori yetkazish tizimlari bo'yicha tadqiqot[span_4](end_span).</span>
+            </div>
+            <div class="award-item">
+                <i class="fas fa-shield-virus"></i>
+                [span_5](start_span)[span_6](start_span)<span>Global nanoxavfsizlik standartlari va ekologik risklar tahlili muallifi[span_5](end_span)[span_6](end_span).</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="title"><i class="fas fa-heart"></i> Qiziqishlarim</div>
+            <div class="grid">
+                <div class="grid-item">
                     <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=200">
-                    <span>BMW</span>
+                    <span>Avtomobillar</span>
                 </div>
-                <div class="int-item">
+                <div class="grid-item">
                     <img src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?w=200">
-                    <span>Atirgullar</span>
+                    <span>Tabiat</span>
                 </div>
-                <div class="int-item">
+                <div class="grid-item">
                     <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=200">
-                    <span>IT Sohasi</span>
+                    <span>IT Texnologiya</span>
                 </div>
-                <div class="int-item">
+                <div class="grid-item">
                     <img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=200">
                     <span>Sayohat</span>
                 </div>
             </div>
         </div>
 
-        <div class="card">
-            <div class="section-title"><i class="fas fa-graduation-cap"></i> Ta'lim</div>
-            <div style="font-size: 13px; border-left: 2px solid var(--primary); padding-left: 15px;">
-                <b style="color: var(--primary);">Qarshi Davlat Universiteti</b><br>
-                <span style="font-size: 11px; opacity: 0.8;">Talaba | Ilmiy izlanuvchi</span>
-            </div>
-        </div>
-
-        <div class="card" style="text-align: center; padding: 15px;">
-            <a href="https://t.me/Safarova_A" class="contact-link"><i class="fab fa-telegram"></i></a>
-            <a href="https://instagram.com/sirojiddinovna_1" class="contact-link"><i class="fab fa-instagram"></i></a>
-            <a href="mailto:azizasafarova0210@gmail.com" class="contact-link"><i class="fas fa-envelope"></i></a>
+        <div class="card" style="display: flex; justify-content: space-around; padding: 15px;">
+            <a href="https://t.me/Safarova_A" style="color: white; font-size: 22px;"><i class="fab fa-telegram"></i></a>
+            <a href="https://instagram.com/sirojiddinovna_1" style="color: white; font-size: 22px;"><i class="fab fa-instagram"></i></a>
+            <a href="mailto:azizasafarova0210@gmail.com" style="color: white; font-size: 22px;"><i class="fas fa-envelope"></i></a>
         </div>
     </div>
 
