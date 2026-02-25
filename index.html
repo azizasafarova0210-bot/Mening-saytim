@@ -3,27 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aziza Portfolio | Full & Final</title>
+    <title>Aziza Portfolio | Full AI Edition</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
             --primary-color: #ff7eb3;
             --secondary-color: #ff9a9e;
-            --ai-color: #8A2BE2; /* AI bo'limi uchun yangi rang */
+            --ai-gradient: linear-gradient(135deg, #8A2BE2 0%, #ff7eb3 100%);
             --bg-gradient: linear-gradient(135deg, #fff5f8 0%, #eef2ff 100%);
             --card-shadow: 0 10px 30px rgba(255, 126, 179, 0.15);
         }
 
         body {
             background: var(--bg-gradient);
-            margin: 0; 
-            padding: 20px 15px;
-            display: flex; 
-            flex-direction: column; 
-            align-items: center;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            color: #333;
-            min-height: 100vh;
+            margin: 0; padding: 20px 15px;
+            display: flex; flex-direction: column; align-items: center;
+            font-family: 'Segoe UI', sans-serif; color: #333;
         }
 
         .wrapper { width: 100%; max-width: 420px; }
@@ -31,144 +26,86 @@
         .card {
             background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
-            border-radius: 25px;
-            padding: 25px;
-            margin-bottom: 25px;
-            box-shadow: var(--card-shadow);
-            border: 1px solid rgba(255, 238, 242, 0.8);
-            width: 100%;
-            box-sizing: border-box;
-            transition: transform 0.3s ease;
+            border-radius: 25px; padding: 25px; margin-bottom: 25px;
+            box-shadow: var(--card-shadow); border: 1px solid rgba(255, 238, 242, 0.8);
         }
-
-        .card:hover { transform: translateY(-5px); }
 
         .h2-title {
-            font-size: 16px; 
-            color: var(--primary-color);
-            margin-bottom: 18px; 
-            text-transform: uppercase;
-            display: flex; 
-            align-items: center; 
-            gap: 12px; 
-            font-weight: 800;
-            border-bottom: 2px solid #fff0f3;
-            padding-bottom: 8px;
+            font-size: 16px; color: var(--primary-color);
+            margin-bottom: 18px; text-transform: uppercase;
+            display: flex; align-items: center; gap: 12px; font-weight: 800;
+            border-bottom: 2px solid #fff0f3; padding-bottom: 8px;
         }
 
-        .profile-card { text-align: center; }
-        .profile-img {
-            width: 120px; height: 120px;
-            border-radius: 50%; 
-            border: 4px solid var(--primary-color);
-            object-fit: cover; 
-            margin-bottom: 15px; 
-            cursor: pointer;
-            transition: 0.4s;
-            box-shadow: 0 5px 15px rgba(255, 126, 179, 0.4);
+        /* AI CARD SPECIAL STYLE */
+        .ai-card { background: var(--ai-gradient); color: white; border: none; }
+        .ai-card .h2-title { color: white; border-bottom: 2px solid rgba(255,255,255,0.2); }
+        .ai-btn { 
+            display: block; background: white; color: #8A2BE2; text-align: center; 
+            padding: 12px; border-radius: 15px; text-decoration: none; font-weight: bold; 
+            margin-top: 15px; transition: 0.3s; 
         }
 
-        /* AI LOYIHA STILI */
-        .ai-card {
-            background: linear-gradient(135deg, #8A2BE2, #ff7eb3);
-            color: white;
+        /* GALEREYA & GRID */
+        .int-grid, .gal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .int-item, .gal-box { 
+            background: #fff; border-radius: 18px; overflow: hidden; border: 1px solid #f0f0f0; text-align: center;
         }
-        .ai-card .h2-title { color: white; border-bottom: 2px solid rgba(255,255,255,0.3); }
-        .ai-btn {
-            display: block;
-            background: white;
-            color: #8A2BE2;
-            text-align: center;
-            padding: 12px;
-            border-radius: 15px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 15px;
-            transition: 0.3s;
-        }
-        .ai-btn:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
-
-        /* QOLGAN STILLAR */
-        .bio-text { font-size: 14px; color: #555; line-height: 1.7; text-align: justify; }
-        .skill-item { margin-bottom: 15px; }
-        .skill-info { display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; }
-        .skill-bar { height: 10px; background: #f0f0f0; border-radius: 10px; overflow: hidden; margin-top: 5px; }
-        .skill-fill { height: 100%; background: linear-gradient(to right, var(--secondary-color), var(--primary-color)); }
+        .int-item img, .gal-box img { width: 100%; height: 95px; object-fit: cover; }
         
-        .int-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .int-item { background: #fff; border-radius: 20px; overflow: hidden; text-align: center; padding-bottom: 10px; border: 1px solid #f0f0f0; }
-        .int-item img { width: 100%; height: 95px; object-fit: cover; }
-        
-        .gal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        .gal-box { border-radius: 18px; overflow: hidden; height: 115px; border: 1px solid #eee; }
-        .gal-box img { width: 100%; height: 100%; object-fit: cover; }
-
-        .maqola { background: #fff; border-radius: 18px; padding: 15px; margin-bottom: 15px; border-left: 5px solid var(--primary-color); }
-        .pdf-btn { background: var(--primary-color); color: white; padding: 10px; border-radius: 12px; text-decoration: none; display: block; text-align: center; margin-top: 10px; font-size: 12px; }
-
-        .contact-item { display: flex; align-items: center; gap: 15px; text-decoration: none; color: #444; background: #fff; padding: 12px; border-radius: 15px; margin-bottom: 10px; border: 1px solid #ffeef2; }
+        /* CONTACT & PDF */
+        .pdf-btn {
+            background: var(--primary-color); color: white; padding: 12px; border-radius: 15px;
+            text-decoration: none; display: block; text-align: center; margin-top: 10px; font-weight: bold;
+        }
+        .contact-item {
+            display: flex; align-items: center; gap: 15px; text-decoration: none; color: #444;
+            background: #fff; padding: 12px; border-radius: 15px; margin-bottom: 10px; border: 1px solid #ffeef2;
+        }
     </style>
 </head>
 <body>
 
     <div class="wrapper">
-        <div class="card profile-card">
-            <img src="Snapchat-720303948.jpg" class="profile-img" alt="Aziza Safarova">
-            <h2 style="margin:0;">Safarova Aziza</h2>
-            <p style="color:var(--primary-color); font-weight:700;">QARSHI DAVLAT UNIVERSITETI</p>
+        <div class="card" style="text-align: center;">
+            <img src="Snapchat-720303948.jpg" style="width: 120px; height: 120px; border-radius: 50%; border: 4px solid var(--primary-color); object-fit: cover;" alt="Aziza">
+            <h2 style="margin: 10px 0 5px 0;">Safarova Aziza</h2>
+            <p style="color: var(--primary-color); font-weight: bold;">QARSHI DAVLAT UNIVERSITETI</p>
         </div>
 
         <div class="card ai-card">
             <div class="h2-title"><i class="fas fa-robot"></i> Sun'iy Intellekt</div>
-            <p style="font-size: 13px;"><b>BMW vs Mercedes Classifier:</b> Mashina rasmini yuklang va model uni qaysi brend ekanligini aniqlab beradi.</p>
-            <a href="https://859231a6b0c078152d.gradio.live" target="_blank" class="ai-btn">
-                Loyihani ko'rish <i class="fas fa-external-link-alt"></i>
+            <p style="font-size: 14px;">Kamera orqali BMW va Mercedes markalarini real vaqtda aniqlaydigan AI loyiham.</p>
+            <a href="https://83c0dba2aa7586912a.gradio.live" target="_blank" class="ai-btn">
+                Kamerani ishga tushirish <i class="fas fa-camera"></i>
             </a>
         </div>
 
         <div class="card">
             <div class="h2-title"><i class="fas fa-user-graduate"></i> Men haqimda</div>
-            <p class="bio-text">Men Qarshi Davlat Universiteti talabasiman. IT sohasiga va ilmiy tadqiqotlarga bo'lgan qiziqishim yuqori. O'z ustimda ishlashdan va yangi bilimlarni egallashdan to'xtamayman.</p>
-        </div>
-
-        <div class="card">
-            <div class="h2-title"><i class="fas fa-rocket"></i> Ko'nikmalarim</div>
-            <div class="skill-item">
-                <div class="skill-info"><span>Ilmiy tadqiqotlar</span><span>45%</span></div>
-                <div class="skill-bar"><div class="skill-fill" style="width: 45%;"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-info"><span>IT Savodxonlik</span><span>55%</span></div>
-                <div class="skill-bar"><div class="skill-fill" style="width: 55%;"></div></div>
-            </div>
+            <p style="font-size: 14px; line-height: 1.6;">Men QarDU talabasiman. IT sohasiga va ilmiy tadqiqotlarga bo'lgan qiziqishim yuqori. O'z ustimda ishlashdan to'xtamayman.</p>
         </div>
 
         <div class="card">
             <div class="h2-title"><i class="fas fa-heart"></i> Qiziqishlarim</div>
             <div class="int-grid">
-                <div class="int-item"><img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=200"><p>BMW</p></div>
-                <div class="int-item"><img src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?w=200"><p>Atirgullar</p></div>
+                <div class="int-item"><img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=200"><p style="font-size: 12px; font-weight: bold;">BMW</p></div>
+                <div class="int-item"><img src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?w=200"><p style="font-size: 12px; font-weight: bold;">Atirgullar</p></div>
             </div>
         </div>
 
         <div class="card">
-            <div class="h2-title"><i class="fas fa-camera-retro"></i> Galereyam</div>
-            <div class="gal-grid">
-                <div class="gal-box"><img src="1771608245289.png"></div>
-                <div class="gal-box"><img src="1771608326175.png"></div>
+            <div class="h2-title"><i class="fas fa-feather-alt"></i> Maqolalarim</div>
+            <div style="font-size: 12px; border-left: 4px solid var(--primary-color); padding-left: 10px;">
+                <p><b>1. NANOTEXNOLOGIYALAR...</b></p>
+                <a href="maqola1.pdf" class="pdf-btn">PDF Yuklash</a>
             </div>
         </div>
 
         <div class="card">
-            <div class="h2-title"><i class="fas fa-envelope-open-text"></i> Aloqa</div>
-            <div class="contact-list">
-                <a href="https://t.me/Safarova_A" class="contact-item" target="_blank">
-                    <i class="fab fa-telegram" style="color:#0088cc"></i> <span>@Safarova_A</span>
-                </a>
-                <a href="mailto:azizasafarova0210@gmail.com" class="contact-item">
-                    <i class="fas fa-at" style="color:var(--primary-color)"></i> <span>Email</span>
-                </a>
-            </div>
+            <div class="h2-title"><i class="fas fa-envelope"></i> Aloqa</div>
+            <a href="https://t.me/Safarova_A" class="contact-item"><i class="fab fa-telegram" style="color:#0088cc"></i> @Safarova_A</a>
+            <a href="mailto:azizasafarova0210@gmail.com" class="contact-item"><i class="fas fa-at" style="color:var(--primary-color)"></i> Email</a>
         </div>
 
         <p style="font-size: 11px; color: #999; text-align: center;">© 2026 Aziza Safarova</p>
