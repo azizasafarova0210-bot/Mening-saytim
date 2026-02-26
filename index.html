@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aziza Portfolio | AI Integration</title>
+    <title>Aziza Portfolio | AI Edition</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
     <style>
@@ -38,50 +38,28 @@
             border-bottom: 2px solid #fff0f3; padding-bottom: 8px;
         }
 
-        /* AI CARD SPECIAL STYLE */
+        /* AI CARD STYLE */
         .ai-card { background: var(--ai-gradient); color: white; border: none; text-align: center; }
         .ai-card .h2-title { color: white; border-bottom: 2px solid rgba(255,255,255,0.2); }
         
-        #webcam-container {
-            display: none; /* Kamera boshida yopiq turadi */
-            margin-top: 15px;
-            position: relative;
-        }
-
-        video {
-            width: 100%;
-            border-radius: 15px;
-            border: 3px solid rgba(255,255,255,0.3);
-        }
+        #webcam-container { display: none; margin-top: 15px; }
+        video { width: 100%; border-radius: 15px; border: 3px solid rgba(255,255,255,0.3); background: #000; }
 
         .ai-btn { 
             display: block; background: white; color: #8A2BE2; text-align: center; 
             padding: 12px; border-radius: 15px; text-decoration: none; font-weight: bold; 
-            margin-top: 15px; transition: 0.3s; cursor: pointer; border: none; width: 100%;
+            margin-top: 15px; cursor: pointer; border: none; width: 100%; transition: 0.3s;
         }
+        .ai-btn:hover { transform: scale(1.02); }
 
-        #ai-status {
-            font-size: 18px;
-            font-weight: bold;
-            margin-top: 10px;
-            color: #fff;
-        }
+        #ai-status { font-size: 16px; font-weight: bold; margin-top: 10px; color: #fff; line-height: 1.4; }
 
-        /* GALEREYA & GRID */
+        /* OTHER STYLES */
         .int-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .int-item { 
-            background: #fff; border-radius: 18px; overflow: hidden; border: 1px solid #f0f0f0; text-align: center;
-        }
+        .int-item { background: #fff; border-radius: 18px; overflow: hidden; border: 1px solid #f0f0f0; text-align: center; }
         .int-item img { width: 100%; height: 95px; object-fit: cover; }
-        
-        .pdf-btn {
-            background: var(--primary-color); color: white; padding: 12px; border-radius: 15px;
-            text-decoration: none; display: block; text-align: center; margin-top: 10px; font-weight: bold;
-        }
-        .contact-item {
-            display: flex; align-items: center; gap: 15px; text-decoration: none; color: #444;
-            background: #fff; padding: 12px; border-radius: 15px; margin-bottom: 10px; border: 1px solid #ffeef2;
-        }
+        .pdf-btn { background: var(--primary-color); color: white; padding: 12px; border-radius: 15px; text-decoration: none; display: block; text-align: center; margin-top: 10px; font-weight: bold; }
+        .contact-item { display: flex; align-items: center; gap: 15px; text-decoration: none; color: #444; background: #fff; padding: 12px; border-radius: 15px; margin-bottom: 10px; border: 1px solid #ffeef2; }
     </style>
 </head>
 <body>
@@ -91,7 +69,9 @@
             <img src="Snapchat-720303948.jpg" style="width: 120px; height: 120px; border-radius: 50%; border: 4px solid var(--primary-color); object-fit: cover;" alt="Aziza">
             <h2 style="margin: 10px 0 5px 0;">Safarova Aziza</h2>
             <p style="color: var(--primary-color); font-weight: bold;">QARSHI DAVLAT UNIVERSITETI</p>
-        </div><div class="card ai-card">
+        </div>
+
+        <div class="card ai-card">
             <div class="h2-title"><i class="fas fa-robot"></i> Sun'iy Intellekt</div>
             <p style="font-size: 14px;">BMW va Mercedes markalarini aniqlaydigan real-time AI tizimi.</p>
             
@@ -101,7 +81,7 @@
 
             <div id="webcam-container">
                 <video id="webcam" autoplay playsinline muted></video>
-                <div id="ai-status">Yuklanmoqda...</div>
+                <div id="ai-status">Tayyorlanmoqda...</div>
             </div>
         </div>
 
@@ -135,33 +115,35 @@
         const startBtn = document.getElementById('start-btn');
 
         async function startAI() {
-            startBtn.style.display = 'none'; // Tugmani yashirish
-            container.style.display = 'block'; // Kamera oynasini ochish
-            status.innerText = "Model yuklanmoqda...";
+            startBtn.style.display = 'none';
+            container.style.display = 'block';
+            status.innerText = "Tekshirilmoqda...";
 
             try {
-                // 1. Modelni yuklash (web_model papkasi index.html bilan yonma-yon bo'lishi kerak)
-                model = await tf.loadLayersModel('web_model/model.json');
-                status.innerText = "Kamera tayyorlanmoqda...";
-
-                // 2. Kamerani yoqish
+                // 1. Kamerani yoqish
                 const stream = await navigator.mediaDevices.getUserMedia({ 
                     video: { facingMode: "environment" } 
                 });
                 video.srcObject = stream;
-
-                // 3. Bashorat qilishni boshlash
-                video.onloadeddata = () => {
-                    predict();
-                };
+                status.innerText = "Model yuklanmoqda...";
+                
+                // 2. Modelni yuklash
+                // Eslatma: 'web_model/model.json' manzili to'g'ri bo'lishi shart
+                model = await tf.loadLayersModel('web_model/model.json');
+                
+                status.innerText = "Tayyor! Mashinani ko'rsating.";
+                predict();
             } catch (err) {
-                status.innerText = "Xatolik: Model topilmadi!";
-                console.error(err);
+                // Xatolikni aniq ko'rsatish
+                status.innerText = "⚠️ Xatolik: " + err.message;
+                console.error("AI Error:", err);
             }
         }
 
         async function predict() {
             setInterval(async () => {
+                if (!model) return;
+                
                 const tensor = tf.browser.fromPixels(video)
                     .resizeNearestNeighbor([224, 224])
                     .toFloat()
@@ -172,11 +154,12 @@
                 const maxScore = Math.max(...prediction);
                 const classIdx = prediction.indexOf(maxScore);
                 
-                // Klasslaringiz nomlari
-                const classes = ['BMW', 'Mercedes'];if (maxScore > 0.75) {
-                    status.innerText = 🚗 ${classes[classIdx]} (${(maxScore * 100).toFixed(1)}%);
+                const classes = ['BMW', 'Mercedes']; 
+
+                if (maxScore > 0.70) {
+                    status.innerText = `🚗 ${classes[classIdx]} (${(maxScore * 100).toFixed(1)}%)`;
                 } else {
-                    status.innerText = "🔍 Qidirilmoqda...";
+                    status.innerText = "🔍 Mashina qidirilmoqda...";
                 }
             }, 500);
         }
