@@ -3,76 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Safarova Aziza | Portfolio</title>
+    <title>Aziza Safarova | Portfolio</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
     <style>
-        :root { --p: #ff7eb3; --grad: linear-gradient(135deg, #8A2BE2, #ff7eb3); }
-        body { background: #f8fafc; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 20px 10px; display: flex; flex-direction: column; align-items: center; }
+        :root { --primary: #ff7eb3; --accent: #8A2BE2; --bg: #f8fafc; }
+        body { background: var(--bg); font-family: 'Segoe UI', sans-serif; margin: 0; padding: 20px 10px; display: flex; flex-direction: column; align-items: center; color: #334155; }
         .wrapper { width: 100%; max-width: 420px; }
-        .card { background: white; border-radius: 25px; padding: 20px; margin-bottom: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .h-title { font-size: 14px; color: var(--p); text-transform: uppercase; font-weight: 800; border-bottom: 2px solid #fff5f8; padding-bottom: 5px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .card { background: white; border-radius: 22px; padding: 20px; margin-bottom: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #f1f5f9; }
+        .h-title { font-size: 14px; color: var(--primary); text-transform: uppercase; font-weight: 800; border-bottom: 2px solid #fff5f8; padding-bottom: 8px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
         
-        /* AI CAMERA SECTION */
-        .ai-sec { background: var(--grad); color: white; border-radius: 20px; padding: 20px; text-align: center; }
-        #webcam-wrap { margin: 15px 0; border-radius: 20px; overflow: hidden; display: none; border: 4px solid rgba(255,255,255,0.2); }
+        /* AI CAMERA */
+        .ai-card { background: linear-gradient(135deg, var(--accent), var(--primary)); color: white; border: none; text-align: center; }
+        #webcam-container { margin: 15px 0; border-radius: 18px; overflow: hidden; display: none; border: 4px solid rgba(255,255,255,0.2); }
         canvas { width: 100% !important; height: auto !important; }
-        .btn-cam { background: white; color: #8A2BE2; padding: 14px; border-radius: 12px; border: none; font-weight: bold; width: 100%; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .ai-btn { background: white; color: var(--accent); padding: 14px; border-radius: 12px; border: none; font-weight: bold; width: 100%; cursor: pointer; transition: 0.3s; }
 
-        /* MAQOLA VA MUTOLAA */
-        .box { background: #fffcfd; padding: 15px; border-radius: 18px; border-left: 5px solid var(--p); margin-bottom: 10px; }
-        .tag { font-size: 10px; background: var(--p); color: white; padding: 3px 8px; border-radius: 6px; margin-right: 5px; font-weight: bold; }
-        .btn-pdf { display: block; background: var(--p); color: white; text-align: center; padding: 12px; border-radius: 12px; text-decoration: none; font-weight: bold; margin-top: 15px; }
+        /* CONTENT BOXES */
+        .box { background: #fffcfd; padding: 15px; border-radius: 15px; border-left: 5px solid var(--primary); margin-bottom: 10px; }
+        .tag { font-size: 10px; background: var(--primary); color: white; padding: 3px 8px; border-radius: 5px; margin-right: 5px; font-weight: bold; }
+        .pdf-btn { display: block; background: var(--primary); color: white; text-align: center; padding: 12px; border-radius: 12px; text-decoration: none; font-weight: bold; margin-top: 15px; }
 
         /* GALEREYA */
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        .item { border-radius: 15px; overflow: hidden; height: 110px; position: relative; }
-        .item img { width: 100%; height: 100%; object-fit: cover; }
-        .item span { position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.6); color: white; font-size: 10px; text-align: center; padding: 5px 0; }
+        .grid-item { border-radius: 15px; overflow: hidden; height: 110px; position: relative; }
+        .grid-item img { width: 100%; height: 100%; object-fit: cover; }
+        .grid-item span { position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.6); color: white; font-size: 10px; text-align: center; padding: 5px 0; }
 
-        /* ALOQA */
-        .social { display: flex; flex-direction: column; gap: 10px; }
-        .social-a { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #333; padding: 12px; background: #f8f9fa; border-radius: 15px; font-size: 14px; }
+        /* CONTACT */
+        .social-link { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #475569; padding: 12px; background: #f8f9fa; border-radius: 15px; margin-bottom: 8px; font-size: 14px; }
     </style>
 </head>
 <body>
 
     <div class="wrapper">
         <div class="card" style="text-align: center;">
-            <img src="Snapchat-720303948.jpg" style="width: 110px; height: 110px; border-radius: 50%; border: 4px solid var(--p); object-fit: cover;">
+            <img src="Snapchat-720303948.jpg" style="width: 110px; height: 110px; border-radius: 50%; border: 4px solid var(--primary); object-fit: cover;">
             <h2 style="margin: 10px 0 0; font-size: 22px;">Safarova Aziza</h2>
-            <p style="color: var(--p); font-size: 12px; font-weight: bold;">QARSHI DAVLAT UNIVERSITETI TALABASI</p>
+            <p style="color: var(--primary); font-size: 12px; font-weight: bold; margin-top: 5px;">QARSHI DAVLAT UNIVERSITETI TALABASI</p>
         </div>
 
-        <div class="card ai-sec">
+        <div class="card ai-card">
             <div class="h-title" style="color: white; border: none;"><i class="fas fa-robot"></i> AI Car Detector</div>
-            <p style="font-size: 13px; margin-bottom: 15px;">BMW va Mercedes markalarini aniqlash tizimi.</p>
-            <button class="btn-cam" onclick="startAI()">KAMERANI YOQISH <i class="fas fa-camera"></i></button>
-            <div id="webcam-wrap"></div>
-            <div id="label-status" style="margin-top: 10px; font-weight: bold;">Tayyor...</div>
+            <p style="font-size: 13px; margin-bottom: 15px;">BMW va Mercedes markalarini real vaqtda aniqlash.</p>
+            <button class="ai-btn" onclick="startAI()">KAMERANI YOQISH <i class="fas fa-camera"></i></button>
+            <div id="webcam-container"></div>
+            <div id="ai-status" style="margin-top: 10px; font-weight: bold;">Tayyor...</div>
         </div>
 
         <div class="card">
-            <div class="h-title"><i class="fas fa-book"></i> Maqolalarim</div>
+            <div class="h-title"><i class="fas fa-book-open"></i> Maqolalarim</div>
             <div class="box">
-                <span style="font-size: 10px; color: #888;">ISSN: 3060-4567 | Dekabr-2025</span>
-                <h4 style="font-size: 14px; margin: 8px 0;">NANOTEXNOLOGIYALAR: ILMIY ASOSLARI, QO'LLANILISHI VA ZAMONAVIY MUAMMOLARI</h4>
+                <span style="font-size: 10px; color: #94a3b8;">ISSN: 3060-4567 | Dekabr-2025</span>
+                <h4 style="font-size: 14px; margin: 8px 0; color: #1e293b;">NANOTEXNOLOGIYALAR: ILMIY ASOSLARI, QO'LLANILISHI VA ZAMONAVIY MUAMMOLARI</h4>
                 <div style="margin-bottom: 10px;">
-                    <span class="tag">Nanomateriallar</span><span class="tag">Kvant effektlari</span>
+                    <span class="tag">Nanomateriallar</span><span class="tag">Atom strukturasi</span>
                 </div>
-                <p style="font-size: 12px; color: #555; line-height: 1.5;">
-                    Maqolada nanomateriallarning atom darajasidagi strukturasini boshqarish, yangi fizik-kimyoviy xususiyatlar yaratish va sohadagi ekologik xavflar tahlil qilingan.
+                <p style="font-size: 12px; color: #64748b; line-height: 1.5;">
+                    Ushbu maqolada nanotexnologiyalarning nazariy asoslari, atom darajasidagi strukturalarni boshqarish va sanoatdagi zamonaviy qo'llanilishi tahlil qilingan.
                 </p>
-                <a href="307-312-2.pdf" class="btn-pdf" target="_blank">PDF-ni O'qish</a>
+                <a href="307-312-2.pdf" class="pdf-btn" target="_blank"><i class="fas fa-file-pdf"></i> PDF Maqolani o'qish</a>
             </div>
         </div>
 
         <div class="card">
-            <div class="h-title"><i class="fas fa-microscope"></i> Ilmiy Mutolaa</div>
-            <div class="box" style="border-left-color: #8A2BE2;">
-                <p style="font-size: 12px; color: #444; margin: 0; line-height: 1.6;">
-                    Moddani 1-100 nanometr oralig'ida boshqarish orqali yangi fizik va kimyoviy xususiyatlar yaratish mexanizmlari o'rganilmoqda.
+            <div class="h-title"><i class="fas fa-graduation-cap"></i> Ilmiy Mutolaa</div>
+            <div class="box" style="border-left-color: var(--accent);">
+                <p style="font-size: 12px; color: #475569; margin: 0; line-height: 1.6;">
+                    Nanomateriallarning o'ziga xos xususiyatlari va ularning turli sohalardagi ekologik xavflari o'rganilmoqda.
                 </p>
             </div>
         </div>
@@ -80,20 +79,18 @@
         <div class="card">
             <div class="h-title"><i class="fas fa-images"></i> Galereya & Qiziqishlar</div>
             <div class="grid">
-                <div class="item"><img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400"><span>BMW M-Power</span></div>
-                <div class="item"><img src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?w=400"><span>Atirgullar</span></div>
-                <div class="item"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400"><span>IT & Coding</span></div>
-                <div class="item"><img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=400"><span>Sayohatlar</span></div>
+                <div class="grid-item"><img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400"><span>BMW M-Power</span></div>
+                <div class="grid-item"><img src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?w=400"><span>Atirgullar</span></div>
+                <div class="grid-item"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400"><span>IT & AI</span></div>
+                <div class="grid-item"><img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=400"><span>Sayohat</span></div>
             </div>
         </div>
 
         <div class="card">
             <div class="h-title"><i class="fas fa-id-card"></i> Aloqa bo'limi</div>
-            <div class="social">
-                <a href="https://t.me/Safarova_A" class="social-a"><i class="fab fa-telegram" style="color:#0088cc"></i> @Safarova_A</a>
-                <a href="mailto:azizasafarova0210@gmail.com" class="social-a"><i class="fas fa-envelope" style="color:var(--p)"></i> azizasafarova0210@gmail.com</a>
-                <a href="https://instagram.com/sirojiddinovna_1" class="social-a"><i class="fab fa-instagram" style="color:#e1306c"></i> Sirojiddinona__1</a>
-            </div>
+            <a href="https://t.me/Safarova_A" class="social-link"><i class="fab fa-telegram" style="color:#0088cc"></i> @Safarova_A</a>
+            <a href="mailto:azizasafarova0210@gmail.com" class="social-link"><i class="fas fa-envelope" style="color:var(--primary)"></i> azizasafarova0210@gmail.com</a>
+            <a href="https://instagram.com/sirojiddinovna_1" class="social-link"><i class="fab fa-instagram" style="color:#e1306c"></i> Sirojiddinona__1</a>
         </div>
     </div>
 
@@ -102,20 +99,20 @@
         let model, webcam, maxPredictions;
 
         async function startAI() {
-            const status = document.getElementById("label-status");
-            status.innerHTML = "Yuklanmoqda...";
+            const status = document.getElementById("ai-status");
+            status.innerHTML = "<i class='fas fa-spinner fa-spin'></i> Yuklanmoqda...";
             try {
                 model = await tmImage.load(TM_URL + "model.json", TM_URL + "metadata.json");
                 maxPredictions = model.getTotalClasses();
                 webcam = new tmImage.Webcam(350, 350, true);
                 await webcam.setup();
                 await webcam.play();
-                document.getElementById("webcam-wrap").style.display = "block";
-                document.getElementById("webcam-wrap").appendChild(webcam.canvas);
+                document.getElementById("webcam-container").style.display = "block";
+                document.getElementById("webcam-container").appendChild(webcam.canvas);
                 window.requestAnimationFrame(loop);
                 status.innerText = "Kamera tayyor!";
             } catch (e) {
-                status.innerText = "Kamerani yoqishda xato!";
+                status.innerText = "Kamerada xatolik!";
             }
         }
 
@@ -133,7 +130,7 @@
                     top = {n: prediction[i].className, p: prediction[i].probability};
                 }
             }
-            document.getElementById("label-status").innerHTML = top.p > 0.7 ? `🚗 ${top.n} (${(top.p*100).toFixed(0)}%)` : "🔍 Qidirilmoqda...";
+            document.getElementById("ai-status").innerHTML = top.p > 0.65 ? `🚗 ${top.n} (${(top.p*100).toFixed(0)}%)` : "🔍 Qidirilmoqda...";
         }
     </script>
 </body>
