@@ -3,120 +3,269 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aziza Safarova | Portfolio</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Aziza Safarova | AI Portfolio</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+
     <style>
-        :root { --primary: #ff7eb3; --accent: #8A2BE2; --bg: #f8fafc; }
-        body { background: var(--bg); font-family: 'Segoe UI', sans-serif; margin: 0; padding: 20px 10px; display: flex; flex-direction: column; align-items: center; color: #334155; }
-        .wrapper { width: 100%; max-width: 420px; }
-        .card { background: white; border-radius: 22px; padding: 20px; margin-bottom: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #f1f5f9; }
-        .h-title { font-size: 14px; color: var(--primary); text-transform: uppercase; font-weight: 800; border-bottom: 2px solid #fff5f8; padding-bottom: 8px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
-        
-        /* AI CAMERA */
-        .ai-card { background: linear-gradient(135deg, var(--accent), var(--primary)); color: white; border: none; text-align: center; }
-        #webcam-container { margin: 15px 0; border-radius: 18px; overflow: hidden; display: none; border: 4px solid rgba(255,255,255,0.2); }
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;700&display=swap');
+
+        :root {
+            --primary: #ff7eb3; 
+            --accent: #8A2BE2;
+            --dark-side: rgba(20, 20, 22, 0.95);
+            --glass: rgba(30, 41, 59, 0.8);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+
+        body {
+            color: #fff;
+            display: flex;
+            min-height: 100vh;
+            background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            width: 280px;
+            background-color: var(--dark-side);
+            backdrop-filter: blur(20px);
+            border-right: 1px solid var(--border);
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: 100vh;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+            border: 2px solid var(--primary);
+            padding: 10px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .nav-link {
+            padding: 15px;
+            margin-bottom: 8px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #ccc;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 14px;
+        }
+        .nav-link:hover, .nav-link.active {
+            background: linear-gradient(90deg, var(--accent), var(--primary));
+            color: #fff;
+        }
+
+        /* MAIN CONTENT */
+        .main-content {
+            margin-left: 280px;
+            padding: 40px;
+            width: calc(100% - 280px);
+        }
+
+        .glass-panel {
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            padding: 35px;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            border-left: 5px solid var(--primary);
+            padding-left: 15px;
+        }
+
+        /* PROFIL */
+        .profile-box { display: flex; gap: 30px; align-items: center; }
+        .profile-img {
+            width: 140px; height: 140px;
+            border-radius: 50%;
+            border: 4px solid var(--primary);
+            object-fit: cover;
+        }
+
+        /* AI SECTION */
+        .ai-card {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+            padding: 25px;
+            border: 1px solid var(--accent);
+        }
+        #webcam-container { 
+            margin: 20px auto; 
+            border-radius: 20px; 
+            overflow: hidden; 
+            display: none; 
+            max-width: 400px;
+            border: 4px solid var(--primary);
+            box-shadow: 0 0 20px rgba(255, 126, 179, 0.3);
+        }
         canvas { width: 100% !important; height: auto !important; }
-        .ai-btn { background: white; color: var(--accent); padding: 14px; border-radius: 12px; border: none; font-weight: bold; width: 100%; cursor: pointer; transition: 0.3s; }
+        .ai-btn {
+            background: #fff; color: var(--accent); padding: 15px 35px;
+            border-radius: 12px; border: none; font-weight: 800; cursor: pointer;
+            transition: 0.3s;
+        }
 
-        /* CONTENT BOXES */
-        .box { background: #fffcfd; padding: 15px; border-radius: 15px; border-left: 5px solid var(--primary); margin-bottom: 10px; }
-        .tag { font-size: 10px; background: var(--primary); color: white; padding: 3px 8px; border-radius: 5px; margin-right: 5px; font-weight: bold; }
-        .pdf-btn { display: block; background: var(--primary); color: white; text-align: center; padding: 12px; border-radius: 12px; text-decoration: none; font-weight: bold; margin-top: 15px; }
+        /* MUTOLAA (KITOBLAR) */
+        .books-grid {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+        .book-item {
+            min-width: 150px; text-align: center;
+        }
+        .book-item img {
+            width: 100%; height: 210px; object-fit: cover; border-radius: 15px;
+            border: 1px solid var(--border); margin-bottom: 10px;
+        }
 
-        /* GALEREYA */
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        .grid-item { border-radius: 15px; overflow: hidden; height: 110px; position: relative; }
-        .grid-item img { width: 100%; height: 100%; object-fit: cover; }
-        .grid-item span { position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.6); color: white; font-size: 10px; text-align: center; padding: 5px 0; }
+        /* GALLERY & INTERESTS */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .gallery-item {
+            height: 180px; border-radius: 15px; overflow: hidden; position: relative;
+        }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-item span {
+            position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.6);
+            padding: 8px; text-align: center; font-size: 11px;
+        }
 
-        /* CONTACT */
-        .social-link { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #475569; padding: 12px; background: #f8f9fa; border-radius: 15px; margin-bottom: 8px; font-size: 14px; }
+        @media (max-width: 900px) {
+            .sidebar { width: 100%; height: auto; position: relative; }
+            body { flex-direction: column; }
+            .main-content { margin-left: 0; width: 100%; }
+        }
     </style>
 </head>
 <body>
 
-    <div class="wrapper">
-        <div class="card" style="text-align: center;">
-            <img src="Snapchat-720303948.jpg" style="width: 110px; height: 110px; border-radius: 50%; border: 4px solid var(--primary); object-fit: cover;">
-            <h2 style="margin: 10px 0 0; font-size: 22px;">Safarova Aziza</h2>
-            <p style="color: var(--primary); font-size: 12px; font-weight: bold; margin-top: 5px;">QARSHI DAVLAT UNIVERSITETI TALABASI</p>
-        </div>
+    <div class="sidebar">
+        <div class="logo">Aziza Safarova</div>
+        <nav class="nav-menu">
+            <a href="#home" class="nav-link active"><i class="fas fa-user"></i> Profil</a>
+            <a href="#ai" class="nav-link"><i class="fas fa-robot"></i> AI Bo'limi</a>
+            <a href="#mutolaa" class="nav-link"><i class="fas fa-book"></i> Mutolaa</a>
+            <a href="#gallery" class="nav-link"><i class="fas fa-star"></i> Qiziqishlar</a>
+            <a href="#contact" class="nav-link"><i class="fas fa-paper-plane"></i> Aloqa</a>
+        </nav>
+    </div>
 
-        <div class="card ai-card">
-            <div class="h-title" style="color: white; border: none;"><i class="fas fa-robot"></i> AI Car Detector</div>
-            <p style="font-size: 13px; margin-bottom: 15px;">BMW va Mercedes markalarini real vaqtda aniqlash.</p>
-            <button class="ai-btn" onclick="startAI()">KAMERANI YOQISH <i class="fas fa-camera"></i></button>
-            <div id="webcam-container"></div>
-            <div id="ai-status" style="margin-top: 10px; font-weight: bold;">Tayyor...</div>
-        </div>
-
-        <div class="card">
-            <div class="h-title"><i class="fas fa-book-open"></i> Maqolalarim</div>
-            <div class="box">
-                <span style="font-size: 10px; color: #94a3b8;">ISSN: 3060-4567 | Dekabr-2025</span>
-                <h4 style="font-size: 14px; margin: 8px 0; color: #1e293b;">NANOTEXNOLOGIYALAR: ILMIY ASOSLARI, QO'LLANILISHI VA ZAMONAVIY MUAMMOLARI</h4>
-                <div style="margin-bottom: 10px;">
-                    <span class="tag">Nanotexnologiyalar</span><span class="tag">Nanotexnologiyalar haqida</span>
+    <div class="main-content">
+        
+        <div class="glass-panel" id="home" data-tilt>
+            <div class="profile-box">
+                <img src="Snapchat-720303948.jpg" class="profile-img">
+                <div>
+                    <h1 style="font-size: 28px;">Aziza Safarova</h1>
+                    <p style="color: var(--primary); font-weight: bold; font-size: 13px;">QARSHI DAVLAT UNIVERSITETI TALABASI</p>
+                    <p style="color: #ccc; margin-top: 10px; font-size: 14px; line-height: 1.6;">
+                        Matematika va Informatika yo'nalishi talabasi. Sun'iy intellekt va zamonaviy texnologiyalar bo'yicha ilmiy izlanishlar olib boraman.
+                    </p>
                 </div>
-                </p>
-                <a href="https://journalss.org/index.php/mod/article/view/10210/9829" class="pdf-btn" target="_blank"><i class="fas fa-file-pdf"></i> PDF Maqolani o'qish</a>
             </div>
         </div>
-                </p>
-        <div class="box">
-                <span style="font-size: 10px; color: #94a3b8;">ISSN: 3060-4567 | Dekabr-2025</span>
-                <h4 style="font-size: 14px; margin: 8px 0; color: #1e293b;">ZAMONAVIY TEXNOLOGIYALAR VA INTERNETNING BUGUNGI KUNDAGI OʻRNI</h4>
-                <div style="margin-bottom: 10px;">
-                    <span class="tag">Zamonaviy texnologiyalar</span><span class="tag">Internet haqida</span>
+
+        <h2 class="section-title" id="ai">AI Car Detector</h2>
+        <div class="glass-panel">
+            <div class="ai-card">
+                <p style="margin-bottom: 20px; color: #ccc;">BMW va Mercedes markalarini aniqlash tizimi (Yangi model: QG_BoIC8L)</p>
+                <button class="ai-btn" onclick="init()">KAMERANI YOQISH <i class="fas fa-camera"></i></button>
+                <div id="webcam-container"></div>
+                <div id="label-container" style="margin-top: 15px; font-size: 22px; font-weight: 800; color: var(--primary);">Tayyor...</div>
+            </div>
+        </div>
+
+        <h2 class="section-title" id="mutolaa">Mutolaa</h2>
+        <div class="glass-panel">
+            <div class="books-grid">
+                <div class="book-item">
+                    <img src="https://assets.asaxiy.uz/product/main_image/desktop/2569528d2d992e59e51c8651f50a863a.jpg">
+                    <p style="font-size: 12px;">So'nggi nido</p>
                 </div>
-                </p>
-                <a href="https://journalss.org/index.php/mod/article/view/9465/9100" class="pdf-btn" target="_blank"><i class="fas fa-file-pdf"></i> PDF Maqolani o'qish</a>
-            </div>
-        </div>
-                </p>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="h-title"><i class="fas fa-images"></i> Qiziqishlar</div>
-            <div class="grid">
-                <div class="grid-item"><img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400"><span>BMW M-Power</span></div>
-                <div class="grid-item"><img src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?w=400"><span>Atirgullar</span></div>
-                <div class="grid-item"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400"><span>IT & AI</span></div>
-                <div class="grid-item"><img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=400"><span>Sayohat</span></div>
+                <div class="book-item">
+                    <img src="https://assets.asaxiy.uz/product/main_image/desktop/c81e728d9d4c2f636f067f89cc14862c.jpg">
+                    <p style="font-size: 12px;">Yuksak ma'naviyat</p>
+                </div>
             </div>
         </div>
 
-        <div class="card">
-            <div class="h-title"><i class="fas fa-id-card"></i> Aloqa bo'limi</div>
-            <a href="https://t.me/Safarova_A" class="social-link"><i class="fab fa-telegram" style="color:#0088cc"></i> @Safarova_A</a>
-            <a href="mailto:azizasafarova0210@gmail.com" class="social-link"><i class="fas fa-envelope" style="color:var(--primary)"></i> azizasafarova0210@gmail.com</a>
-            <a href="https://instagram.com/sirojiddinovna_1" class="social-link"><i class="fab fa-instagram" style="color:#e1306c"></i> Sirojiddinona__1</a>
+        <h2 class="section-title" id="gallery">Qiziqishlar</h2>
+        <div class="glass-panel">
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400"><span>BMW M-Power</span></div>
+                <div class="gallery-item"><img src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?w=400"><span>Atirgullar</span></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400"><span>IT & AI</span></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=400"><span>Sayohat</span></div>
+            </div>
         </div>
+
+        <h2 class="section-title" id="contact">Aloqa</h2>
+        <div class="glass-panel">
+            <div style="display: flex; flex-wrap: wrap; gap: 15px;">
+                <a href="https://t.me/Safarova_A" style="text-decoration:none; color:#fff; background:rgba(255,255,255,0.05); padding:15px; border-radius:15px; flex:1; min-width:200px;">
+                    <i class="fab fa-telegram" style="color:#0088cc"></i> @Safarova_A
+                </a>
+                <a href="mailto:azizasafarova0210@gmail.com" style="text-decoration:none; color:#fff; background:rgba(255,255,255,0.05); padding:15px; border-radius:15px; flex:1; min-width:200px;">
+                    <i class="fas fa-envelope" style="color:var(--primary)"></i> Email
+                </a>
+            </div>
+        </div>
+
     </div>
 
     <script>
-        const TM_URL = "https://teachablemachine.withgoogle.com/models/vG_8MNoD3/";
-        let model, webcam, maxPredictions;
+        // TEACHABLE MACHINE LOGIC (Updated Link)
+        const URL = "https://teachablemachine.withgoogle.com/models/QG_BoIC8L/";
+        let model, webcam, labelContainer, maxPredictions;
 
-        async function startAI() {
-            const status = document.getElementById("ai-status");
+        async function init() {
+            const status = document.getElementById("label-container");
             status.innerHTML = "<i class='fas fa-spinner fa-spin'></i> Yuklanmoqda...";
-            try {
-                model = await tmImage.load(TM_URL + "model.json", TM_URL + "metadata.json");
-                maxPredictions = model.getTotalClasses();
-                webcam = new tmImage.Webcam(350, 350, true);
-                await webcam.setup();
-                await webcam.play();
-                document.getElementById("webcam-container").style.display = "block";
-                document.getElementById("webcam-container").appendChild(webcam.canvas);
-                window.requestAnimationFrame(loop);
-                status.innerText = "Kamera tayyor!";
-            } catch (e) {
-                status.innerText = "Kamerada xatolik!";
-            }
+            
+            model = await tmImage.load(URL + "model.json", URL + "metadata.json");
+            maxPredictions = model.getTotalClasses();
+
+            webcam = new tmImage.Webcam(350, 350, true);
+            await webcam.setup();
+            await webcam.play();
+            window.requestAnimationFrame(loop);
+
+            document.getElementById("webcam-container").style.display = "block";
+            document.getElementById("webcam-container").appendChild(webcam.canvas);
+            labelContainer = document.getElementById("label-container");
         }
 
         async function loop() {
@@ -127,14 +276,24 @@
 
         async function predict() {
             const prediction = await model.predict(webcam.canvas);
-            let top = {n: "", p: 0};
+            let topClass = "";
+            let topProb = 0;
+
             for (let i = 0; i < maxPredictions; i++) {
-                if (prediction[i].probability > top.p) {
-                    top = {n: prediction[i].className, p: prediction[i].probability};
+                if(prediction[i].probability > topProb) {
+                    topProb = prediction[i].probability;
+                    topClass = prediction[i].className;
                 }
             }
-            document.getElementById("ai-status").innerHTML = top.p > 0.65 ? `🚗 ${top.n} (${(top.p*100).toFixed(0)}%)` : "🔍 Qidirilmoqda...";
+            
+            if (topProb > 0.60) {
+                labelContainer.innerHTML = `🚗 ${topClass} (${(topProb * 100).toFixed(0)}%)`;
+            } else {
+                labelContainer.innerHTML = "🔍 Qidirilmoqda...";
+            }
         }
+
+        VanillaTilt.init(document.querySelectorAll(".glass-panel"), { max: 5, speed: 400 });
     </script>
 </body>
 </html>
