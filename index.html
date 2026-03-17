@@ -8,243 +8,69 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;700&display=swap');
-
-        :root {
-            --primary: #ff7eb3; 
-            --accent: #8A2BE2;
-            --dark-side: rgba(15, 15, 20, 0.95);
-            --glass: rgba(30, 41, 59, 0.75);
-            --border: rgba(255, 255, 255, 0.1);
-        }
-
+        :root { --primary: #ff7eb3; --accent: #8A2BE2; --glass: rgba(30, 41, 59, 0.8); }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
-
-        body {
-            color: #fff;
-            display: flex;
-            min-height: 100vh;
-            background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072'); 
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            scroll-behavior: smooth;
-        }
-
+        body { color: #fff; background: #0f172a; display: flex; min-height: 100vh; }
+        
         /* SIDEBAR */
-        .sidebar {
-            width: 260px;
-            background-color: var(--dark-side);
-            backdrop-filter: blur(20px);
-            border-right: 1px solid var(--border);
-            padding: 40px 20px;
-            display: flex;
-            flex-direction: column;
-            position: fixed;
-            height: 100vh;
-            z-index: 1000;
-        }
+        .sidebar { width: 260px; background: #050505; padding: 40px 20px; position: fixed; height: 100vh; border-right: 1px solid rgba(255,255,255,0.1); }
+        .nav-link { padding: 15px; display: flex; align-items: center; gap: 10px; color: #aaa; text-decoration: none; border-radius: 10px; margin-bottom: 5px; }
+        .nav-link.active, .nav-link:hover { background: linear-gradient(90deg, var(--accent), var(--primary)); color: #fff; }
 
-        .logo-box {
-            text-align: center;
-            margin-bottom: 40px;
-            padding: 15px;
-            border: 2px solid var(--primary);
-            border-radius: 10px;
-        }
-
-        .nav-menu { list-style: none; flex-grow: 1; }
-        .nav-link {
-            padding: 14px;
-            margin-bottom: 8px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            color: #aaa;
-            text-decoration: none;
-            transition: 0.3s;
-            font-size: 14px;
-        }
-        .nav-link:hover, .nav-link.active {
-            background: linear-gradient(90deg, var(--accent), var(--primary));
-            color: #fff;
-        }
-
-        /* MAIN CONTENT */
-        .main-content {
-            margin-left: 260px;
-            padding: 40px;
-            width: calc(100% - 260px);
-        }
-
-        .glass-panel {
-            background: var(--glass);
-            backdrop-filter: blur(15px);
-            border: 1px solid var(--border);
-            border-radius: 25px;
-            padding: 35px;
-            margin-bottom: 30px;
-        }
-
-        .section-title {
-            font-size: 20px;
-            margin-bottom: 25px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            border-left: 5px solid var(--primary);
-            padding-left: 15px;
-        }
-
-        /* AI SECTION */
-        .ai-card {
-            text-align: center;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 20px;
-            padding: 30px;
-            border: 1px solid var(--accent);
-        }
-        #webcam-container { 
-            margin: 20px auto; 
-            border-radius: 20px; 
-            overflow: hidden; 
-            display: none; 
-            max-width: 400px;
-            border: 4px solid var(--primary);
-        }
-        canvas { width: 100% !important; height: auto !important; }
-        .ai-btn {
-            background: #fff; color: var(--accent); padding: 15px 40px;
-            border-radius: 12px; border: none; font-weight: 800; cursor: pointer;
-            transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-        .ai-btn:hover { transform: translateY(-2px); background: var(--primary); color: #fff; }
-
-        /* MAQOLALAR */
-        .maqola-card {
-            background: rgba(255,255,255,0.05);
-            padding: 20px;
-            border-radius: 15px;
-            border-left: 4px solid var(--primary);
-            margin-bottom: 15px;
-        }
-
-        /* BOOKS & GALLERY */
-        .scroll-container {
-            display: flex; gap: 20px; overflow-x: auto; padding-bottom: 10px;
-        }
-        .item-box { min-width: 160px; text-align: center; }
-        .item-box img { width: 100%; height: 220px; object-fit: cover; border-radius: 15px; margin-bottom: 10px; border: 1px solid var(--border); }
-
-        @media (max-width: 900px) {
-            .sidebar { width: 100%; height: auto; position: relative; }
-            body { flex-direction: column; }
-            .main-content { margin-left: 0; width: 100%; padding: 20px; }
-        }
+        /* CONTENT */
+        .main-content { margin-left: 260px; padding: 40px; width: 100%; }
+        .glass-panel { background: var(--glass); border-radius: 20px; padding: 30px; margin-bottom: 25px; border: 1px solid rgba(255,255,255,0.1); }
+        
+        /* AI BOX */
+        .ai-box { text-align: center; }
+        #webcam-container { margin: 20px auto; border-radius: 15px; overflow: hidden; max-width: 400px; border: 3px solid var(--primary); display: none; }
+        .ai-btn { background: #fff; color: #000; padding: 12px 30px; border-radius: 8px; border: none; font-weight: bold; cursor: pointer; }
     </style>
 </head>
 <body>
 
     <div class="sidebar">
-        <div class="logo-box">
-            <h2 style="font-size: 16px; letter-spacing: 1px;">AZIZA SAFAROVA</h2>
-        </div>
-        <nav class="nav-menu">
-            <a href="#home" class="nav-link active"><i class="fas fa-id-badge"></i> Profil</a>
-            <a href="#ai" class="nav-link"><i class="fas fa-brain"></i> AI Detector</a>
-            <a href="#maqola" class="nav-link"><i class="fas fa-newspaper"></i> Maqolalar</a>
-            <a href="#mutolaa" class="nav-link"><i class="fas fa-book-reader"></i> Mutolaa</a>
-            <a href="#contact" class="nav-link"><i class="fas fa-paper-plane"></i> Bog'lanish</a>
-        </nav>
+        <h2 style="margin-bottom: 30px; font-size: 18px; color: var(--primary);">AZIZA SAFAROVA</h2>
+        <a href="#home" class="nav-link active"><i class="fas fa-user"></i> Profil</a>
+        <a href="#ai" class="nav-link"><i class="fas fa-robot"></i> Yangi AI Model</a>
+        <a href="#books" class="nav-link"><i class="fas fa-book"></i> Mutolaa</a>
     </div>
 
     <div class="main-content">
-        
-        <div class="glass-panel" id="home" data-tilt>
-            <div style="display: flex; gap: 30px; align-items: center; flex-wrap: wrap;">
-                <img src="Snapchat-720303948.jpg" style="width: 130px; height: 130px; border-radius: 50%; border: 4px solid var(--primary); object-fit: cover;">
-                <div>
-                    <h1 style="font-size: 26px;">Aziza Safarova</h1>
-                    <p style="color: var(--primary); font-weight: 700; font-size: 12px; margin-bottom: 10px;">QARSHI DAVLAT UNIVERSITETI TALABASI</p>
-                    <p style="color: #ccc; max-width: 500px; font-size: 14px; line-height: 1.6;">
-                        Informatika va matematika yo'nalishi bo'yicha tadqiqotchi. Sun'iy intellekt va nanotexnologiyalar sohasidagi zamonaviy yechimlar ustida ishlayman.
-                    </p>
-                </div>
-            </div>
+        <div class="glass-panel" id="home">
+            <h1 style="font-size: 24px;">Aziza Safarova</h1>
+            <p style="color: var(--primary); font-weight: bold;">QARSHI DAVLAT UNIVERSITETI TALABASI</p>
         </div>
 
-        <h2 class="section-title" id="ai">AI Tanib Olish Tizimi</h2>
-        <div class="glass-panel">
-            <div class="ai-card">
-                <p style="color: #aaa; margin-bottom: 20px;">Teachable Machine asosidagi yangi klassifikatsiya modeli</p>
-                <button class="ai-btn" onclick="init()">KAMERANI ISHGA TUSHIRISH</button>
+        <div class="glass-panel" id="ai">
+            <h2 style="margin-bottom: 20px; border-left: 4px solid var(--primary); padding-left: 10px;">Yangi AI Klassifikatsiya Tizimi</h2>
+            <div class="ai-box">
+                <p style="color: #ccc; margin-bottom: 15px;">Model: <strong>QG_BoIC8L</strong> asosida ishlaydi</p>
+                <button class="ai-btn" onclick="init()">KAMERANI YOQISH</button>
                 <div id="webcam-container"></div>
-                <div id="label-container" style="margin-top: 20px; font-size: 24px; font-weight: 700; color: var(--primary);">Kamera kutilmoqda...</div>
+                <div id="label-container" style="margin-top: 15px; font-size: 20px; color: var(--primary); font-weight: bold;">Tayyor...</div>
             </div>
         </div>
 
-        <h2 class="section-title" id="maqola">Ilmiy Maqolalar</h2>
-        <div class="glass-panel">
-            <div class="maqola-card">
-                <h4 style="color: var(--primary);">NANOTEXNOLOGIYALAR: ILMIY ASOSLARI</h4>
-                <p style="font-size: 12px; color: #888; margin: 5px 0;">ISSN: 3060-4567 | 2025-yil</p>
-                <a href="https://journalss.org/index.php/mod/article/view/10210/9829" target="_blank" style="color: #fff; font-size: 13px; text-decoration: none;"><i class="fas fa-external-link-alt"></i> PDF ko'rish</a>
-            </div>
-            <div class="maqola-card">
-                <h4 style="color: var(--primary);">ZAMONAVIY TEXNOLOGIYALAR VA INTERNET</h4>
-                <p style="font-size: 12px; color: #888; margin: 5px 0;">ISSN: 3060-4567 | 2025-yil</p>
-                <a href="https://journalss.org/index.php/mod/article/view/9465/9100" target="_blank" style="color: #fff; font-size: 13px; text-decoration: none;"><i class="fas fa-external-link-alt"></i> PDF ko'rish</a>
+        <div class="glass-panel" id="books">
+            <h2 style="margin-bottom: 15px;">Mutolaa</h2>
+            <div style="display: flex; gap: 20px;">
+                <p>📖 "So'nggi nido" - Akbar Mirzo</p>
+                <p>📖 "Atomic Habits" - James Clear</p>
             </div>
         </div>
-
-        <h2 class="section-title" id="mutolaa">Mutolaa va Qiziqishlar</h2>
-        <div class="glass-panel">
-            <div class="scroll-container">
-                <div class="item-box">
-                    <img src="https://assets.asaxiy.uz/product/main_image/desktop/2569528d2d992e59e51c8651f50a863a.jpg">
-                    <p style="font-size: 12px;">So'nggi nido</p>
-                </div>
-                <div class="item-box">
-                    <img src="https://assets.asaxiy.uz/product/main_image/desktop/c81e728d9d4c2f636f067f89cc14862c.jpg">
-                    <p style="font-size: 12px;">Yuksak ma'naviyat</p>
-                </div>
-                <div class="item-box">
-                    <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=300">
-                    <p style="font-size: 12px;">BMW M-Power</p>
-                </div>
-                <div class="item-box">
-                    <img src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?w=300">
-                    <p style="font-size: 12px;">Atirgullar</p>
-                </div>
-            </div>
-        </div>
-
-        <h2 class="section-title" id="contact">Aloqa</h2>
-        <div class="glass-panel">
-            <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-                <a href="https://t.me/Safarova_A" target="_blank" style="flex: 1; padding: 15px; background: rgba(0,136,204,0.2); border-radius: 12px; text-decoration: none; color: #fff; text-align: center; border: 1px solid #0088cc;">
-                    <i class="fab fa-telegram"></i> Telegram
-                </a>
-                <a href="https://instagram.com/sirojiddinovna_1" target="_blank" style="flex: 1; padding: 15px; background: rgba(225,48,108,0.2); border-radius: 12px; text-decoration: none; color: #fff; text-align: center; border: 1px solid #e1306c;">
-                    <i class="fab fa-instagram"></i> Instagram
-                </a>
-            </div>
-        </div>
-
     </div>
 
     <script>
-        // Yangi model havolasi o'rnatildi
+        // FAQAT SIZNING YANGI MODELINGIZ
         const URL = "https://teachablemachine.withgoogle.com/models/QG_BoIC8L/";
         let model, webcam, labelContainer, maxPredictions;
 
         async function init() {
-            const statusLabel = document.getElementById("label-container");
-            statusLabel.innerHTML = "Yuklanmoqda...";
-
+            document.getElementById("label-container").innerHTML = "Yuklanmoqda...";
             model = await tmImage.load(URL + "model.json", URL + "metadata.json");
             maxPredictions = model.getTotalClasses();
 
@@ -266,24 +92,22 @@
 
         async function predict() {
             const prediction = await model.predict(webcam.canvas);
-            let topProb = 0;
-            let topClass = "";
+            let highProb = 0;
+            let bestClass = "";
 
             for (let i = 0; i < maxPredictions; i++) {
-                if(prediction[i].probability > topProb) {
-                    topProb = prediction[i].probability;
-                    topClass = prediction[i].className;
+                if(prediction[i].probability > highProb) {
+                    highProb = prediction[i].probability;
+                    bestClass = prediction[i].className;
                 }
             }
             
-            if(topProb > 0.60) {
-                labelContainer.innerHTML = `Natija: <span style="color:#fff">${topClass}</span> (${(topProb*100).toFixed(0)}%)`;
+            if(highProb > 0.5) {
+                labelContainer.innerHTML = bestClass + " (" + (highProb * 100).toFixed(0) + "%)";
             } else {
                 labelContainer.innerHTML = "🔍 Aniqlanmoqda...";
             }
         }
-
-        VanillaTilt.init(document.querySelector("#home"), { max: 5, speed: 400 });
     </script>
 </body>
 </html>
