@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aziza Safarova | AI Portfolio</title>
+    <title>Aziza Safarova | Portfolio</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
@@ -11,77 +11,156 @@
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;700&display=swap');
-        :root { --primary: #ff7eb3; --accent: #8A2BE2; --glass: rgba(30, 41, 59, 0.8); }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
-        body { color: #fff; background: #0f172a; display: flex; min-height: 100vh; }
         
-        /* SIDEBAR */
-        .sidebar { width: 260px; background: #050505; padding: 40px 20px; position: fixed; height: 100vh; border-right: 1px solid rgba(255,255,255,0.1); }
-        .nav-link { padding: 15px; display: flex; align-items: center; gap: 10px; color: #aaa; text-decoration: none; border-radius: 10px; margin-bottom: 5px; }
-        .nav-link.active, .nav-link:hover { background: linear-gradient(90deg, var(--accent), var(--primary)); color: #fff; }
+        :root {
+            --primary: #ff7eb3;
+            --accent: #8A2BE2;
+            --bg: #0f172a;
+            --glass: rgba(30, 41, 59, 0.7);
+        }
 
-        /* CONTENT */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { background: var(--bg); color: #fff; display: flex; }
+
+        /* SIDEBAR (Rasmdagi kabi) */
+        .sidebar {
+            width: 260px;
+            background: #050505;
+            padding: 40px 20px;
+            position: fixed;
+            height: 100vh;
+            border-right: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-link {
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #aaa;
+            text-decoration: none;
+            border-radius: 12px;
+            margin-bottom: 8px;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: linear-gradient(90deg, var(--accent), var(--primary));
+            color: #fff;
+        }
+
+        /* MAIN CONTENT */
         .main-content { margin-left: 260px; padding: 40px; width: 100%; }
-        .glass-panel { background: var(--glass); border-radius: 20px; padding: 30px; margin-bottom: 25px; border: 1px solid rgba(255,255,255,0.1); }
-        
+
+        .section-panel {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 35px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        h2 { margin-bottom: 25px; font-size: 22px; border-left: 5px solid var(--primary); padding-left: 15px; }
+
         /* AI BOX */
-        .ai-box { text-align: center; }
-        #webcam-container { margin: 20px auto; border-radius: 15px; overflow: hidden; max-width: 400px; border: 3px solid var(--primary); display: none; }
-        .ai-btn { background: #fff; color: #000; padding: 12px 30px; border-radius: 8px; border: none; font-weight: bold; cursor: pointer; }
+        .ai-container { text-align: center; background: rgba(0,0,0,0.3); padding: 20px; border-radius: 20px; }
+        #webcam-container { 
+            margin: 20px auto; 
+            border-radius: 15px; 
+            overflow: hidden; 
+            max-width: 400px; 
+            border: 2px solid var(--primary);
+            display: none; 
+        }
+        .ai-btn {
+            background: linear-gradient(45deg, var(--accent), var(--primary));
+            color: white; border: none; padding: 12px 30px; border-radius: 10px;
+            font-weight: bold; cursor: pointer; transition: 0.3s;
+        }
+
+        /* BO'LIMLARNI AJRATISH */
+        .grid-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .item-card {
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .item-card i { font-size: 30px; color: var(--primary); margin-bottom: 10px; display: block; }
     </style>
 </head>
 <body>
 
-    <div class="sidebar">
-        <h2 style="margin-bottom: 30px; font-size: 18px; color: var(--primary);">AZIZA SAFAROVA</h2>
+    <nav class="sidebar">
+        <h2 style="border:none; padding:0; font-size:18px; color:var(--primary); margin-bottom:40px;">AZIZA SAFAROVA</h2>
         <a href="#home" class="nav-link active"><i class="fas fa-user"></i> Profil</a>
-        <a href="#ai" class="nav-link"><i class="fas fa-robot"></i> Yangi AI Model</a>
+        <a href="#ai" class="nav-link"><i class="fas fa-brain"></i> AI Tizimi</a>
         <a href="#books" class="nav-link"><i class="fas fa-book"></i> Mutolaa</a>
-    </div>
+        <a href="#interests" class="nav-link"><i class="fas fa-star"></i> Qiziqishlar</a>
+    </nav>
 
     <div class="main-content">
-        <div class="glass-panel" id="home">
-            <h1 style="font-size: 24px;">Aziza Safarova</h1>
-            <p style="color: var(--primary); font-weight: bold;">QARSHI DAVLAT UNIVERSITETI TALABASI</p>
+        <div class="section-panel" id="home">
+            <h1>Aziza Safarova</h1>
+            <p style="color: var(--primary);">Qarshi Davlat Universiteti Talabasi</p>
         </div>
 
-        <div class="glass-panel" id="ai">
-            <h2 style="margin-bottom: 20px; border-left: 4px solid var(--primary); padding-left: 10px;">Yangi AI Klassifikatsiya Tizimi</h2>
-            <div class="ai-box">
-                <p style="color: #ccc; margin-bottom: 15px;">Model: <strong>QG_BoIC8L</strong> asosida ishlaydi</p>
-                <button class="ai-btn" onclick="init()">KAMERANI YOQISH</button>
+        <div class="section-panel" id="ai">
+            <h2>AI Klassifikatsiya Tizimi</h2>
+            <div class="ai-container">
+                <p style="margin-bottom:15px; color:#ccc;">Model: Teachable Machine (QG_BoIC8L)</p>
+                <button class="ai-btn" onclick="initAI()">KAMERANI YOQISH</button>
                 <div id="webcam-container"></div>
-                <div id="label-container" style="margin-top: 15px; font-size: 20px; color: var(--primary); font-weight: bold;">Tayyor...</div>
+                <div id="label-container" style="font-size:20px; font-weight:bold; color:var(--primary); margin-top:15px;">Tayyor...</div>
             </div>
         </div>
 
-        <div class="glass-panel" id="books">
-            <h2 style="margin-bottom: 15px;">Mutolaa</h2>
-            <div style="display: flex; gap: 20px;">
-                <p>📖 "So'nggi nido" - Akbar Mirzo</p>
-                <p>📖 "Atomic Habits" - James Clear</p>
+        <div class="section-panel" id="books">
+            <h2>Mutolaa</h2>
+            <div class="grid-list">
+                <div class="item-card"><i class="fas fa-book-open"></i> "So'nggi nido"<br><small>Akbar Mirzo</small></div>
+                <div class="item-card"><i class="fas fa-bolt"></i> "Atomic Habits"<br><small>James Clear</small></div>
+            </div>
+        </div>
+
+        <div class="section-panel" id="interests">
+            <h2>Qiziqishlarim</h2>
+            <div class="grid-list">
+                <div class="item-card"><i class="fas fa-camera"></i> Foto</div>
+                <div class="item-card"><i class="fas fa-plane"></i> Sayohat</div>
+                <div class="item-card"><i class="fas fa-chess"></i> Shaxmat</div>
+                <div class="item-card"><i class="fas fa-seedling"></i> Atirgullar</div>
             </div>
         </div>
     </div>
 
     <script>
-        // FAQAT SIZNING YANGI MODELINGIZ
+        // Rasmdagi "Yuklanmoqda..." xatosini tuzatish uchun yangilangan funksiya
         const URL = "https://teachablemachine.withgoogle.com/models/QG_BoIC8L/";
         let model, webcam, labelContainer, maxPredictions;
 
-        async function init() {
-            document.getElementById("label-container").innerHTML = "Yuklanmoqda...";
-            model = await tmImage.load(URL + "model.json", URL + "metadata.json");
-            maxPredictions = model.getTotalClasses();
+        async function initAI() {
+            try {
+                const label = document.getElementById("label-container");
+                label.innerHTML = "Model yuklanmoqda...";
+                
+                model = await tmImage.load(URL + "model.json", URL + "metadata.json");
+                maxPredictions = model.getTotalClasses();
 
-            webcam = new tmImage.Webcam(350, 350, true);
-            await webcam.setup();
-            await webcam.play();
-            window.requestAnimationFrame(loop);
-
-            document.getElementById("webcam-container").style.display = "block";
-            document.getElementById("webcam-container").appendChild(webcam.canvas);
-            labelContainer = document.getElementById("label-container");
+                webcam = new tmImage.Webcam(350, 350, true);
+                await webcam.setup(); 
+                await webcam.play();
+                
+                document.getElementById("webcam-container").style.display = "block";
+                document.getElementById("webcam-container").appendChild(webcam.canvas);
+                labelContainer = label;
+                window.requestAnimationFrame(loop);
+            } catch (err) {
+                console.error(err);
+                document.getElementById("label-container").innerHTML = "Kameraga ruxsat berilmadi yoki xatolik!";
+            }
         }
 
         async function loop() {
@@ -92,18 +171,16 @@
 
         async function predict() {
             const prediction = await model.predict(webcam.canvas);
-            let highProb = 0;
-            let bestClass = "";
-
+            let bestMatch = { className: "", probability: 0 };
+            
             for (let i = 0; i < maxPredictions; i++) {
-                if(prediction[i].probability > highProb) {
-                    highProb = prediction[i].probability;
-                    bestClass = prediction[i].className;
+                if (prediction[i].probability > bestMatch.probability) {
+                    bestMatch = prediction[i];
                 }
             }
             
-            if(highProb > 0.5) {
-                labelContainer.innerHTML = bestClass + " (" + (highProb * 100).toFixed(0) + "%)";
+            if (bestMatch.probability > 0.6) {
+                labelContainer.innerHTML = bestMatch.className + " (" + (bestMatch.probability * 100).toFixed(0) + "%)";
             } else {
                 labelContainer.innerHTML = "🔍 Aniqlanmoqda...";
             }
