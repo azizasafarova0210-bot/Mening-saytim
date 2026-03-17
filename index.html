@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aziza Safarova | Portfolio</title>
+    <title>Aziza Safarova | Full Portfolio</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
@@ -11,49 +11,103 @@
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;700&display=swap');
-        :root { --primary: #ff7eb3; --accent: #8A2BE2; --bg: #0b0f1a; --glass: rgba(30, 41, 59, 0.7); }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
         
+        :root {
+            --primary: #ff7eb3;
+            --accent: #8A2BE2;
+            --bg: #0b0f1a;
+            --glass: rgba(30, 41, 59, 0.7);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
         body { 
-            background: var(--bg);
-            background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072');
+            background: var(--bg); 
+            background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072'); 
             background-size: cover;
             background-attachment: fixed;
-            color: #fff;
-            display: flex;
+            color: #fff; 
+            display: flex; 
         }
 
         /* SIDEBAR */
         .sidebar {
-            width: 260px; background: rgba(5, 5, 5, 0.95); backdrop-filter: blur(20px);
-            padding: 40px 20px; position: fixed; height: 100vh; border-right: 1px solid rgba(255,255,255,0.1); z-index: 1000;
+            width: 260px;
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 40px 20px;
+            position: fixed;
+            height: 100vh;
+            border-right: 1px solid rgba(255,255,255,0.1);
+            z-index: 1000;
         }
-        .nav-link { padding: 15px; display: flex; align-items: center; gap: 12px; color: #ccc; text-decoration: none; border-radius: 12px; margin-bottom: 10px; transition: 0.3s; }
+
+        .logo { font-size: 18px; color: var(--primary); font-weight: 800; text-align: center; margin-bottom: 30px; }
+
+        .nav-link {
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #ccc;
+            text-decoration: none;
+            border-radius: 10px;
+            margin-bottom: 5px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
         .nav-link:hover, .nav-link.active { background: linear-gradient(90deg, var(--accent), var(--primary)); color: #fff; }
 
         /* MAIN CONTENT */
         .main-content { margin-left: 260px; padding: 40px; width: calc(100% - 260px); }
-        .glass-panel { background: var(--glass); backdrop-filter: blur(15px); border-radius: 25px; padding: 35px; margin-bottom: 30px; border: 1px solid rgba(255,255,255,0.1); }
+
+        .glass-panel {
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        h2 { border-left: 5px solid var(--primary); padding-left: 15px; margin-bottom: 20px; font-size: 20px; text-transform: uppercase; }
 
         /* AI SECTION */
-        .ai-box { text-align: center; background: rgba(0,0,0,0.4); padding: 30px; border-radius: 20px; border: 2px solid var(--accent); }
-        #webcam-container { margin: 20px auto; border-radius: 15px; overflow: hidden; max-width: 350px; border: 4px solid var(--primary); display: none; line-height: 0; }
-        .ai-btn { background: #fff; color: #000; padding: 14px 40px; border-radius: 12px; font-weight: bold; cursor: pointer; border: none; font-size: 16px; }
+        .ai-box { text-align: center; background: rgba(0,0,0,0.3); padding: 20px; border-radius: 20px; border: 1px solid var(--accent); }
+        #webcam-container { margin: 15px auto; border-radius: 15px; overflow: hidden; max-width: 300px; border: 3px solid var(--primary); display: none; }
+        .ai-btn { background: #fff; color: #000; padding: 10px 30px; border-radius: 8px; font-weight: bold; cursor: pointer; border: none; }
 
-        /* GRID FOR BOOKS & INTERESTS */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
-        .card { background: rgba(255,255,255,0.05); padding: 15px; border-radius: 20px; text-align: center; border: 1px solid rgba(255,255,255,0.1); }
-        .card img { width: 100%; height: 200px; object-fit: cover; border-radius: 15px; margin-bottom: 10px; }
+        /* GRID SYSTEM */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+        .card { background: rgba(255,255,255,0.05); padding: 15px; border-radius: 15px; text-align: center; }
+        .card img { width: 100%; height: 180px; object-fit: cover; border-radius: 10px; margin-bottom: 10px; }
+
+        /* SKILLS */
+        .skill-bar { margin-bottom: 15px; }
+        .skill-info { display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 14px; }
+        .progress-bg { background: rgba(255,255,255,0.1); height: 10px; border-radius: 5px; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--primary)); border-radius: 5px; }
+
+        /* MAQOLALAR */
+        .maqola-item { background: rgba(255,255,255,0.05); padding: 15px; border-radius: 12px; margin-bottom: 10px; border-left: 3px solid var(--primary); }
+        .maqola-item a { color: var(--primary); text-decoration: none; font-weight: bold; font-size: 14px; }
+
+        @media (max-width: 900px) {
+            .sidebar { width: 100%; height: auto; position: relative; }
+            body { flex-direction: column; }
+            .main-content { margin-left: 0; width: 100%; }
+        }
     </style>
 </head>
 <body>
 
     <nav class="sidebar">
-        <h2 style="color: var(--primary); margin-bottom: 30px; text-align: center;">AZIZA</h2>
+        <div class="logo">AZIZA SAFAROVA</div>
         <a href="#home" class="nav-link active"><i class="fas fa-user"></i> Profil</a>
-        <a href="#ai" class="nav-link"><i class="fas fa-camera"></i> AI Detector</a>
-        <a href="#books" class="nav-link"><i class="fas fa-book"></i> Mutolaa</a>
-        <a href="#gallery" class="nav-link"><i class="fas fa-star"></i> Qiziqishlar</a>
+        <a href="#ai" class="nav-link"><i class="fas fa-robot"></i> AI Tizimi</a>
+        <a href="#maqolalar" class="nav-link"><i class="fas fa-file-alt"></i> Maqolalar</a>
+        <a href="#skills" class="nav-link"><i class="fas fa-graduation-cap"></i> Bilimlar</a>
+        <a href="#gallery" class="nav-link"><i class="fas fa-images"></i> Galereya</a>
+        <a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Aloqa</a>
     </nav>
 
     <div class="main-content">
@@ -62,40 +116,62 @@
                 <img src="Snapchat-720303948.jpg" style="width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--primary); object-fit: cover;">
                 <div>
                     <h1>Aziza Safarova</h1>
-                    <p style="color: var(--primary);">Qarshi Davlat Universiteti</p>
+                    <p style="color: var(--primary);">Qarshi Davlat Universiteti Talabasi</p>
                 </div>
             </div>
         </div>
 
         <div class="glass-panel" id="ai">
-            <h2 style="margin-bottom: 20px;"><i class="fas fa-robot"></i> AI Tizimi</h2>
+            <h2>Sun'iy Intellekt</h2>
             <div class="ai-box">
-                <p style="margin-bottom: 20px; color: #eee;">Kamerani yoqing va model ob'ektni aniqlashini kuting.</p>
-                <button class="ai-btn" onclick="startCamera()">KAMERANI YOQISH</button>
+                <button class="ai-btn" onclick="init()">KAMERANI ISHGA TUSHIRISH</button>
                 <div id="webcam-container"></div>
-                <div id="label-container" style="font-size: 24px; font-weight: bold; color: var(--primary); margin-top: 20px;">Kamera kutilmoqda...</div>
+                <div id="label-container" style="font-size: 20px; font-weight: bold; color: var(--primary); margin-top: 10px;">Tayyor...</div>
             </div>
         </div>
 
-        <div class="glass-panel" id="books">
-            <h2 style="margin-bottom: 20px;">Mutolaa</h2>
-            <div class="grid">
-                <div class="card">
-                    <img src="https://assets.asaxiy.uz/product/main_image/desktop/2569528d2d992e59e51c8651f50a863a.jpg">
-                    <p>So'nggi nido</p>
-                </div>
-                <div class="card">
-                    <img src="https://assets.asaxiy.uz/product/main_image/desktop/c81e728d9d4c2f636f067f89cc14862c.jpg">
-                    <p>Yuksak ma'naviyat</p>
-                </div>
+        <div class="glass-panel" id="maqolalar">
+            <h2>Ilmiy Maqolalarim</h2>
+            <div class="maqola-item">
+                <p>Nanotexnologiyalar: Ilmiy asoslari, qo'llanilishi va zamonaviy muammolari</p>
+                <a href="https://journalss.org/index.php/mod/article/view/10210/9829" target="_blank">O'qish <i class="fas fa-external-link-alt"></i></a>
+            </div>
+            <div class="maqola-item">
+                <p>Zamonaviy texnologiyalar va internetning bugungi kundagi o'rni</p>
+                <a href="https://journalss.org/index.php/mod/article/view/9465/9100" target="_blank">O'qish <i class="fas fa-external-link-alt"></i></a>
+            </div>
+        </div>
+
+        <div class="glass-panel" id="skills">
+            <h2>Bilim Darajasi</h2>
+            <div class="skill-bar">
+                <div class="skill-info"><span>Matematika</span><span>90%</span></div>
+                <div class="progress-bg"><div class="progress-fill" style="width: 90%;"></div></div>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-info"><span>Frontend (HTML/CSS/JS)</span><span>85%</span></div>
+                <div class="progress-bg"><div class="progress-fill" style="width: 85%;"></div></div>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-info"><span>AI & Machine Learning</span><span>75%</span></div>
+                <div class="progress-bg"><div class="progress-fill" style="width: 75%;"></div></div>
             </div>
         </div>
 
         <div class="glass-panel" id="gallery">
-            <h2 style="margin-bottom: 20px;">Qiziqishlar</h2>
+            <h2>Galereya</h2>
             <div class="grid">
-                <div class="card"><img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=300"><p>BMW</p></div>
-                <div class="card"><img src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?w=300"><p>Atirgullar</p></div>
+                <div class="card"><img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400"><h3>BMW M-Power</h3></div>
+                <div class="card"><img src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?w=400"><h3>Atirgullar</h3></div>
+                <div class="card"><img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400"><h3>Dasturlash</h3></div>
+            </div>
+        </div>
+
+        <div class="glass-panel" id="contact">
+            <h2>Bog'lanish</h2>
+            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                <a href="https://t.me/Safarova_A" style="color: #fff; text-decoration: none; background: #0088cc; padding: 10px 20px; border-radius: 8px;"><i class="fab fa-telegram"></i> Telegram</a>
+                <a href="https://instagram.com/sirojiddinovna_1" style="color: #fff; text-decoration: none; background: #e1306c; padding: 10px 20px; border-radius: 8px;"><i class="fab fa-instagram"></i> Instagram</a>
             </div>
         </div>
     </div>
@@ -104,46 +180,30 @@
         const URL = "https://teachablemachine.withgoogle.com/models/QG_BoIC8L/";
         let model, webcam, labelContainer, maxPredictions;
 
-        async function startCamera() {
+        async function init() {
             const label = document.getElementById("label-container");
             label.innerHTML = "Yuklanmoqda...";
-            
             try {
-                // 1. Modelni yuklash
                 model = await tmImage.load(URL + "model.json", URL + "metadata.json");
                 maxPredictions = model.getTotalClasses();
-
-                // 2. Kamerani sozlash
-                webcam = new tmImage.Webcam(350, 350, true);
-                await webcam.setup(); 
+                webcam = new tmImage.Webcam(300, 300, true);
+                await webcam.setup();
                 await webcam.play();
-                
-                // 3. Ekranga chiqarish
                 document.getElementById("webcam-container").style.display = "block";
-                document.getElementById("webcam-container").innerHTML = ""; 
+                document.getElementById("webcam-container").innerHTML = "";
                 document.getElementById("webcam-container").appendChild(webcam.canvas);
-                
                 labelContainer = label;
                 window.requestAnimationFrame(loop);
-            } catch (error) {
-                console.error(error);
-                label.innerHTML = "Xatolik: Kamera ruxsatini tekshiring yoki HTTPS dan foydalaning!";
-            }
+            } catch (e) { label.innerHTML = "Kamerada xatolik!"; }
         }
 
-        async function loop() {
-            webcam.update();
-            await predict();
-            window.requestAnimationFrame(loop);
-        }
+        async function loop() { webcam.update(); await predict(); window.requestAnimationFrame(loop); }
 
         async function predict() {
             const prediction = await model.predict(webcam.canvas);
-            let topProb = 0;
-            let topClass = "";
-
+            let topProb = 0, topClass = "";
             for (let i = 0; i < maxPredictions; i++) {
-                if (prediction[i].probability > topProb) {
+                if(prediction[i].probability > topProb) {
                     topProb = prediction[i].probability;
                     topClass = prediction[i].className;
                 }
