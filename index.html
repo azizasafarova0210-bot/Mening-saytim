@@ -3,156 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aziza Safarova | AI Dashboard</title>
-    
+    <title>Aziza Safarova | Portfolio</title>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
-        :root {
-            --purple: #a855f7; --green: #22c55e; --gold: #f39c12;
-            --sidebar-bg: rgba(15, 12, 25, 0.98); --glass: rgba(255, 255, 255, 0.05);
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        :root { --purple: #a855f7; --green: #22c55e; --gold: #f39c12; --glass: rgba(255, 255, 255, 0.07); }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
         body { 
             color: #fff; display: flex; min-height: 100vh;
-            background: linear-gradient(rgba(10, 5, 25, 0.85), rgba(10, 5, 25, 0.95)), 
-                        url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070'); 
-            background-size: cover; background-position: center; background-attachment: fixed;
+            background: linear-gradient(rgba(10, 5, 25, 0.85), rgba(10, 5, 25, 0.95)), url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070'); 
+            background-size: cover; background-attachment: fixed;
         }
-        .sidebar {
-            width: 260px; background: var(--sidebar-bg); backdrop-filter: blur(25px);
-            padding: 25px 15px; position: fixed; height: 100vh;
-            border-right: 1px solid rgba(168, 85, 247, 0.2); z-index: 1000;
-        }
-        .nav-link {
-            padding: 10px 15px; display: flex; align-items: center; gap: 12px;
-            color: #94a3b8; text-decoration: none; border-radius: 10px; margin-bottom: 4px; transition: 0.3s; font-size: 13px;
-        }
-        .nav-link i { color: var(--gold); width: 18px; text-align: center; }
-        .nav-link:hover, .nav-link.active { background: rgba(168, 85, 247, 0.15); color: #fff; border-left: 3px solid var(--purple); }
-
+        .sidebar { width: 260px; background: rgba(15, 12, 25, 0.98); padding: 25px 15px; position: fixed; height: 100vh; border-right: 1px solid rgba(168, 85, 247, 0.2); }
+        .nav-link { padding: 10px 15px; display: flex; align-items: center; gap: 12px; color: #94a3b8; text-decoration: none; font-size: 13px; transition: 0.3s; }
+        .nav-link:hover, .nav-link.active { background: rgba(168, 85, 247, 0.1); color: #fff; border-left: 3px solid var(--purple); }
         .main-content { margin-left: 260px; padding: 30px; width: calc(100% - 260px); }
         .dashboard-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .glass-card {
-            background: var(--glass); backdrop-filter: blur(20px); border-radius: 20px; padding: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-        .card-title { font-size: 12px; color: var(--gold); text-transform: uppercase; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; font-weight: 800; }
-
-        /* AI SECTION */
-        .ai-box { background: rgba(0,0,0,0.3); border: 1px solid var(--purple); border-radius: 15px; padding: 15px; text-align: center; grid-column: span 2; }
-        .cam-frame { width: 100%; height: 220px; background: #000; border-radius: 12px; margin: 10px 0; overflow: hidden; border: 2px solid #222; position: relative;}
-        .btn-ai { background: var(--purple); color: #fff; border: none; padding: 10px; width: 100%; border-radius: 8px; cursor: pointer; font-weight: 700; text-transform: uppercase; }
-        
-        /* PROGRESS BAR */
-        .progress-bg { height: 12px; width: 100%; background: rgba(255,255,255,0.1); border-radius: 10px; margin: 10px 0; overflow: hidden; border: 1px solid var(--green); }
-        .progress-fill { height: 100%; width: 0%; background: var(--green); transition: 0.3s; }
-
-        @media (max-width: 1100px) {
-            .sidebar { width: 70px; } .nav-link span { display: none; }
-            .main-content { margin-left: 70px; width: calc(100% - 70px); }
-            .dashboard-grid { grid-template-columns: 1fr; }
-        }
+        .glass-card { background: var(--glass); backdrop-filter: blur(20px); border-radius: 20px; padding: 20px; border: 1px solid rgba(255, 255, 255, 0.1); }
+        .card-title { font-size: 11px; color: var(--gold); text-transform: uppercase; margin-bottom: 15px; font-weight: 800; display: flex; gap: 8px; }
+        .ai-box { border: 1px solid var(--purple); border-radius: 15px; padding: 15px; text-align: center; background: rgba(0,0,0,0.3); }
+        .cam-frame { width: 100%; height: 160px; background: #000; border-radius: 12px; margin: 10px 0; border: 1px solid #333; }
+        .gal-img { width: 100%; height: 90px; border-radius: 10px; object-fit: cover; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; }
+        .gal-img:hover { transform: scale(1.05); }
     </style>
 </head>
 <body>
-
     <nav class="sidebar">
-        <div style="border: 1px solid var(--gold); padding: 8px; text-align: center; color: var(--gold); font-weight: 800; margin-bottom: 20px;">AFRUZA</div>
-        <a href="#home" class="nav-link active"><i class="fas fa-home"></i> <span>Asosiy</span></a>
-        <a href="#stats" class="nav-link"><i class="fas fa-chart-line"></i> <span>Statistika</span></a>
-        <a href="#interests" class="nav-link"><i class="fas fa-heart"></i> <span>Qiziqishlarim</span></a>
-        <a href="#ai" class="nav-link"><i class="fas fa-robot"></i> <span>AI Model</span></a>
-        <a href="#gallery" class="nav-link"><i class="fas fa-images"></i> <span>Galereya</span></a>
-        <a href="#maqolalar" class="nav-link"><i class="fas fa-file-alt"></i> <span>Maqolalarim</span></a>
-        <a href="#books" class="nav-link"><i class="fas fa-book"></i> <span>Kitoblar</span></a>
-        <a href="#feedback" class="nav-link"><i class="fas fa-comments"></i> <span>Mijozlar fikri</span></a>
-        <a href="#news" class="nav-link"><i class="fas fa-bullhorn"></i> <span>Yangiliklar</span></a>
-        <a href="#contact" class="nav-link"><i class="fas fa-phone"></i> <span>Aloqa</span></a>
+        <div style="color:var(--gold); font-weight:800; text-align:center; margin-bottom:30px; letter-spacing:2px;">AZIZA SAFAROVA</div>
+        <a href="#" class="nav-link active"><i class="fas fa-home"></i> <span>Asosiy</span></a>
+        <a href="#" class="nav-link"><i class="fas fa-chart-line"></i> <span>Statistika</span></a>
+        <a href="#" class="nav-link"><i class="fas fa-heart"></i> <span>Qiziqishlarim</span></a>
+        <a href="#" class="nav-link"><i class="fas fa-robot"></i> <span>AI Model</span></a>
+        <a href="#" class="nav-link"><i class="fas fa-images"></i> <span>Galereya</span></a>
+        <a href="#" class="nav-link"><i class="fas fa-file-alt"></i> <span>Maqolalarim</span></a>
+        <a href="#" class="nav-link"><i class="fas fa-book"></i> <span>Kitoblar</span></a>
+        <a href="#" class="nav-link"><i class="fas fa-comments"></i> <span>Mijozlar fikri</span></a>
+        <a href="#" class="nav-link"><i class="fas fa-bullhorn"></i> <span>Yangiliklar</span></a>
+        <a href="#" class="nav-link"><i class="fas fa-phone"></i> <span>Aloqa</span></a>
     </nav>
 
     <div class="main-content">
         <div class="dashboard-grid">
-            
-            <div class="glass-card" id="home" style="text-align: center;">
-                <div class="card-title"><i class="fas fa-user"></i> GLAVNIY</div>
-                <img src="Snapchat-720303948.jpg" style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--gold); object-fit: cover;">
-                <p style="font-size: 13px; margin-top: 15px;">IT va Sun'iy intellekt bo'yicha tadqiqotchi.</p>
+            <div class="glass-card" style="text-align: center;">
+                <div class="card-title"><i class="fas fa-user"></i> Shaxsiy ma'lumot</div>
+                <img src="Snapchat-720303948.jpg" style="width: 110px; height: 110px; border-radius: 50%; border: 3px solid var(--gold); object-fit: cover; margin-bottom: 10px;">
+                <h3 style="font-size: 16px;">Aziza Safarova</h3>
+                <p style="font-size: 11px; color: #94a3b8; margin-top: 5px;">Qarshi davlat universiteti (ATT)</p>
             </div>
 
-            <div class="glass-card ai-box" id="ai">
-                <div class="card-title"><i class="fas fa-brain"></i> AI MODEL (LIVE FEED)</div>
-                <button class="btn-ai" onclick="init()">KAMERANI YOQISH</button>
-                <div id="webcam-container" class="cam-frame"></div>
-                <div id="dynamic-label" style="text-align: left; font-size: 12px; color: var(--gold); margin-top: 10px;">Aniqlanmoqda: ...</div>
-                <div class="progress-bg"><div id="prog-bar" class="progress-fill"></div></div>
-                <div id="label-container" style="font-size: 18px; font-weight: bold; color: var(--purple);">Tayyor...</div>
+            <div class="glass-card" style="grid-column: span 2;">
+                <div class="card-title"><i class="fas fa-chart-area"></i> Ko'rsatkichlar</div>
+                <div style="display: flex; gap: 20px;">
+                    <div style="flex:1">
+                        <span style="font-size: 10px;">O'quv ko'rsatkichi (GPA)</span>
+                        <div style="height: 50px; margin-top:5px;"><svg width="100%" height="100%"><path d="M0,40 Q40,10 80,30 T160,5 T240,25" fill="none" stroke="#a855f7" stroke-width="2"/></svg></div>
+                    </div>
+                    <div style="flex:1">
+                        <span style="font-size: 10px;">AI Model aniqligi</span>
+                        <div style="height: 50px; margin-top:5px;"><svg width="100%" height="100%"><path d="M0,45 Q50,45 100,15 T200,5" fill="none" stroke="#f39c12" stroke-width="2"/></svg></div>
+                    </div>
+                </div>
             </div>
 
-            <div class="glass-card" id="books" style="grid-column: span 2;">
+            <div class="glass-card ai-box" style="grid-column: span 2;">
+                <div class="card-title"><i class="fas fa-brain"></i> Teachable Machine (BMW Detector)</div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div>
+                        <button onclick="init()" style="width:100%; background:var(--purple); color:#fff; border:none; padding:8px; border-radius:8px; cursor:pointer; font-size:11px;">KAMERANI YOQISH</button>
+                        <div id="webcam-container" class="cam-frame"></div>
+                        <div id="label-container" style="font-size: 14px; font-weight: bold; color: var(--green);">Tayyor...</div>
+                    </div>
+                    <div>
+
+            <div class="glass-card">
+                <div class="card-title">Qiziqishlarim</div>
+                <ul style="font-size: 11px; list-style:none;">
+                    <li style="margin-bottom:8px;"><i class="fas fa-car" style="color:var(--gold)"></i> BMW Avtomobillari</li>
+                    <li style="margin-bottom:8px;"><i class="fas fa-code" style="color:var(--purple)"></i> Sun'iy Intellekt</li>
+                    <li><i class="fas fa-seedling" style="color:var(--green)"></i> Tabiat va Atirgullar</li>
+                </ul>
+            </div>
+
+            <div class="glass-card" style="grid-column: span 2;">
                 <div class="card-title">Kitoblar (Kutubxonam)</div>
                 <div style="display: flex; gap: 15px;">
-                    <div style="flex:1; border-top: 3px solid var(--purple); background: rgba(255,255,255,0.02); padding: 10px; border-radius: 10px;">
-                        <span style="font-size: 9px; background: var(--purple); padding: 2px 6px; border-radius: 5px;">O'QILGAN</span><br><b>So'nggi nido</b>
+                    <div style="flex:1; border-left: 3px solid var(--purple); padding: 5px 10px; background: rgba(255,255,255,0.02);">
+                        <span style="font-size: 9px; color: var(--purple);">O'QILGAN</span><br><b>"So'nggi nido"</b> (A. Mirzo)
                     </div>
-                    <div style="flex:1; border-top: 3px solid var(--green); background: rgba(255,255,255,0.02); padding: 10px; border-radius: 10px;">
-                        <span style="font-size: 9px; background: var(--green); padding: 2px 6px; border-radius: 5px;">O'QILYAPTI</span><br><b>Ikki eshik orasi</b>
+                    <div style="flex:1; border-left: 3px solid var(--green); padding: 5px 10px; background: rgba(255,255,255,0.02);">
+                        <span style="font-size: 9px; color: var(--green);">O'QILYAPTI</span><br><b>"Ikki eshik orasi"</b> (O'. Hoshimov)
+                    </div>
+                    <div style="flex:1; border-left: 3px solid var(--gold); padding: 5px 10px; background: rgba(255,255,255,0.02);">
+                        <span style="font-size: 9px; color: var(--gold);">O'QIMOQCHI</span><br><b>"Dasturlash Asoslari"</b>
                     </div>
                 </div>
             </div>
 
-            <div class="glass-card" id="maqolalar">
-                <div class="card-title">Maqolalarim</div>
-                <p style="font-size: 11px; margin-bottom: 5px; border-left: 2px solid var(--green); padding-left: 8px;">Nanotexnologiyalar: Ilmiy asoslari</p>
-                <p style="font-size: 11px; border-left: 2px solid var(--purple); padding-left: 8px;">Zamonaviy texnologiyalar o'rni</p>
+            <div class="glass-card">
+                <div class="card-title">Ilmiy Maqolalarim</div>
+                <p style="font-size: 10px; border-left: 2px solid var(--green); padding-left: 8px; margin-bottom: 8px;"><b>Nanotexnologiyalar:</b> Ilmiy asoslari va muammolari</p>
+                <p style="font-size: 10px; border-left: 2px solid var(--purple); padding-left: 8px;"><b>Zamonaviy texnologiyalar:</b> Internetning bugungi o'rni</p>
             </div>
 
-            <div class="glass-card" id="contact" style="grid-column: span 3;">
+            <div class="glass-card" style="grid-column: span 2;">
+                <div class="card-title">Galereya (BMW & Nature)</div>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+                    <img src="https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=200" class="gal-img">
+                    <img src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?w=200" class="gal-img">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=200" class="gal-img">
+                </div>
+            </div>
+
+            <div class="glass-card" style="text-align:center;">
                 <div class="card-title">Aloqa</div>
-                <div style="display: flex; gap: 20px; justify-content: center;">
-                    <a href="https://t.me/Sirojiddinona_0205" style="color:#fff; text-decoration:none; font-size:12px;"><i class="fab fa-telegram" style="color:#24A1DE"></i> Safarova_A</a>
-                    <a href="https://instagram.com/sirojiddinovna___1" style="color:#fff; text-decoration:none; font-size:12px;"><i class="fab fa-instagram" style="color:#E1306C"></i> sirojiddinovna_1</a>
-                </div>
+                <p style="font-size: 11px;"><i class="fab fa-telegram" style="color:#24A1DE"></i> Sirojiddinona_0205</p>
+                <p style="font-size: 11px; margin-top:5px;"><i class="fab fa-instagram" style="color:#E1306C"></i> sirojiddinovna___1</p>
             </div>
         </div>
     </div>
 
     <script>
-        // SIZNING DINAMIK HAVOLANGIZ
         const URL = "https://teachablemachine.withgoogle.com/models/QG_BoIC8L/";
-        let model, webcam, labelContainer, progBar, dynamicLabel, maxPredictions;
-
+        let model, webcam, labelContainer, maxPredictions;
         async function init() {
             model = await tmImage.load(URL + "model.json", URL + "metadata.json");
             maxPredictions = model.getTotalClasses();
-            webcam = new tmImage.Webcam(300, 220, true);
+            webcam = new tmImage.Webcam(300, 160, true);
             await webcam.setup(); await webcam.play();
             document.getElementById("webcam-container").innerHTML = "";
             document.getElementById("webcam-container").appendChild(webcam.canvas);
             labelContainer = document.getElementById("label-container");
-            progBar = document.getElementById("prog-bar");
-            dynamicLabel = document.getElementById("dynamic-label");
             window.requestAnimationFrame(loop);
         }
-
         async function loop() { webcam.update(); await predict(); window.requestAnimationFrame(loop); }
-
         async function predict() {
             const prediction = await model.predict(webcam.canvas);
             let topProb = 0; let topClass = "";
             for (let i = 0; i < maxPredictions; i++) {
-                if(prediction[i].probability > topProb) {
-                    topProb = prediction[i].probability;
-                    topClass = prediction[i].className;
-                }
+                if(prediction[i].probability > topProb) { topProb = prediction[i].probability; topClass = prediction[i].className; }
             }
-            // DINAMIK NATIJA: Klas nomiga qarab o'zgaradi
-            dynamicLabel.innerHTML = "Aniqlanmoqda: " + topClass;
-            progBar.style.width = (topProb * 100) + "%";
-            labelContainer.innerHTML = "ANIQLANDI: " + topClass + " (" + (topProb * 100).toFixed(0) + "%)";
+            labelContainer.innerHTML = topClass + ": " + (topProb * 100).toFixed(0) + "%";
         }
     </script>
 </body>
