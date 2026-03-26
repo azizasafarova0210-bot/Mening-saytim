@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aziza Safarova | Portfolio</title>
+    <title>Aziza Safarova | Rasmiy Portfolio</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
@@ -13,10 +13,11 @@
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;700&display=swap');
         
         :root {
-            --primary: #f39c12; 
-            --sidebar-bg: rgba(20, 20, 22, 0.95);
-            --card-bg: rgba(255, 255, 255, 0.05);
-            --text-gray: #cbd5e1;
+            --purple: #a855f7;
+            --green: #22c55e;
+            --gold: #f39c12;
+            --sidebar-bg: rgba(15, 12, 25, 0.98);
+            --card-bg: rgba(255, 255, 255, 0.03);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
@@ -25,93 +26,82 @@
             color: #fff; 
             display: flex; 
             min-height: 100vh;
-            /* ORQA FON RASMI */
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), 
-                        url('https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=2073'); 
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background: linear-gradient(rgba(10, 5, 20, 0.9), rgba(10, 5, 20, 0.9)), 
+                        url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070'); 
+            background-size: cover; background-position: center; background-attachment: fixed;
         }
 
         /* SIDEBAR */
         .sidebar {
-            width: 260px;
-            background: var(--sidebar-bg);
-            backdrop-filter: blur(20px);
-            padding: 30px 15px;
-            position: fixed;
-            height: 100vh;
-            border-right: 1px solid rgba(255,255,255,0.1);
-            z-index: 1000;
+            width: 260px; background: var(--sidebar-bg); backdrop-filter: blur(20px);
+            padding: 25px 15px; position: fixed; height: 100vh;
+            border-right: 2px solid var(--purple); z-index: 1000;
         }
 
         .logo-box {
-            padding: 12px;
-            border: 2px solid var(--primary);
-            text-align: center;
-            margin-bottom: 30px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            padding: 10px; border: 2px solid var(--gold); text-align: center;
+            margin-bottom: 30px; font-weight: 800; color: var(--gold);
+            text-transform: uppercase; letter-spacing: 2px;
         }
 
         .nav-link {
-            padding: 12px 15px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: var(--text-gray);
-            text-decoration: none;
-            border-radius: 10px;
-            margin-bottom: 5px;
-            transition: 0.3s;
-            font-size: 14px;
+            padding: 12px 15px; display: flex; align-items: center; gap: 12px;
+            color: #94a3b8; text-decoration: none; border-radius: 10px;
+            margin-bottom: 5px; transition: 0.3s; font-size: 13px;
         }
-        .nav-link i { color: var(--primary); width: 20px; text-align: center; }
-        .nav-link:hover, .nav-link.active { background: rgba(243, 156, 18, 0.15); color: #fff; }
+        .nav-link i { width: 20px; text-align: center; }
+        .nav-link:hover, .nav-link.active { background: rgba(168, 85, 247, 0.1); color: var(--purple); border-left: 3px solid var(--green); }
 
         /* MAIN CONTENT */
         .main-content { margin-left: 260px; padding: 40px; width: calc(100% - 260px); }
 
         .glass-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(15px);
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 35px;
-            border: 1px solid rgba(255,255,255,0.1);
+            background: var(--card-bg); backdrop-filter: blur(15px);
+            border-radius: 20px; padding: 30px; margin-bottom: 30px;
+            border: 1px solid rgba(255,255,255,0.05);
         }
 
-        h2 { border-left: 4px solid var(--primary); padding-left: 15px; margin-bottom: 25px; font-size: 20px; text-transform: uppercase; }
-
-        /* KUTUBXONA BO'LIMLARI */
-        .book-status-container { margin-bottom: 30px; }
-        .status-title { 
-            background: rgba(243, 156, 18, 0.2); 
-            padding: 8px 15px; 
-            border-radius: 8px; 
-            display: inline-block; 
-            margin-bottom: 15px;
-            font-weight: bold;
-            font-size: 14px;
-            color: var(--primary);
+        h2.section-title {
+            color: var(--gold); font-size: 20px; margin-bottom: 25px;
+            display: flex; align-items: center; gap: 10px; text-transform: uppercase;
         }
+        h2.section-title i { color: var(--green); }
+
+        /* KUTUBXONA */
+        .status-header {
+            font-size: 12px; font-weight: bold; color: #fff;
+            padding: 5px 15px; border-radius: 20px; display: inline-block; margin-bottom: 15px;
+        }
+        .bg-purple { background: var(--purple); }
+        .bg-green { background: var(--green); }
+        .bg-gold { background: var(--gold); color: #000; }
 
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
-        .item-card { background: rgba(255,255,255,0.03); border-radius: 15px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s; text-align: center; }
-        .item-card:hover { transform: translateY(-5px); border-color: var(--primary); }
-        .item-card img { width: 100%; height: 220px; object-fit: cover; }
-        .item-text { padding: 15px; }
-        .item-text b { font-size: 15px; display: block; margin-bottom: 5px; }
-        .item-text small { color: var(--text-gray); }
+        .item-card { 
+            background: rgba(255,255,255,0.02); border-radius: 15px; overflow: hidden; 
+            border: 1px solid rgba(168, 85, 247, 0.2); transition: 0.3s;
+        }
+        .item-card:hover { transform: translateY(-5px); border-color: var(--gold); }
+        .item-card img { width: 100%; height: 250px; object-fit: cover; }
+        .item-text { padding: 15px; text-align: center; }
 
         /* AI SECTION */
-        .ai-box { text-align: center; background: rgba(0,0,0,0.3); padding: 25px; border-radius: 20px; }
-        #webcam-container { margin: 15px auto; border-radius: 15px; overflow: hidden; max-width: 300px; border: 3px solid var(--primary); display: none; }
-        .btn-orange { background: var(--primary); color: #fff; padding: 12px 25px; border-radius: 8px; border: none; cursor: pointer; font-weight: bold; text-decoration: none; display: inline-block; }
+        .ai-panel { 
+            border: 2px solid var(--green); border-radius: 20px; padding: 25px; text-align: center;
+            background: rgba(34, 197, 94, 0.05);
+        }
+        #webcam-container { 
+            margin: 20px auto; border-radius: 15px; overflow: hidden; 
+            max-width: 320px; border: 4px solid var(--gold); display: none; 
+        }
+        .btn-action {
+            background: var(--purple); color: #fff; padding: 12px 30px; border-radius: 10px;
+            border: none; cursor: pointer; font-weight: bold; transition: 0.3s;
+        }
+        .btn-action:hover { background: var(--green); box-shadow: 0 0 20px var(--green); }
 
         @media (max-width: 900px) {
-            .sidebar { width: 100%; height: auto; position: relative; }
+            .sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 2px solid var(--purple); }
             body { flex-direction: column; }
             .main-content { margin-left: 0; width: 100%; padding: 20px; }
         }
@@ -120,109 +110,112 @@
 <body>
 
     <nav class="sidebar">
-        <div class="logo-box">AZIZA SAFAROVA</div>
+        <div class="logo-box">Safarova Aziza</div>
         <a href="#home" class="nav-link active"><i class="fas fa-home"></i> Asosiy</a>
-        <a href="#books" class="nav-link"><i class="fas fa-book-open"></i> Kutubxona</a>
+        <a href="#stats" class="nav-link"><i class="fas fa-chart-line"></i> Statistika</a>
         <a href="#interests" class="nav-link"><i class="fas fa-heart"></i> Qiziqishlarim</a>
-        <a href="#ai" class="nav-link"><i class="fas fa-robot"></i> AI Tizimi</a>
+        <a href="#ai" class="nav-link"><i class="fas fa-robot"></i> AI Model</a>
+        <a href="#gallery" class="nav-link"><i class="fas fa-images"></i> Galereya</a>
         <a href="#maqolalar" class="nav-link"><i class="fas fa-file-alt"></i> Maqolalarim</a>
-        <a href="#contact" class="nav-link"><i class="fas fa-paper-plane"></i> Aloqa</a>
+        <a href="#books" class="nav-link"><i class="fas fa-book"></i> Kitoblar</a>
+        <a href="#contact" class="nav-link"><i class="fas fa-phone"></i> Aloqa</a>
     </nav>
 
     <div class="main-content">
         <div class="glass-card" id="home">
             <div style="display: flex; gap: 25px; align-items: center; flex-wrap: wrap;">
-                <img src="Snapchat-720303948.jpg" style="width: 110px; height: 110px; border-radius: 50%; border: 3px solid var(--primary); object-fit: cover;">
+                <img src="Snapchat-720303948.jpg" style="width: 110px; height: 110px; border-radius: 50%; border: 3px solid var(--gold); object-fit: cover;">
                 <div>
-                    <h1 style="font-size: 26px;">Aziza Safarova</h1>
-                    <p style="color: var(--primary); font-weight: bold; font-size: 14px;">QARSHI DAVLAT UNIVERSITETI TALABASI</p>
-                    <p style="color: var(--text-gray); margin-top: 8px; font-size: 14px;">Matematika va kompyuter ilmlari fakulteti ATT yo'nalishi talabasi.</p>
+                    <h1 style="font-size: 28px; color: var(--purple);">Aziza Safarova</h1>
+                    <p style="color: var(--green); font-weight: bold; letter-spacing: 1px;">QARSHI DAVLAT UNIVERSITETI TALABASI</p>
+                    <p style="color: var(--text-gray); font-size: 14px; margin-top: 5px;">Matematika va Informatika | IT Mutaxassis</p>
                 </div>
             </div>
         </div>
 
         <div class="glass-card" id="books">
-            <h2>Mening Kutubxonam</h2>
-
-            <div class="book-status-container">
-                <div class="status-title"><i class="fas fa-check-circle"></i> O'qilgan</div>
+            <h2 class="section-title"><i class="fas fa-book-open"></i> Mening Kutubxonam</h2>
+            
+            <div class="book-group">
+                <div class="status-header bg-purple">O'QILGAN</div>
                 <div class="grid">
                     <div class="item-card">
                         <img src="https://assets.asaxiy.uz/product/main_image/desktop/2569528d2d992e59e51c8651f50a863a.jpg">
-                        <div class="item-text"><b>So'nggi nido</b><small>Akbar Mirzo</small></div>
+                        <div class="item-text"><b>"So'nggi nido"</b><br><small>Akbar Mirzo</small></div>
                     </div>
                     <div class="item-card">
-                        <img src="https://assets.asaxiy.uz/product/main_image/desktop/c81e728d9d4c2f636f067f89cc14862c.jpg">
-                        <div class="item-text"><b>Yuksak ma'naviyat</b><small>I. Karimov</small></div>
+                        <img src="https://assets.asaxiy.uz/product/main_image/desktop/5e15c1e576082.jpg">
+                        <div class="item-text"><b>"Ikki eshik orasi"</b><br><small>O'tkir Hoshimov</small></div>
                     </div>
                 </div>
             </div>
 
-            <div class="book-status-container">
-                <div class="status-title"><i class="fas fa-hourglass-half"></i> O'qilyapti</div>
+            <div style="margin-top: 30px;" class="book-group">
+                <div class="status-header bg-green">O'QILYAPTI</div>
                 <div class="grid">
                     <div class="item-card">
                         <img src="https://assets.asaxiy.uz/product/main_image/desktop/5e15c469792a4.jpg">
-                        <div class="item-text"><b>Atom odatlari</b><small>James Clear</small></div>
+                        <div class="item-text"><b>"Atom odatlari"</b><br><small>James Clear</small></div>
                     </div>
                 </div>
             </div>
 
-            <div class="book-status-container">
-                <div class="status-title"><i class="fas fa-bookmark"></i> O'qimoqchi bo'lgan</div>
+            <div style="margin-top: 30px;" class="book-group">
+                <div class="status-header bg-gold">O'QIMOQCHI BO'LGAN</div>
                 <div class="grid">
                     <div class="item-card">
-                        <img src="https://m.media-amazon.com/images/I/91asIC1fSFL._AC_UF1000,1000_QL80_.jpg">
-                        <div class="item-text"><b>JavaScript qo'llanma</b><small>Dasturlash</small></div>
+                        <img src="https://m.media-amazon.com/images/I/718ReY9E6KL.jpg">
+                        <div class="item-text"><b>"Deep Work"</b><br><small>Cal Newport</small></div>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="glass-card" id="interests">
-            <h2>Qiziqishlarim</h2>
-            <div class="grid">
-                <div class="item-card">
-                    <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=500">
-                    <div class="item-text"><b>Xarid (Shopping)</b></div>
-                </div>
-                <div class="item-card">
-                    <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=500">
-                    <div class="item-text"><b>Sayohat</b></div>
                 </div>
             </div>
         </div>
 
         <div class="glass-card" id="ai">
-            <h2>Sun'iy Intellekt Tizimi</h2>
-            <div class="ai-box">
-                <p style="color: var(--text-gray); margin-bottom: 20px;">Model (BMW va Mercedes aniqlash)</p>
-                <button class="btn-orange" onclick="init()">KAMERANI ISHGA TUSHIRISH</button>
+            <h2 class="section-title"><i class="fas fa-brain"></i> Sun'iy Intellekt Tizimi</h2>
+            <div class="ai-panel">
+                <p style="color: var(--text-gray); margin-bottom: 20px;">Shaxsiy Dataset: <b>BMW aniqlash modeli</b></p>
+                <button class="btn-action" onclick="init()">KAMERANI ISHGA TUSHIRISH</button>
                 <div id="webcam-container"></div>
-                <div id="label-container" style="font-size: 20px; font-weight: bold; color: var(--primary); margin-top: 15px;">Tayyor...</div>
+                <div id="label-container" style="font-size: 22px; font-weight: bold; color: var(--gold); margin-top: 20px;">Tayyor...</div>
             </div>
         </div>
 
+        <div class="glass-card" id="maqolalar">
+            <h2 class="section-title"><i class="fas fa-file-alt"></i> Ilmiy Maqolalarim</h2>
+            <ul style="list-style: none; color: var(--text-gray);">
+                <li style="margin-bottom: 15px; border-left: 3px solid var(--purple); padding-left: 15px;">
+                    <b style="color: #fff;">Nanotexnologiyalar: Ilmiy asoslari va zamonaviy muammolari</b><br>
+                    <small>14.12.2025</small>
+                </li>
+                <li style="border-left: 3px solid var(--green); padding-left: 15px;">
+                    <b style="color: #fff;">Zamonaviy texnologiyalar va internetning bugungi kundagi o'rni</b><br>
+                    <small>11.12.2025</small>
+                </li>
+            </ul>
+        </div>
+
         <div class="glass-card" id="contact">
-            <h2>Menga bog'laning</h2>
+            <h2 class="section-title"><i class="fas fa-paper-plane"></i> Bog'lanish</h2>
             <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                <a href="https://t.me/Sirojiddinona_0205" target="_blank" class="btn-orange"><i class="fab fa-telegram"></i> Telegram</a>
-                <a href="https://instagram.com/sirojiddinovna___1" target="_blank" class="btn-orange" style="background: #e1306c;"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="https://t.me/Sirojiddinovna_0205" target="_blank" class="btn-action" style="text-decoration: none;"><i class="fab fa-telegram"></i> Telegram</a>
+                <a href="https://instagram.com/sirojiddinovna___1" target="_blank" class="btn-action" style="text-decoration: none; background: #e1306c;"><i class="fab fa-instagram"></i> Instagram</a>
             </div>
         </div>
     </div>
 
     <script>
+        // SIZNING SHAXSIY DATASETINGIZ VA MODELINGIZ
         const URL = "https://teachablemachine.withgoogle.com/models/QG_BoIC8L/";
         let model, webcam, labelContainer, maxPredictions;
 
         async function init() {
             const label = document.getElementById("label-container");
-            label.innerHTML = "Yuklanmoqda...";
+            label.innerHTML = "<i class='fas fa-spinner fa-spin'></i> Yuklanmoqda...";
             try {
                 model = await tmImage.load(URL + "model.json", URL + "metadata.json");
                 maxPredictions = model.getTotalClasses();
-                webcam = new tmImage.Webcam(300, 300, true);
+                webcam = new tmImage.Webcam(320, 320, true);
                 await webcam.setup();
                 await webcam.play();
                 document.getElementById("webcam-container").style.display = "block";
@@ -230,21 +223,21 @@
                 document.getElementById("webcam-container").appendChild(webcam.canvas);
                 labelContainer = label;
                 window.requestAnimationFrame(loop);
-            } catch (e) { label.innerHTML = "Xatolik yuz berdi!"; }
+            } catch (e) { label.innerHTML = "Xatolik: Kamera ruxsatini tekshiring!"; }
         }
 
         async function loop() { webcam.update(); await predict(); window.requestAnimationFrame(loop); }
 
         async function predict() {
             const prediction = await model.predict(webcam.canvas);
-            let topProb = 0, topClass = "";
+            let topProb = 0; let topClass = "";
             for (let i = 0; i < maxPredictions; i++) {
                 if(prediction[i].probability > topProb) {
                     topProb = prediction[i].probability;
                     topClass = prediction[i].className;
                 }
             }
-            labelContainer.innerHTML = topClass + " (" + (topProb * 100).toFixed(0) + "%)";
+            labelContainer.innerHTML = `<span style="color:var(--green)">${topClass}</span> — ${(topProb * 100).toFixed(0)}%`;
         }
     </script>
 </body>
